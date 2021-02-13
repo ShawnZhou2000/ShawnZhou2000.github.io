@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>ShawnZhou的小站</title>
+  <icon>https://www.gravatar.com/avatar/033662a8abc6692d1d8cbbe56ff5130c</icon>
+  <subtitle>分享技术，记录感慨</subtitle>
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2021-02-12T10:13:41.785Z</updated>
+  <id>http://example.com/</id>
+  
+  <author>
+    <name>Shawn Zhou</name>
+    <email>ssdrt0400@qq.com</email>
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>原来的文章都跑到哪里去了？</title>
+    <link href="http://example.com/2021/02/12/why-they-gone/"/>
+    <id>http://example.com/2021/02/12/why-they-gone/</id>
+    <published>2021-02-12T09:34:09.000Z</published>
+    <updated>2021-02-12T10:13:41.785Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;这是一篇类似于更新说明相关的文章，简单说一下Shawn Zhou这多半年都干啥去了，以及为什么博客会变成了现在这个样子。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s3.ax1x.com/2021/02/12/yDHDKI.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>《规律与逻辑·用户体验设计法则》 学习笔记4</title>
+    <link href="http://example.com/2020/07/04/ui-note4/"/>
+    <id>http://example.com/2020/07/04/ui-note4/</id>
+    <published>2020-07-04T05:17:27.000Z</published>
+    <updated>2021-02-12T09:21:33.210Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;界面设计中的版式设计是视觉设计的核心，也是视觉设计的基础。界面板式作为颜色的框架支撑，在设计中必然占据核心地位。&lt;/p&gt;
+&lt;p&gt;该部分学习笔记为第一大块内容，版式。笔记摘自《规律与逻辑》。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/07/04/NvqNlD.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="前端开发那些事" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    
+    
+    <category term="UI设计" scheme="http://example.com/tags/UI%E8%AE%BE%E8%AE%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《规律与逻辑·用户体验设计法则》 学习笔记3</title>
+    <link href="http://example.com/2020/07/04/ui-note3/"/>
+    <id>http://example.com/2020/07/04/ui-note3/</id>
+    <published>2020-07-04T05:17:19.000Z</published>
+    <updated>2021-02-12T09:21:16.764Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;视觉设计能力是用户体验设计师的必备能力，也是基础能力。应当先了解基本原则，根据原则把版面做到整体看起来舒适， 再尝试突破理论原则进行创新。&lt;/p&gt;
+&lt;p&gt;该部分学习笔记为第一大块内容，颜色。笔记摘自《规律与逻辑》。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/07/04/NvUtYD.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="前端开发那些事" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    
+    
+    <category term="UI设计" scheme="http://example.com/tags/UI%E8%AE%BE%E8%AE%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《规律与逻辑·用户体验设计法则》 学习笔记2</title>
+    <link href="http://example.com/2020/06/28/ui-note2/"/>
+    <id>http://example.com/2020/06/28/ui-note2/</id>
+    <published>2020-06-28T05:17:12.000Z</published>
+    <updated>2021-02-12T09:23:18.421Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;不符合设计规范的设计很难被用户接受，也会极大地增加开发难度。界面设计严格按照规范来执行，是对用户体验设计师的基本要求。&lt;/p&gt;
+&lt;p&gt;该部分学习笔记摘自《规律与逻辑》。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/06/28/NgVFx0.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="前端开发那些事" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    
+    
+    <category term="UI设计" scheme="http://example.com/tags/UI%E8%AE%BE%E8%AE%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《规律与逻辑·用户体验设计法则》 学习笔记1</title>
+    <link href="http://example.com/2020/06/27/ui-note1/"/>
+    <id>http://example.com/2020/06/27/ui-note1/</id>
+    <published>2020-06-27T05:17:05.000Z</published>
+    <updated>2021-02-12T09:20:51.075Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;是时候找个时间学习一下新知识，沉淀一下在无尽的开发中根基摇摆不定的自己了。&lt;/p&gt;
+&lt;p&gt;该部分学习笔记摘自《规律与逻辑》。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/06/27/NyWmKs.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="前端开发那些事" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    
+    
+    <category term="UI设计" scheme="http://example.com/tags/UI%E8%AE%BE%E8%AE%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>WebPlus网站群平台往期bug整理+零碎知识</title>
+    <link href="http://example.com/2020/05/29/webplus-bugfix/"/>
+    <id>http://example.com/2020/05/29/webplus-bugfix/</id>
+    <published>2020-05-29T05:14:33.000Z</published>
+    <updated>2021-02-12T09:23:00.611Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;整理一下最近在工作中遇到的一些问题和解决办法。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/04/08/GWxQXV.jpg&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="站群工作组相关" scheme="http://example.com/categories/%E7%AB%99%E7%BE%A4%E5%B7%A5%E4%BD%9C%E7%BB%84%E7%9B%B8%E5%85%B3/"/>
+    
+    
+    <category term="CSS" scheme="http://example.com/tags/CSS/"/>
+    
+    <category term="HTML" scheme="http://example.com/tags/HTML/"/>
+    
+    <category term="JavaScript" scheme="http://example.com/tags/JavaScript/"/>
+    
+    <category term="站群" scheme="http://example.com/tags/%E7%AB%99%E7%BE%A4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>WebPlus网站群平台操作指南—进阶篇</title>
+    <link href="http://example.com/2020/04/10/webplus-advanced/"/>
+    <id>http://example.com/2020/04/10/webplus-advanced/</id>
+    <published>2020-04-10T05:14:20.000Z</published>
+    <updated>2021-02-12T09:22:19.012Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;上一篇文章中介绍了站群的基本操作方法和一些需要注意的地方，本篇整理一些比较复杂的操作。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/04/08/GWxQXV.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="站群工作组相关" scheme="http://example.com/categories/%E7%AB%99%E7%BE%A4%E5%B7%A5%E4%BD%9C%E7%BB%84%E7%9B%B8%E5%85%B3/"/>
+    
+    
+    <category term="CSS" scheme="http://example.com/tags/CSS/"/>
+    
+    <category term="HTML" scheme="http://example.com/tags/HTML/"/>
+    
+    <category term="JavaScript" scheme="http://example.com/tags/JavaScript/"/>
+    
+    <category term="站群" scheme="http://example.com/tags/%E7%AB%99%E7%BE%A4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>WebPlus网站群平台操作指南—初级篇</title>
+    <link href="http://example.com/2020/04/08/webplus-tutorial/"/>
+    <id>http://example.com/2020/04/08/webplus-tutorial/</id>
+    <published>2020-04-08T05:14:04.000Z</published>
+    <updated>2021-02-12T09:22:47.521Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;网站群平台是我校用于维护官网页面的集成工具，尽管系统相对老旧一些，但仍然能完成完整的站点建设工作。为了方便后续同学的维护工作，提升学习效率，我将一些基本操作整理了下来，方便同学们查询阅读。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/04/08/GWxQXV.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="站群工作组相关" scheme="http://example.com/categories/%E7%AB%99%E7%BE%A4%E5%B7%A5%E4%BD%9C%E7%BB%84%E7%9B%B8%E5%85%B3/"/>
+    
+    
+    <category term="CSS" scheme="http://example.com/tags/CSS/"/>
+    
+    <category term="HTML" scheme="http://example.com/tags/HTML/"/>
+    
+    <category term="JavaScript" scheme="http://example.com/tags/JavaScript/"/>
+    
+    <category term="站群" scheme="http://example.com/tags/%E7%AB%99%E7%BE%A4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue.js框架学习笔记整合</title>
+    <link href="http://example.com/2020/02/07/vue-collection/"/>
+    <id>http://example.com/2020/02/07/vue-collection/</id>
+    <published>2020-02-07T03:02:07.000Z</published>
+    <updated>2021-02-12T09:21:56.057Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;该部分笔记整合了我之前学习Vue框架时的相关内容，原笔记发布于2020年初。&lt;/p&gt;
+&lt;p&gt;当前博客显示的发布时间非真实时间，而是这些内容在当时发布时的最后发布时间。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2020/04/02/AzMcD1UseQk2IZo.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="前端开发那些事" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    
+    
+    <category term="HTML" scheme="http://example.com/tags/HTML/"/>
+    
+    <category term="JavaScript" scheme="http://example.com/tags/JavaScript/"/>
+    
+    <category term="Vue" scheme="http://example.com/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>css3学习笔记</title>
+    <link href="http://example.com/2020/01/19/css3/"/>
+    <id>http://example.com/2020/01/19/css3/</id>
+    <published>2020-01-19T05:16:17.000Z</published>
+    <updated>2021-02-12T09:12:58.360Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;这里记载了关于CSS3相关的学习笔记，该部分内容是曾在2020年发布的。&lt;/p&gt;
+&lt;p&gt;当前博客显示的发布时间非真实时间，而是这些内容在当时发布时的最后发布时间。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2018/11/19/5bf2966b32e00.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="前端开发那些事" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>html5学习笔记</title>
+    <link href="http://example.com/2020/01/14/html5/"/>
+    <id>http://example.com/2020/01/14/html5/</id>
+    <published>2020-01-14T05:16:10.000Z</published>
+    <updated>2021-02-12T09:16:48.269Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;这里记载了关于HTML5相关的学习笔记，该部分内容是曾在2020年发布的。&lt;/p&gt;
+&lt;p&gt;当前博客显示的发布时间非真实时间，而是这些内容在当时发布时的最后发布时间。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2020/04/02/JR8cbUE39LtwPeT.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="前端开发那些事" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>基础数据结构归档</title>
+    <link href="http://example.com/2019/12/15/data-structure/"/>
+    <id>http://example.com/2019/12/15/data-structure/</id>
+    <published>2019-12-15T11:50:14.000Z</published>
+    <updated>2021-02-12T09:14:26.969Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;这里是一些基础数据结构知识点的整理，有基本概念，线性表，链表，树，图，哈希表等。该部分内容是曾在2018年和2019年发布的。&lt;/p&gt;
+&lt;p&gt;当前博客显示的发布时间非真实时间，而是这些内容在当时发布时的最后发布时间。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2018/08/10/5b6d26f3edb0e.png&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="数据结构与算法" scheme="http://example.com/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="线性表" scheme="http://example.com/tags/%E7%BA%BF%E6%80%A7%E8%A1%A8/"/>
+    
+    <category term="链表" scheme="http://example.com/tags/%E9%93%BE%E8%A1%A8/"/>
+    
+    <category term="栈" scheme="http://example.com/tags/%E6%A0%88/"/>
+    
+    <category term="队列" scheme="http://example.com/tags/%E9%98%9F%E5%88%97/"/>
+    
+    <category term="树" scheme="http://example.com/tags/%E6%A0%91/"/>
+    
+    <category term="图" scheme="http://example.com/tags/%E5%9B%BE/"/>
+    
+    <category term="树状数组" scheme="http://example.com/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/"/>
+    
+    <category term="并查集" scheme="http://example.com/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>OpenCV相关图形操作整合</title>
+    <link href="http://example.com/2019/09/02/opencv-collection/"/>
+    <id>http://example.com/2019/09/02/opencv-collection/</id>
+    <published>2019-09-02T03:01:54.000Z</published>
+    <updated>2021-02-12T09:17:10.152Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;这里是关于OpenCV图像处理相关内容的学习笔记，该部分内容是曾经在2019年发布的。&lt;/p&gt;
+&lt;p&gt;当前博客显示的发布时间非真实时间，而是这些内容在当时发布时的最后发布时间。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.ax1x.com/2019/07/14/ZIwo7D.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="OpenCV学习笔记" scheme="http://example.com/categories/OpenCV%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="OpenCV" scheme="http://example.com/tags/OpenCV/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>基础算法归档</title>
+    <link href="http://example.com/2019/03/08/algorithm/"/>
+    <id>http://example.com/2019/03/08/algorithm/</id>
+    <published>2019-03-08T05:15:40.000Z</published>
+    <updated>2021-02-12T09:16:09.783Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;一些关于基础算法的归档整理放在了这里，包括贪心，排序，查找，图论相关等。该部分内容是曾在2018年和2019年发布的。&lt;/p&gt;
+&lt;p&gt;当前博客显示的发布时间非真实时间，而是这些内容在当时发布时的最后发布时间。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.ax1x.com/2019/03/10/ApdsfO.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="数据结构与算法" scheme="http://example.com/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="贪心算法" scheme="http://example.com/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="排序" scheme="http://example.com/tags/%E6%8E%92%E5%BA%8F/"/>
+    
+    <category term="查找" scheme="http://example.com/tags/%E6%9F%A5%E6%89%BE/"/>
+    
+    <category term="数论" scheme="http://example.com/tags/%E6%95%B0%E8%AE%BA/"/>
+    
+    <category term="最短路" scheme="http://example.com/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/"/>
+    
+    <category term="最小生成树" scheme="http://example.com/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/"/>
+    
+    <category term="拓扑排序" scheme="http://example.com/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ikbc c87机械键盘拆解+清理过程全记录</title>
+    <link href="http://example.com/2019/02/05/clear-keyboard/"/>
+    <id>http://example.com/2019/02/05/clear-keyboard/</id>
+    <published>2019-02-05T08:58:25.000Z</published>
+    <updated>2021-02-12T09:13:33.748Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2019/02/05/5c595d71e7ac6.jpg&quot;&gt;&lt;/p&gt;
+&lt;p&gt;上图是外包装和配件。&lt;/p&gt;
+&lt;p&gt;正文多图预警。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="各种瞎搞操作" scheme="http://example.com/categories/%E5%90%84%E7%A7%8D%E7%9E%8E%E6%90%9E%E6%93%8D%E4%BD%9C/"/>
+    
+    
+    <category term="机械键盘" scheme="http://example.com/tags/%E6%9C%BA%E6%A2%B0%E9%94%AE%E7%9B%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>制作RJ45-B类网线口的一般方法</title>
+    <link href="http://example.com/2018/11/22/rj45b/"/>
+    <id>http://example.com/2018/11/22/rj45b/</id>
+    <published>2018-11-22T05:15:50.000Z</published>
+    <updated>2021-02-12T09:20:09.636Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;事出有因，舍友想从宿舍里拉一条网线用。正巧宿舍里有一条废弃的网线，但是有一头是裸露的没法直接用，正巧我两周之前学了如何制作网线，所以这正是一个实战的好机会啦2333333&lt;/p&gt;
+&lt;p&gt;结局很成功，宿舍里通有线网啦（高兴脸）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s2.ax1x.com/2019/04/26/EnGbAs.jpg&quot; alt=&quot;EnGbAs.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="各种瞎搞操作" scheme="http://example.com/categories/%E5%90%84%E7%A7%8D%E7%9E%8E%E6%90%9E%E6%93%8D%E4%BD%9C/"/>
+    
+    
+    <category term="网线制作" scheme="http://example.com/tags/%E7%BD%91%E7%BA%BF%E5%88%B6%E4%BD%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C语言语法基础</title>
+    <link href="http://example.com/2018/08/29/c-language/"/>
+    <id>http://example.com/2018/08/29/c-language/</id>
+    <published>2018-08-29T02:05:05.000Z</published>
+    <updated>2021-02-12T09:11:36.023Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;关于C语言基础语法的一些整理。该部分内容是曾在2018年发布的。&lt;/p&gt;
+&lt;p&gt;当前博客显示的发布时间非真实时间，而是这些内容在当时发布时的最后发布时间。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2018/08/29/5b8664859b6c0.png&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="程序设计基础" scheme="http://example.com/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>数据库系统概论 学习笔记</title>
+    <link href="http://example.com/2018/08/25/database/"/>
+    <id>http://example.com/2018/08/25/database/</id>
+    <published>2018-08-25T08:21:56.000Z</published>
+    <updated>2021-02-12T09:16:31.294Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;数据库技术是计算机领域的一个重要分支。数据库技术就是作为一门数据处理技术发展起来的。随着计算机应用的普及和深入，数据库技术变得越来越重要。&lt;/p&gt;
+&lt;p&gt;该部分学习笔记曾在2018年发布。&lt;/p&gt;
+&lt;p&gt;当前博客显示的发布时间非真实时间，而是这些内容在当时发布时的最后发布时间。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2018/08/25/5b80d069098b0.png&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="数据库基础知识" scheme="http://example.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+    
+    
+    <category term="数据库" scheme="http://example.com/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="关系代数" scheme="http://example.com/tags/%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0/"/>
+    
+    <category term="数据模型" scheme="http://example.com/tags/%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>软件工程基础 学习笔记</title>
+    <link href="http://example.com/2018/08/23/software-engineering/"/>
+    <id>http://example.com/2018/08/23/software-engineering/</id>
+    <published>2018-08-23T08:22:32.000Z</published>
+    <updated>2021-02-12T09:20:35.478Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;这里记录了关于软件工程基础概念的一些相关内容，该部分学习笔记曾在2018年发布。&lt;/p&gt;
+&lt;p&gt;当前博客显示的发布时间非真实时间，而是这些内容在当时发布时的最后发布时间。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2018/08/22/5b7d73173aed7.png&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="软件工程基础" scheme="http://example.com/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
+    
+    
+    <category term="软件工程" scheme="http://example.com/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>控制台小游戏集锦</title>
+    <link href="http://example.com/2018/08/06/c-game/"/>
+    <id>http://example.com/2018/08/06/c-game/</id>
+    <published>2018-08-06T05:15:09.000Z</published>
+    <updated>2021-02-12T09:11:42.637Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;这里收集了我初次接触C语言游戏开发时的学习笔记，该部分内容是曾在2018年发布的。&lt;/p&gt;
+&lt;p&gt;当前博客显示的发布时间非真实时间，而是这些内容在当时发布时的最后发布时间。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2018/08/10/5b6d26f421718.png&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="C语言游戏开发" scheme="http://example.com/categories/C%E8%AF%AD%E8%A8%80%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"/>
+    
+    
+  </entry>
+  
+</feed>
