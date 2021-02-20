@@ -6,7 +6,7 @@
   <link href="https://shawnzhou.world/atom.xml" rel="self"/>
   
   <link href="https://shawnzhou.world/"/>
-  <updated>2021-02-12T10:13:41.785Z</updated>
+  <updated>2021-02-20T08:37:08.247Z</updated>
   <id>https://shawnzhou.world/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>前端工程简史 学习笔记</title>
+    <link href="https://shawnzhou.world/2021/02/20/A-brief-history-of-front-end-engineering/"/>
+    <id>https://shawnzhou.world/2021/02/20/A-brief-history-of-front-end-engineering/</id>
+    <published>2021-02-20T06:53:30.000Z</published>
+    <updated>2021-02-20T08:37:08.247Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;不好好了解一下过去，也便很难真正理解当今。&lt;/p&gt;
+&lt;p&gt;这次来学习《前端工程化 体系设计与实践》中的第一章：前端工程简史，将其中精华部分加以个人理解做一些摘抄整理。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s3.ax1x.com/2021/02/20/y5r88e.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="前端开发那些事" scheme="https://shawnzhou.world/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    
+    
+    <category term="Node.js" scheme="https://shawnzhou.world/tags/Node-js/"/>
+    
+    <category term="JavaScript" scheme="https://shawnzhou.world/tags/JavaScript/"/>
+    
+    <category term="HTML" scheme="https://shawnzhou.world/tags/HTML/"/>
+    
+    <category term="CSS" scheme="https://shawnzhou.world/tags/CSS/"/>
+    
+    <category term="软件工程" scheme="https://shawnzhou.world/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>原来的文章都跑到哪里去了？</title>
@@ -132,11 +161,11 @@
     <category term="站群工作组相关" scheme="https://shawnzhou.world/categories/%E7%AB%99%E7%BE%A4%E5%B7%A5%E4%BD%9C%E7%BB%84%E7%9B%B8%E5%85%B3/"/>
     
     
-    <category term="CSS" scheme="https://shawnzhou.world/tags/CSS/"/>
+    <category term="JavaScript" scheme="https://shawnzhou.world/tags/JavaScript/"/>
     
     <category term="HTML" scheme="https://shawnzhou.world/tags/HTML/"/>
     
-    <category term="JavaScript" scheme="https://shawnzhou.world/tags/JavaScript/"/>
+    <category term="CSS" scheme="https://shawnzhou.world/tags/CSS/"/>
     
     <category term="站群" scheme="https://shawnzhou.world/tags/%E7%AB%99%E7%BE%A4/"/>
     
@@ -158,11 +187,11 @@
     <category term="站群工作组相关" scheme="https://shawnzhou.world/categories/%E7%AB%99%E7%BE%A4%E5%B7%A5%E4%BD%9C%E7%BB%84%E7%9B%B8%E5%85%B3/"/>
     
     
-    <category term="CSS" scheme="https://shawnzhou.world/tags/CSS/"/>
+    <category term="JavaScript" scheme="https://shawnzhou.world/tags/JavaScript/"/>
     
     <category term="HTML" scheme="https://shawnzhou.world/tags/HTML/"/>
     
-    <category term="JavaScript" scheme="https://shawnzhou.world/tags/JavaScript/"/>
+    <category term="CSS" scheme="https://shawnzhou.world/tags/CSS/"/>
     
     <category term="站群" scheme="https://shawnzhou.world/tags/%E7%AB%99%E7%BE%A4/"/>
     
@@ -184,11 +213,11 @@
     <category term="站群工作组相关" scheme="https://shawnzhou.world/categories/%E7%AB%99%E7%BE%A4%E5%B7%A5%E4%BD%9C%E7%BB%84%E7%9B%B8%E5%85%B3/"/>
     
     
-    <category term="CSS" scheme="https://shawnzhou.world/tags/CSS/"/>
+    <category term="JavaScript" scheme="https://shawnzhou.world/tags/JavaScript/"/>
     
     <category term="HTML" scheme="https://shawnzhou.world/tags/HTML/"/>
     
-    <category term="JavaScript" scheme="https://shawnzhou.world/tags/JavaScript/"/>
+    <category term="CSS" scheme="https://shawnzhou.world/tags/CSS/"/>
     
     <category term="站群" scheme="https://shawnzhou.world/tags/%E7%AB%99%E7%BE%A4/"/>
     
@@ -211,9 +240,9 @@
     <category term="前端开发那些事" scheme="https://shawnzhou.world/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
     
     
-    <category term="HTML" scheme="https://shawnzhou.world/tags/HTML/"/>
-    
     <category term="JavaScript" scheme="https://shawnzhou.world/tags/JavaScript/"/>
+    
+    <category term="HTML" scheme="https://shawnzhou.world/tags/HTML/"/>
     
     <category term="Vue" scheme="https://shawnzhou.world/tags/Vue/"/>
     
@@ -451,25 +480,6 @@
     
     
     <category term="软件工程" scheme="https://shawnzhou.world/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>控制台小游戏集锦</title>
-    <link href="https://shawnzhou.world/2018/08/06/c-game/"/>
-    <id>https://shawnzhou.world/2018/08/06/c-game/</id>
-    <published>2018-08-06T05:15:09.000Z</published>
-    <updated>2021-02-12T09:11:42.637Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;这里收集了我初次接触C语言游戏开发时的学习笔记，该部分内容是曾在2018年发布的。&lt;/p&gt;
-&lt;p&gt;当前博客显示的发布时间非真实时间，而是这些内容在当时发布时的最后发布时间。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2018/08/10/5b6d26f421718.png&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="C语言游戏开发" scheme="https://shawnzhou.world/categories/C%E8%AF%AD%E8%A8%80%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"/>
-    
     
   </entry>
   
