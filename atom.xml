@@ -6,7 +6,7 @@
   <link href="https://shawnzhou.world/atom.xml" rel="self"/>
   
   <link href="https://shawnzhou.world/"/>
-  <updated>2021-02-21T13:33:40.703Z</updated>
+  <updated>2021-02-21T14:19:01.104Z</updated>
   <id>https://shawnzhou.world/</id>
   
   <author>
@@ -17,11 +17,33 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>日常来点面试题2021.2.21</title>
+    <link href="https://shawnzhou.world/2021/02/21/daily-interview-question-2021-02-21/"/>
+    <id>https://shawnzhou.world/2021/02/21/daily-interview-question-2021-02-21/</id>
+    <published>2021-02-21T13:38:03.000Z</published>
+    <updated>2021-02-21T14:19:01.104Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;今天看看CSS相关的内容。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s3.ax1x.com/2021/02/21/yT0LAP.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="日常来点面试题" scheme="https://shawnzhou.world/categories/%E6%97%A5%E5%B8%B8%E6%9D%A5%E7%82%B9%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    
+    <category term="CSS" scheme="https://shawnzhou.world/tags/CSS/"/>
+    
+    <category term="面试题" scheme="https://shawnzhou.world/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
     <title>《规律与逻辑·用户体验设计法则》 学习笔记5</title>
     <link href="https://shawnzhou.world/2021/02/21/ui-note5/"/>
     <id>https://shawnzhou.world/2021/02/21/ui-note5/</id>
     <published>2021-02-21T08:46:44.000Z</published>
-    <updated>2021-02-21T13:33:40.703Z</updated>
+    <updated>2021-02-21T13:37:25.329Z</updated>
     
     
     <summary type="html">&lt;p&gt;相比文字而言，图标可以让人在更短的时间内认知并了解信息，并且能大大提升视觉美观性；尽管界面设计中一般都选择系统默认字体，但一些运营活动风格的界面中，字体设计也是非常重要的方面；一个好的界面不仅要求整体布局合理，还要注意细节的处理。&lt;/p&gt;
@@ -457,25 +479,6 @@
     
     
     <category term="网线制作" scheme="https://shawnzhou.world/tags/%E7%BD%91%E7%BA%BF%E5%88%B6%E4%BD%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C语言语法基础</title>
-    <link href="https://shawnzhou.world/2018/08/29/c-language/"/>
-    <id>https://shawnzhou.world/2018/08/29/c-language/</id>
-    <published>2018-08-29T02:05:05.000Z</published>
-    <updated>2021-02-12T09:11:36.023Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;关于C语言基础语法的一些整理。该部分内容是曾在2018年发布的。&lt;/p&gt;
-&lt;p&gt;当前博客显示的发布时间非真实时间，而是这些内容在当时发布时的最后发布时间。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2018/08/29/5b8664859b6c0.png&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="程序设计基础" scheme="https://shawnzhou.world/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80/"/>
-    
     
   </entry>
   
