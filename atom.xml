@@ -6,7 +6,7 @@
   <link href="https://shawnzhou.world/atom.xml" rel="self"/>
   
   <link href="https://shawnzhou.world/"/>
-  <updated>2021-02-22T16:33:16.548Z</updated>
+  <updated>2021-02-23T16:57:29.749Z</updated>
   <id>https://shawnzhou.world/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaScript中对数组的各种操作方法</title>
+    <link href="https://shawnzhou.world/2021/02/23/javascript-array/"/>
+    <id>https://shawnzhou.world/2021/02/23/javascript-array/</id>
+    <published>2021-02-23T04:48:30.000Z</published>
+    <updated>2021-02-23T16:57:29.749Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;数组是最简单的内存数据结构。JavaScript里也有数组类型，它可以储存一系列值。在JavaScript中，可以在数组中保存不同类型的值，尽管不建议这么做，但大多数语言都没有这个能力。&lt;/p&gt;
+&lt;p&gt;这里记载一下JavaScript中数组的一些常见用法，以及在ES6+中新增的方法。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s3.ax1x.com/2021/02/23/yqTVHA.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="前端开发那些事" scheme="https://shawnzhou.world/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    
+    
+    <category term="JavaScript" scheme="https://shawnzhou.world/tags/JavaScript/"/>
+    
+    <category term="数组" scheme="https://shawnzhou.world/tags/%E6%95%B0%E7%BB%84/"/>
+    
+    <category term="数据结构" scheme="https://shawnzhou.world/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
   
   <entry>
     <title>CSS选择器 学习笔记1</title>
@@ -461,27 +486,6 @@
     <category term="最小生成树" scheme="https://shawnzhou.world/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/"/>
     
     <category term="拓扑排序" scheme="https://shawnzhou.world/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ikbc c87机械键盘拆解+清理过程全记录</title>
-    <link href="https://shawnzhou.world/2019/02/05/clear-keyboard/"/>
-    <id>https://shawnzhou.world/2019/02/05/clear-keyboard/</id>
-    <published>2019-02-05T08:58:25.000Z</published>
-    <updated>2021-02-12T09:13:33.748Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2019/02/05/5c595d71e7ac6.jpg&quot;&gt;&lt;/p&gt;
-&lt;p&gt;上图是外包装和配件。&lt;/p&gt;
-&lt;p&gt;正文多图预警。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="各种瞎搞操作" scheme="https://shawnzhou.world/categories/%E5%90%84%E7%A7%8D%E7%9E%8E%E6%90%9E%E6%93%8D%E4%BD%9C/"/>
-    
-    
-    <category term="机械键盘" scheme="https://shawnzhou.world/tags/%E6%9C%BA%E6%A2%B0%E9%94%AE%E7%9B%98/"/>
     
   </entry>
   
