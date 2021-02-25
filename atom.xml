@@ -6,7 +6,7 @@
   <link href="https://shawnzhou.world/atom.xml" rel="self"/>
   
   <link href="https://shawnzhou.world/"/>
-  <updated>2021-02-23T16:57:29.749Z</updated>
+  <updated>2021-02-25T06:51:21.963Z</updated>
   <id>https://shawnzhou.world/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《规律与逻辑·用户体验设计法则》 学习笔记6</title>
+    <link href="https://shawnzhou.world/2021/02/25/ui-note6/"/>
+    <id>https://shawnzhou.world/2021/02/25/ui-note6/</id>
+    <published>2021-02-25T03:36:12.000Z</published>
+    <updated>2021-02-25T06:51:21.963Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;用户体验设计师的主要产出物是什么？从打开产品的引导页到数据为空状态的设计技巧，逐渐扩展到运营Banner设计，最后深入到界面层次感的打造以及不同风格产品的设计路线，全面解决用户体验设计实际工作中的各种难题。&lt;/p&gt;
+&lt;p&gt;我打算用两次笔记学完这里。该部分为书中第四章内容，视觉体验进阶前半部分。笔记摘自《规律与逻辑》。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s3.ax1x.com/2021/02/25/yjD1Wd.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="前端开发那些事" scheme="https://shawnzhou.world/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    
+    
+    <category term="UI设计" scheme="https://shawnzhou.world/tags/UI%E8%AE%BE%E8%AE%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>JavaScript中对数组的各种操作方法</title>
@@ -453,39 +474,6 @@
     
     
     <category term="OpenCV" scheme="https://shawnzhou.world/tags/OpenCV/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>基础算法归档</title>
-    <link href="https://shawnzhou.world/2019/03/08/algorithm/"/>
-    <id>https://shawnzhou.world/2019/03/08/algorithm/</id>
-    <published>2019-03-08T05:15:40.000Z</published>
-    <updated>2021-02-12T09:16:09.783Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;一些关于基础算法的归档整理放在了这里，包括贪心，排序，查找，图论相关等。该部分内容是曾在2018年和2019年发布的。&lt;/p&gt;
-&lt;p&gt;当前博客显示的发布时间非真实时间，而是这些内容在当时发布时的最后发布时间。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://s2.ax1x.com/2019/03/10/ApdsfO.jpg&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="数据结构与算法" scheme="https://shawnzhou.world/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="贪心算法" scheme="https://shawnzhou.world/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/"/>
-    
-    <category term="排序" scheme="https://shawnzhou.world/tags/%E6%8E%92%E5%BA%8F/"/>
-    
-    <category term="查找" scheme="https://shawnzhou.world/tags/%E6%9F%A5%E6%89%BE/"/>
-    
-    <category term="数论" scheme="https://shawnzhou.world/tags/%E6%95%B0%E8%AE%BA/"/>
-    
-    <category term="最短路" scheme="https://shawnzhou.world/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/"/>
-    
-    <category term="最小生成树" scheme="https://shawnzhou.world/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/"/>
-    
-    <category term="拓扑排序" scheme="https://shawnzhou.world/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/"/>
     
   </entry>
   
