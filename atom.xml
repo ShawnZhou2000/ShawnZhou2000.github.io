@@ -6,7 +6,7 @@
   <link href="https://shawnzhou.world/atom.xml" rel="self"/>
   
   <link href="https://shawnzhou.world/"/>
-  <updated>2021-02-25T06:51:21.963Z</updated>
+  <updated>2021-02-26T15:03:03.013Z</updated>
   <id>https://shawnzhou.world/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《规律与逻辑·用户体验设计法则》 学习笔记7</title>
+    <link href="https://shawnzhou.world/2021/02/26/ui-note7/"/>
+    <id>https://shawnzhou.world/2021/02/26/ui-note7/</id>
+    <published>2021-02-26T08:38:41.000Z</published>
+    <updated>2021-02-26T15:03:03.013Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;书接上回，这次记录一下在界面设计中对于细节的把控应当怎么做。&lt;/p&gt;
+&lt;p&gt;该部分为书中第四章内容，视觉体验进阶后半部分。笔记摘自《规律与逻辑》。&lt;/p&gt;
+&lt;p&gt;该系列将暂时停更一段时间，接下来更新的内容将会与Vue，JavaScript等相关。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s3.ax1x.com/2021/02/26/yzBYhF.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="前端开发那些事" scheme="https://shawnzhou.world/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    
+    
+    <category term="UI设计" scheme="https://shawnzhou.world/tags/UI%E8%AE%BE%E8%AE%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>《规律与逻辑·用户体验设计法则》 学习笔记6</title>
@@ -453,27 +475,6 @@
     <category term="树状数组" scheme="https://shawnzhou.world/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/"/>
     
     <category term="并查集" scheme="https://shawnzhou.world/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>OpenCV相关图形操作整合</title>
-    <link href="https://shawnzhou.world/2019/09/02/opencv-collection/"/>
-    <id>https://shawnzhou.world/2019/09/02/opencv-collection/</id>
-    <published>2019-09-02T03:01:54.000Z</published>
-    <updated>2021-02-12T09:17:10.152Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;这里是关于OpenCV图像处理相关内容的学习笔记，该部分内容是曾经在2019年发布的。&lt;/p&gt;
-&lt;p&gt;当前博客显示的发布时间非真实时间，而是这些内容在当时发布时的最后发布时间。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://s2.ax1x.com/2019/07/14/ZIwo7D.jpg&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="OpenCV学习笔记" scheme="https://shawnzhou.world/categories/OpenCV%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="OpenCV" scheme="https://shawnzhou.world/tags/OpenCV/"/>
     
   </entry>
   
