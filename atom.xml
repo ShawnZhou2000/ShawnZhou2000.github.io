@@ -6,7 +6,7 @@
   <link href="https://shawnzhou.world/atom.xml" rel="self"/>
   
   <link href="https://shawnzhou.world/"/>
-  <updated>2021-02-26T15:03:03.013Z</updated>
+  <updated>2021-03-03T07:23:10.647Z</updated>
   <id>https://shawnzhou.world/</id>
   
   <author>
@@ -21,13 +21,13 @@
     <link href="https://shawnzhou.world/2021/02/26/ui-note7/"/>
     <id>https://shawnzhou.world/2021/02/26/ui-note7/</id>
     <published>2021-02-26T08:38:41.000Z</published>
-    <updated>2021-02-26T15:03:03.013Z</updated>
+    <updated>2021-03-03T07:23:10.647Z</updated>
     
     
     <summary type="html">&lt;p&gt;书接上回，这次记录一下在界面设计中对于细节的把控应当怎么做。&lt;/p&gt;
 &lt;p&gt;该部分为书中第四章内容，视觉体验进阶后半部分。笔记摘自《规律与逻辑》。&lt;/p&gt;
 &lt;p&gt;该系列将暂时停更一段时间，接下来更新的内容将会与Vue，JavaScript等相关。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://s3.ax1x.com/2021/02/26/yzBYhF.jpg&quot;&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;img src=&quot;https://s3.ax1x.com/2021/03/03/6AcH00.jpg&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -43,12 +43,12 @@
     <link href="https://shawnzhou.world/2021/02/25/ui-note6/"/>
     <id>https://shawnzhou.world/2021/02/25/ui-note6/</id>
     <published>2021-02-25T03:36:12.000Z</published>
-    <updated>2021-02-25T06:51:21.963Z</updated>
+    <updated>2021-03-03T07:23:00.509Z</updated>
     
     
     <summary type="html">&lt;p&gt;用户体验设计师的主要产出物是什么？从打开产品的引导页到数据为空状态的设计技巧，逐渐扩展到运营Banner设计，最后深入到界面层次感的打造以及不同风格产品的设计路线，全面解决用户体验设计实际工作中的各种难题。&lt;/p&gt;
 &lt;p&gt;我打算用两次笔记学完这里。该部分为书中第四章内容，视觉体验进阶前半部分。笔记摘自《规律与逻辑》。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://s3.ax1x.com/2021/02/25/yjD1Wd.jpg&quot;&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;img src=&quot;https://s3.ax1x.com/2021/03/03/6AcOtU.jpg&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -64,12 +64,12 @@
     <link href="https://shawnzhou.world/2021/02/23/javascript-array/"/>
     <id>https://shawnzhou.world/2021/02/23/javascript-array/</id>
     <published>2021-02-23T04:48:30.000Z</published>
-    <updated>2021-02-23T16:57:29.749Z</updated>
+    <updated>2021-03-03T07:22:28.144Z</updated>
     
     
     <summary type="html">&lt;p&gt;数组是最简单的内存数据结构。JavaScript里也有数组类型，它可以储存一系列值。在JavaScript中，可以在数组中保存不同类型的值，尽管不建议这么做，但大多数语言都没有这个能力。&lt;/p&gt;
 &lt;p&gt;这里记载一下JavaScript中数组的一些常见用法，以及在ES6+中新增的方法。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://s3.ax1x.com/2021/02/23/yqTVHA.jpg&quot;&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;img src=&quot;https://s3.ax1x.com/2021/03/03/6AcLkT.jpg&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -89,11 +89,11 @@
     <link href="https://shawnzhou.world/2021/02/22/css-selector-note1/"/>
     <id>https://shawnzhou.world/2021/02/22/css-selector-note1/</id>
     <published>2021-02-22T10:10:07.000Z</published>
-    <updated>2021-02-22T16:33:16.548Z</updated>
+    <updated>2021-03-03T07:20:48.984Z</updated>
     
     
     <summary type="html">&lt;p&gt;今天读了一本非常会整活的书：《CSS选择器世界》，这本书的封面写着“颠覆对CSS的认知”，我仅详细阅读到三分之一，就已经把我的认知颠覆的地覆天翻了。总结起来就是非常会整活，但也有很多值得学习的干货，这里把一些经典内容整理成笔记，时间关系最终没有读完，以后还会再来看这本书的。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://s3.ax1x.com/2021/02/22/yH0bA1.jpg&quot;&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;img src=&quot;https://s3.ax1x.com/2021/03/03/6Acb7V.jpg&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -109,11 +109,11 @@
     <link href="https://shawnzhou.world/2021/02/21/daily-interview-question-2021-02-21/"/>
     <id>https://shawnzhou.world/2021/02/21/daily-interview-question-2021-02-21/</id>
     <published>2021-02-21T13:38:03.000Z</published>
-    <updated>2021-02-21T14:19:01.104Z</updated>
+    <updated>2021-03-03T07:20:30.879Z</updated>
     
     
     <summary type="html">&lt;p&gt;今天看看CSS相关的内容。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://s3.ax1x.com/2021/02/21/yT0LAP.jpg&quot;&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;img src=&quot;https://s3.ax1x.com/2021/03/03/6Acx1J.jpg&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -131,12 +131,12 @@
     <link href="https://shawnzhou.world/2021/02/21/ui-note5/"/>
     <id>https://shawnzhou.world/2021/02/21/ui-note5/</id>
     <published>2021-02-21T08:46:44.000Z</published>
-    <updated>2021-02-21T13:37:25.329Z</updated>
+    <updated>2021-03-03T07:24:31.908Z</updated>
     
     
     <summary type="html">&lt;p&gt;相比文字而言，图标可以让人在更短的时间内认知并了解信息，并且能大大提升视觉美观性；尽管界面设计中一般都选择系统默认字体，但一些运营活动风格的界面中，字体设计也是非常重要的方面；一个好的界面不仅要求整体布局合理，还要注意细节的处理。&lt;/p&gt;
 &lt;p&gt;该部分记录了在用户界面设计中的图标，字体与细节的规律。笔记摘自《规律与逻辑》。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://s3.ax1x.com/2021/02/21/yoLVHI.jpg&quot;&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;img src=&quot;https://s3.ax1x.com/2021/03/03/6Ag7gH.jpg&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -152,11 +152,11 @@
     <link href="https://shawnzhou.world/2021/02/20/daily-interview-question-2021-02-20/"/>
     <id>https://shawnzhou.world/2021/02/20/daily-interview-question-2021-02-20/</id>
     <published>2021-02-20T09:15:52.000Z</published>
-    <updated>2021-02-20T09:59:42.953Z</updated>
+    <updated>2021-03-03T07:20:05.534Z</updated>
     
     
     <summary type="html">&lt;p&gt;抽出点时间看一些面试题，补充一些基础知识。今天看一些HTML相关的题目。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://s3.ax1x.com/2021/02/20/yIPQXT.jpg&quot;&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;img src=&quot;https://s3.ax1x.com/2021/03/03/6Acvp4.jpg&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -174,12 +174,12 @@
     <link href="https://shawnzhou.world/2021/02/20/A-brief-history-of-front-end-engineering/"/>
     <id>https://shawnzhou.world/2021/02/20/A-brief-history-of-front-end-engineering/</id>
     <published>2021-02-20T06:53:30.000Z</published>
-    <updated>2021-02-20T08:37:08.247Z</updated>
+    <updated>2021-03-03T07:19:33.116Z</updated>
     
     
     <summary type="html">&lt;p&gt;不好好了解一下过去，也便很难真正理解当今。&lt;/p&gt;
 &lt;p&gt;这次来学习《前端工程化 体系设计与实践》中的第一章：前端工程简史，将其中精华部分加以个人理解做一些摘抄整理。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://s3.ax1x.com/2021/02/20/y5r88e.jpg&quot;&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;img src=&quot;https://s3.ax1x.com/2021/03/03/6AcXhF.jpg&quot;&gt;&lt;/p&gt;</summary>
     
     
     
