@@ -1,6 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Vue.js复习巩固笔记</title>
+    <url>/2021/03/03/vue-review-note/</url>
+    <content><![CDATA[<p>最近学习其实遇到了一些瓶颈，虽然有写好的学习路线和执行计划，但总感觉仍然无从下手。而且现在开学了，还要上课和写作业，时间其实并不如寒假时充裕。</p>
+<p>前几天做了一些算法题，但有一些写不顺手的感觉，去做大厂的笔试题发现其实自己仍然啥也不会，去看别人模拟面试发现他们聊的我大多都只接触的很浅，整理文件看到自己年前写的求职简历，越看越感觉这是一份拼凑出来的垃圾，一想到今年的实习就感到无比头大。</p>
+<p>那就重新补补Vue吧，正好Vue也出了3.x的版本，也想正好学学一些版本新特性，慢慢来。</p>
+<p>这篇笔记除了生命周期是2的版本，其他的笔记都是基于3的版本。</p>
+<p><img src="https://s3.ax1x.com/2021/03/03/6EJsBj.jpg"></p>
+<a id="more"></a>
+
+<h2 id="Vue-2-x的生命周期钩子函数"><a href="#Vue-2-x的生命周期钩子函数" class="headerlink" title="Vue 2.x的生命周期钩子函数"></a>Vue 2.x的生命周期钩子函数</h2><p>没啥可讲的，得把这图理解着背下来。</p>
+<p><img src="https://cn.vuejs.org/images/lifecycle.png"></p>
+<p>Vue实例的生命周期可以分为四个阶段：初始化阶段、模板编译阶段、挂载阶段、卸载阶段。</p>
+<p>从<code>new Vue()</code>到<code>created</code>之间的阶段叫初始化阶段。从<code>created</code>到<code>beforeMount</code>之间的阶段叫模板编译阶段。从<code>beforeMount</code>到<code>mounted</code>之间是挂载阶段。应用调用<code>vm.$destroy</code>方法后，进入卸载阶段。</p>
+<p><code>beforeCreate</code>：在实例生成之前自动执行，此时仅初始化了Events和Lifecycle，el和data还没有初始化，所以此时还不能访问methods，data，computed等里面的方法和数据。</p>
+<p><code>created</code>：在实例生成之后自动执行。此时injection和reactivity已经初始化完成，此时data数据已经初始化，methods，computed，watch均开始运作，可以在这个钩子函数里对实例进行预处理，或者在这里发ajax请求。但这里不能对实例化过程进行拦截。</p>
+<p><code>beforeMount</code>：在组件内容被渲染到页面之前自动执行。挂载开始之前此函数被调用，完成编译模板，生成html，完成el的初始化，但此时还没有把html渲染到页面里。</p>
+<p><code>mounted</code>：在组件内容被渲染到页面之后自动执行。将上一步编译好的html渲染到页面里，此生命周期函数只执行一次，可以在这里执行一些ajax操作。</p>
+<p><code>beforeUpdate</code>：当data中的数据发生变化时（ 即将变化之前）会自动执行的函数。此时虚拟DOM还没有更改，可以在这里进一步更改状态。</p>
+<p><code>updated</code>：当data中的数据发生变化，同时页面完成更新后，会自动执行的函数。调用此方法时组件DOM已经更新，可以执行依赖于DOM的操作，但应该及你两少使用此函数，它可能会导致更新无限循环。</p>
+<p><code>beforeDestroy</code>：Vue应用失效之前自动执行，此时还可以使用this获取实例，这里一般做一些重置的操作，比如清除定时器。</p>
+<p><code>destroyed</code>：Vue应用失效时，且DOM完全销毁后自动执行。此时什么都没有了。</p>
+<h2 id="一些细节笔记"><a href="#一些细节笔记" class="headerlink" title="一些细节笔记"></a>一些细节笔记</h2><ul>
+<li>动态属性：</li>
+</ul>
+<p>属性名可以使用变量表示，加一个中括号。比如下面这样：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">:name</span>=<span class="string">&quot;nameData&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这里的name我不确定用什么名字，或者以后要修改，那么就可以在data里面写一个数据字段用于方便修改，这里就加一个中括号括起来。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">data() &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    name: <span class="string">&#x27;title&#x27;</span>,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br><span class="line">template: <span class="string">`</span></span><br><span class="line"><span class="string">  &lt;div :[name]=&quot;nameData&quot;&gt;&lt;/div&gt;</span></span><br><span class="line"><span class="string">`</span></span><br></pre></td></tr></table></figure>
+
+<p>其实事件也可以使用动态属性，比如<code>@[event]</code>。</p>
+<ul>
+<li>区别使用<code>v-show</code>与<code>v-if</code>：</li>
+</ul>
+<p><code>v-if</code>控制节点的展示与否是直接修改DOM，判断为<code>true</code>时会显示，但<code>false</code>时会直接移除此节点。如果使用<code>v-show</code>，则在<code>true</code>时会显示，<code>false</code>时会使用CSS中的<code>display: none</code>进行隐藏，但DOM结构还在。</p>
+<p>在一些需要频繁修改显示情况的位置使用v-show，因为它不会频繁修改DOM，性能会好一些，但如果不涉及频繁的修改显示情况时，两者性能差不多。</p>
+<ul>
+<li>为什么要在<code>v-for</code>时加<code>:key</code>：</li>
+</ul>
+<p>当尝试在<code>v-for</code>展示的列表里面修改一些数据时，会重新对页面做渲染，但其实很多时候用不到大批量修改时，对整个列表的DOM进行重新渲染有些浪费性能。因为有大量的数据在这次操作中没有做出变化，但是DOM却被翻新了一次，这样是浪费性能的。所以在循环时一般会使用一个不重复的数据元素作为key值，写在<code>:key</code>里，在数据更新时，如果Vue发现key值没怎么发生变化，则不会重新渲染这个DOM以提升性能。所以合理的加<code>:key</code>能有效地提升性能。</p>
+<ul>
+<li>为什么<code>v-for</code>和<code>v-if</code>不能写在同一个标签里：</li>
+</ul>
+<p>因为<code>v-for</code>的优先级比<code>v-if</code>的优先级高，所以将两者写在一起时<code>v-if</code>不会生效，需要将<code>v-if</code>放在<code>v-for</code>的DOM子节点中。</p>
+<ul>
+<li><code>&lt;template&gt;</code>标签：</li>
+</ul>
+<p><code>&lt;template&gt;</code>在Vue中不可见，并且只能有一个根节点。</p>
+<ul>
+<li><code>event</code>与<code>$event</code></li>
+</ul>
+<p>在绑定事件中，如果调用的方法无参，那么在实现方法时可以额外添加一个<code>event</code>参数，就可以接收到事件，但如果方法带参，<code>event</code>就失效了。如果想要传参的同时再传一个<code>event</code>，需要在绑定事件中传一个<code>$event</code>，然后接收时仍然写<code>event</code>就可以接收到。</p>
+<h2 id="事件冒泡"><a href="#事件冒泡" class="headerlink" title="事件冒泡"></a>事件冒泡</h2><p>IE事件流被称为事件冒泡，这是因为事件被定义为从最具体的元素（DOM树中最深的节点）开始触发，然后向上传播至它的各种上级元素。</p>
+<p>还有一种捕获流，是从最外面的祖先一直传到最具体的元素的，和IE事件流正好反过来。</p>
+<p>其实可以使用事件修饰符阻止事件冒泡。</p>
+<h2 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h2><p>事件修饰符：stop prevent capture self once passive</p>
+<p>按键修饰符：enter tab delete backspace up down left right </p>
+<p>鼠标修饰符：left right middle</p>
+<p>精确修饰符：exact 比如需要只按某按键触发事件的，按组合键也可触发，使用exact限定只按此键可触发。</p>
+<h2 id="父子组件传值相关"><a href="#父子组件传值相关" class="headerlink" title="父子组件传值相关"></a>父子组件传值相关</h2><p>单向数据流：子组件可以使用父组件传递来的数据，但是不能修改父组件传递来的数据。设计单向数据流的原因是非单向数据流会造成数据的强耦合不便于维护，使用单向数据流可以对父子组件之间的数据解耦，防止出现难以维护的bug。</p>
+<p><code>Non-props</code>：父组件向子组件传递值，但子组件并不通过<code>props</code>接收此值。如果子组件是单个根节点，传递的值会变成显式的属性放在子组件的DOM里。如果子组件是多个根节点，希望non-props生效，可以使用<code>v-bind</code>绑定一个<code>$attrs</code>，就可以将传来的值放在某个节点里，如果传值有多个，<code>$attrs</code>也可以使用<code>.</code>限定接收哪些值。</p>
+<p><code>update:modelValue</code>，使用双向绑定简化子传父：这块其实还是有点不理解的地方，把文档链接放这里吧：</p>
+<p><a href="https://www.vue3js.cn/docs/zh/guide/migration/v-model.html#v-model-%E4%BF%AE%E9%A5%B0%E7%AC%A6">https://www.vue3js.cn/docs/zh/guide/migration/v-model.html#v-model-%E4%BF%AE%E9%A5%B0%E7%AC%A6</a></p>
+]]></content>
+      <categories>
+        <category>前端开发那些事</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>HTML</tag>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>《规律与逻辑·用户体验设计法则》 学习笔记7</title>
     <url>/2021/02/26/ui-note7/</url>
     <content><![CDATA[<p>书接上回，这次记录一下在界面设计中对于细节的把控应当怎么做。</p>

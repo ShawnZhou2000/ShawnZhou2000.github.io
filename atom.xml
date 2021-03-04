@@ -6,7 +6,7 @@
   <link href="https://shawnzhou.world/atom.xml" rel="self"/>
   
   <link href="https://shawnzhou.world/"/>
-  <updated>2021-03-03T07:23:10.647Z</updated>
+  <updated>2021-03-04T10:00:11.822Z</updated>
   <id>https://shawnzhou.world/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Vue.js复习巩固笔记</title>
+    <link href="https://shawnzhou.world/2021/03/03/vue-review-note/"/>
+    <id>https://shawnzhou.world/2021/03/03/vue-review-note/</id>
+    <published>2021-03-03T13:45:37.000Z</published>
+    <updated>2021-03-04T10:00:11.822Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;最近学习其实遇到了一些瓶颈，虽然有写好的学习路线和执行计划，但总感觉仍然无从下手。而且现在开学了，还要上课和写作业，时间其实并不如寒假时充裕。&lt;/p&gt;
+&lt;p&gt;前几天做了一些算法题，但有一些写不顺手的感觉，去做大厂的笔试题发现其实自己仍然啥也不会，去看别人模拟面试发现他们聊的我大多都只接触的很浅，整理文件看到自己年前写的求职简历，越看越感觉这是一份拼凑出来的垃圾，一想到今年的实习就感到无比头大。&lt;/p&gt;
+&lt;p&gt;那就重新补补Vue吧，正好Vue也出了3.x的版本，也想正好学学一些版本新特性，慢慢来。&lt;/p&gt;
+&lt;p&gt;这篇笔记除了生命周期是2的版本，其他的笔记都是基于3的版本。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://s3.ax1x.com/2021/03/03/6EJsBj.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="前端开发那些事" scheme="https://shawnzhou.world/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    
+    
+    <category term="JavaScript" scheme="https://shawnzhou.world/tags/JavaScript/"/>
+    
+    <category term="HTML" scheme="https://shawnzhou.world/tags/HTML/"/>
+    
+    <category term="Vue" scheme="https://shawnzhou.world/tags/Vue/"/>
+    
+  </entry>
   
   <entry>
     <title>《规律与逻辑·用户体验设计法则》 学习笔记7</title>
@@ -440,41 +467,6 @@
     
     <category term="前端开发那些事" scheme="https://shawnzhou.world/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>基础数据结构归档</title>
-    <link href="https://shawnzhou.world/2019/12/15/data-structure/"/>
-    <id>https://shawnzhou.world/2019/12/15/data-structure/</id>
-    <published>2019-12-15T11:50:14.000Z</published>
-    <updated>2021-02-12T09:14:26.969Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;这里是一些基础数据结构知识点的整理，有基本概念，线性表，链表，树，图，哈希表等。该部分内容是曾在2018年和2019年发布的。&lt;/p&gt;
-&lt;p&gt;当前博客显示的发布时间非真实时间，而是这些内容在当时发布时的最后发布时间。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2018/08/10/5b6d26f3edb0e.png&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="数据结构与算法" scheme="https://shawnzhou.world/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="线性表" scheme="https://shawnzhou.world/tags/%E7%BA%BF%E6%80%A7%E8%A1%A8/"/>
-    
-    <category term="链表" scheme="https://shawnzhou.world/tags/%E9%93%BE%E8%A1%A8/"/>
-    
-    <category term="栈" scheme="https://shawnzhou.world/tags/%E6%A0%88/"/>
-    
-    <category term="队列" scheme="https://shawnzhou.world/tags/%E9%98%9F%E5%88%97/"/>
-    
-    <category term="树" scheme="https://shawnzhou.world/tags/%E6%A0%91/"/>
-    
-    <category term="图" scheme="https://shawnzhou.world/tags/%E5%9B%BE/"/>
-    
-    <category term="树状数组" scheme="https://shawnzhou.world/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/"/>
-    
-    <category term="并查集" scheme="https://shawnzhou.world/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/"/>
     
   </entry>
   
