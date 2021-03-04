@@ -80,7 +80,7 @@
     <content><![CDATA[<p>书接上回，这次记录一下在界面设计中对于细节的把控应当怎么做。</p>
 <p>该部分为书中第四章内容，视觉体验进阶后半部分。笔记摘自《规律与逻辑》。</p>
 <p>该系列将暂时停更一段时间，接下来更新的内容将会与Vue，JavaScript等相关。</p>
-<p><img src="https://s3.ax1x.com/2021/03/03/6AcH00.jpg"></p>
+<p><img src="https://i.loli.net/2021/03/04/a8QRNpFsv6lkmjK.jpg"></p>
 <a id="more"></a>
 
 <h2 id="界面设计中的层次感表现"><a href="#界面设计中的层次感表现" class="headerlink" title="界面设计中的层次感表现"></a>界面设计中的层次感表现</h2><p>层次感是在满足视觉合理性的基础上，把要强调或者突出的主体与画面中的其他元素进行区分。通过对比版面中的元素大小、远近和前后等多重关系进行梳理，并运用色彩加以区分，可以使元素和主体在画面中具有一定的主次关系，让人在观看时产生一定的视觉层次和心理变化。对设计师而言，可以通过技术手段对主体自身的层次感进行调整，使画面在传递的过程中具有更好的视觉效果和层次变化。</p>
@@ -154,7 +154,7 @@
     <url>/2021/02/25/ui-note6/</url>
     <content><![CDATA[<p>用户体验设计师的主要产出物是什么？从打开产品的引导页到数据为空状态的设计技巧，逐渐扩展到运营Banner设计，最后深入到界面层次感的打造以及不同风格产品的设计路线，全面解决用户体验设计实际工作中的各种难题。</p>
 <p>我打算用两次笔记学完这里。该部分为书中第四章内容，视觉体验进阶前半部分。笔记摘自《规律与逻辑》。</p>
-<p><img src="https://s3.ax1x.com/2021/03/03/6AcOtU.jpg"></p>
+<p><img src="https://i.loli.net/2021/03/04/xbm9IsnTqGHe5J7.jpg"></p>
 <a id="more"></a>
 
 <h2 id="设计中的感性与理性"><a href="#设计中的感性与理性" class="headerlink" title="设计中的感性与理性"></a>设计中的感性与理性</h2><p>设计是感性与理性的结合体，只有两者完美融合，才能呈现出独特的美感。感性听从内心，理性服从大脑，理性让人逻辑，感性让人自然。</p>
@@ -273,7 +273,7 @@
     <url>/2021/02/23/javascript-array/</url>
     <content><![CDATA[<p>数组是最简单的内存数据结构。JavaScript里也有数组类型，它可以储存一系列值。在JavaScript中，可以在数组中保存不同类型的值，尽管不建议这么做，但大多数语言都没有这个能力。</p>
 <p>这里记载一下JavaScript中数组的一些常见用法，以及在ES6+中新增的方法。</p>
-<p><img src="https://s3.ax1x.com/2021/03/03/6AcLkT.jpg"></p>
+<p><img src="https://i.loli.net/2021/03/04/NDigGuxwbCSOfzU.jpg"></p>
 <a id="more"></a>
 
 <h2 id="数组的增删改查"><a href="#数组的增删改查" class="headerlink" title="数组的增删改查"></a>数组的增删改查</h2><p>增：声明、创建和初始化数组，使用<code>new</code>关键字。</p>
@@ -387,7 +387,7 @@
     <title>CSS选择器 学习笔记1</title>
     <url>/2021/02/22/css-selector-note1/</url>
     <content><![CDATA[<p>今天读了一本非常会整活的书：《CSS选择器世界》，这本书的封面写着“颠覆对CSS的认知”，我仅详细阅读到三分之一，就已经把我的认知颠覆的地覆天翻了。总结起来就是非常会整活，但也有很多值得学习的干货，这里把一些经典内容整理成笔记，时间关系最终没有读完，以后还会再来看这本书的。</p>
-<p><img src="https://s3.ax1x.com/2021/03/03/6Acb7V.jpg"></p>
+<p><img src="https://i.loli.net/2021/03/04/9zsB15xSNwO8rXq.jpg"></p>
 <a id="more"></a>
 
 <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>CSS选择器分为四类，选择器，选择符，伪类，伪元素。</p>
@@ -443,7 +443,7 @@
     <title>日常来点面试题2021.2.21</title>
     <url>/2021/02/21/daily-interview-question-2021-02-21/</url>
     <content><![CDATA[<p>今天看看CSS相关的内容。</p>
-<p><img src="https://s3.ax1x.com/2021/03/03/6Acx1J.jpg"></p>
+<p><img src="https://i.loli.net/2021/03/04/bvKAO6z2d5FCyxt.jpg"></p>
 <a id="more"></a>
 
 <p>问题：</p>
@@ -486,7 +486,7 @@
     <url>/2021/02/21/ui-note5/</url>
     <content><![CDATA[<p>相比文字而言，图标可以让人在更短的时间内认知并了解信息，并且能大大提升视觉美观性；尽管界面设计中一般都选择系统默认字体，但一些运营活动风格的界面中，字体设计也是非常重要的方面；一个好的界面不仅要求整体布局合理，还要注意细节的处理。</p>
 <p>该部分记录了在用户界面设计中的图标，字体与细节的规律。笔记摘自《规律与逻辑》。</p>
-<p><img src="https://s3.ax1x.com/2021/03/03/6Ag7gH.jpg"></p>
+<p><img src="https://i.loli.net/2021/03/04/q2ryDbeiZ5w7KYX.jpg"></p>
 <a id="more"></a>
 
 <h2 id="用户界面中的图标"><a href="#用户界面中的图标" class="headerlink" title="用户界面中的图标"></a>用户界面中的图标</h2><p>使用图标比使用文本更具优势，因为图标简单，醒目且友好。但需要注意，如果图标使用不当会造成负面影响，比如在敏感位置使用识别度不高的图标可能会诱导用户误操作，同时图标放置位置不合适或风格不统一会带来很大的违和感。</p>
@@ -539,7 +539,7 @@
     <title>日常来点面试题2021.2.20</title>
     <url>/2021/02/20/daily-interview-question-2021-02-20/</url>
     <content><![CDATA[<p>抽出点时间看一些面试题，补充一些基础知识。今天看一些HTML相关的题目。</p>
-<p><img src="https://s3.ax1x.com/2021/03/03/6Acvp4.jpg"></p>
+<p><img src="https://i.loli.net/2021/03/04/BHNmX65c3Mk1dJ4.jpg"></p>
 <a id="more"></a>
 
 <p>问题：</p>
@@ -593,7 +593,7 @@
     <url>/2021/02/20/A-brief-history-of-front-end-engineering/</url>
     <content><![CDATA[<p>不好好了解一下过去，也便很难真正理解当今。</p>
 <p>这次来学习《前端工程化 体系设计与实践》中的第一章：前端工程简史，将其中精华部分加以个人理解做一些摘抄整理。</p>
-<p><img src="https://s3.ax1x.com/2021/03/03/6AcXhF.jpg"></p>
+<p><img src="https://i.loli.net/2021/03/04/F9NvgZEnIXrdzu8.jpg"></p>
 <a id="more"></a>
 
 <p>前端工程出现的根本原因是前端工程师所负责的客户端功能逻辑在不断复杂化。现在的前端工程师已经不再做往年“切图仔”的工作，而是采用一种更加规范化、工程化的模式进行各种网站、应用、小程序的开发。想要弄明白前端工程化的来历，还得从web的老祖宗开始说起。</p>
