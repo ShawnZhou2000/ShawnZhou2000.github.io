@@ -116,7 +116,7 @@
     <link href="https://shawnzhou.world/2021/02/23/javascript-array/"/>
     <id>https://shawnzhou.world/2021/02/23/javascript-array/</id>
     <published>2021-02-23T04:48:30.000Z</published>
-    <updated>2021-03-04T10:07:29.746Z</updated>
+    <updated>2021-03-23T06:54:37.959Z</updated>
     
     
     <summary type="html">&lt;p&gt;数组是最简单的内存数据结构。JavaScript里也有数组类型，它可以储存一系列值。在JavaScript中，可以在数组中保存不同类型的值，尽管不建议这么做，但大多数语言都没有这个能力。&lt;/p&gt;
