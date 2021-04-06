@@ -1,6 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>JavaScript中的深拷贝与浅拷贝</title>
+    <url>/2021/04/06/deep-copy-and-shallow-copy/</url>
+    <content><![CDATA[<p> 最近在面试和学习当中都遇到了关于深拷贝和浅拷贝的问题，由于之前做项目没有遇到过此类问题，这里做一个简单的记录，学习一下。</p>
+<p><img src="https://z3.ax1x.com/2021/04/07/c38KUg.jpg"></p>
+<a id="more"></a>
+
+<h2 id="基本知识"><a href="#基本知识" class="headerlink" title="基本知识"></a>基本知识</h2><p>前置知识：js的数据类型。</p>
+<p>在JavaScript里面，数据类型可以分为两大类，基本类型和引用类型。</p>
+<p>基本类型也就是简单的数据类型，比如Number, null, Boolean, String, undefined, Symbol，而引用类型通常是复合类型，比如Object, Array, Function, Date, RegExp等。</p>
+<p>基本类型存储在栈中，以键值对的形式，引用类型的值保存在堆中，对象的引用保存在栈中，啥叫对象的引用呢，可以简单理解为这是个指针。访问的时候，我们不能访问堆，需要通过栈间接访问堆。</p>
+<p>那么深拷贝和浅拷贝到底是什么东西呢？首先明确拷贝是什么。拷贝就是复制，创建一个新变量时使用原有变量的“内容”创建，复制一份新的。</p>
+<p>在复制的过程中，问题就出现在引用类型里，我要复制的是对象的引用，还是对象的本身？这听起来似乎有点绕，可以换个方式理解：假如我要复制一个对象，我是要让复制后的对象也指向原来的内容，还是重新创建一份完全一样的新对象？</p>
+<blockquote>
+<p>“当我的全身都被更换，就连我的大脑一起都被换掉时，那时候的我，还会是‘我’吗？”</p>
+</blockquote>
+<p>这里面就牵扯到深拷贝和浅拷贝的概念了。所谓浅拷贝，就是在复制的时候只复制所有的引用，复制之后的新对象里，只是创建了一个新的访问原来位置的引用，而原来这个位置本身的内容，没有被重新创建。那么深拷贝就是与其相对应的，不仅引用被复制了，连引用指向的原位置的内容也被重新复制了一份，创建了一个新的。</p>
+<p>那么既然这样，深拷贝就一定比浅拷贝好吗？在实际应用中是否应当全都使用深拷贝？其实不一定。深拷贝可能需要经过多层递归调用，效率通常会低一些，而有时候浅拷贝就能满足很多实际场景的要求。</p>
+<h2 id="浅拷贝实际应用"><a href="#浅拷贝实际应用" class="headerlink" title="浅拷贝实际应用"></a>浅拷贝实际应用</h2><p>以下是几个例子。</p>
+<p><code>Object.assign()</code>，把任意多个源对象自身的可枚举属性拷贝给目标对象，然后返回目标对象。</p>
+<p><code>展开运算符...</code>，与<code>Object.assign()</code>功能相同。</p>
+<p><code>赋值运算符=</code>，赋值只会赋给引用，算浅拷贝。</p>
+<p><code>Array.prototype.concat()</code>，返回一个新数组，但如果数组中有嵌套对象则为浅拷贝</p>
+<p><code>Array.prototype.slice()</code>，返回一个新数组，但如果数组中有嵌套对象则为浅拷贝</p>
+<p>上面这些操作只能算是在一维或者在一层上进行了深拷贝，如果有二层以上则无法完全拷贝，所以算是浅拷贝了。</p>
+<h2 id="浅拷贝手动实现"><a href="#浅拷贝手动实现" class="headerlink" title="浅拷贝手动实现"></a>浅拷贝手动实现</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">shallowCopy</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> obj !== <span class="string">&#x27;object&#x27;</span>) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">let</span> newObj = obj <span class="keyword">instanceof</span> <span class="built_in">Array</span> ? [] : &#123;&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    	<span class="keyword">if</span> (obj.hasOwnProperty(key)) &#123;</span><br><span class="line">    		newObj[key] = obj[key];</span><br><span class="line">    	&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> newObj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="深拷贝实际应用"><a href="#深拷贝实际应用" class="headerlink" title="深拷贝实际应用"></a>深拷贝实际应用</h2><p><code>JSON.parse(JSON.stringify(obj))</code>，这种JSON化的方式可以实现多维或多层对象的深拷贝，但会忽略undefined、任意的函数、symbol，所以这种方式不能完全解决深拷贝问题。</p>
+<p><code>Object.create(obj)</code>可以做到深拷贝。</p>
+<h2 id="深拷贝手动实现"><a href="#深拷贝手动实现" class="headerlink" title="深拷贝手动实现"></a>深拷贝手动实现</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepCopy</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> obj !== <span class="string">&#x27;object&#x27;</span>) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">let</span> newObj = obj <span class="keyword">instanceof</span> <span class="built_in">Array</span> ? [] : &#123;&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    	<span class="keyword">if</span> (obj.hasOwnProperty(key)) &#123;</span><br><span class="line">    		newObj[key] = <span class="keyword">typeof</span> obj[key] === <span class="string">&#x27;object&#x27;</span> ? deepCopy(obj[key]) : obj[key];</span><br><span class="line">    	&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> newObj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>由一条SQL语句引发的思考</title>
     <url>/2021/03/05/A-thinking-in-one-SQL-statement/</url>
     <content><![CDATA[<p>帮老师干活，做2020年山东高考录取情况的汇总表，纯靠Excel总归有些操作不是很好处理，所以我借助了MySQL数据库完成一些比如复杂条件合并的操作。</p>
