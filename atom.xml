@@ -6,7 +6,7 @@
   <link href="https://shawnzhou.world/atom.xml" rel="self"/>
   
   <link href="https://shawnzhou.world/"/>
-  <updated>2021-04-06T18:40:17.775Z</updated>
+  <updated>2021-04-07T01:40:05.031Z</updated>
   <id>https://shawnzhou.world/</id>
   
   <author>
@@ -17,17 +17,43 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>使用CSS对盒子水平居中的几种方法</title>
+    <link href="https://shawnzhou.world/2021/04/07/horizontal-and-vertical-center-of-CSS/"/>
+    <id>https://shawnzhou.world/2021/04/07/horizontal-and-vertical-center-of-CSS/</id>
+    <published>2021-04-07T00:37:13.000Z</published>
+    <updated>2021-04-07T01:40:05.031Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt; 将盒子水平居中是一件不难办的事情，那么如何做到水平垂直同时居中呢？这时候就需要思考一下了。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://z3.ax1x.com/2021/04/07/c30nlF.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="前端开发那些事" scheme="https://shawnzhou.world/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    
+    
+    <category term="HTML" scheme="https://shawnzhou.world/tags/HTML/"/>
+    
+    <category term="CSS" scheme="https://shawnzhou.world/tags/CSS/"/>
+    
+    <category term="CSS3" scheme="https://shawnzhou.world/tags/CSS3/"/>
+    
+  </entry>
+  
+  <entry>
     <title>JavaScript中的深拷贝与浅拷贝</title>
     <link href="https://shawnzhou.world/2021/04/06/deep-copy-and-shallow-copy/"/>
     <id>https://shawnzhou.world/2021/04/06/deep-copy-and-shallow-copy/</id>
     <published>2021-04-06T07:17:18.000Z</published>
-    <updated>2021-04-06T18:40:17.775Z</updated>
+    <updated>2021-04-07T00:38:22.569Z</updated>
     
     
     <summary type="html">&lt;p&gt; 最近在面试和学习当中都遇到了关于深拷贝和浅拷贝的问题，由于之前做项目没有遇到过此类问题，这里做一个简单的记录，学习一下。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://z3.ax1x.com/2021/04/07/c38KUg.jpg&quot;&gt;&lt;/p&gt;</summary>
     
     
+    
+    <category term="前端开发那些事" scheme="https://shawnzhou.world/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
     
     
     <category term="JavaScript" scheme="https://shawnzhou.world/tags/JavaScript/"/>
@@ -443,31 +469,6 @@
     <category term="CSS" scheme="https://shawnzhou.world/tags/CSS/"/>
     
     <category term="站群" scheme="https://shawnzhou.world/tags/%E7%AB%99%E7%BE%A4/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Vue.js框架学习笔记整合</title>
-    <link href="https://shawnzhou.world/2020/02/07/vue-collection/"/>
-    <id>https://shawnzhou.world/2020/02/07/vue-collection/</id>
-    <published>2020-02-07T03:02:07.000Z</published>
-    <updated>2021-02-12T09:21:56.057Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;该部分笔记整合了我之前学习Vue框架时的相关内容，原笔记发布于2020年初。&lt;/p&gt;
-&lt;p&gt;当前博客显示的发布时间非真实时间，而是这些内容在当时发布时的最后发布时间。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2020/04/02/AzMcD1UseQk2IZo.jpg&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="前端开发那些事" scheme="https://shawnzhou.world/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
-    
-    
-    <category term="JavaScript" scheme="https://shawnzhou.world/tags/JavaScript/"/>
-    
-    <category term="HTML" scheme="https://shawnzhou.world/tags/HTML/"/>
-    
-    <category term="Vue" scheme="https://shawnzhou.world/tags/Vue/"/>
     
   </entry>
   
