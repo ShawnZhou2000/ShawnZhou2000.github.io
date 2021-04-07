@@ -6,7 +6,7 @@
   <link href="https://shawnzhou.world/atom.xml" rel="self"/>
   
   <link href="https://shawnzhou.world/"/>
-  <updated>2021-04-07T01:45:09.343Z</updated>
+  <updated>2021-04-07T04:00:09.988Z</updated>
   <id>https://shawnzhou.world/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>图解HTTP学习笔记—HTTP状态码</title>
+    <link href="https://shawnzhou.world/2021/04/07/HTTP-status-code/"/>
+    <id>https://shawnzhou.world/2021/04/07/HTTP-status-code/</id>
+    <published>2021-04-07T03:11:52.000Z</published>
+    <updated>2021-04-07T04:00:09.988Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;《图解HTTP》是一本特别浅显易懂的书，形象地解释了HTTP协议中的各种内容。这篇学习笔记摘自原书第四章，返回结果的HTTP状态码。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://z3.ax1x.com/2021/04/07/c3vBbF.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="前端开发那些事" scheme="https://shawnzhou.world/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    
+    
+    <category term="HTTP" scheme="https://shawnzhou.world/tags/HTTP/"/>
+    
+    <category term="计算机网络" scheme="https://shawnzhou.world/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
   
   <entry>
     <title>使用CSS对盒子水平垂直居中的几种方法</title>
@@ -429,32 +451,6 @@
     
     
     <summary type="html">&lt;p&gt;上一篇文章中介绍了站群的基本操作方法和一些需要注意的地方，本篇整理一些比较复杂的操作。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/04/08/GWxQXV.jpg&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="站群工作组相关" scheme="https://shawnzhou.world/categories/%E7%AB%99%E7%BE%A4%E5%B7%A5%E4%BD%9C%E7%BB%84%E7%9B%B8%E5%85%B3/"/>
-    
-    
-    <category term="JavaScript" scheme="https://shawnzhou.world/tags/JavaScript/"/>
-    
-    <category term="HTML" scheme="https://shawnzhou.world/tags/HTML/"/>
-    
-    <category term="CSS" scheme="https://shawnzhou.world/tags/CSS/"/>
-    
-    <category term="站群" scheme="https://shawnzhou.world/tags/%E7%AB%99%E7%BE%A4/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>WebPlus网站群平台操作指南—初级篇</title>
-    <link href="https://shawnzhou.world/2020/04/08/webplus-tutorial/"/>
-    <id>https://shawnzhou.world/2020/04/08/webplus-tutorial/</id>
-    <published>2020-04-08T05:14:04.000Z</published>
-    <updated>2021-02-12T09:22:47.521Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;网站群平台是我校用于维护官网页面的集成工具，尽管系统相对老旧一些，但仍然能完成完整的站点建设工作。为了方便后续同学的维护工作，提升学习效率，我将一些基本操作整理了下来，方便同学们查询阅读。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/04/08/GWxQXV.jpg&quot;&gt;&lt;/p&gt;</summary>
     
     
