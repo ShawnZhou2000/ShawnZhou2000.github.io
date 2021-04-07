@@ -6,7 +6,7 @@
   <link href="https://shawnzhou.world/atom.xml" rel="self"/>
   
   <link href="https://shawnzhou.world/"/>
-  <updated>2021-04-07T01:40:05.031Z</updated>
+  <updated>2021-04-07T01:45:09.343Z</updated>
   <id>https://shawnzhou.world/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>使用CSS对盒子水平居中的几种方法</title>
+    <title>使用CSS对盒子水平垂直居中的几种方法</title>
     <link href="https://shawnzhou.world/2021/04/07/horizontal-and-vertical-center-of-CSS/"/>
     <id>https://shawnzhou.world/2021/04/07/horizontal-and-vertical-center-of-CSS/</id>
     <published>2021-04-07T00:37:13.000Z</published>
-    <updated>2021-04-07T01:40:05.031Z</updated>
+    <updated>2021-04-07T01:45:09.343Z</updated>
     
     
     <summary type="html">&lt;p&gt; 将盒子水平居中是一件不难办的事情，那么如何做到水平垂直同时居中呢？这时候就需要思考一下了。&lt;/p&gt;
