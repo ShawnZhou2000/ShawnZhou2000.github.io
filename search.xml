@@ -1,6 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>【教程】如何使用校园邮箱申请正版JetBrains全家桶</title>
+    <url>/2021/04/08/How-to-apply-for-JetBrains-IDE-using-your-campus-email/</url>
+    <content><![CDATA[<p> 众所周知，JetBrains家的IDE功能非常强大，真可谓开发利器，高级生产力工具。但是很多IDE的收费是很贵的，个人使用承担不起这样昂贵的价格，使用校园邮箱提供的学生优惠就可以免费申请到一年的JetBrains IDE全家桶，这样我们就能开心的使用这些功能强大的IDE啦。</p>
+<p>虽然一次申请只有一年，但在到期之前可以再申请续一下，这样就可以用很长时间了。</p>
+<p>校园邮箱从哪获得呢？这篇教程我以我本学校的邮箱举例，不同学校的校园邮箱使用平台不尽相同，但基本操作都大同小异，按照学校给的教程开通一下账号就可以使用了。</p>
+<p>啥，你说你们学校没说过校园邮箱的事情？说不定是学校有但是低调了一些，多打听打听，会找到答案的。</p>
+<p><img src="https://z3.ax1x.com/2021/04/08/cJTpse.jpg"></p>
+<a id="more"></a>
+
+<h2 id="1-开通校园邮箱账号"><a href="#1-开通校园邮箱账号" class="headerlink" title="1. 开通校园邮箱账号"></a>1. 开通校园邮箱账号</h2><p>这里以我学校为例，如果你是其他学校的同学，应当参照你们学校发布的校园邮箱使用说明。</p>
+<p>一般来说，校园邮箱的邮箱地址都是带<code>stu</code>的，比如我校的是<code>@stu.qlu.edu.cn</code>。</p>
+<p>首先打开<a href="http://mail.stu.qlu.edu.cn/">http://mail.stu.qlu.edu.cn/</a>，首次登录需要使用学号为账号，系统会提供一个默认密码，第一次登录成功后需要及时修改。</p>
+<p>进入邮箱界面后，可以检查一下是否有安全策略等可能阻挡邮件接收的地方，或者自己发个邮件测试一下，没问题的话就进行下一步了。</p>
+<p><img src="https://z3.ax1x.com/2021/04/08/cJ58JK.png"></p>
+<p><img src="https://z3.ax1x.com/2021/04/08/cJOtQx.png"></p>
+<h2 id="2-开通JetBrains账号"><a href="#2-开通JetBrains账号" class="headerlink" title="2. 开通JetBrains账号"></a>2. 开通JetBrains账号</h2><p>打开JetBrains官网<a href="https://www.jetbrains.com/">https://www.jetbrains.com/</a>，在主页上方导航栏内点击小人图标，进入登录注册页面。</p>
+<p><img src="https://z3.ax1x.com/2021/04/08/cJIYt0.png"></p>
+<p>在下方对话框里输入你的注册邮箱（注意，这个可以不是你的校园邮箱，二者可以不相同），然后点击Sign Up</p>
+<p><img src="https://z3.ax1x.com/2021/04/08/cJIdcF.png"></p>
+<p>然后你就可以收到一封确认信息的注册邮件了。</p>
+<p><img src="https://z3.ax1x.com/2021/04/08/cJoC40.png"></p>
+<p><img src="https://z3.ax1x.com/2021/04/08/cJoiCV.png"></p>
+<p>按照提示完成后续注册。</p>
+<p><img src="https://z3.ax1x.com/2021/04/08/cJoDxS.png"></p>
+<p>记得把<code>I have read and I accept the JetBrains Account Agreement</code>打上勾，然后点击submit就可以完成注册了。</p>
+<h2 id="3-申请学生优惠"><a href="#3-申请学生优惠" class="headerlink" title="3. 申请学生优惠"></a>3. 申请学生优惠</h2><p>下面就到最关键的一步了，开始准备申请学生优惠。</p>
+<p><img src="https://z3.ax1x.com/2021/04/08/cJTHl8.png"></p>
+<p>点击这个<code>Apply for a free student or teacher license for educational purposes</code>，就可以进入到学生优惠申请界面。</p>
+<p>然后点击下面的<code>Apply now</code>。</p>
+<p><img src="https://z3.ax1x.com/2021/04/08/cJ7290.png"></p>
+<p>之后会弹出一个让你填写信息的页面，按照下图的说明填写即可。</p>
+<p><img src="https://z3.ax1x.com/2021/04/08/cJHXin.png"></p>
+<p>点击申请后，你的校园邮箱（不一定是你的账号邮箱）里面会收到一封确认邮件，按照提示点击确认。</p>
+<p>（我的账号已经申请过了，且确认邮件是在学校换邮件系统之前发的，所以现在的邮箱里没有这封邮件了，我从朋友的教程那里引了张参考图）</p>
+<p><img src="https://s1.ax1x.com/2020/04/04/Gw79Kg.png"></p>
+<p>如果上面的步骤都没有问题的话，申请通过后，你的主页上应该会这样显示：</p>
+<p><img src="https://z3.ax1x.com/2021/04/08/cJbhTJ.png"></p>
+<p>这里我用了我之前的账号，上面显示到今年6月底就会到期，不过还可以继续申请使用。</p>
+<p>到此为止，所有的申请工作就已经结束啦，可以去下载你喜欢的IDE使用了。</p>
+<h2 id="4-下载你喜欢的IDE"><a href="#4-下载你喜欢的IDE" class="headerlink" title="4. 下载你喜欢的IDE"></a>4. 下载你喜欢的IDE</h2><p>可以直接从官网导航找到你喜欢的IDE，比如WebStorm或IDEA Ultimate。</p>
+<p><img src="https://z3.ax1x.com/2021/04/08/cJLUaQ.png"></p>
+<p><img src="https://z3.ax1x.com/2021/04/08/cJLNVg.png"></p>
+<p>当然，你也可以选择使用官方的工具箱进行IDE的管理，下载Toolbox即可。链接：<a href="https://www.jetbrains.com/toolbox-app/">https://www.jetbrains.com/toolbox-app/</a></p>
+<p><img src="https://z3.ax1x.com/2021/04/08/cJLjJA.png"></p>
+<p>下载安装过程这里不再赘述。</p>
+<p>第一次启动时，会要你登录JetBrains账号，它会自动检测你的学生优惠许可，然后就自动激活啦。</p>
+<p>接下来就是快乐的搬砖时间~</p>
+<p><img src="https://z3.ax1x.com/2021/04/08/cJOrYd.png"></p>
+]]></content>
+      <categories>
+        <category>教程相关</category>
+      </categories>
+      <tags>
+        <tag>校园邮箱</tag>
+        <tag>教程</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>图解HTTP学习笔记—HTTP状态码</title>
     <url>/2021/04/07/HTTP-status-code/</url>
     <content><![CDATA[<p>《图解HTTP》是一本特别浅显易懂的书，形象地解释了HTTP协议中的各种内容。这篇学习笔记摘自原书第四章，返回结果的HTTP状态码。</p>

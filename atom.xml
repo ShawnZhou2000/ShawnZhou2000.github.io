@@ -6,7 +6,7 @@
   <link href="https://shawnzhou.world/atom.xml" rel="self"/>
   
   <link href="https://shawnzhou.world/"/>
-  <updated>2021-04-07T04:00:09.988Z</updated>
+  <updated>2021-04-08T06:45:00.128Z</updated>
   <id>https://shawnzhou.world/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【教程】如何使用校园邮箱申请正版JetBrains全家桶</title>
+    <link href="https://shawnzhou.world/2021/04/08/How-to-apply-for-JetBrains-IDE-using-your-campus-email/"/>
+    <id>https://shawnzhou.world/2021/04/08/How-to-apply-for-JetBrains-IDE-using-your-campus-email/</id>
+    <published>2021-04-08T03:49:54.000Z</published>
+    <updated>2021-04-08T06:45:00.128Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt; 众所周知，JetBrains家的IDE功能非常强大，真可谓开发利器，高级生产力工具。但是很多IDE的收费是很贵的，个人使用承担不起这样昂贵的价格，使用校园邮箱提供的学生优惠就可以免费申请到一年的JetBrains IDE全家桶，这样我们就能开心的使用这些功能强大的IDE啦。&lt;/p&gt;
+&lt;p&gt;虽然一次申请只有一年，但在到期之前可以再申请续一下，这样就可以用很长时间了。&lt;/p&gt;
+&lt;p&gt;校园邮箱从哪获得呢？这篇教程我以我本学校的邮箱举例，不同学校的校园邮箱使用平台不尽相同，但基本操作都大同小异，按照学校给的教程开通一下账号就可以使用了。&lt;/p&gt;
+&lt;p&gt;啥，你说你们学校没说过校园邮箱的事情？说不定是学校有但是低调了一些，多打听打听，会找到答案的。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://z3.ax1x.com/2021/04/08/cJTpse.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="教程相关" scheme="https://shawnzhou.world/categories/%E6%95%99%E7%A8%8B%E7%9B%B8%E5%85%B3/"/>
+    
+    
+    <category term="校园邮箱" scheme="https://shawnzhou.world/tags/%E6%A0%A1%E5%9B%AD%E9%82%AE%E7%AE%B1/"/>
+    
+    <category term="教程" scheme="https://shawnzhou.world/tags/%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>图解HTTP学习笔记—HTTP状态码</title>
@@ -426,32 +451,6 @@
     
     <summary type="html">&lt;p&gt;整理一下最近在工作中遇到的一些问题和解决办法。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/04/08/GWxQXV.jpg&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="站群工作组相关" scheme="https://shawnzhou.world/categories/%E7%AB%99%E7%BE%A4%E5%B7%A5%E4%BD%9C%E7%BB%84%E7%9B%B8%E5%85%B3/"/>
-    
-    
-    <category term="JavaScript" scheme="https://shawnzhou.world/tags/JavaScript/"/>
-    
-    <category term="HTML" scheme="https://shawnzhou.world/tags/HTML/"/>
-    
-    <category term="CSS" scheme="https://shawnzhou.world/tags/CSS/"/>
-    
-    <category term="站群" scheme="https://shawnzhou.world/tags/%E7%AB%99%E7%BE%A4/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>WebPlus网站群平台操作指南—进阶篇</title>
-    <link href="https://shawnzhou.world/2020/04/10/webplus-advanced/"/>
-    <id>https://shawnzhou.world/2020/04/10/webplus-advanced/</id>
-    <published>2020-04-10T05:14:20.000Z</published>
-    <updated>2021-02-12T09:22:19.012Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;上一篇文章中介绍了站群的基本操作方法和一些需要注意的地方，本篇整理一些比较复杂的操作。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/04/08/GWxQXV.jpg&quot;&gt;&lt;/p&gt;</summary>
     
     
     
