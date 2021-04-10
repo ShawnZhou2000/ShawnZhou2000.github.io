@@ -6,7 +6,7 @@
   <link href="https://shawnzhou.world/atom.xml" rel="self"/>
   
   <link href="https://shawnzhou.world/"/>
-  <updated>2021-04-08T06:47:36.219Z</updated>
+  <updated>2021-04-10T04:59:05.766Z</updated>
   <id>https://shawnzhou.world/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>盒模型详解—你真的了解盒模型吗？</title>
+    <link href="https://shawnzhou.world/2021/04/08/box-model/"/>
+    <id>https://shawnzhou.world/2021/04/08/box-model/</id>
+    <published>2021-04-08T07:34:24.000Z</published>
+    <updated>2021-04-10T04:59:05.766Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt; 突然想到前几天面试的一个尴尬场景。关于盒模型理论，我以前确实有拿来认真了解，我以为我还是知道的，结果面试官一个问题把我问蒙了：&lt;/p&gt;
+&lt;p&gt;“请你说一下W3C盒模型和IE盒模型的区别。”&lt;/p&gt;
+&lt;p&gt;我…..这是啥？&lt;/p&gt;
+&lt;p&gt;为了避免这样的丢人事件再次发生，我打算重新认真学习一下。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://z3.ax1x.com/2021/04/10/caNGgx.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="前端开发那些事" scheme="https://shawnzhou.world/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    
+    
+    <category term="HTML" scheme="https://shawnzhou.world/tags/HTML/"/>
+    
+    <category term="CSS" scheme="https://shawnzhou.world/tags/CSS/"/>
+    
+    <category term="盒模型" scheme="https://shawnzhou.world/tags/%E7%9B%92%E6%A8%A1%E5%9E%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>【教程】如何用校园邮箱申请正版JetBrains全家桶</title>
@@ -438,32 +465,6 @@
     
     
     <category term="UI设计" scheme="https://shawnzhou.world/tags/UI%E8%AE%BE%E8%AE%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>WebPlus网站群平台往期bug整理+零碎知识</title>
-    <link href="https://shawnzhou.world/2020/05/29/webplus-bugfix/"/>
-    <id>https://shawnzhou.world/2020/05/29/webplus-bugfix/</id>
-    <published>2020-05-29T05:14:33.000Z</published>
-    <updated>2021-02-12T09:23:00.611Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;整理一下最近在工作中遇到的一些问题和解决办法。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/04/08/GWxQXV.jpg&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="站群工作组相关" scheme="https://shawnzhou.world/categories/%E7%AB%99%E7%BE%A4%E5%B7%A5%E4%BD%9C%E7%BB%84%E7%9B%B8%E5%85%B3/"/>
-    
-    
-    <category term="JavaScript" scheme="https://shawnzhou.world/tags/JavaScript/"/>
-    
-    <category term="HTML" scheme="https://shawnzhou.world/tags/HTML/"/>
-    
-    <category term="CSS" scheme="https://shawnzhou.world/tags/CSS/"/>
-    
-    <category term="站群" scheme="https://shawnzhou.world/tags/%E7%AB%99%E7%BE%A4/"/>
     
   </entry>
   
