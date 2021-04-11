@@ -6,7 +6,7 @@
   <link href="https://shawnzhou.world/atom.xml" rel="self"/>
   
   <link href="https://shawnzhou.world/"/>
-  <updated>2021-04-11T08:15:26.730Z</updated>
+  <updated>2021-04-11T13:53:48.549Z</updated>
   <id>https://shawnzhou.world/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>0.1+0.2等于几？</title>
+    <link href="https://shawnzhou.world/2021/04/11/JavaScript-floating-point-calculation-problems/"/>
+    <id>https://shawnzhou.world/2021/04/11/JavaScript-floating-point-calculation-problems/</id>
+    <published>2021-04-11T09:20:15.000Z</published>
+    <updated>2021-04-11T13:53:48.549Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;0.1+0.2等于0.3吗？这好像是一个小学生就能解答的问题。&lt;/p&gt;
+&lt;p&gt;但是在JavaScript中，这个问题的答案可就不一定了。为什么呢？学习一下，写个笔记。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://z3.ax1x.com/2021/04/11/c0ntPK.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="前端开发那些事" scheme="https://shawnzhou.world/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    
+    
+    <category term="JavaScript" scheme="https://shawnzhou.world/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>网络请求中的跨域资源共享</title>
@@ -442,27 +463,6 @@
     <summary type="html">&lt;p&gt;界面设计中的版式设计是视觉设计的核心，也是视觉设计的基础。界面板式作为颜色的框架支撑，在设计中必然占据核心地位。&lt;/p&gt;
 &lt;p&gt;该部分学习笔记为第一大块内容，版式。笔记摘自《规律与逻辑》。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/07/04/NvqNlD.jpg&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="前端开发那些事" scheme="https://shawnzhou.world/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
-    
-    
-    <category term="UI设计" scheme="https://shawnzhou.world/tags/UI%E8%AE%BE%E8%AE%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《规律与逻辑·用户体验设计法则》 学习笔记3</title>
-    <link href="https://shawnzhou.world/2020/07/04/ui-note3/"/>
-    <id>https://shawnzhou.world/2020/07/04/ui-note3/</id>
-    <published>2020-07-04T05:17:19.000Z</published>
-    <updated>2021-02-12T09:21:16.764Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;视觉设计能力是用户体验设计师的必备能力，也是基础能力。应当先了解基本原则，根据原则把版面做到整体看起来舒适， 再尝试突破理论原则进行创新。&lt;/p&gt;
-&lt;p&gt;该部分学习笔记为第一大块内容，颜色。笔记摘自《规律与逻辑》。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/07/04/NvUtYD.jpg&quot;&gt;&lt;/p&gt;</summary>
     
     
     
