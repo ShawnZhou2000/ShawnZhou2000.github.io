@@ -6,7 +6,7 @@
   <link href="https://shawnzhou.world/atom.xml" rel="self"/>
   
   <link href="https://shawnzhou.world/"/>
-  <updated>2021-04-10T09:10:14.833Z</updated>
+  <updated>2021-04-11T08:13:05.899Z</updated>
   <id>https://shawnzhou.world/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>网络请求中的跨域资源共享</title>
+    <link href="https://shawnzhou.world/2021/04/11/cross-origin/"/>
+    <id>https://shawnzhou.world/2021/04/11/cross-origin/</id>
+    <published>2021-04-11T03:34:22.000Z</published>
+    <updated>2021-04-11T08:13:05.899Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt; 跨域是实际前后端分离开发当中不可避免的会出现的问题，在面试当中也经常问到相关内容，这部分知识还是挺重要的。&lt;/p&gt;
+&lt;p&gt;这里把跨域相关的知识点学习一下，记录一下。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://z3.ax1x.com/2021/04/11/cw8HS0.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="前端开发那些事" scheme="https://shawnzhou.world/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    
+    
+    <category term="JavaScript" scheme="https://shawnzhou.world/tags/JavaScript/"/>
+    
+    <category term="跨域" scheme="https://shawnzhou.world/tags/%E8%B7%A8%E5%9F%9F/"/>
+    
+    <category term="CORS" scheme="https://shawnzhou.world/tags/CORS/"/>
+    
+  </entry>
   
   <entry>
     <title>数据存储之Web Storage</title>
@@ -438,27 +463,6 @@
     <summary type="html">&lt;p&gt;视觉设计能力是用户体验设计师的必备能力，也是基础能力。应当先了解基本原则，根据原则把版面做到整体看起来舒适， 再尝试突破理论原则进行创新。&lt;/p&gt;
 &lt;p&gt;该部分学习笔记为第一大块内容，颜色。笔记摘自《规律与逻辑》。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/07/04/NvUtYD.jpg&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="前端开发那些事" scheme="https://shawnzhou.world/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
-    
-    
-    <category term="UI设计" scheme="https://shawnzhou.world/tags/UI%E8%AE%BE%E8%AE%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《规律与逻辑·用户体验设计法则》 学习笔记2</title>
-    <link href="https://shawnzhou.world/2020/06/28/ui-note2/"/>
-    <id>https://shawnzhou.world/2020/06/28/ui-note2/</id>
-    <published>2020-06-28T05:17:12.000Z</published>
-    <updated>2021-02-12T09:23:18.421Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;不符合设计规范的设计很难被用户接受，也会极大地增加开发难度。界面设计严格按照规范来执行，是对用户体验设计师的基本要求。&lt;/p&gt;
-&lt;p&gt;该部分学习笔记摘自《规律与逻辑》。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/06/28/NgVFx0.jpg&quot;&gt;&lt;/p&gt;</summary>
     
     
     

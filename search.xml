@@ -1,6 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>网络请求中的跨域资源共享</title>
+    <url>/2021/04/11/cross-origin/</url>
+    <content><![CDATA[<p> 跨域是实际前后端分离开发当中不可避免的会出现的问题，在面试当中也经常问到相关内容，这部分知识还是挺重要的。</p>
+<p>这里把跨域相关的知识点学习一下，记录一下。</p>
+<p><img src="https://z3.ax1x.com/2021/04/11/cw8HS0.jpg"></p>
+<a id="more"></a>
+
+<h2 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h2><p>在研究跨域之前，首先得明白啥是“域”，以及我们为什么要把它跨过去。</p>
+<p>先引入一下同源策略的定义吧。</p>
+<p>MDN定义：</p>
+<blockquote>
+<p>同源策略是一个重要的安全策略，它用于限制一个origin的文档或者它加载的脚本如何能与另一个源的资源进行交互。它能帮助阻隔恶意文档，减少可能被攻击的媒介。</p>
+</blockquote>
+<p>简单来说，这是浏览器的一种安全策略，对于非同源之间的信息交互，浏览器会拒绝，这样能够有效阻隔来自非安全的源的恶意攻击。同源策略是一种Web的规范，而浏览器是这些规范的实现者。假如Web当中没有同源策略，那我们在网络上最后一点点的隐私也就彻底没有了。</p>
+<p>那么什么才能叫同源，什么叫不同源呢？同源是指同时满足三个相同的URL，三个相同指的是<strong>域名相同，端口相同，协议相同</strong>。只有当三者完全相同时才可以认为是同源，有任一条件不相同则判定为不同源。在同源下进行URL请求是一切正常的，但若是未经特殊处理的不同源请求，将会被阻止并抛出安全错误，这是浏览器对信息安全的一种自我保护机制。</p>
+<p>个人认为，同源也可以理解为同域，即处于同一资源点或同一网络区域，对不同源之间进行的访问一般称之为跨域访问。</p>
+<p>在前后端分离的开发当中，前端和后端部署的端口号不相同，甚至有时域名都不会相同，这很明显在请求时就会触发保护机制，导致前端无法发送HTTP请求。但可以通过一些设置来越过这个保护机制。</p>
+<h2 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h2><p>CORS的中文名字叫跨域资源共享，英文全称为<code>Cross-Origin Resource Sharing</code>，它定义了浏览器与服务器之间如何实现跨域通信。CORS背后的基本思路就是使用自定义的HTTP头部允许浏览器和服务器之间互相了解，以确实请求或相应应该成功还是失败。</p>
+<p>CORS通信过程由浏览器自主完成，使用CORS进行的跨域通信与不使用CORS的同域通信代码是一样的，但浏览器会自动识别是否跨域，如果跨域，就会自动附加一些头信息，有时候还会多发一次请求。</p>
+<p>浏览器将CORS请求分成两类：简单请求和非简单请求。满足简单请求有两个条件。</p>
+<ol>
+<li>请求方法是下面三个之一：<code>HEAD</code>，<code>GET</code>，<code>POST    </code></li>
+<li>HTTP的头信息不超出以下字段：<ul>
+<li>Accept</li>
+<li>Accept-Language</li>
+<li>Content-Language</li>
+<li>Last-Event-ID</li>
+<li>Content-Type：只限于三个值<code>application/x-www-form-urlencoded</code>、<code>multipart/form-data</code>、<code>text/plain</code></li>
+</ul>
+</li>
+</ol>
+<p>这两个条件有任一不满足，就属于非简单请求。</p>
+<p>对于简单请求，会在头信息中额外添加一个<code>Origin</code>字段，它包含发送请求页面的域（协议，域名和端口），服务器接收到这个值后，根据这个值决定是否同意这个请求。如果服务器可以同意这个请求，则会在响应头部加入<code>Access-Control-Allow-Origin</code>头部，包含相同的源，或者<code>*</code>（表示此资源公开），如果服务器不同意这个请求，则返回的头部中没有这个东西，浏览器如果在响应中没有找到此头部，则认为跨域请求被拦截，会抛出一个错误，但这个错误不能通过HTTP状态码识别，因为正常返回的响应可能是200，但只是被拦截。</p>
+<p>其实除了<code>Access-Control-Allow-Origin</code>，还有两个可选字段<code>Access-Control-Allow-Credentials</code>，<code>Access-Control-Expose-Headers</code>，前者表示是否允许发送cookie，它的值只能设置为true，表示允许请求中携带cookie，默认CORS请求是不带cookie的，如果不想带cookie，这段删除即可。后者表示<code>XMLHttpRequest</code>对象的<code>getResponseHeader()</code>方法还能否拿到其他字段，</p>
+<p>非简单请求是指对服务器有特殊要求的请求，比如请求方法为<code>PUT</code>或<code>DELETE</code>，或者<code>Content-Type</code>字段类型为<code>application/json</code>。</p>
+<p>非简单CORS请求会在正式通信之前先增加一次预检请求，意思是首先请求服务器确认这样的请求是否可以被满足。这种预检请求机制允许使用自定义头部，允许使用除了<code>GET</code>和<code>POST</code>之外的方法，以及不同请求体内容类型。预检请求使用<code>OPTIONS</code>方法发送，其头部包含<code>Origin</code>，<code>Access-Control-Request-Method</code>，<code>Access-Control-Request-Headers</code>，前两个必选，第三个可选。第一个头部与简单请求中的origin相同，第二个头部表示请求希望使用的方法，第三个头部是可选的，表示自定义头部列表，使用逗号分隔。</p>
+<p>服务器在接收<code>OPTIONS</code>请求后，会在响应中发送这些头部信息与浏览器沟通：</p>
+<ul>
+<li><code>Access-Control-Allow-Origin</code>：与简单请求含义相同</li>
+<li><code>Accecss-Control-Allow-Methods</code>：本服务器允许的方法（一个用逗号分隔的列表）</li>
+<li><code>Access-Control-Allow-Headers</code>：本服务器允许的头部（一个用逗号分隔的列表）</li>
+<li><code>Access-Control-Max-Age</code>：缓存预检请求时间（单位为秒）</li>
+</ul>
+<p>预检请求返回后，结果会按响应指定的时间缓存一定时间，在这段时间内，不会再重新发送预检请求。</p>
+<p>也就是说，第一次发送非简单请求时会发送两个请求，第二次发送时，如果第一次的预检请求缓存没有过期，则不会再重新发送一次预检请求，但如果过期了，就会再发送一次预检请求。预检请求中也可以携带凭据请求设置。</p>
+<h2 id="实际解决跨域拦截的办法"><a href="#实际解决跨域拦截的办法" class="headerlink" title="实际解决跨域拦截的办法"></a>实际解决跨域拦截的办法</h2><p>我们在实际处理跨域问题当中是后端解决的，使用SpringBoot提供的<code>@Configuration</code>注解即可将其自动配置。</p>
+<p>查阅资料可以知道axios也可以设定跨域，但我们在开发过程中尝试过一些方法均不成功，原因未知，最终是由后端添加配置解决了问题。</p>
+<p>以下代码摘自我的Java Web课程设计，由驼君贡献的后端代码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.javaee.keshe.config;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.servlet.config.annotation.CorsRegistry;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.servlet.config.annotation.WebMvcConfigurer;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>：TuoJun</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span>：2021/01/04 17:33</span></span><br><span class="line"><span class="comment"> * Description：</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CrosConfig</span> <span class="keyword">implements</span> <span class="title">WebMvcConfigurer</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addCorsMappings</span><span class="params">(CorsRegistry registry)</span> </span>&#123;</span><br><span class="line">        registry.addMapping(<span class="string">&quot;/**&quot;</span>)</span><br><span class="line">                .allowedOriginPatterns(<span class="string">&quot;*&quot;</span>)</span><br><span class="line">                .allowedMethods(<span class="string">&quot;GET&quot;</span>, <span class="string">&quot;HEAD&quot;</span>, <span class="string">&quot;POST&quot;</span>, <span class="string">&quot;PUT&quot;</span>, <span class="string">&quot;DELETE&quot;</span>, <span class="string">&quot;OPTIONS&quot;</span>)</span><br><span class="line">                .allowCredentials(<span class="keyword">true</span>)</span><br><span class="line">                .maxAge(<span class="number">3600</span>)</span><br><span class="line">                .allowedHeaders(<span class="string">&quot;*&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>此外还有一个abo的版本，是我们之前项目里使用过的，也可以处理跨域问题。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.gk.gkserver.config;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.cors.CorsConfiguration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.cors.UrlBasedCorsConfigurationSource;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.filter.CorsFilter;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> abo</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2020/9/8 20:36</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@remarks</span></span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CorsConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> CorsConfiguration <span class="title">corsConfig</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        CorsConfiguration corsConfiguration = <span class="keyword">new</span> CorsConfiguration();</span><br><span class="line">        corsConfiguration.addAllowedOrigin(<span class="string">&quot;*&quot;</span>);</span><br><span class="line">        corsConfiguration.addAllowedHeader(<span class="string">&quot;*&quot;</span>);</span><br><span class="line">        corsConfiguration.addAllowedMethod(<span class="string">&quot;*&quot;</span>);</span><br><span class="line">        corsConfiguration.setAllowCredentials(<span class="keyword">true</span>);</span><br><span class="line">        corsConfiguration.setMaxAge(<span class="number">3600L</span>);</span><br><span class="line">        <span class="keyword">return</span> corsConfiguration;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> CorsFilter <span class="title">corsFilter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        UrlBasedCorsConfigurationSource source = <span class="keyword">new</span> UrlBasedCorsConfigurationSource();</span><br><span class="line">        source.registerCorsConfiguration(<span class="string">&quot;/**&quot;</span>, corsConfig());</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> CorsFilter(source);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="其他跨域解决方案"><a href="#其他跨域解决方案" class="headerlink" title="其他跨域解决方案"></a>其他跨域解决方案</h2><p>除了CORS之外，还有几种跨域解决方案，它们都有一定的局限性，但仍然有一些可圈可点之处。</p>
+<ul>
+<li>图片探测（image ping）</li>
+</ul>
+<p>利用<code>&lt;img&gt;</code>标签实现跨域通信的技术，因为任何页面都可以跨域加载图片。可以动态创建一个图片，然后通过它们的<code>onload</code>和<code>onerror</code>事件处理程序得知何时收到响应。这种技术常用于图片探测，数据通过查询字符串发送，响应随意，不过一般是位图图片或者204状态码。</p>
+<blockquote>
+<p>204 No Content 表示请求在服务端已经正常处理，但没有资源可以返回。一般来说不需要返回信息的请求可以返回204。</p>
+</blockquote>
+<p>浏览器通过图片探测拿不到任何数据，但监听的<code>onload</code>和<code>onerror</code>事件可以让开发者知道什么时候可以收到响应（测试服务器连通性）</p>
+<p>《JavaScript高级程序设计》中说，图片探测可以被用于跟踪用户在页面上的点击或动态显示广告，但我实在不理解这俩操作到底有什么用以及怎么实现。。并且在搜索引擎中也找不到相关结果，大概是一个被遗弃的办法吧。</p>
+<ul>
+<li>JSONP</li>
+</ul>
+<p>JSONP是“JSON with padding”的简写，是JSON的一种变形体，看起来和JSON一样，但会包含在一个函数调用里。</p>
+<p>JSONP格式包含两个部分：回调和数据，回调是在页面接收到响应之后执行的函数，通常回调函数的名称是通过请求来动态指定的，而数据就是作为参数传回给回调函数后的JSON数据，</p>
+<p>一个典型的JSONP请求例子：<code>http://url.com/jsonp/?callback=handleResponse</code></p>
+<p>这个例子里把回调函数的名字定为<code>handleResopnse()</code>。</p>
+<p>JSONP调用的原理和图片探测类似，是动态创建<code>&lt;script&gt;</code>元素实现的，因为<code>&lt;script&gt;</code>的src属性也不受到跨域的限制，因为JSONP是有效的JavaScript，所以JSONP响应在被加载完成后会立即执行。</p>
+<p>JSONP的优点是简单直观好用，可以直接访问响应体，但他的缺点非常致命：不安全。因为JSONP是从任意不同的域拉取可执行代码，如果这个域返回了恶意内容，只能删除JSONP，没有其他解决办法，所以在使用JSONP时一定要确保目标域可信任。此外，JSONP无法很好的确定请求是否失败，尽管HTML5中<code>&lt;script&gt;</code>元素有<code>onerror</code>事件，但目前还没有被任何浏览器实现。所以使用当中有一种使用计时器的替代方法，这种方法并不准确，但至少管点用。</p>
+]]></content>
+      <categories>
+        <category>前端开发那些事</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>跨域</tag>
+        <tag>CORS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>数据存储之Web Storage</title>
     <url>/2021/04/10/web-storage/</url>
     <content><![CDATA[<p>Web Storage是HTML5中提供的一套关于数据存储的解决方案。最早是网页超文本应用技术工作组在Web Applications 1.0规范中提出的。这个规范中的草案最终成为了HTML5中的一部分，后来又独立成为了自己的规范。它用来解决一些Cookie难以处理的存储问题。</p>
