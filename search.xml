@@ -24,9 +24,9 @@
 </li>
 <li><p>把需要计算的数字同时倍增放大一个给定的倍数，放大到都是整数，然后在整数下进行计算，计算完毕后再缩回来。</p>
 </li>
-<li><p>把精确数值计算的任务丢给后端</p>
+<li><p>把精确数值计算的任务丢给后端。</p>
 </li>
-<li><p>采用第三方库<code>Math.js</code>，<code>decimal.js</code>，<code>big.js</code>，</p>
+<li><p>采用第三方库<code>Math.js</code>，<code>decimal.js</code>，<code>big.js</code>等，完成计算操作。</p>
 </li>
 </ul>
 ]]></content>
