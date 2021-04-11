@@ -6,7 +6,7 @@
   <link href="https://shawnzhou.world/atom.xml" rel="self"/>
   
   <link href="https://shawnzhou.world/"/>
-  <updated>2021-04-11T08:13:05.899Z</updated>
+  <updated>2021-04-11T08:15:26.730Z</updated>
   <id>https://shawnzhou.world/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://shawnzhou.world/2021/04/11/cross-origin/"/>
     <id>https://shawnzhou.world/2021/04/11/cross-origin/</id>
     <published>2021-04-11T03:34:22.000Z</published>
-    <updated>2021-04-11T08:13:05.899Z</updated>
+    <updated>2021-04-11T08:15:26.730Z</updated>
     
     
     <summary type="html">&lt;p&gt; 跨域是实际前后端分离开发当中不可避免的会出现的问题，在面试当中也经常问到相关内容，这部分知识还是挺重要的。&lt;/p&gt;
@@ -33,7 +33,7 @@
     <category term="前端开发那些事" scheme="https://shawnzhou.world/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
     
     
-    <category term="JavaScript" scheme="https://shawnzhou.world/tags/JavaScript/"/>
+    <category term="计算机网络" scheme="https://shawnzhou.world/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
     <category term="跨域" scheme="https://shawnzhou.world/tags/%E8%B7%A8%E5%9F%9F/"/>
     
