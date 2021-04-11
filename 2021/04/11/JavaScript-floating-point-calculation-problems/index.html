@@ -82,7 +82,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">501</span>
+            <span class="post-count">615</span>
         </span>
     </span>
 
@@ -91,7 +91,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1 分钟</span>
+            <span class="post-count">2 分钟</span>
         </span>
     </span>
 </div>
@@ -120,6 +120,16 @@
 </blockquote>
 <p>可以发现，这两个数字的二进制是无限的。由于小数部分最多支持52位，所以在IEEE 754标准下，到了52位之后数字就会被截断，只能拿在它之前的数值进行计算，这样的计算是存在误差的，然后就得到了这个出现错误的结果。</p>
 <p>如何解决？方法有很多。</p>
+<ul>
+<li><p>使用<code>toFixed()</code>方法进行保留x位小数，适合于计算有精度要求的情况，但是这种情况并不能满足全部可能。</p>
+</li>
+<li><p>把需要计算的数字同时倍增放大一个给定的倍数，放大到都是整数，然后在整数下进行计算，计算完毕后再缩回来。</p>
+</li>
+<li><p>把精确数值计算的任务丢给后端</p>
+</li>
+<li><p>采用第三方库<code>Math.js</code>，<code>decimal.js</code>，<code>big.js</code>，</p>
+</li>
+</ul>
  
       <!-- reward -->
       
