@@ -1,6 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>探究JavaScript中数组扁平化的方式</title>
+    <url>/2021/04/13/Flatten-the-array/</url>
+    <content><![CDATA[<p>数组扁平化，又称数组拍平，是一种将多维数组降维打击之后变成一维数组的办法。</p>
+<p>与深浅拷贝一样也是在面试里出现过，而实际开发中见得较少。这里记录一下，学习学习。</p>
+<p><img src="https://z3.ax1x.com/2021/04/13/cyCFBt.jpg"></p>
+<a id="more"></a>
+
+<p>数组扁平化的目标举例：现在有一个数组是<code>[1,[2,[3,4]]]</code>，要把它高维的部分拍扁，变成<code>[1,2,3,4]</code>。</p>
+<p>一个直观的做法就是递归，遍历元素，当目前元素是数值，那就加入到新数组，如果是引用类型（数组），那就递归遍历这个数组。</p>
+<p>这样的做法大概做法如下：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> target = [];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">flatten</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> el <span class="keyword">of</span> arr) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> el === <span class="string">&#x27;object&#x27;</span>) &#123;</span><br><span class="line">            flatten(el);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            target.push(el);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这种做法看起来没啥问题，但实际运行起来漏洞百出。对于数组里面元素只有数字的还好，但如果啥都有的话，就会报错。</p>
+<p>那咱转化成另一种遍历方式？</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> target = [];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">flatten</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> index = <span class="number">0</span>; index &lt; arr.length; index++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> arr[index] === <span class="string">&#x27;object&#x27;</span>) &#123;</span><br><span class="line">            flatten(arr[index]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            target.push(arr[index]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>嗯，这样是可以跑了，但是，对于下面这个巨奇怪的数组：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [</span><br><span class="line">    <span class="number">1</span>,<span class="number">2</span>,</span><br><span class="line">    &#123;<span class="attr">aaa</span>: <span class="string">&#x27;bbb&#x27;</span>&#125;,</span><br><span class="line">    [<span class="number">2</span>,<span class="number">3</span>,&#123;<span class="attr">a</span>:<span class="number">4</span>&#125;,[<span class="number">5</span>,[[[[<span class="number">1</span>],<span class="number">2</span>],<span class="number">3</span>]]]],</span><br><span class="line">    <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="function">() =&gt;</span> &#123;</span><br><span class="line">           <span class="keyword">return</span> <span class="number">123</span>;</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>它的结果是：<code>[ 1, 2, 2, 3, 5, 1, 2, 3, [Function] ]</code>。看起来少了点东西？没错，里面的对象没了。这说明我们的判断方法有问题。</p>
+<p>再换一种方式，这次使用<code>Array.isArray</code>方法进行判定，然后把这个有点视觉观感不太好的if换成三目，就是下面这样：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> target = [];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">flatten</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> index = <span class="number">0</span>; index &lt; arr.length; index++) &#123;</span><br><span class="line">        <span class="built_in">Array</span>.isArray(arr[index]) ? flatten(arr[index]) : target.push(arr[index]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>测试输出<code>[ 1, 2, &#123; aaa: &#39;bbb&#39; &#125;, 2, 3, &#123; a: 4 &#125;, 5, 1, 2, 3, [Function] ]</code>，这是我们想要的结果。</p>
+<p>其实也可以使用ES6中的新方法<code>reduce</code>处理这个事情。先摘一下我之前记录JavaScript数组操作时的笔记：</p>
+<blockquote>
+<p><code>reduce</code>方法接收一个有以下四个参数的函数：<code>previousValue</code>，<code>currentValue</code>，<code>index</code>，<code>array</code>，后两个参数是可选的。这个函数会返回一个将被叠加到累加器的值，方法停止执行后会返回这个累加器。如果要对一个数组中所有元素求和，这个就比较有用。</p>
+</blockquote>
+<p>使用<code>reduce</code>处理拍平的操作思路也是递归。这里还使用到了展开运算符，两者一结合，写出来的代码就比较优美了。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">flatten</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> arr.reduce(<span class="function">(<span class="params">pre,cur</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Array</span>.isArray(cur) ? [...pre, ...flatten(cur)] : [...pre, cur];</span><br><span class="line">    &#125;,[])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>那既然都考虑到ES6了，ES6里面就没有可以直接完成这个操作的函数吗？其实是有的。一行解决。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">arr.flat(<span class="literal">Infinity</span>)</span><br></pre></td></tr></table></figure>
+
+<p>参数里传入的是扁平化的深度，那要彻底扁平的话就传入一个<code>Infinity</code>就可以了。</p>
+<p>还有没有其他方法呢？有一种使用<code>toString</code>的方法，但是效果并不好，对于复杂的结构不能处理，这里给出查找到的一种做法参考。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">flat</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> arr.toString().split(<span class="string">&#x27;,&#x27;</span>).map(<span class="function">(<span class="params">val</span>)=&gt;</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">parseInt</span>(val)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>最后是一种比较神的做法，它使用的是apply和some，有点高级。这个留个坑，以后再慢慢研究。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">flat</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (arr.some(<span class="function"><span class="params">item</span> =&gt;</span> <span class="built_in">Array</span>.isArray(item))) &#123;</span><br><span class="line">        arr = [].concat.apply([],arr);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>前端开发那些事</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>面试题</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>0.1+0.2等于几？</title>
     <url>/2021/04/11/JavaScript-floating-point-calculation-problems/</url>
     <content><![CDATA[<p>0.1+0.2等于0.3吗？这好像是一个小学生就能解答的问题。</p>
@@ -388,6 +441,7 @@
       </categories>
       <tags>
         <tag>JavaScript</tag>
+        <tag>面试题</tag>
       </tags>
   </entry>
   <entry>

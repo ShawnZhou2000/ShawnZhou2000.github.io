@@ -13,7 +13,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    JavaScript中的深拷贝与浅拷贝 |  ShawnZhou的小站
+    探究JavaScript中数组扁平化的方式 |  ShawnZhou的小站
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -52,7 +52,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-deep-copy-and-shallow-copy"
+  id="post-Flatten-the-array"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -63,15 +63,15 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  JavaScript中的深拷贝与浅拷贝
+  探究JavaScript中数组扁平化的方式
 </h1>
  
 
     </header>
      
     <div class="article-meta">
-      <a href="/2021/04/06/deep-copy-and-shallow-copy/" class="article-date">
-  <time datetime="2021-04-06T07:17:18.000Z" itemprop="datePublished">2021-04-06</time>
+      <a href="/2021/04/13/Flatten-the-array/" class="article-date">
+  <time datetime="2021-04-13T11:14:08.000Z" itemprop="datePublished">2021-04-13</time>
 </a> 
   <div class="article-category">
     <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/">前端开发那些事</a>
@@ -82,7 +82,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">964</span>
+            <span class="post-count">883</span>
         </span>
     </span>
 
@@ -98,41 +98,50 @@
  
     </div>
       
-    <div class="tocbot"></div>
-
 
 
 
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p> 最近在面试和学习当中都遇到了关于深拷贝和浅拷贝的问题，由于之前做项目没有遇到过此类问题，这里做一个简单的记录，学习一下。</p>
-<p><img src="https://z3.ax1x.com/2021/04/07/c38KUg.jpg"></p>
+  <p>数组扁平化，又称数组拍平，是一种将多维数组降维打击之后变成一维数组的办法。</p>
+<p>与深浅拷贝一样也是在面试里出现过，而实际开发中见得较少。这里记录一下，学习学习。</p>
+<p><img src="https://z3.ax1x.com/2021/04/13/cyCFBt.jpg"></p>
 <a id="more"></a>
 
-<h2 id="基本知识"><a href="#基本知识" class="headerlink" title="基本知识"></a>基本知识</h2><p>前置知识：js的数据类型。</p>
-<p>在JavaScript里面，数据类型可以分为两大类，基本类型和引用类型。</p>
-<p>基本类型也就是简单的数据类型，比如Number, null, Boolean, String, undefined, Symbol，而引用类型通常是复合类型，比如Object, Array, Function, Date, RegExp等。</p>
-<p>基本类型存储在栈中，以键值对的形式，引用类型的值保存在堆中，对象的引用保存在栈中，啥叫对象的引用呢，可以简单理解为这是个指针。访问的时候，我们不能访问堆，需要通过栈间接访问堆。</p>
-<p>那么深拷贝和浅拷贝到底是什么东西呢？首先明确拷贝是什么。拷贝就是复制，创建一个新变量时使用原有变量的“内容”创建，复制一份新的。</p>
-<p>在复制的过程中，问题就出现在引用类型里，我要复制的是对象的引用，还是对象的本身？这听起来似乎有点绕，可以换个方式理解：假如我要复制一个对象，我是要让复制后的对象也指向原来的内容，还是重新创建一份完全一样的新对象？</p>
-<blockquote>
-<p>“当我的全身都被更换，就连我的大脑一起都被换掉时，那时候的我，还会是‘我’吗？”</p>
-</blockquote>
-<p>这里面就牵扯到深拷贝和浅拷贝的概念了。所谓浅拷贝，就是在复制的时候只复制所有的引用，复制之后的新对象里，只是创建了一个新的访问原来位置的引用，而原来这个位置本身的内容，没有被重新创建。那么深拷贝就是与其相对应的，不仅引用被复制了，连引用指向的原位置的内容也被重新复制了一份，创建了一个新的。</p>
-<p>那么既然这样，深拷贝就一定比浅拷贝好吗？在实际应用中是否应当全都使用深拷贝？其实不一定。深拷贝可能需要经过多层递归调用，效率通常会低一些，而有时候浅拷贝就能满足很多实际场景的要求。</p>
-<h2 id="浅拷贝实际应用"><a href="#浅拷贝实际应用" class="headerlink" title="浅拷贝实际应用"></a>浅拷贝实际应用</h2><p>以下是几个例子。</p>
-<p><code>Object.assign()</code>，把任意多个源对象自身的可枚举属性拷贝给目标对象，然后返回目标对象。</p>
-<p><code>展开运算符...</code>，与<code>Object.assign()</code>功能相同。</p>
-<p><code>赋值运算符=</code>，赋值只会赋给引用，算浅拷贝。</p>
-<p><code>Array.prototype.concat()</code>，返回一个新数组，但如果数组中有嵌套对象则为浅拷贝</p>
-<p><code>Array.prototype.slice()</code>，返回一个新数组，但如果数组中有嵌套对象则为浅拷贝</p>
-<p>上面这些操作只能算是在一维或者在一层上进行了深拷贝，如果有二层以上则无法完全拷贝，所以算是浅拷贝了。</p>
-<h2 id="浅拷贝手动实现"><a href="#浅拷贝手动实现" class="headerlink" title="浅拷贝手动实现"></a>浅拷贝手动实现</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">shallowCopy</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> obj !== <span class="string">&#x27;object&#x27;</span>) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">let</span> newObj = obj <span class="keyword">instanceof</span> <span class="built_in">Array</span> ? [] : &#123;&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    	<span class="keyword">if</span> (obj.hasOwnProperty(key)) &#123;</span><br><span class="line">    		newObj[key] = obj[key];</span><br><span class="line">    	&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> newObj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>数组扁平化的目标举例：现在有一个数组是<code>[1,[2,[3,4]]]</code>，要把它高维的部分拍扁，变成<code>[1,2,3,4]</code>。</p>
+<p>一个直观的做法就是递归，遍历元素，当目前元素是数值，那就加入到新数组，如果是引用类型（数组），那就递归遍历这个数组。</p>
+<p>这样的做法大概做法如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> target = [];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">flatten</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> el <span class="keyword">of</span> arr) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> el === <span class="string">&#x27;object&#x27;</span>) &#123;</span><br><span class="line">            flatten(el);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            target.push(el);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="深拷贝实际应用"><a href="#深拷贝实际应用" class="headerlink" title="深拷贝实际应用"></a>深拷贝实际应用</h2><p><code>JSON.parse(JSON.stringify(obj))</code>，这种JSON化的方式可以实现多维或多层对象的深拷贝，但会忽略undefined、任意的函数、symbol，所以这种方式不能完全解决深拷贝问题。</p>
-<p><code>Object.create(obj)</code>可以做到深拷贝。</p>
-<h2 id="深拷贝手动实现"><a href="#深拷贝手动实现" class="headerlink" title="深拷贝手动实现"></a>深拷贝手动实现</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepCopy</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> obj !== <span class="string">&#x27;object&#x27;</span>) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">let</span> newObj = obj <span class="keyword">instanceof</span> <span class="built_in">Array</span> ? [] : &#123;&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    	<span class="keyword">if</span> (obj.hasOwnProperty(key)) &#123;</span><br><span class="line">    		newObj[key] = <span class="keyword">typeof</span> obj[key] === <span class="string">&#x27;object&#x27;</span> ? deepCopy(obj[key]) : obj[key];</span><br><span class="line">    	&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> newObj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这种做法看起来没啥问题，但实际运行起来漏洞百出。对于数组里面元素只有数字的还好，但如果啥都有的话，就会报错。</p>
+<p>那咱转化成另一种遍历方式？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> target = [];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">flatten</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> index = <span class="number">0</span>; index &lt; arr.length; index++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> arr[index] === <span class="string">&#x27;object&#x27;</span>) &#123;</span><br><span class="line">            flatten(arr[index]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            target.push(arr[index]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>嗯，这样是可以跑了，但是，对于下面这个巨奇怪的数组：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [</span><br><span class="line">    <span class="number">1</span>,<span class="number">2</span>,</span><br><span class="line">    &#123;<span class="attr">aaa</span>: <span class="string">&#x27;bbb&#x27;</span>&#125;,</span><br><span class="line">    [<span class="number">2</span>,<span class="number">3</span>,&#123;<span class="attr">a</span>:<span class="number">4</span>&#125;,[<span class="number">5</span>,[[[[<span class="number">1</span>],<span class="number">2</span>],<span class="number">3</span>]]]],</span><br><span class="line">    <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="function">() =&gt;</span> &#123;</span><br><span class="line">           <span class="keyword">return</span> <span class="number">123</span>;</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>它的结果是：<code>[ 1, 2, 2, 3, 5, 1, 2, 3, [Function] ]</code>。看起来少了点东西？没错，里面的对象没了。这说明我们的判断方法有问题。</p>
+<p>再换一种方式，这次使用<code>Array.isArray</code>方法进行判定，然后把这个有点视觉观感不太好的if换成三目，就是下面这样：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> target = [];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">flatten</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> index = <span class="number">0</span>; index &lt; arr.length; index++) &#123;</span><br><span class="line">        <span class="built_in">Array</span>.isArray(arr[index]) ? flatten(arr[index]) : target.push(arr[index]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>测试输出<code>[ 1, 2, &#123; aaa: &#39;bbb&#39; &#125;, 2, 3, &#123; a: 4 &#125;, 5, 1, 2, 3, [Function] ]</code>，这是我们想要的结果。</p>
+<p>其实也可以使用ES6中的新方法<code>reduce</code>处理这个事情。先摘一下我之前记录JavaScript数组操作时的笔记：</p>
+<blockquote>
+<p><code>reduce</code>方法接收一个有以下四个参数的函数：<code>previousValue</code>，<code>currentValue</code>，<code>index</code>，<code>array</code>，后两个参数是可选的。这个函数会返回一个将被叠加到累加器的值，方法停止执行后会返回这个累加器。如果要对一个数组中所有元素求和，这个就比较有用。</p>
+</blockquote>
+<p>使用<code>reduce</code>处理拍平的操作思路也是递归。这里还使用到了展开运算符，两者一结合，写出来的代码就比较优美了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">flatten</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> arr.reduce(<span class="function">(<span class="params">pre,cur</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Array</span>.isArray(cur) ? [...pre, ...flatten(cur)] : [...pre, cur];</span><br><span class="line">    &#125;,[])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>那既然都考虑到ES6了，ES6里面就没有可以直接完成这个操作的函数吗？其实是有的。一行解决。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.flat(<span class="literal">Infinity</span>)</span><br></pre></td></tr></table></figure>
+
+<p>参数里传入的是扁平化的深度，那要彻底扁平的话就传入一个<code>Infinity</code>就可以了。</p>
+<p>还有没有其他方法呢？有一种使用<code>toString</code>的方法，但是效果并不好，对于复杂的结构不能处理，这里给出查找到的一种做法参考。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">flat</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> arr.toString().split(<span class="string">&#x27;,&#x27;</span>).map(<span class="function">(<span class="params">val</span>)=&gt;</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">parseInt</span>(val)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>最后是一种比较神的做法，它使用的是apply和some，有点高级。这个留个坑，以后再慢慢研究。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">flat</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (arr.some(<span class="function"><span class="params">item</span> =&gt;</span> <span class="built_in">Array</span>.isArray(item))) &#123;</span><br><span class="line">        arr = [].concat.apply([],arr);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
@@ -206,7 +215,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://shawnzhou.world/2021/04/06/deep-copy-and-shallow-copy/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://shawnzhou.world/2021/04/13/Flatten-the-array/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -219,19 +228,10 @@
    
   <nav class="article-nav">
     
-      <a href="/2021/04/07/horizontal-and-vertical-center-of-CSS/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            使用CSS对盒子水平垂直居中的几种方法
-          
-        </div>
-      </a>
     
-    
-      <a href="/2021/03/05/A-thinking-in-one-SQL-statement/" class="article-nav-link">
+      <a href="/2021/04/11/JavaScript-floating-point-calculation-problems/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">由一条SQL语句引发的思考</div>
+        <div class="article-nav-title">0.1+0.2等于几？</div>
       </a>
     
   </nav>

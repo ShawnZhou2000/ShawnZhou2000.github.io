@@ -6,7 +6,7 @@
   <link href="https://shawnzhou.world/atom.xml" rel="self"/>
   
   <link href="https://shawnzhou.world/"/>
-  <updated>2021-04-11T14:11:27.004Z</updated>
+  <updated>2021-04-13T14:07:46.073Z</updated>
   <id>https://shawnzhou.world/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>探究JavaScript中数组扁平化的方式</title>
+    <link href="https://shawnzhou.world/2021/04/13/Flatten-the-array/"/>
+    <id>https://shawnzhou.world/2021/04/13/Flatten-the-array/</id>
+    <published>2021-04-13T11:14:08.000Z</published>
+    <updated>2021-04-13T14:07:46.073Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;数组扁平化，又称数组拍平，是一种将多维数组降维打击之后变成一维数组的办法。&lt;/p&gt;
+&lt;p&gt;与深浅拷贝一样也是在面试里出现过，而实际开发中见得较少。这里记录一下，学习学习。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://z3.ax1x.com/2021/04/13/cyCFBt.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="前端开发那些事" scheme="https://shawnzhou.world/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    
+    
+    <category term="JavaScript" scheme="https://shawnzhou.world/tags/JavaScript/"/>
+    
+    <category term="面试题" scheme="https://shawnzhou.world/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
   
   <entry>
     <title>0.1+0.2等于几？</title>
@@ -187,7 +210,7 @@
     <link href="https://shawnzhou.world/2021/04/06/deep-copy-and-shallow-copy/"/>
     <id>https://shawnzhou.world/2021/04/06/deep-copy-and-shallow-copy/</id>
     <published>2021-04-06T07:17:18.000Z</published>
-    <updated>2021-04-07T00:38:22.569Z</updated>
+    <updated>2021-04-13T11:35:25.325Z</updated>
     
     
     <summary type="html">&lt;p&gt; 最近在面试和学习当中都遇到了关于深拷贝和浅拷贝的问题，由于之前做项目没有遇到过此类问题，这里做一个简单的记录，学习一下。&lt;/p&gt;
@@ -199,6 +222,8 @@
     
     
     <category term="JavaScript" scheme="https://shawnzhou.world/tags/JavaScript/"/>
+    
+    <category term="面试题" scheme="https://shawnzhou.world/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
     
   </entry>
   
@@ -449,27 +474,6 @@
     
     
     
-    
-  </entry>
-  
-  <entry>
-    <title>《规律与逻辑·用户体验设计法则》 学习笔记4</title>
-    <link href="https://shawnzhou.world/2020/07/04/ui-note4/"/>
-    <id>https://shawnzhou.world/2020/07/04/ui-note4/</id>
-    <published>2020-07-04T05:17:27.000Z</published>
-    <updated>2021-02-12T09:21:33.210Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;界面设计中的版式设计是视觉设计的核心，也是视觉设计的基础。界面板式作为颜色的框架支撑，在设计中必然占据核心地位。&lt;/p&gt;
-&lt;p&gt;该部分学习笔记为第一大块内容，版式。笔记摘自《规律与逻辑》。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://s1.ax1x.com/2020/07/04/NvqNlD.jpg&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="前端开发那些事" scheme="https://shawnzhou.world/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
-    
-    
-    <category term="UI设计" scheme="https://shawnzhou.world/tags/UI%E8%AE%BE%E8%AE%A1/"/>
     
   </entry>
   
