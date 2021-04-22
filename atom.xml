@@ -6,7 +6,7 @@
   <link href="https://shawnzhou.world/atom.xml" rel="self"/>
   
   <link href="https://shawnzhou.world/"/>
-  <updated>2021-04-13T14:07:46.073Z</updated>
+  <updated>2021-04-22T15:40:36.147Z</updated>
   <id>https://shawnzhou.world/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaScript中的原型、原型链</title>
+    <link href="https://shawnzhou.world/2021/04/22/javascript-prototype/"/>
+    <id>https://shawnzhou.world/2021/04/22/javascript-prototype/</id>
+    <published>2021-04-22T10:24:47.000Z</published>
+    <updated>2021-04-22T15:40:36.147Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;原型和原型链一直是我以前学习JS的时候的老大难，因为它有点难啃，不是很好理解。&lt;/p&gt;
+&lt;p&gt;今天上午为了准备京东二面，硬是对着资料把它学了下来，趁热打铁，记录一下笔记。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://z3.ax1x.com/2021/04/22/cOP2z6.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="前端开发那些事" scheme="https://shawnzhou.world/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    
+    
+    <category term="JavaScript" scheme="https://shawnzhou.world/tags/JavaScript/"/>
+    
+    <category term="面试题" scheme="https://shawnzhou.world/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+    <category term="原型链" scheme="https://shawnzhou.world/tags/%E5%8E%9F%E5%9E%8B%E9%93%BE/"/>
+    
+  </entry>
   
   <entry>
     <title>探究JavaScript中数组扁平化的方式</title>
@@ -44,18 +69,13 @@
     <link href="https://shawnzhou.world/2021/04/12/javascript-promise/"/>
     <id>https://shawnzhou.world/2021/04/12/javascript-promise/</id>
     <published>2021-04-12T12:13:59.000Z</published>
-    <updated>2021-04-22T14:11:20.606Z</updated>
+    <updated>2021-04-22T14:26:38.863Z</updated>
     
     
-      
-      
-        
-        
     <summary type="html">&lt;p&gt;Promise是ES6中新增的一种特性，是异步编程的一种解决方案，相比于回调函数与事件更合理而且更加强大，可以用来解决“回调地狱”问题。&lt;/p&gt;
 &lt;p&gt;最早由社区提出并实现，ES6将它写入了语言标准，统一了用法，并原生提供了Promise对象。&lt;/p&gt;
-&lt;p&gt;尽管用过基于P</summary>
-        
-      
+&lt;p&gt;尽管用过基于Promise的Axios，但是对于Promise本身我却知之甚少。所以这里把它学一学。这篇学习笔记摘自《ECMAScript标准入门》第十四章。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://z3.ax1x.com/2021/04/22/cOCv5R.jpg&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -456,35 +476,6 @@
     <category term="HTML" scheme="https://shawnzhou.world/tags/HTML/"/>
     
     <category term="面试题" scheme="https://shawnzhou.world/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>前端工程简史 学习笔记</title>
-    <link href="https://shawnzhou.world/2021/02/20/A-brief-history-of-front-end-engineering/"/>
-    <id>https://shawnzhou.world/2021/02/20/A-brief-history-of-front-end-engineering/</id>
-    <published>2021-02-20T06:53:30.000Z</published>
-    <updated>2021-03-04T10:03:48.317Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;不好好了解一下过去，也便很难真正理解当今。&lt;/p&gt;
-&lt;p&gt;这次来学习《前端工程化 体系设计与实践》中的第一章：前端工程简史，将其中精华部分加以个人理解做一些摘抄整理。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2021/03/04/F9NvgZEnIXrdzu8.jpg&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="前端开发那些事" scheme="https://shawnzhou.world/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
-    
-    
-    <category term="Node.js" scheme="https://shawnzhou.world/tags/Node-js/"/>
-    
-    <category term="JavaScript" scheme="https://shawnzhou.world/tags/JavaScript/"/>
-    
-    <category term="HTML" scheme="https://shawnzhou.world/tags/HTML/"/>
-    
-    <category term="CSS" scheme="https://shawnzhou.world/tags/CSS/"/>
-    
-    <category term="软件工程" scheme="https://shawnzhou.world/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/"/>
     
   </entry>
   

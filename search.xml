@@ -1,6 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>JavaScript中的原型、原型链</title>
+    <url>/2021/04/22/javascript-prototype/</url>
+    <content><![CDATA[<p>原型和原型链一直是我以前学习JS的时候的老大难，因为它有点难啃，不是很好理解。</p>
+<p>今天上午为了准备京东二面，硬是对着资料把它学了下来，趁热打铁，记录一下笔记。</p>
+<p><img src="https://z3.ax1x.com/2021/04/22/cOP2z6.jpg"></p>
+<a id="more"></a>
+
+<p>众所周知，面向对象程序设计里面，继承是一个很重要的概念，它是对象之间一种很重要的关系，使用继承可以很方便的派生出一些更复杂的类，而不需要将基类再次重写。在JavaScript中，ES6之前是没有严格的面向对象理念的，JS的对象也只是一种很简单的键值对，但JS也需要继承来制作出很多复杂的类，其实JS就是使用原型链的方式进行继承。</p>
+<p>可以说，JavaScript是基于原型的，创建的每一个函数（或者叫构造函数）都有一个特殊的属性叫做<code>prototype</code>，这个属性可以理解为一个指向它“原型”的指针，那这个原型就是这个函数的原型对象，类似于“我的本源”，或者不严格的用OOP思想理解的话，函数是一个“class”，函数的实例是一个“instance”，这个函数继承自一个叫做prototype的“class”，这个prototype是函数的“基类”，在这里就叫做“原型”。</p>
+<p>如果给原型定义一个概念的话，那就是：除null外的每一个JavaScript对象创建的时候，它就会自动与另一个对象关联，关联的对象就是它的原型，对象可以从它的原型中继承属性。</p>
+<p>那prototype里有什么？其实里面有一个constructor，指向关联的构造函数。对于除了null外的每个对象而言，它都有个属性<code>__proto__</code>，它指向对象的原型。</p>
+<p>比如我有一个构造函数foo，那么图示是这样的：</p>
+<p><img src="https://z3.ax1x.com/2021/04/22/cOVnRs.png"></p>
+<p>就继承而言，原型满足了这个要求，原型相当于继承的基类，基类的非私有的属性和方法会被传给子类，所以子类可以使用基类的非私有的属性和方法，在JavaScript里，对于一个对象而言，如果它要使用某个属性，JavaScript会首先查看它本身有没有这个属性，如果没有，则通过对象的原型查看它的“基类”有没有这个属性，如果还没有就一直往上查。</p>
+<p>那查到最根本的根本，到头到了哪？到了Object。原型也是一个对象，所以原型也会有它的原型，所有对象最终的原型是Object，或者说，大家都是从Object继承过来的。那么问题来了，Object的原型是什么？JavaScript规定，是<code>null</code>。</p>
+<p>好一个道生一，一生二，二生三，三生万物！原型的奥妙也就在这里，那现在可以给出一个相对完整的图示了：</p>
+<p><img src="https://z3.ax1x.com/2021/04/22/cOVuzn.png"></p>
+<p>看图上这条<code>__proto__</code>的链条，从null到Object，然后到foo，那foo之外也完全可以有bar或者baz，因为我们有Object了，所以基于原型链，就可以实现JavaScript中的继承。应当注意，只有函数才有<code>prototype</code>，对象没有，对象只有<code>__proto__</code>，但其实函数也有自己的<code>__proto__</code>，它指向<code>Function.prototype</code>，也就是说，所有函数都是Function的实例。</p>
+<p>基于原型链，我们可以使用<code>instanceof</code>运算符判断某个自定义对象是不是某个类型的对象，因为只要实例对象的<code>__proto__</code>和某类型对象的<code>prototype</code>是同一个，那就说明它们是出自同一条原型链，那自然就是一样的了，这样说可能抽象，举个例子，比如在深拷贝中，我需要建立初始对象，如果这个初始对象是Object，我就初始化为<code>&#123;&#125;</code>，如果这个初始对象为Array，我就初始化为<code>[]</code>，这样使用<code>instanceof</code>运算符就可以了。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> newObj = obj <span class="keyword">instanceof</span> <span class="built_in">Array</span> ? [] : &#123;&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>使用原型链的方法，可以说明new这个关键字的执行过程了：</p>
+<ol>
+<li>创建一个新的对象</li>
+<li>添加原型链，将这个对象的<code>__proto__</code>指向函数的原型<code>xxx.prototype</code></li>
+<li>执行构造函数中的代码</li>
+<li>如果构造函数有返回值，则new返回这个值，如果构造函数没有返回值，则new返回这个对象本身</li>
+</ol>
+<p>new不仅仅是实例化一个对象，它存在的意义其实在于实现了JavaScript当中的继承。</p>
+]]></content>
+      <categories>
+        <category>前端开发那些事</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>面试题</tag>
+        <tag>原型链</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>探究JavaScript中数组扁平化的方式</title>
     <url>/2021/04/13/Flatten-the-array/</url>
     <content><![CDATA[<p>数组扁平化，又称数组拍平，是一种将多维数组降维打击之后变成一维数组的办法。</p>
@@ -59,7 +99,9 @@
     <content><![CDATA[<p>Promise是ES6中新增的一种特性，是异步编程的一种解决方案，相比于回调函数与事件更合理而且更加强大，可以用来解决“回调地狱”问题。</p>
 <p>最早由社区提出并实现，ES6将它写入了语言标准，统一了用法，并原生提供了Promise对象。</p>
 <p>尽管用过基于Promise的Axios，但是对于Promise本身我却知之甚少。所以这里把它学一学。这篇学习笔记摘自《ECMAScript标准入门》第十四章。</p>
-<p><img src="https://z3.ax1x.com/2021/04/22/cOCv5R.jpg"> </p>
+<p><img src="https://z3.ax1x.com/2021/04/22/cOCv5R.jpg"></p>
+<a id="more"></a> 
+
 <p>Promise是啥？可以把它理解为用于处理异步事件的一种容器，保存着某个未来才会结束的事件的结果。它本质上是一个对象，从它可以获取异步操作的消息。它提供了统一的API，可以适用于各种情况下的异步操作。</p>
 <p>对于一个Promise对象，它有两个特点：</p>
 <ul>
