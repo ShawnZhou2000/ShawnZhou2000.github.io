@@ -118,7 +118,7 @@
 <p>就继承而言，原型满足了这个要求，原型相当于继承的基类，基类的非私有的属性和方法会被传给子类，所以子类可以使用基类的非私有的属性和方法，在JavaScript里，对于一个对象而言，如果它要使用某个属性，JavaScript会首先查看它本身有没有这个属性，如果没有，则通过对象的原型查看它的“基类”有没有这个属性，如果还没有就一直往上查。</p>
 <p>那查到最根本的根本，到头到了哪？到了Object。原型也是一个对象，所以原型也会有它的原型，所有对象最终的原型是Object，或者说，大家都是从Object继承过来的。那么问题来了，Object的原型是什么？JavaScript规定，是<code>null</code>。</p>
 <p>好一个道生一，一生二，二生三，三生万物！原型的奥妙也就在这里，那现在可以给出一个相对完整的图示了：</p>
-<p><img src="https://z3.ax1x.com/2021/04/22/cOVuzn.png"></p>
+<p><img src="https://z3.ax1x.com/2021/04/22/cOZukD.png"></p>
 <p>看图上这条<code>__proto__</code>的链条，从null到Object，然后到foo，那foo之外也完全可以有bar或者baz，因为我们有Object了，所以基于原型链，就可以实现JavaScript中的继承。应当注意，只有函数才有<code>prototype</code>，对象没有，对象只有<code>__proto__</code>，但其实函数也有自己的<code>__proto__</code>，它指向<code>Function.prototype</code>，也就是说，所有函数都是Function的实例。</p>
 <p>基于原型链，我们可以使用<code>instanceof</code>运算符判断某个自定义对象是不是某个类型的对象，因为只要实例对象的<code>__proto__</code>和某类型对象的<code>prototype</code>是同一个，那就说明它们是出自同一条原型链，那自然就是一样的了，这样说可能抽象，举个例子，比如在深拷贝中，我需要建立初始对象，如果这个初始对象是Object，我就初始化为<code>&#123;&#125;</code>，如果这个初始对象为Array，我就初始化为<code>[]</code>，这样使用<code>instanceof</code>运算符就可以了。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> newObj = obj <span class="keyword">instanceof</span> <span class="built_in">Array</span> ? [] : &#123;&#125;;</span><br></pre></td></tr></table></figure>
