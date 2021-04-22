@@ -40,6 +40,33 @@
   </entry>
   
   <entry>
+    <title>JavaScript中的Promise对象</title>
+    <link href="https://shawnzhou.world/2021/04/12/javascript-promise/"/>
+    <id>https://shawnzhou.world/2021/04/12/javascript-promise/</id>
+    <published>2021-04-12T12:13:59.000Z</published>
+    <updated>2021-04-22T14:11:20.606Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Promise是ES6中新增的一种特性，是异步编程的一种解决方案，相比于回调函数与事件更合理而且更加强大，可以用来解决“回调地狱”问题。&lt;/p&gt;
+&lt;p&gt;最早由社区提出并实现，ES6将它写入了语言标准，统一了用法，并原生提供了Promise对象。&lt;/p&gt;
+&lt;p&gt;尽管用过基于P</summary>
+        
+      
+    
+    
+    
+    <category term="前端开发那些事" scheme="https://shawnzhou.world/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    
+    
+    <category term="JavaScript" scheme="https://shawnzhou.world/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
     <title>0.1+0.2等于几？</title>
     <link href="https://shawnzhou.world/2021/04/11/JavaScript-floating-point-calculation-problems/"/>
     <id>https://shawnzhou.world/2021/04/11/JavaScript-floating-point-calculation-problems/</id>
@@ -458,22 +485,6 @@
     <category term="CSS" scheme="https://shawnzhou.world/tags/CSS/"/>
     
     <category term="软件工程" scheme="https://shawnzhou.world/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>原来的文章都跑到哪里去了？</title>
-    <link href="https://shawnzhou.world/2021/02/12/why-they-gone/"/>
-    <id>https://shawnzhou.world/2021/02/12/why-they-gone/</id>
-    <published>2021-02-12T09:34:09.000Z</published>
-    <updated>2021-02-12T10:13:41.785Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;这是一篇类似于更新说明相关的文章，简单说一下Shawn Zhou这多半年都干啥去了，以及为什么博客会变成了现在这个样子。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://s3.ax1x.com/2021/02/12/yDHDKI.jpg&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
     
   </entry>
   
