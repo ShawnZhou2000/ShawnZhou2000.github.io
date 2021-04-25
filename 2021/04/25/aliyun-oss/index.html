@@ -13,7 +13,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    数据存储之Web Storage |  ShawnZhou的小站
+    基于阿里云OSS+PicGo+Typora的自动博客图床 |  ShawnZhou的小站
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -52,7 +52,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-web-storage"
+  id="post-aliyun-oss"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -63,22 +63,26 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  数据存储之Web Storage
+  基于阿里云OSS+PicGo+Typora的自动博客图床
 </h1>
  
 
     </header>
      
     <div class="article-meta">
-      <a href="/2021/04/10/web-storage/" class="article-date">
-  <time datetime="2021-04-10T06:45:51.000Z" itemprop="datePublished">2021-04-10</time>
-</a>   
+      <a href="/2021/04/25/aliyun-oss/" class="article-date">
+  <time datetime="2021-04-25T14:06:33.000Z" itemprop="datePublished">2021-04-25</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%95%99%E7%A8%8B%E7%9B%B8%E5%85%B3/">教程相关</a>
+  </div>
+  
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">1.2k</span>
+            <span class="post-count">1.4k</span>
         </span>
     </span>
 
@@ -102,24 +106,50 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p>Web Storage是HTML5中提供的一套关于数据存储的解决方案。最早是网页超文本应用技术工作组在Web Applications 1.0规范中提出的。这个规范中的草案最终成为了HTML5中的一部分，后来又独立成为了自己的规范。它用来解决一些Cookie难以处理的存储问题。</p>
-<p>Web Storage最新的规范版本是第2版，定义了<code>localStorage</code>和<code>sessionStorage</code>，前者为永久存储，后者为跨会话机制。这两种浏览器存储API提供了在浏览器中不受页面刷新影响而存储数据的两种方式。2009年之后所有主要供应商发布的浏览器版本在window对象上支持<code>localStorage</code>和<code>sessionStorage</code>。</p>
-<p>本部分学习笔记摘抄自《JavaScript高级程序设计》第四版，第25章，客户端存储。</p>
-<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/fbe4bc917a6bf551562ce341ea66e5c7.jpg"></p>
+  <p> 事情是这样的，本来前几天还好好的图床，昨天突然把我博客一堆封面图全删了，我感到非常裂开。。</p>
+<p>然后看到同学有自己的OSS存储，我在想我是不是也可以整一个，然后就整了一个，这里记录了一下整个过程以及相关的注意事项，方便后续查阅。</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/d478daf074013cd6833aa45f8b6d6cb6.jpg"></p>
 <a id="more"></a>
 
-<h2 id="Session-Storage对象"><a href="#Session-Storage对象" class="headerlink" title="Session Storage对象"></a>Session Storage对象</h2><p><code>sessionStorage</code>对象只存储会话数据，即其生命周期仅存在于会话存在期间，会话结束时则自动清除，也就是当页面关闭时就没有了。但是在里面存储的数据并不受页面刷新影响。存储在<code>sessionStorage</code>对象中的数据只能由最初存储数据的页面使用，对于多页应用程序的支持不是很好。</p>
-<p>使用<code>sessionStorage</code>对象的方法很简单，可以使用<code>setItem()</code>方法向里面添加一个键值对数据，也可以使用属性直接存储数据。</p>
-<p>存储过程因为需要写入磁盘，所以牵扯到读写方式问题。现代浏览器在实现存储写入时使用的是同步阻塞方式，所以数据会被立即提交到存储，在落实到API的具体实现上可能不会立即把数据存入磁盘，但在JavaScript中这种变化是不可见的，也就是表现为写入的任何数据都可以立即读取。但旧版IE（比如IE8）采用的事异步方式的数据写入，因此给数据赋值的时间和数据写入磁盘的时间略微会存在一些延迟，这种延迟在少量的数据上是完全看不出来的，但如果大量数据读入，可能会出现一些问题。在旧版IE中，可以考虑使用事务模式调用<code>sessionStorage</code>，比如在赋值之前使用<code>sessionStorage.begin()</code>，在赋值完成之后使用<code>sesstionStorage.commit()</code>提交事务，将数据强行写入磁盘。调用<code>begin()</code>是为了保证事务在代码执行期间没有磁盘写入的操作。</p>
-<p>可以使用for循环遍历<code>sessionStorage</code>的值，使用<code>length</code>属性获得长度，使用<code>key()</code>方法传递下标获得键名，也可以使用for-in循环迭代key，然后使用<code>getItem()</code>方法获取值。</p>
-<p>对于值的删除，可以使用<code>delete sessionStorage.属性</code>或者<code>sessionStorage.removeItem(&#39;key&#39;)</code>删除一个键值对。</p>
-<p><code>sessionStorage</code>应该用于存储会话期间有效的小块数据，如果需要跨会话持久存储，需要使用<code>localStorage</code>。</p>
-<h2 id="Local-Storage对象"><a href="#Local-Storage对象" class="headerlink" title="Local Storage对象"></a>Local Storage对象</h2><p>新修订的HTML5规范中，<code>localStorage</code>对象取代了<code>globalStorage</code>，这是一种在客户端进行持久化存储的机制，要访问同一个<code>localStorage</code>对象，页面必须来自同一个域，使用同样的端口和同样的协议，同一个域的子域也不可以。</p>
-<p><code>localStorage</code>也可以像<code>sessionStorage</code>那样使用键值对操作和属性直接访问存取数据，也就是<code>setItem</code>，<code>getItem</code>等方法。</p>
-<p>存储在<code>localStorage</code>中的数据会一直保留，直到有JavaScript代码删除了它或者用户清除了浏览器缓存。<code>localStorage</code>数据不受页面刷新影响，也不会因窗口关闭、标签页或重新启动浏览器而丢失。</p>
-<h2 id="实际操作细节注意"><a href="#实际操作细节注意" class="headerlink" title="实际操作细节注意"></a>实际操作细节注意</h2><p>这里要特别感谢之前合作过的一位全栈同学给我的启发</p>
-<p>我在实际开发中用到过一次<code>localStorage</code>，模拟一个按顺序上菜的过程，做了一个厨师与服务员之间的生产者-消费者模式，其中模式里面的仓库就要借助<code>localStorage</code>完成，这是一个等待上菜的缓冲队列，本质上是一个数组，复合类型的数据。在我存到<code>localStorage</code>里面时，居然发现它变成了<code>[Object object]</code>，这是为什么呢？</p>
-<p>因为，实际上这两者在存储时，存储的是字符串，引用类型并不能直接存储进<code>localStorage</code>，所以需要使用<code>JSON.stringify</code>将它转化成JSON，然后在获得的时候再使用<code>JSON.parse</code>转化成引用对象，就可以了。</p>
+<h2 id="OSS的简介与套餐选择"><a href="#OSS的简介与套餐选择" class="headerlink" title="OSS的简介与套餐选择"></a>OSS的简介与套餐选择</h2><blockquote>
+<p>阿里云对象存储OSS（Object Storage Service）是阿里云提供的海量、安全、低成本、高持久的云存储服务。其数据设计持久性不低于99.9999999999%（12个9），服务可用性（或业务连续性）不低于99.995%。</p>
+<p>OSS具有与平台无关的RESTful API接口，您可以在任何应用、任何时间、任何地点存储和访问任意类型的数据。</p>
+<p>摘自阿里云官方产品简介“什么是对象存储OSS”</p>
+</blockquote>
+<p>简单来讲，OSS就是一种云存储服务，提供了一种高稳定性的存储服务和与之相关的操作接口，能够通过GUI，命令行，API等工具方便的管理存储。</p>
+<p>在使用OSS之前，需要先购买OSS服务，这里使用标准的存储包即可，它能够满足日常图床使用的需求，如果仅仅用来放图，那40G的流量完全够用，如果你感觉不够可以再加。其他的套餐略贵而且可能不符合图床制作的需求，这里就暂不考虑了。</p>
+<p>半年的OSS只需要不到五块钱，非常便宜，即便是买五年的也只需要不到50块钱，是一个性价比很高的选择。</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/image-20210425224003176.png"></p>
+<p>（写博客时我已经购买了，所以这里显示我已经购买，一开始买了半年的试试水，然后发现OK，那我先冲他五年的）</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/QQ%E5%9B%BE%E7%89%8720210425225759.png"></p>
+<p>购买之后，你就可以在控制台里看到OSS管理界面了。</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/image-20210425225952117.png"></p>
+<h2 id="OSS存储配置与密钥获取"><a href="#OSS存储配置与密钥获取" class="headerlink" title="OSS存储配置与密钥获取"></a>OSS存储配置与密钥获取</h2><p>购买了OSS服务后，需要首先在Bucket列表里新建一个Bucket（可以理解为存放数据的容器），用于存储内容，配置在下图中说明：</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/image-20210425230712015.png"></p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/image-20210425230851190.png"></p>
+<p>这样操作之后你就可以获得一个新的Bucket，然后在点进这个Bucket，选择文件管理，并新建一个用于存放图片的目录。</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/image-20210425231028555.png"></p>
+<p>可以在这里测试一下上传一张图片，然后点击图片文件名可以看到URL链接，就说明成功了。</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/image-20210425231417524.png"></p>
+<p>接下来为了能够以API或第三方软件的形式操控你的OSS，需要为那些程序提供你账号的授权。阿里云官方的最佳实践是不建议使用全局的AccessKey，因为一旦泄露将导致整个账号被别人完全控制，这将出现不可预料的安全后果，可以遵循最小授权原则，使用RAM访问控制建立子账号，为子账号添加仅OSS的用户权限，并在为第三方提供时使用子账号，这样可以保证权限的安全性。</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/image-20210425231909318.png"></p>
+<p>一般在你创建AccessKey之后，它会为你提供一对ID和密码，将这个ID和密码保存下来，放到安全的地方存储即可。</p>
+<h2 id="PicGo下载与配置"><a href="#PicGo下载与配置" class="headerlink" title="PicGo下载与配置"></a>PicGo下载与配置</h2><p>PicGo是一个用于快速上传图片并获取图片 URL 链接的工具，Typora官方推荐。</p>
+<p>GitHub项目地址：<a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/PicGo">https://github.com/Molunerfinn/PicGo</a></p>
+<p>在Releases下面找到发布版本，尽管他现在说2.3是beta版本不稳定，但2.2版本貌似有一些奇怪的bug，所以这里推荐直接下载最新版本。</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/image-20210425232401585.png"></p>
+<p>下载安装之后打开，进入配置界面。在图床设置→阿里云OSS中修改下面设置。</p>
+<p>哦对了，最后不要忘了点一下设置为默认图床然后再确定。</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/image-20210425232755490.png"></p>
+<p>关于上图中的存储区域，可以在OSS管理控制台的概览→访问域名中看到。</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/image-20210425232937971.png"></p>
+<p>设置完毕之后，在上传区测试一张图片，如果提示上传成功，相册里也有这张图，那就OK了。</p>
+<h2 id="Typora配置"><a href="#Typora配置" class="headerlink" title="Typora配置"></a>Typora配置</h2><p>最后一步，打开Typora，配置绑定PicGo</p>
+<p>在设置→偏好设置→图像中，选择插入图片时的操作为上传图片，并把对本地和网络图片的规则应用打勾，然后上传服务那里选择PicGo（app），并选择exe的路径，它在上传时会自动打开这个软件，平常的时候PicGo默认就在后台挂着，需要传图，粘贴一下就秒传了，很方便。写完博客了也可以把PicGo关掉节省内存。</p>
+<p>这样一个基本自动的图片上传就做好啦~</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/image-20210425233321043.png"></p>
+<h2 id="挖坑"><a href="#挖坑" class="headerlink" title="挖坑"></a>挖坑</h2><p>目前这套解决方案已经解决了图片上传的问题，但在实际使用时，对于原图片经常需要进行一些尺寸压缩和画质压缩，以便于降低大小从而能达到快速加载，目前的图片优化仍然是通过我人工完成，我打算后面写一个更好用的方法解决这个问题。</p>
+<p>这套方案还暂时没有和阿里云的全站CDN加速结合起来，因为我的网站没有备案。目前正在跑备案流程，如果通过了的话，再加上CDN加速，那博客加载速度可能就要起飞了，大概就要告别cloud flare和GitHub pages啦（手动滑稽</p>
  
       <!-- reward -->
       
@@ -190,12 +220,12 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://shawnzhou.world/2021/04/10/web-storage/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://shawnzhou.world/2021/04/25/aliyun-oss/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web-Storage/" rel="tag">Web Storage</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%98%BF%E9%87%8C%E4%BA%91OSS/" rel="tag">阿里云OSS</a></li></ul>
 
     </footer>
   </div>
@@ -203,19 +233,10 @@
    
   <nav class="article-nav">
     
-      <a href="/2021/04/11/cross-origin/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            网络请求中的跨域资源共享
-          
-        </div>
-      </a>
     
-    
-      <a href="/2021/04/08/box-model/" class="article-nav-link">
+      <a href="/2021/04/22/javascript-prototype/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">盒模型详解—你真的了解盒模型吗？</div>
+        <div class="article-nav-title">JavaScript中的原型、原型链</div>
       </a>
     
   </nav>

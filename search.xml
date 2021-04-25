@@ -1,6 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>基于阿里云OSS+PicGo+Typora的自动博客图床</title>
+    <url>/2021/04/25/aliyun-oss/</url>
+    <content><![CDATA[<p> 事情是这样的，本来前几天还好好的图床，昨天突然把我博客一堆封面图全删了，我感到非常裂开。。</p>
+<p>然后看到同学有自己的OSS存储，我在想我是不是也可以整一个，然后就整了一个，这里记录了一下整个过程以及相关的注意事项，方便后续查阅。</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/d478daf074013cd6833aa45f8b6d6cb6.jpg"></p>
+<a id="more"></a>
+
+<h2 id="OSS的简介与套餐选择"><a href="#OSS的简介与套餐选择" class="headerlink" title="OSS的简介与套餐选择"></a>OSS的简介与套餐选择</h2><blockquote>
+<p>阿里云对象存储OSS（Object Storage Service）是阿里云提供的海量、安全、低成本、高持久的云存储服务。其数据设计持久性不低于99.9999999999%（12个9），服务可用性（或业务连续性）不低于99.995%。</p>
+<p>OSS具有与平台无关的RESTful API接口，您可以在任何应用、任何时间、任何地点存储和访问任意类型的数据。</p>
+<p>摘自阿里云官方产品简介“什么是对象存储OSS”</p>
+</blockquote>
+<p>简单来讲，OSS就是一种云存储服务，提供了一种高稳定性的存储服务和与之相关的操作接口，能够通过GUI，命令行，API等工具方便的管理存储。</p>
+<p>在使用OSS之前，需要先购买OSS服务，这里使用标准的存储包即可，它能够满足日常图床使用的需求，如果仅仅用来放图，那40G的流量完全够用，如果你感觉不够可以再加。其他的套餐略贵而且可能不符合图床制作的需求，这里就暂不考虑了。</p>
+<p>半年的OSS只需要不到五块钱，非常便宜，即便是买五年的也只需要不到50块钱，是一个性价比很高的选择。</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/image-20210425224003176.png"></p>
+<p>（写博客时我已经购买了，所以这里显示我已经购买，一开始买了半年的试试水，然后发现OK，那我先冲他五年的）</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/QQ%E5%9B%BE%E7%89%8720210425225759.png"></p>
+<p>购买之后，你就可以在控制台里看到OSS管理界面了。</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/image-20210425225952117.png"></p>
+<h2 id="OSS存储配置与密钥获取"><a href="#OSS存储配置与密钥获取" class="headerlink" title="OSS存储配置与密钥获取"></a>OSS存储配置与密钥获取</h2><p>购买了OSS服务后，需要首先在Bucket列表里新建一个Bucket（可以理解为存放数据的容器），用于存储内容，配置在下图中说明：</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/image-20210425230712015.png"></p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/image-20210425230851190.png"></p>
+<p>这样操作之后你就可以获得一个新的Bucket，然后在点进这个Bucket，选择文件管理，并新建一个用于存放图片的目录。</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/image-20210425231028555.png"></p>
+<p>可以在这里测试一下上传一张图片，然后点击图片文件名可以看到URL链接，就说明成功了。</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/image-20210425231417524.png"></p>
+<p>接下来为了能够以API或第三方软件的形式操控你的OSS，需要为那些程序提供你账号的授权。阿里云官方的最佳实践是不建议使用全局的AccessKey，因为一旦泄露将导致整个账号被别人完全控制，这将出现不可预料的安全后果，可以遵循最小授权原则，使用RAM访问控制建立子账号，为子账号添加仅OSS的用户权限，并在为第三方提供时使用子账号，这样可以保证权限的安全性。</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/image-20210425231909318.png"></p>
+<p>一般在你创建AccessKey之后，它会为你提供一对ID和密码，将这个ID和密码保存下来，放到安全的地方存储即可。</p>
+<h2 id="PicGo下载与配置"><a href="#PicGo下载与配置" class="headerlink" title="PicGo下载与配置"></a>PicGo下载与配置</h2><p>PicGo是一个用于快速上传图片并获取图片 URL 链接的工具，Typora官方推荐。</p>
+<p>GitHub项目地址：<a href="https://github.com/Molunerfinn/PicGo">https://github.com/Molunerfinn/PicGo</a></p>
+<p>在Releases下面找到发布版本，尽管他现在说2.3是beta版本不稳定，但2.2版本貌似有一些奇怪的bug，所以这里推荐直接下载最新版本。</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/image-20210425232401585.png"></p>
+<p>下载安装之后打开，进入配置界面。在图床设置→阿里云OSS中修改下面设置。</p>
+<p>哦对了，最后不要忘了点一下设置为默认图床然后再确定。</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/image-20210425232755490.png"></p>
+<p>关于上图中的存储区域，可以在OSS管理控制台的概览→访问域名中看到。</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/image-20210425232937971.png"></p>
+<p>设置完毕之后，在上传区测试一张图片，如果提示上传成功，相册里也有这张图，那就OK了。</p>
+<h2 id="Typora配置"><a href="#Typora配置" class="headerlink" title="Typora配置"></a>Typora配置</h2><p>最后一步，打开Typora，配置绑定PicGo</p>
+<p>在设置→偏好设置→图像中，选择插入图片时的操作为上传图片，并把对本地和网络图片的规则应用打勾，然后上传服务那里选择PicGo（app），并选择exe的路径，它在上传时会自动打开这个软件，平常的时候PicGo默认就在后台挂着，需要传图，粘贴一下就秒传了，很方便。写完博客了也可以把PicGo关掉节省内存。</p>
+<p>这样一个基本自动的图片上传就做好啦~</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/image-20210425233321043.png"></p>
+<h2 id="挖坑"><a href="#挖坑" class="headerlink" title="挖坑"></a>挖坑</h2><p>目前这套解决方案已经解决了图片上传的问题，但在实际使用时，对于原图片经常需要进行一些尺寸压缩和画质压缩，以便于降低大小从而能达到快速加载，目前的图片优化仍然是通过我人工完成，我打算后面写一个更好用的方法解决这个问题。</p>
+<p>这套方案还暂时没有和阿里云的全站CDN加速结合起来，因为我的网站没有备案。目前正在跑备案流程，如果通过了的话，再加上CDN加速，那博客加载速度可能就要起飞了，大概就要告别cloud flare和GitHub pages啦（手动滑稽</p>
+]]></content>
+      <categories>
+        <category>教程相关</category>
+      </categories>
+      <tags>
+        <tag>教程</tag>
+        <tag>阿里云OSS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JavaScript中的原型、原型链</title>
     <url>/2021/04/22/javascript-prototype/</url>
     <content><![CDATA[<p>原型和原型链一直是我以前学习JS的时候的老大难，因为它有点难啃，不是很好理解。</p>
@@ -45,7 +101,7 @@
     <url>/2021/04/13/Flatten-the-array/</url>
     <content><![CDATA[<p>数组扁平化，又称数组拍平，是一种将多维数组降维打击之后变成一维数组的办法。</p>
 <p>与深浅拷贝一样也是在面试里出现过，而实际开发中见得较少。这里记录一下，学习学习。</p>
-<p><img src="https://z3.ax1x.com/2021/04/13/cyCFBt.jpg"></p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/0f07a86830ad6e0172750c8930f2e041.jpg"></p>
 <a id="more"></a>
 
 <p>数组扁平化的目标举例：现在有一个数组是<code>[1,[2,[3,4]]]</code>，要把它高维的部分拍扁，变成<code>[1,2,3,4]</code>。</p>
@@ -99,7 +155,7 @@
     <content><![CDATA[<p>Promise是ES6中新增的一种特性，是异步编程的一种解决方案，相比于回调函数与事件更合理而且更加强大，可以用来解决“回调地狱”问题。</p>
 <p>最早由社区提出并实现，ES6将它写入了语言标准，统一了用法，并原生提供了Promise对象。</p>
 <p>尽管用过基于Promise的Axios，但是对于Promise本身我却知之甚少。所以这里把它学一学。这篇学习笔记摘自《ECMAScript标准入门》第十四章。</p>
-<p><img src="https://z3.ax1x.com/2021/04/22/cOCv5R.jpg"></p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/2ce7cfae7bd62d6ba0b64ee875e8cf52.jpg"></p>
 <a id="more"></a> 
 
 <p>Promise是啥？可以把它理解为用于处理异步事件的一种容器，保存着某个未来才会结束的事件的结果。它本质上是一个对象，从它可以获取异步操作的消息。它提供了统一的API，可以适用于各种情况下的异步操作。</p>
@@ -142,7 +198,7 @@
     <url>/2021/04/11/JavaScript-floating-point-calculation-problems/</url>
     <content><![CDATA[<p>0.1+0.2等于0.3吗？这好像是一个小学生就能解答的问题。</p>
 <p>但是在JavaScript中，这个问题的答案可就不一定了。为什么呢？学习一下，写个笔记。</p>
-<p><img src="https://z3.ax1x.com/2021/04/11/c0ntPK.jpg"></p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/29f7bcd1c340d73922142ab15e31e6fe.jpg"></p>
 <a id="more"></a>
 
 <p>在JavaScript中，数字是<code>Number</code>类型，此类型使用IEEE 754格式表示整数和浮点数。储存整数比较好理解，但储存浮点数值的内存会消耗更多一些，是整数值的两倍内存，所以ECMAScript总是想方设法把用不着小数的浮点数转化成整数。这个特性会让一些小数点后全为0的小数显示为整数，可是这只是一个显示格式的问题，但对于值而言不会出错，但对于有些计算而言，就会出一些要命的错误。</p>
@@ -179,7 +235,7 @@
     <url>/2021/04/11/cross-origin/</url>
     <content><![CDATA[<p> 跨域是实际前后端分离开发当中不可避免的会出现的问题，在面试当中也经常问到相关内容，这部分知识还是挺重要的。</p>
 <p>这里把跨域相关的知识点学习一下，记录一下。</p>
-<p><img src="https://z3.ax1x.com/2021/04/11/cw8HS0.jpg"></p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/9e09d93fc4971bf62c4affad87f36bd1.jpg"></p>
 <a id="more"></a>
 
 <h2 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h2><p>在研究跨域之前，首先得明白啥是“域”，以及我们为什么要把它跨过去。</p>
@@ -263,7 +319,7 @@
     <content><![CDATA[<p>Web Storage是HTML5中提供的一套关于数据存储的解决方案。最早是网页超文本应用技术工作组在Web Applications 1.0规范中提出的。这个规范中的草案最终成为了HTML5中的一部分，后来又独立成为了自己的规范。它用来解决一些Cookie难以处理的存储问题。</p>
 <p>Web Storage最新的规范版本是第2版，定义了<code>localStorage</code>和<code>sessionStorage</code>，前者为永久存储，后者为跨会话机制。这两种浏览器存储API提供了在浏览器中不受页面刷新影响而存储数据的两种方式。2009年之后所有主要供应商发布的浏览器版本在window对象上支持<code>localStorage</code>和<code>sessionStorage</code>。</p>
 <p>本部分学习笔记摘抄自《JavaScript高级程序设计》第四版，第25章，客户端存储。</p>
-<p><img src="https://z3.ax1x.com/2021/04/10/caWSW6.jpg"></p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/fbe4bc917a6bf551562ce341ea66e5c7.jpg"></p>
 <a id="more"></a>
 
 <h2 id="Session-Storage对象"><a href="#Session-Storage对象" class="headerlink" title="Session Storage对象"></a>Session Storage对象</h2><p><code>sessionStorage</code>对象只存储会话数据，即其生命周期仅存在于会话存在期间，会话结束时则自动清除，也就是当页面关闭时就没有了。但是在里面存储的数据并不受页面刷新影响。存储在<code>sessionStorage</code>对象中的数据只能由最初存储数据的页面使用，对于多页应用程序的支持不是很好。</p>
@@ -291,7 +347,7 @@
 <p>“请你说一下W3C盒模型和IE盒模型的区别。”</p>
 <p>我…..这是啥？</p>
 <p>为了避免这样的丢人事件再次发生，我打算重新认真学习一下。</p>
-<p><img src="https://z3.ax1x.com/2021/04/10/caNGgx.jpg"></p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/098a3a9cacf4a7ee778583aaf147d701.jpg"></p>
 <a id="more"></a>
 
 <h2 id="W3C盒模型理论基础"><a href="#W3C盒模型理论基础" class="headerlink" title="W3C盒模型理论基础"></a>W3C盒模型理论基础</h2><p>盒模型指的是HTML元素在浏览器引擎当中的一种构建模式，它把网页当中的所有元素都看成一个个大小不一的盒子互相嵌套。盒模型理论出现的比较早，在199年就有W3C提出了这个理论。尽管CSS标准中为其服务的<code>margin</code>，<code>padding</code>，<code>width</code>，<code>height</code>等并没有用盒模型这个术语进行描述，但那时候的开发者以及浏览器厂商已经在使用这个术语了。</p>
@@ -345,13 +401,13 @@
       </tags>
   </entry>
   <entry>
-    <title>【教程】如何用校园邮箱申请正版JetBrains全家桶</title>
+    <title>如何用校园邮箱申请正版JetBrains全家桶</title>
     <url>/2021/04/08/How-to-apply-for-JetBrains-IDE-using-your-campus-email/</url>
     <content><![CDATA[<p> 众所周知，JetBrains家的IDE功能非常强大，真可谓开发利器，高级生产力工具。但是很多IDE的收费是很贵的，个人使用承担不起这样昂贵的价格，使用校园邮箱提供的学生优惠就可以免费申请到一年的JetBrains IDE全家桶，这样我们就能开心的使用这些功能强大的IDE啦。</p>
 <p>虽然一次申请只有一年，但在到期之前可以再申请续一下，这样就可以用很长时间了。</p>
 <p>校园邮箱从哪获得呢？这篇教程我以我本学校的邮箱举例，不同学校的校园邮箱使用平台不尽相同，但基本操作都大同小异，按照学校给的教程开通一下账号就可以使用了。</p>
 <p>啥，你说你们学校没说过校园邮箱的事情？说不定是学校有但是低调了一些，多打听打听，会找到答案的。</p>
-<p><img src="https://z3.ax1x.com/2021/04/08/cJTpse.jpg"></p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/bfed5b93381b2701fe229b269df387e1.jpg"></p>
 <a id="more"></a>
 
 <h2 id="1-开通校园邮箱账号"><a href="#1-开通校园邮箱账号" class="headerlink" title="1. 开通校园邮箱账号"></a>1. 开通校园邮箱账号</h2><p>这里以我学校为例，如果你是其他学校的同学，应当参照你们学校发布的校园邮箱使用说明。</p>
@@ -454,7 +510,7 @@
     <title>使用CSS对盒子水平垂直居中的几种方法</title>
     <url>/2021/04/07/horizontal-and-vertical-center-of-CSS/</url>
     <content><![CDATA[<p> 将盒子水平居中是一件不难办的事情，那么如何做到水平垂直同时居中呢？这时候就需要思考一下了。</p>
-<p><img src="https://z3.ax1x.com/2021/04/07/c30nlF.jpg"></p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/6aaabe6d72ba01b944259bcdbaee6acd.jpg"></p>
 <a id="more"></a>
 
 <p>就不贴效果图了，效果图都是水平垂直居中的。</p>
@@ -533,7 +589,7 @@
     <url>/2021/03/05/A-thinking-in-one-SQL-statement/</url>
     <content><![CDATA[<p>帮老师干活，做2020年山东高考录取情况的汇总表，纯靠Excel总归有些操作不是很好处理，所以我借助了MySQL数据库完成一些比如复杂条件合并的操作。</p>
 <p>昨天晚上老师要我把两个Excel表里面的一些数据合并一下，但在执行修改操作时发现这条语句跑了两分钟还要多，感觉这不合理，于是来思考一下，到底是为什么会造成这样的？</p>
-<p><img src="https://s3.ax1x.com/2021/03/05/6eqwcj.jpg"></p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/1619365291923.jpg"></p>
 <a id="more"></a>
 
 <h2 id="确认需求"><a href="#确认需求" class="headerlink" title="确认需求"></a>确认需求</h2><p><img src="https://s3.ax1x.com/2021/03/05/6eXGH1.png"></p>
@@ -602,7 +658,7 @@
 <p>前几天做了一些算法题，但有一些写不顺手的感觉，去做大厂的笔试题发现其实自己仍然啥也不会，去看别人模拟面试发现他们聊的我大多都只接触的很浅，整理文件看到自己年前写的求职简历，越看越感觉这是一份拼凑出来的垃圾，一想到今年的实习就感到无比头大。</p>
 <p>那就重新补补Vue吧，正好Vue也出了3.x的版本，也想正好学学一些版本新特性，慢慢来。</p>
 <p>这篇笔记除了生命周期是2的版本，其他的笔记都是基于3的版本。</p>
-<p><img src="https://s3.ax1x.com/2021/03/03/6EJsBj.jpg"></p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/1619365291932.jpg"></p>
 <a id="more"></a>
 
 <h2 id="Vue-2-x的生命周期钩子函数"><a href="#Vue-2-x的生命周期钩子函数" class="headerlink" title="Vue 2.x的生命周期钩子函数"></a>Vue 2.x的生命周期钩子函数</h2><p>没啥可讲的，得把这图理解着背下来。</p>

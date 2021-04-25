@@ -6,7 +6,7 @@
   <link href="https://shawnzhou.world/atom.xml" rel="self"/>
   
   <link href="https://shawnzhou.world/"/>
-  <updated>2021-04-25T09:18:06.863Z</updated>
+  <updated>2021-04-25T15:35:57.268Z</updated>
   <id>https://shawnzhou.world/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>基于阿里云OSS+PicGo+Typora的自动博客图床</title>
+    <link href="https://shawnzhou.world/2021/04/25/aliyun-oss/"/>
+    <id>https://shawnzhou.world/2021/04/25/aliyun-oss/</id>
+    <published>2021-04-25T14:06:33.000Z</published>
+    <updated>2021-04-25T15:35:57.268Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt; 事情是这样的，本来前几天还好好的图床，昨天突然把我博客一堆封面图全删了，我感到非常裂开。。&lt;/p&gt;
+&lt;p&gt;然后看到同学有自己的OSS存储，我在想我是不是也可以整一个，然后就整了一个，这里记录了一下整个过程以及相关的注意事项，方便后续查阅。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/d478daf074013cd6833aa45f8b6d6cb6.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="教程相关" scheme="https://shawnzhou.world/categories/%E6%95%99%E7%A8%8B%E7%9B%B8%E5%85%B3/"/>
+    
+    
+    <category term="教程" scheme="https://shawnzhou.world/tags/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="阿里云OSS" scheme="https://shawnzhou.world/tags/%E9%98%BF%E9%87%8C%E4%BA%91OSS/"/>
+    
+  </entry>
   
   <entry>
     <title>JavaScript中的原型、原型链</title>
@@ -46,12 +69,12 @@
     <link href="https://shawnzhou.world/2021/04/13/Flatten-the-array/"/>
     <id>https://shawnzhou.world/2021/04/13/Flatten-the-array/</id>
     <published>2021-04-13T11:14:08.000Z</published>
-    <updated>2021-04-13T14:07:46.073Z</updated>
+    <updated>2021-04-25T15:38:01.253Z</updated>
     
     
     <summary type="html">&lt;p&gt;数组扁平化，又称数组拍平，是一种将多维数组降维打击之后变成一维数组的办法。&lt;/p&gt;
 &lt;p&gt;与深浅拷贝一样也是在面试里出现过，而实际开发中见得较少。这里记录一下，学习学习。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://z3.ax1x.com/2021/04/13/cyCFBt.jpg&quot;&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;img src=&quot;https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/0f07a86830ad6e0172750c8930f2e041.jpg&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -69,13 +92,13 @@
     <link href="https://shawnzhou.world/2021/04/12/javascript-promise/"/>
     <id>https://shawnzhou.world/2021/04/12/javascript-promise/</id>
     <published>2021-04-12T12:13:59.000Z</published>
-    <updated>2021-04-22T14:26:38.863Z</updated>
+    <updated>2021-04-25T15:38:13.027Z</updated>
     
     
     <summary type="html">&lt;p&gt;Promise是ES6中新增的一种特性，是异步编程的一种解决方案，相比于回调函数与事件更合理而且更加强大，可以用来解决“回调地狱”问题。&lt;/p&gt;
 &lt;p&gt;最早由社区提出并实现，ES6将它写入了语言标准，统一了用法，并原生提供了Promise对象。&lt;/p&gt;
 &lt;p&gt;尽管用过基于Promise的Axios，但是对于Promise本身我却知之甚少。所以这里把它学一学。这篇学习笔记摘自《ECMAScript标准入门》第十四章。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://z3.ax1x.com/2021/04/22/cOCv5R.jpg&quot;&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;img src=&quot;https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/2ce7cfae7bd62d6ba0b64ee875e8cf52.jpg&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -91,12 +114,12 @@
     <link href="https://shawnzhou.world/2021/04/11/JavaScript-floating-point-calculation-problems/"/>
     <id>https://shawnzhou.world/2021/04/11/JavaScript-floating-point-calculation-problems/</id>
     <published>2021-04-11T09:20:15.000Z</published>
-    <updated>2021-04-11T14:11:27.004Z</updated>
+    <updated>2021-04-25T15:38:38.510Z</updated>
     
     
     <summary type="html">&lt;p&gt;0.1+0.2等于0.3吗？这好像是一个小学生就能解答的问题。&lt;/p&gt;
 &lt;p&gt;但是在JavaScript中，这个问题的答案可就不一定了。为什么呢？学习一下，写个笔记。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://z3.ax1x.com/2021/04/11/c0ntPK.jpg&quot;&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;img src=&quot;https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/29f7bcd1c340d73922142ab15e31e6fe.jpg&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -112,12 +135,12 @@
     <link href="https://shawnzhou.world/2021/04/11/cross-origin/"/>
     <id>https://shawnzhou.world/2021/04/11/cross-origin/</id>
     <published>2021-04-11T03:34:22.000Z</published>
-    <updated>2021-04-11T08:15:26.730Z</updated>
+    <updated>2021-04-25T15:38:53.385Z</updated>
     
     
     <summary type="html">&lt;p&gt; 跨域是实际前后端分离开发当中不可避免的会出现的问题，在面试当中也经常问到相关内容，这部分知识还是挺重要的。&lt;/p&gt;
 &lt;p&gt;这里把跨域相关的知识点学习一下，记录一下。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://z3.ax1x.com/2021/04/11/cw8HS0.jpg&quot;&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;img src=&quot;https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/9e09d93fc4971bf62c4affad87f36bd1.jpg&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -137,13 +160,13 @@
     <link href="https://shawnzhou.world/2021/04/10/web-storage/"/>
     <id>https://shawnzhou.world/2021/04/10/web-storage/</id>
     <published>2021-04-10T06:45:51.000Z</published>
-    <updated>2021-04-10T09:10:14.833Z</updated>
+    <updated>2021-04-25T15:39:09.309Z</updated>
     
     
     <summary type="html">&lt;p&gt;Web Storage是HTML5中提供的一套关于数据存储的解决方案。最早是网页超文本应用技术工作组在Web Applications 1.0规范中提出的。这个规范中的草案最终成为了HTML5中的一部分，后来又独立成为了自己的规范。它用来解决一些Cookie难以处理的存储问题。&lt;/p&gt;
 &lt;p&gt;Web Storage最新的规范版本是第2版，定义了&lt;code&gt;localStorage&lt;/code&gt;和&lt;code&gt;sessionStorage&lt;/code&gt;，前者为永久存储，后者为跨会话机制。这两种浏览器存储API提供了在浏览器中不受页面刷新影响而存储数据的两种方式。2009年之后所有主要供应商发布的浏览器版本在window对象上支持&lt;code&gt;localStorage&lt;/code&gt;和&lt;code&gt;sessionStorage&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;本部分学习笔记摘抄自《JavaScript高级程序设计》第四版，第25章，客户端存储。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://z3.ax1x.com/2021/04/10/caWSW6.jpg&quot;&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;img src=&quot;https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/fbe4bc917a6bf551562ce341ea66e5c7.jpg&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -159,14 +182,14 @@
     <link href="https://shawnzhou.world/2021/04/08/box-model/"/>
     <id>https://shawnzhou.world/2021/04/08/box-model/</id>
     <published>2021-04-08T07:34:24.000Z</published>
-    <updated>2021-04-10T04:59:05.766Z</updated>
+    <updated>2021-04-25T15:39:29.322Z</updated>
     
     
     <summary type="html">&lt;p&gt; 突然想到前几天面试的一个尴尬场景。关于盒模型理论，我以前确实有拿来认真了解，我以为我还是知道的，结果面试官一个问题把我问蒙了：&lt;/p&gt;
 &lt;p&gt;“请你说一下W3C盒模型和IE盒模型的区别。”&lt;/p&gt;
 &lt;p&gt;我…..这是啥？&lt;/p&gt;
 &lt;p&gt;为了避免这样的丢人事件再次发生，我打算重新认真学习一下。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://z3.ax1x.com/2021/04/10/caNGgx.jpg&quot;&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;img src=&quot;https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/098a3a9cacf4a7ee778583aaf147d701.jpg&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -182,18 +205,18 @@
   </entry>
   
   <entry>
-    <title>【教程】如何用校园邮箱申请正版JetBrains全家桶</title>
+    <title>如何用校园邮箱申请正版JetBrains全家桶</title>
     <link href="https://shawnzhou.world/2021/04/08/How-to-apply-for-JetBrains-IDE-using-your-campus-email/"/>
     <id>https://shawnzhou.world/2021/04/08/How-to-apply-for-JetBrains-IDE-using-your-campus-email/</id>
     <published>2021-04-08T03:49:54.000Z</published>
-    <updated>2021-04-08T06:47:36.219Z</updated>
+    <updated>2021-04-25T15:39:40.288Z</updated>
     
     
     <summary type="html">&lt;p&gt; 众所周知，JetBrains家的IDE功能非常强大，真可谓开发利器，高级生产力工具。但是很多IDE的收费是很贵的，个人使用承担不起这样昂贵的价格，使用校园邮箱提供的学生优惠就可以免费申请到一年的JetBrains IDE全家桶，这样我们就能开心的使用这些功能强大的IDE啦。&lt;/p&gt;
 &lt;p&gt;虽然一次申请只有一年，但在到期之前可以再申请续一下，这样就可以用很长时间了。&lt;/p&gt;
 &lt;p&gt;校园邮箱从哪获得呢？这篇教程我以我本学校的邮箱举例，不同学校的校园邮箱使用平台不尽相同，但基本操作都大同小异，按照学校给的教程开通一下账号就可以使用了。&lt;/p&gt;
 &lt;p&gt;啥，你说你们学校没说过校园邮箱的事情？说不定是学校有但是低调了一些，多打听打听，会找到答案的。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://z3.ax1x.com/2021/04/08/cJTpse.jpg&quot;&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;img src=&quot;https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/bfed5b93381b2701fe229b269df387e1.jpg&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -233,11 +256,11 @@
     <link href="https://shawnzhou.world/2021/04/07/horizontal-and-vertical-center-of-CSS/"/>
     <id>https://shawnzhou.world/2021/04/07/horizontal-and-vertical-center-of-CSS/</id>
     <published>2021-04-07T00:37:13.000Z</published>
-    <updated>2021-04-07T01:45:09.343Z</updated>
+    <updated>2021-04-25T15:39:59.463Z</updated>
     
     
     <summary type="html">&lt;p&gt; 将盒子水平居中是一件不难办的事情，那么如何做到水平垂直同时居中呢？这时候就需要思考一下了。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://z3.ax1x.com/2021/04/07/c30nlF.jpg&quot;&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;img src=&quot;https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/6aaabe6d72ba01b944259bcdbaee6acd.jpg&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -279,12 +302,12 @@
     <link href="https://shawnzhou.world/2021/03/05/A-thinking-in-one-SQL-statement/"/>
     <id>https://shawnzhou.world/2021/03/05/A-thinking-in-one-SQL-statement/</id>
     <published>2021-03-05T06:37:51.000Z</published>
-    <updated>2021-03-05T09:47:54.908Z</updated>
+    <updated>2021-04-25T15:43:19.952Z</updated>
     
     
     <summary type="html">&lt;p&gt;帮老师干活，做2020年山东高考录取情况的汇总表，纯靠Excel总归有些操作不是很好处理，所以我借助了MySQL数据库完成一些比如复杂条件合并的操作。&lt;/p&gt;
 &lt;p&gt;昨天晚上老师要我把两个Excel表里面的一些数据合并一下，但在执行修改操作时发现这条语句跑了两分钟还要多，感觉这不合理，于是来思考一下，到底是为什么会造成这样的？&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://s3.ax1x.com/2021/03/05/6eqwcj.jpg&quot;&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;img src=&quot;https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/1619365291923.jpg&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -304,14 +327,14 @@
     <link href="https://shawnzhou.world/2021/03/03/vue-review-note/"/>
     <id>https://shawnzhou.world/2021/03/03/vue-review-note/</id>
     <published>2021-03-03T13:45:37.000Z</published>
-    <updated>2021-03-04T10:00:11.822Z</updated>
+    <updated>2021-04-25T15:44:47.808Z</updated>
     
     
     <summary type="html">&lt;p&gt;最近学习其实遇到了一些瓶颈，虽然有写好的学习路线和执行计划，但总感觉仍然无从下手。而且现在开学了，还要上课和写作业，时间其实并不如寒假时充裕。&lt;/p&gt;
 &lt;p&gt;前几天做了一些算法题，但有一些写不顺手的感觉，去做大厂的笔试题发现其实自己仍然啥也不会，去看别人模拟面试发现他们聊的我大多都只接触的很浅，整理文件看到自己年前写的求职简历，越看越感觉这是一份拼凑出来的垃圾，一想到今年的实习就感到无比头大。&lt;/p&gt;
 &lt;p&gt;那就重新补补Vue吧，正好Vue也出了3.x的版本，也想正好学学一些版本新特性，慢慢来。&lt;/p&gt;
 &lt;p&gt;这篇笔记除了生命周期是2的版本，其他的笔记都是基于3的版本。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://s3.ax1x.com/2021/03/03/6EJsBj.jpg&quot;&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;img src=&quot;https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/1619365291932.jpg&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -454,28 +477,6 @@
     
     
     <category term="UI设计" scheme="https://shawnzhou.world/tags/UI%E8%AE%BE%E8%AE%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>日常来点面试题2021.2.20</title>
-    <link href="https://shawnzhou.world/2021/02/20/daily-interview-question-2021-02-20/"/>
-    <id>https://shawnzhou.world/2021/02/20/daily-interview-question-2021-02-20/</id>
-    <published>2021-02-20T09:15:52.000Z</published>
-    <updated>2021-03-04T10:06:41.485Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;抽出点时间看一些面试题，补充一些基础知识。今天看一些HTML相关的题目。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2021/03/04/BHNmX65c3Mk1dJ4.jpg&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="日常来点面试题" scheme="https://shawnzhou.world/categories/%E6%97%A5%E5%B8%B8%E6%9D%A5%E7%82%B9%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-    
-    <category term="HTML" scheme="https://shawnzhou.world/tags/HTML/"/>
-    
-    <category term="面试题" scheme="https://shawnzhou.world/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
     
   </entry>
   
