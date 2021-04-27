@@ -6,7 +6,7 @@
   <link href="https://shawnzhou.world/atom.xml" rel="self"/>
   
   <link href="https://shawnzhou.world/"/>
-  <updated>2021-04-25T15:35:57.268Z</updated>
+  <updated>2021-04-27T14:33:19.490Z</updated>
   <id>https://shawnzhou.world/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaScript中的Set和Map数据结构</title>
+    <link href="https://shawnzhou.world/2021/04/27/javascript-set-map/"/>
+    <id>https://shawnzhou.world/2021/04/27/javascript-set-map/</id>
+    <published>2021-04-27T12:10:46.000Z</published>
+    <updated>2021-04-27T14:33:19.490Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;在ES6中，JavaScript提供了两个新的数据结构Set和Map，使用它们可以在一些场景下方便很多。&lt;/p&gt;
+&lt;p&gt;本笔记摘自《ECMAScript6标准入门》第11章。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/07426ed0bd44c46c39659b6f561f0414.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="前端开发那些事" scheme="https://shawnzhou.world/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    
+    
+    <category term="JavaScript" scheme="https://shawnzhou.world/tags/JavaScript/"/>
+    
+    <category term="数据结构" scheme="https://shawnzhou.world/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
   
   <entry>
     <title>基于阿里云OSS+PicGo+Typora的自动博客图床</title>
@@ -456,27 +479,6 @@
     <category term="CSS" scheme="https://shawnzhou.world/tags/CSS/"/>
     
     <category term="面试题" scheme="https://shawnzhou.world/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《规律与逻辑·用户体验设计法则》 学习笔记5</title>
-    <link href="https://shawnzhou.world/2021/02/21/ui-note5/"/>
-    <id>https://shawnzhou.world/2021/02/21/ui-note5/</id>
-    <published>2021-02-21T08:46:44.000Z</published>
-    <updated>2021-03-04T10:06:52.179Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;相比文字而言，图标可以让人在更短的时间内认知并了解信息，并且能大大提升视觉美观性；尽管界面设计中一般都选择系统默认字体，但一些运营活动风格的界面中，字体设计也是非常重要的方面；一个好的界面不仅要求整体布局合理，还要注意细节的处理。&lt;/p&gt;
-&lt;p&gt;该部分记录了在用户界面设计中的图标，字体与细节的规律。笔记摘自《规律与逻辑》。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2021/03/04/q2ryDbeiZ5w7KYX.jpg&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="前端开发那些事" scheme="https://shawnzhou.world/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
-    
-    
-    <category term="UI设计" scheme="https://shawnzhou.world/tags/UI%E8%AE%BE%E8%AE%A1/"/>
     
   </entry>
   
