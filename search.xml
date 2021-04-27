@@ -69,7 +69,7 @@
 <p>将对象转化为Map就是逆操作，但也得手写。</p>
 <p>Map转JSON可以直接使用JSON.stringify，这种情况适用于k都是字符串。如果k里面有非字符串，需要转化为数组JSON，like this：<code>JSON.stringify([...m]);</code>。</p>
 <p>JSON转Map比较好办，毕竟正常情况下所有键名都是字符串。在特殊情况下，JSON满足数组Map结构时，可以一个一个转化为Map。</p>
-<h2 id="WeakMap"><a href="#WeakMap" class="headerlink" title="WeakMap"></a>WeakMap</h2><p>和Map类似，生成键值对集合。</p>
+<h3 id="WeakMap"><a href="#WeakMap" class="headerlink" title="WeakMap"></a>WeakMap</h3><p>和Map类似，生成键值对集合。</p>
 <p>使用set方法添加成员，接受一个数组作为构造函数的参数。但WeakMap只接受对象和null作为键名，这和Map不同。</p>
 <p>重点来了，WeakMap的键名指向的对象不计入垃圾回收机制。它的键名引用的对象都是弱引用，也就是垃圾回收机制不考虑这个引用。这句话怎么解释呢？</p>
 <p>比如有一个需求是，我想对两个对象通过某个结构添加一些其他信息，然后这个结构就必然会对这两个对象形成一个引用，在使用结束之后，垃圾回收机制不会自动回收这两个对象，因为它们现在还有一个引用在联系，所以此时需要先手动删除这个引用的结构才可以。但如果使用WeakMap进行弱引用，垃圾回收机制就不会考虑这个引用占用的联系，一旦我不需要这两个对象了，垃圾回收会自动把这俩对象收回，即便WeakMap还留着对它的引用。</p>

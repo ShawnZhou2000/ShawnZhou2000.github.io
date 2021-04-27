@@ -6,7 +6,7 @@
   <link href="https://shawnzhou.world/atom.xml" rel="self"/>
   
   <link href="https://shawnzhou.world/"/>
-  <updated>2021-04-27T14:33:19.490Z</updated>
+  <updated>2021-04-27T14:35:00.955Z</updated>
   <id>https://shawnzhou.world/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://shawnzhou.world/2021/04/27/javascript-set-map/"/>
     <id>https://shawnzhou.world/2021/04/27/javascript-set-map/</id>
     <published>2021-04-27T12:10:46.000Z</published>
-    <updated>2021-04-27T14:33:19.490Z</updated>
+    <updated>2021-04-27T14:35:00.955Z</updated>
     
     
     <summary type="html">&lt;p&gt;在ES6中，JavaScript提供了两个新的数据结构Set和Map，使用它们可以在一些场景下方便很多。&lt;/p&gt;
