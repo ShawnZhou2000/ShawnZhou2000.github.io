@@ -6,7 +6,7 @@
   <link href="https://shawnzhou.world/atom.xml" rel="self"/>
   
   <link href="https://shawnzhou.world/"/>
-  <updated>2021-04-27T14:35:00.955Z</updated>
+  <updated>2021-04-28T08:06:47.022Z</updated>
   <id>https://shawnzhou.world/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>为什么我们不应再继续使用Windows7了？</title>
+    <link href="https://shawnzhou.world/2021/04/28/good-bye-windows7/"/>
+    <id>https://shawnzhou.world/2021/04/28/good-bye-windows7/</id>
+    <published>2021-04-28T05:32:47.000Z</published>
+    <updated>2021-04-28T08:06:47.022Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;5月份工作室要开展电脑服务日活动，其中有一项活动内容是win7系统免费升级win10（基于学校提供的正版化服务）。自从今年Windows 7停止维护之后，学校的电脑也陆续要求全部更换为国产操作系统或者正版Windows 10。知道这件事的我突然在脑内来了一波回忆杀，我仍然记得小学时初次见到win7 aero的惊艳感，直到后来有自己的电脑之前，我一直在使用的操作系统就是Windows 7。时间到了2021年，现在的Windows 7到底怎么样了？&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/20210428134045.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="杂谈与随想" scheme="https://shawnzhou.world/categories/%E6%9D%82%E8%B0%88%E4%B8%8E%E9%9A%8F%E6%83%B3/"/>
+    
+    
+    <category term="操作系统" scheme="https://shawnzhou.world/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+    <category term="windows7" scheme="https://shawnzhou.world/tags/windows7/"/>
+    
+  </entry>
   
   <entry>
     <title>JavaScript中的Set和Map数据结构</title>
@@ -44,7 +66,7 @@
     <link href="https://shawnzhou.world/2021/04/25/aliyun-oss/"/>
     <id>https://shawnzhou.world/2021/04/25/aliyun-oss/</id>
     <published>2021-04-25T14:06:33.000Z</published>
-    <updated>2021-04-25T15:35:57.268Z</updated>
+    <updated>2021-04-28T05:41:30.988Z</updated>
     
     
     <summary type="html">&lt;p&gt; 事情是这样的，本来前几天还好好的图床，昨天突然把我博客一堆封面图全删了，我感到非常裂开。。&lt;/p&gt;
@@ -457,28 +479,6 @@
     
     
     <category term="CSS" scheme="https://shawnzhou.world/tags/CSS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>日常来点面试题2021.2.21</title>
-    <link href="https://shawnzhou.world/2021/02/21/daily-interview-question-2021-02-21/"/>
-    <id>https://shawnzhou.world/2021/02/21/daily-interview-question-2021-02-21/</id>
-    <published>2021-02-21T13:38:03.000Z</published>
-    <updated>2021-03-04T10:07:12.327Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;今天看看CSS相关的内容。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2021/03/04/bvKAO6z2d5FCyxt.jpg&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="日常来点面试题" scheme="https://shawnzhou.world/categories/%E6%97%A5%E5%B8%B8%E6%9D%A5%E7%82%B9%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-    
-    <category term="CSS" scheme="https://shawnzhou.world/tags/CSS/"/>
-    
-    <category term="面试题" scheme="https://shawnzhou.world/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
     
   </entry>
   
