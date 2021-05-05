@@ -6,7 +6,7 @@
   <link href="https://shawnzhou.world/atom.xml" rel="self"/>
   
   <link href="https://shawnzhou.world/"/>
-  <updated>2021-04-28T11:01:34.940Z</updated>
+  <updated>2021-05-05T09:31:59.808Z</updated>
   <id>https://shawnzhou.world/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>uniCloud中云函数的使用与工具类封装</title>
+    <link href="https://shawnzhou.world/2021/05/05/cloud-function-in-uni-app/"/>
+    <id>https://shawnzhou.world/2021/05/05/cloud-function-in-uni-app/</id>
+    <published>2021-05-05T06:18:53.000Z</published>
+    <updated>2021-05-05T09:31:59.808Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;uni-app是一个方便小程序开发的基于Vue的框架，它为开发者提供了一个非常方便的平台叫做uniCloud，使用它可以代替部分传统的服务端功能，使用云数据库和云函数（可以理解为数据接口）进行方便的CRUD操作。&lt;/p&gt;
+&lt;p&gt;但是uniCloud中原生的&lt;code&gt;uniCloud.callFunction&lt;/code&gt;方法比较底层，在接口数量较多时会造成维护不变，所以需要一个结构对它进行解耦。这里对云函数的基本使用和一种简易的封装方式做个笔记。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/20210505143022.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="前端开发那些事" scheme="https://shawnzhou.world/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    
+    
+    <category term="JavaScript" scheme="https://shawnzhou.world/tags/JavaScript/"/>
+    
+    <category term="uni-app" scheme="https://shawnzhou.world/tags/uni-app/"/>
+    
+    <category term="uniCloud" scheme="https://shawnzhou.world/tags/uniCloud/"/>
+    
+    <category term="小程序开发" scheme="https://shawnzhou.world/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
   
   <entry>
     <title>为什么我们不应再继续使用Windows7了？</title>
@@ -459,26 +486,6 @@
     <category term="数组" scheme="https://shawnzhou.world/tags/%E6%95%B0%E7%BB%84/"/>
     
     <category term="数据结构" scheme="https://shawnzhou.world/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CSS选择器 学习笔记1</title>
-    <link href="https://shawnzhou.world/2021/02/22/css-selector-note1/"/>
-    <id>https://shawnzhou.world/2021/02/22/css-selector-note1/</id>
-    <published>2021-02-22T10:10:07.000Z</published>
-    <updated>2021-03-04T10:06:20.228Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;今天读了一本非常会整活的书：《CSS选择器世界》，这本书的封面写着“颠覆对CSS的认知”，我仅详细阅读到三分之一，就已经把我的认知颠覆的地覆天翻了。总结起来就是非常会整活，但也有很多值得学习的干货，这里把一些经典内容整理成笔记，时间关系最终没有读完，以后还会再来看这本书的。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2021/03/04/9zsB15xSNwO8rXq.jpg&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="前端开发那些事" scheme="https://shawnzhou.world/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
-    
-    
-    <category term="CSS" scheme="https://shawnzhou.world/tags/CSS/"/>
     
   </entry>
   

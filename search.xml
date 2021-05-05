@@ -1,6 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>uniCloud中云函数的使用与工具类封装</title>
+    <url>/2021/05/05/cloud-function-in-uni-app/</url>
+    <content><![CDATA[<p>uni-app是一个方便小程序开发的基于Vue的框架，它为开发者提供了一个非常方便的平台叫做uniCloud，使用它可以代替部分传统的服务端功能，使用云数据库和云函数（可以理解为数据接口）进行方便的CRUD操作。</p>
+<p>但是uniCloud中原生的<code>uniCloud.callFunction</code>方法比较底层，在接口数量较多时会造成维护不变，所以需要一个结构对它进行解耦。这里对云函数的基本使用和一种简易的封装方式做个笔记。</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/20210505143022.jpg"></p>
+<a id="more"></a>
+
+<h2 id="uniCloud开发环境搭建"><a href="#uniCloud开发环境搭建" class="headerlink" title="uniCloud开发环境搭建"></a>uniCloud开发环境搭建</h2><p>首先需要在hbuilderX中一个uni-app项目，可以先创建一下，选择默认模板，然后勾选使用uniCloud，完成创建。</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/20210505143752.png"></p>
+<p>然后在uniCloud文件夹中选择关联云服务空间或项目。</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/20210505143528.png"></p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/20210505143823.png"></p>
+<p>云服务空间需要在uniCloud网站上实名认证申请才可以得到。我这里已经申请完了，可以看到管理界面如下：</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/20210505144026.png"></p>
+<h2 id="云函数的基本使用"><a href="#云函数的基本使用" class="headerlink" title="云函数的基本使用"></a>云函数的基本使用</h2><p>在管理界面→云数据库中，创建一个用于测试的数据库表，写入一些测试数据，然后创建一个云函数用于获取这个列表。</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/20210505150157.png"></p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/20210505150256.png"></p>
+<p>在云函数的<code>index.js</code>里面这样写：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span>;</span><br><span class="line"><span class="comment">// 获取数据库连接</span></span><br><span class="line"><span class="keyword">const</span> db = uniCloud.database();</span><br><span class="line"><span class="built_in">exports</span>.main = <span class="keyword">async</span> (event, context) =&gt; &#123;</span><br><span class="line">  <span class="comment">// 异步操作，需要使用await等待</span></span><br><span class="line">  <span class="comment">// 使用collection方法获取对应的数据库集合的引用</span></span><br><span class="line">  <span class="comment">// 使用get获取全部内容</span></span><br><span class="line">	<span class="keyword">let</span> AccountsList = <span class="keyword">await</span> db.collection(<span class="string">&quot;accounts&quot;</span>).get();</span><br><span class="line">	<span class="keyword">return</span> AccountsList;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>使用上传并运行云函数将这个云函数上传到云端，并测试运行结果：</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/20210505150900.png"></p>
+<p>看到能正常返回数据，说明运行成功了。</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/20210505151004.png"></p>
+<p>对于返回的数据格式，最好做一个简单的封装，即带有HTTP状态码，请求信息等数据的对象。所以将云函数改写一下：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span>;</span><br><span class="line"><span class="comment">// 获取数据库连接</span></span><br><span class="line"><span class="keyword">const</span> db = uniCloud.database();</span><br><span class="line"><span class="built_in">exports</span>.main = <span class="keyword">async</span> (event, context) =&gt; &#123;</span><br><span class="line">  <span class="comment">// 异步操作，需要使用await等待</span></span><br><span class="line">  <span class="comment">// 使用collection方法获取对应的数据库集合的引用</span></span><br><span class="line">  <span class="comment">// 使用get获取全部内容</span></span><br><span class="line">	<span class="keyword">let</span> AccountsList = <span class="keyword">await</span> db.collection(<span class="string">&quot;accounts&quot;</span>).get();</span><br><span class="line">	<span class="keyword">return</span> &#123;</span><br><span class="line">    code: <span class="number">200</span>,</span><br><span class="line">    msg: <span class="string">&quot;已成功返回accounts表的数据&quot;</span>,</span><br><span class="line">    data: AccountsList.data</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>再次上传运行一下（需要注意，每次修改完云函数之后都要将它上传到云端才可以正常使用），查看输出结果：</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/20210505152420.png"></p>
+<p>云函数调试完成，接下来返回前端，尝试在<code>index.vue</code>里面调用它并显示信息在页面上。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">	<span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">		data() &#123;</span><br><span class="line">			<span class="keyword">return</span> &#123;</span><br><span class="line">				data: [],</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;,</span><br><span class="line">		onLoad() &#123;</span><br><span class="line">      <span class="built_in">this</span>.getList();</span><br><span class="line">		&#125;,</span><br><span class="line">		methods: &#123;</span><br><span class="line">      getList() &#123;</span><br><span class="line">        uniCloud.callFunction(&#123;</span><br><span class="line">          name: <span class="string">&#x27;getAccountsList&#x27;</span></span><br><span class="line">        &#125;)</span><br><span class="line">        .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="built_in">this</span>.data = res.result.data;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="built_in">this</span>.data);</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>使用<code>callFunction</code>对云函数调用，它返回一个Promise，可以用<code>.then</code>获取调用成功的信息。控制台显示：</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/20210505155238.png"></p>
+<p>这样就表示一个云函数调用完成了。</p>
+<h2 id="云函数API的工具类封装"><a href="#云函数API的工具类封装" class="headerlink" title="云函数API的工具类封装"></a>云函数API的工具类封装</h2><p>云函数虽然好用，但每个需要用云函数的地方如果都需要这样写，不太利于维护项目，所以需要通过一些方式对它进行封装，以到达解耦的效果。</p>
+<p>封装之后，在调用时就不再需要写一大堆的<code>callFunction</code>了，可以让代码更加直观而且可维护。首先新建目录：</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/20210505163937.png"></p>
+<p>这里面api文件夹代表跟api相关的操作封装，http.js封装一个<code>uniCloud.callFunction</code>请求的Promise，用于各云函数请求调用时使用；index.js用于批量导出模块；list.js用于声明云函数模块（随着项目规模的增加，可以不用只有一个list.js，可以将不同的云函数分散开来，方便维护，只需要再加一些js文件就可以）。</p>
+<p>先在app的入口程序main.js里面注册一下自定义的工具类，将它挂载到Vue的原型对象就可以。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> API <span class="keyword">from</span> <span class="string">&#x27;./common/api&#x27;</span></span><br><span class="line">Vue.prototype.$api = API</span><br></pre></td></tr></table></figure>
+
+<p>在http.js中这样写：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">$http</span>(<span class="params">options</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">const</span> &#123; url, data &#125; = options;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">reslove, reject</span>) =&gt;</span> &#123;</span><br><span class="line">		uniCloud.callFunction(&#123;</span><br><span class="line">			name: url,</span><br><span class="line">			data</span><br><span class="line">		&#125;).then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">			<span class="keyword">if</span> (res.result.code === <span class="number">200</span>) &#123;</span><br><span class="line">				reslove(res.result)</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				reject(res.result)</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;).catch(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">			reject(err)</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对于每个<code>uniCloud.callFunction</code>，需要给它提供一个云函数名称和参数列表，分别对应name和data，在传入时name通过url传入，data作为同名变量可以简写。让它返回一个Promise，内部执行这个<code>callFunction</code>，并判断返回的状态码是不是200，如果是，则转resolve，如果不是，则转reject，如果出错也转reject，对于其他需求，也可以在内部继续扩展。</p>
+<p>在index.js中这样写：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> requireAPI = <span class="built_in">require</span>.context(</span><br><span class="line">	<span class="comment">// ./api 目录的相对路径</span></span><br><span class="line">	<span class="string">&#x27;.&#x27;</span>,</span><br><span class="line">	<span class="comment">// 判断是否查询子目录</span></span><br><span class="line">	<span class="literal">false</span>,</span><br><span class="line">	<span class="comment">// 使用正则判断.js文件后缀</span></span><br><span class="line">	/.js$/</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> <span class="built_in">module</span> = &#123;&#125;; <span class="comment">// 导出模块对象</span></span><br><span class="line">requireAPI.keys().forEach(<span class="function">(<span class="params">key,index</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 使用forEach对所有的文件进行检索，但不需要检索index.js</span></span><br><span class="line">	<span class="keyword">if</span>(key === <span class="string">&#x27;./index.js&#x27;</span>) </span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  <span class="comment">// 将对应的key绑定到moudule里导出</span></span><br><span class="line">	<span class="built_in">Object</span>.assign(<span class="built_in">module</span>,requireAPI(key))</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="built_in">module</span></span><br></pre></td></tr></table></figure>
+
+<p><code>require.context</code>是webpack里面的一个工具，通过给定的条件获取指定的上下文，主要用于实现自动化导入模块。使用这个API可以遍历某个文件夹下面的所有文件并自动导入，不用再手动import了。</p>
+<p><code>require.context</code>函数接受下面三个参数：</p>
+<ol>
+<li><code>directory</code>，字符串，读取文件的路径</li>
+<li><code>useSubdirectories</code> bool值，是否遍历文件的子目录</li>
+<li><code>regExp</code>，正则表达式，用于匹配对应文件名的文件</li>
+</ol>
+<p>在list.js中这样写：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> $http <span class="keyword">from</span> <span class="string">&#x27;./http.js&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> getList = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">return</span> $http(&#123;</span><br><span class="line">		url: <span class="string">&#x27;getAccountsList&#x27;</span>,</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>此后，如果想要添加新的云函数，只需要新建云函数后，在list.js里按照这个<code>getList</code>的写法再写一个就可以了，这种方式是无参的，如果需要有参的传递，则函数里写入一个data，<code>$http</code>中也传入一个data即可。</p>
+<p>经过一系列封装后，前端代码就可以改写成：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">	<span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">		data() &#123;</span><br><span class="line">			<span class="keyword">return</span> &#123;</span><br><span class="line">				data: [],</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;,</span><br><span class="line">		onLoad() &#123;</span><br><span class="line">      <span class="built_in">this</span>.getList();</span><br><span class="line">		&#125;,</span><br><span class="line">		methods: &#123;</span><br><span class="line">      getList() &#123;</span><br><span class="line">        <span class="built_in">this</span>.$api.getList()</span><br><span class="line">        .then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(res);</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>最终运行结果：</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/20210505173156.png"></p>
+]]></content>
+      <categories>
+        <category>前端开发那些事</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>uni-app</tag>
+        <tag>uniCloud</tag>
+        <tag>小程序开发</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>为什么我们不应再继续使用Windows7了？</title>
     <url>/2021/04/28/good-bye-windows7/</url>
     <content><![CDATA[<p>5月份工作室要开展电脑服务日活动，其中有一项活动内容是win7系统免费升级win10（基于学校提供的正版化服务）。自从Windows 7停止维护之后，学校的电脑也陆续要求全部更换为国产操作系统或者正版Windows 10。知道这件事的我突然在脑内来了一波回忆杀，我仍然记得小学时初次见到win7 aero的惊艳感，直到后来有自己的电脑之前，我一直在使用的操作系统就是Windows 7。时间到了2021年，现在的Windows 7到底怎么样了？</p>
