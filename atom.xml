@@ -6,7 +6,7 @@
   <link href="https://shawnzhou.world/atom.xml" rel="self"/>
   
   <link href="https://shawnzhou.world/"/>
-  <updated>2021-05-06T16:04:01.682Z</updated>
+  <updated>2021-05-30T17:36:19.621Z</updated>
   <id>https://shawnzhou.world/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一文搞懂从输入URL到页面展示全过程</title>
+    <link href="https://shawnzhou.world/2021/05/30/the-URL-from-the-input-to-the-page-display-process/"/>
+    <id>https://shawnzhou.world/2021/05/30/the-URL-from-the-input-to-the-page-display-process/</id>
+    <published>2021-05-30T06:19:37.000Z</published>
+    <updated>2021-05-30T17:36:19.621Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;前段时间因为各种事情一直在忙，最近总算是告一段落了，学点东西记录一下。&lt;/p&gt;
+&lt;p&gt;URL从输入到解析再到展示的全过程是一个非常经典的面试题，也是非常考验一个程序员基本能力的问题，以此为轴，可以串出很多深层次的知识点。&lt;/p&gt;
+&lt;p&gt;之前我对这个问题的了解非常浅层次，后来参阅了很多资料之后，感觉是将它整理出来的时候了。它可能不是最细的，但我会尽力完善。&lt;/p&gt;
+&lt;p&gt;“从一个网址从浏览器中输入并跳转起，到页面展示在你的屏幕上，这中间发生了什么？”接下来我们就开始一探究竟。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/20210530145341.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="前端开发那些事" scheme="https://shawnzhou.world/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    
+    
+    <category term="HTML" scheme="https://shawnzhou.world/tags/HTML/"/>
+    
+    <category term="CSS" scheme="https://shawnzhou.world/tags/CSS/"/>
+    
+    <category term="计算机网络" scheme="https://shawnzhou.world/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
   
   <entry>
     <title>CSS flex布局学习笔记</title>
@@ -457,27 +484,6 @@
 &lt;p&gt;该部分为书中第四章内容，视觉体验进阶后半部分。笔记摘自《规律与逻辑》。&lt;/p&gt;
 &lt;p&gt;该系列将暂时停更一段时间，接下来更新的内容将会与Vue，JavaScript等相关。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://i.loli.net/2021/03/04/a8QRNpFsv6lkmjK.jpg&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="前端开发那些事" scheme="https://shawnzhou.world/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
-    
-    
-    <category term="UI设计" scheme="https://shawnzhou.world/tags/UI%E8%AE%BE%E8%AE%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《规律与逻辑·用户体验设计法则》 学习笔记6</title>
-    <link href="https://shawnzhou.world/2021/02/25/ui-note6/"/>
-    <id>https://shawnzhou.world/2021/02/25/ui-note6/</id>
-    <published>2021-02-25T03:36:12.000Z</published>
-    <updated>2021-03-04T10:07:47.999Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;用户体验设计师的主要产出物是什么？从打开产品的引导页到数据为空状态的设计技巧，逐渐扩展到运营Banner设计，最后深入到界面层次感的打造以及不同风格产品的设计路线，全面解决用户体验设计实际工作中的各种难题。&lt;/p&gt;
-&lt;p&gt;我打算用两次笔记学完这里。该部分为书中第四章内容，视觉体验进阶前半部分。笔记摘自《规律与逻辑》。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2021/03/04/xbm9IsnTqGHe5J7.jpg&quot;&gt;&lt;/p&gt;</summary>
     
     
     
