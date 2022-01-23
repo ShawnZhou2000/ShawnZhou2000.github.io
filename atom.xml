@@ -6,7 +6,7 @@
   <link href="https://shawnzhou.world/atom.xml" rel="self"/>
   
   <link href="https://shawnzhou.world/"/>
-  <updated>2022-01-23T14:53:31.214Z</updated>
+  <updated>2022-01-23T15:17:11.377Z</updated>
   <id>https://shawnzhou.world/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>做前端的一点小感想</title>
+    <link href="https://shawnzhou.world/2022/01/23/a-little-feeling/"/>
+    <id>https://shawnzhou.world/2022/01/23/a-little-feeling/</id>
+    <published>2022-01-23T15:05:27.000Z</published>
+    <updated>2022-01-23T15:17:11.377Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;大学研究了四年前端，但遗憾的是在没有人带我的情况下，弯路走了不少，也踩了无数的坑。幸好也稍微攒了点经验，这里简单做个总结。如果其中有些文字你难以理解，先尝试忘记这些“教条”，亲自去实践一段时间后再来回味，说不定你会有比我更深刻的理解。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/f9b843a16effa490231443a2e647c222.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="杂谈与随想" scheme="https://shawnzhou.world/categories/%E6%9D%82%E8%B0%88%E4%B8%8E%E9%9A%8F%E6%83%B3/"/>
+    
+    
+    <category term="经验沉淀" scheme="https://shawnzhou.world/tags/%E7%BB%8F%E9%AA%8C%E6%B2%89%E6%B7%80/"/>
+    
+  </entry>
   
   <entry>
     <title>Vue2.x与3.x的变化侦测原理分析</title>
@@ -435,27 +455,6 @@
 &lt;p&gt;最早由社区提出并实现，ES6将它写入了语言标准，统一了用法，并原生提供了Promise对象。&lt;/p&gt;
 &lt;p&gt;尽管用过基于Promise的Axios，但是对于Promise本身我却知之甚少。所以这里把它学一学。这篇学习笔记摘自《ECMAScript标准入门》第十四章。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/2ce7cfae7bd62d6ba0b64ee875e8cf52.jpg&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="前端开发那些事" scheme="https://shawnzhou.world/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
-    
-    
-    <category term="JavaScript" scheme="https://shawnzhou.world/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>0.1+0.2等于几？</title>
-    <link href="https://shawnzhou.world/2021/04/11/JavaScript-floating-point-calculation-problems/"/>
-    <id>https://shawnzhou.world/2021/04/11/JavaScript-floating-point-calculation-problems/</id>
-    <published>2021-04-11T09:20:15.000Z</published>
-    <updated>2022-01-21T06:06:50.406Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;0.1+0.2等于0.3吗？这好像是一个小学生就能解答的问题。&lt;/p&gt;
-&lt;p&gt;但是在JavaScript中，这个问题的答案可就不一定了。为什么呢？学习一下，写个笔记。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/29f7bcd1c340d73922142ab15e31e6fe.jpg&quot;&gt;&lt;/p&gt;</summary>
     
     
     
