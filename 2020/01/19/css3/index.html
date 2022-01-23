@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="博客,前端博客,JavaScript,html5,css3,html,css,js,acm,noip,橙果工作室,shawnzhou,shawn zhou" />
+   
+  <meta name="description" content="ShawnZhou的小站" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    css3学习笔记 |  ShawnZhou的小站
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+  
+  
+
+  
+
+<link rel="alternate" href="/atom.xml" title="ShawnZhou的小站" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+      <canvas width="1777" height="841"
+        style="position: fixed; left: 0px; top: 0px; z-index: 99999; pointer-events: none;"></canvas>
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-css3"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  css3学习笔记
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/01/19/css3/" class="article-date">
+  <time datetime="2020-01-19T05:16:17.000Z" itemprop="datePublished">2020-01-19</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/">前端开发那些事</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">2.6k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">10 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>这里记载了关于CSS3相关的学习笔记，该部分内容是曾在2020年发布的。</p>
+<p>当前博客显示的发布时间非真实时间，而是这些内容在当时发布时的最后发布时间。</p>
+<p><img src="https://i.loli.net/2018/11/19/5bf2966b32e00.jpg"></p>
+<a id="more"></a>
+
+<h2 id="CSS3-边框"><a href="#CSS3-边框" class="headerlink" title="CSS3 边框"></a>CSS3 边框</h2><p>通过CSS3可以创建圆角边框，向矩形添加阴影，还可以使用图片来绘制边框，不需要借助PS就能完成这些操作。</p>
+<p>可能用到的有<code>border-radius</code>（这个在之前的开发中经常用到）,<code>box-shadow</code>，还有<code>border-image</code>。</p>
+<p>IE9及以上版本支持前两者，火狐，Chrome，Safari支持全部的属性。</p>
+<p>以<code>moz-</code>，<code>ms-</code>，<code>webkit-</code>开头的属性是为了兼容更多浏览器的，效果和不加此前缀的一样。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!doctype <span class="meta-keyword">html</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>testdw<span class="tag">&lt;/<span class="name">title</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;<span class="name">style</span>&gt;</span>  </span><br><span class="line"><span class="css">		<span class="selector-class">.box1</span> &#123;  </span></span><br><span class="line">			text-align: center;  </span><br><span class="line">			line-height: 50px;  </span><br><span class="line">			width: 200px;  </span><br><span class="line">			height: 50px;  </span><br><span class="line"><span class="css">			<span class="selector-tag">border</span>: 2<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#0BDC57</span>;  </span></span><br><span class="line">			border-radius: 30px;  </span><br><span class="line">		&#125;  </span><br><span class="line"><span class="css">		<span class="selector-class">.box2</span> &#123;  </span></span><br><span class="line">			text-align: center;  </span><br><span class="line">			width: 200px;  </span><br><span class="line">			height: 100px;  </span><br><span class="line">			line-height: 100px;  </span><br><span class="line">			border: 2px solid pink;  </span><br><span class="line">			background: pink;  </span><br><span class="line">			margin-top: 20px;  </span><br><span class="line"><span class="css">			<span class="selector-tag">box-shadow</span>: 10<span class="selector-tag">px</span> 10<span class="selector-tag">px</span> 5<span class="selector-tag">px</span> <span class="selector-id">#888</span>;  </span></span><br><span class="line"><span class="css">			<span class="comment">/*	参数一：左右偏移量	*/</span>  </span></span><br><span class="line"><span class="css">			<span class="comment">/*	参数二：上下偏移量	*/</span>  </span></span><br><span class="line"><span class="css">			<span class="comment">/*	参数三：模糊半径	*/</span>  </span></span><br><span class="line"><span class="css">			<span class="comment">/*	参数四：阴影颜色	*/</span>  </span></span><br><span class="line">		&#125;  </span><br><span class="line"><span class="css">		<span class="selector-class">.box3</span> &#123;  </span></span><br><span class="line">			text-align: center;  </span><br><span class="line">			margin-top: 20px;  </span><br><span class="line">			width: 200px;  </span><br><span class="line">			height: 50px;  </span><br><span class="line">			line-height: 50px;		  </span><br><span class="line">			border: 15px solid transparent;  </span><br><span class="line">			border-image: url(https://www.runoob.com/images/border.png) 30 30 round;  </span><br><span class="line"><span class="css">			<span class="comment">/*	设置图片边框必须先设置边框属性，把边框的宽度设出来，颜色设为透明	*/</span>  </span></span><br><span class="line">			  </span><br><span class="line">		&#125;  </span><br><span class="line">	<span class="tag">&lt;/<span class="name">style</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box1&quot;</span>&gt;</span>  </span><br><span class="line">		这是一个圆角效果  </span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box2&quot;</span>&gt;</span>  </span><br><span class="line">		这是一个阴影效果  </span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box3&quot;</span>&gt;</span>  </span><br><span class="line">		这是一个图片边框效果  </span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </span><br><span class="line">  </span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span>  </span><br></pre></td></tr></table></figure>
+
+<p>吐槽：Dreamweaver不太好使，可能是我不会用，也可能是它真的不好使</p>
+<h2 id="CSS3-背景"><a href="#CSS3-背景" class="headerlink" title="CSS3 背景"></a>CSS3 背景</h2><p>CSS3包含多个新的背景属性，提供对背景更强大的控制。</p>
+<p><code>background-size</code>与<code>background-origin</code>这两个属性对IE9以上支持，火狐，Chrome，Safari，Opera支持。</p>
+<p>前者用于控制背景图大小，常用。</p>
+<p>后者用于相对内容框来定位背景图像，这个属性规定<code>background-position</code>属性相对于什么位置来定位。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>CSS3背景<span class="tag">&lt;/<span class="name">title</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span>  </span><br><span class="line">			div &#123;  </span><br><span class="line">				border: 1px solid black;  </span><br><span class="line">				padding: 35px;  </span><br><span class="line">				background-image: url(img/11.png);  </span><br><span class="line">				background-repeat: no-repeat;  </span><br><span class="line">				background-position: left;  </span><br><span class="line">				background-size: 10% 50%;  </span><br><span class="line">				margin-top: 10px;  </span><br><span class="line">			&#125;  </span><br><span class="line"><span class="css">			<span class="selector-class">.box1</span> &#123;  </span></span><br><span class="line">				background-origin: border-box;  </span><br><span class="line">			&#125;  </span><br><span class="line"><span class="css">			<span class="selector-class">.box2</span> &#123;  </span></span><br><span class="line">				background-origin: content-box;  </span><br><span class="line">			&#125;  </span><br><span class="line"><span class="css">			<span class="selector-class">.box3</span> &#123;  </span></span><br><span class="line">				background-origin: padding-box;  </span><br><span class="line">			&#125;  </span><br><span class="line">		<span class="tag">&lt;/<span class="name">style</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box1&quot;</span>&gt;</span>  </span><br><span class="line">			测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试<span class="tag">&lt;<span class="name">br</span>&gt;</span>  </span><br><span class="line">			测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试<span class="tag">&lt;<span class="name">br</span>&gt;</span>  </span><br><span class="line">			测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试<span class="tag">&lt;<span class="name">br</span>&gt;</span>  </span><br><span class="line">			测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试<span class="tag">&lt;<span class="name">br</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box2&quot;</span>&gt;</span>  </span><br><span class="line">			测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试<span class="tag">&lt;<span class="name">br</span>&gt;</span>  </span><br><span class="line">			测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试<span class="tag">&lt;<span class="name">br</span>&gt;</span>  </span><br><span class="line">			测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试<span class="tag">&lt;<span class="name">br</span>&gt;</span>  </span><br><span class="line">			测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试<span class="tag">&lt;<span class="name">br</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box3&quot;</span>&gt;</span>  </span><br><span class="line">			测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试<span class="tag">&lt;<span class="name">br</span>&gt;</span>  </span><br><span class="line">			测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试<span class="tag">&lt;<span class="name">br</span>&gt;</span>  </span><br><span class="line">			测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试<span class="tag">&lt;<span class="name">br</span>&gt;</span>  </span><br><span class="line">			测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试<span class="tag">&lt;<span class="name">br</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span>  </span><br></pre></td></tr></table></figure>
+
+<h2 id="CSS3-添加文本效果"><a href="#CSS3-添加文本效果" class="headerlink" title="CSS3 添加文本效果"></a>CSS3 添加文本效果</h2><p><code>text-shadow</code>为文本添加阴影，参数与边框阴影的相同。</p>
+<p><code>word-wrap</code>确定单词换行方式，当一行单词过长而恰好输出到边框边缘时，过长部分会越过边框进行输出，打破盒模型规范。使用<code>word-wrap: break-word;</code>可以把过长的单词换行显示。</p>
+<p>与前面不同，这两个属性在IE10以上才会起作用，其他浏览器则全部支持。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>CSS3背景<span class="tag">&lt;/<span class="name">title</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span>  </span><br><span class="line">			h1 &#123;  </span><br><span class="line"><span class="css">				<span class="selector-tag">text-shadow</span>: 10<span class="selector-tag">px</span> 10<span class="selector-tag">px</span> 5<span class="selector-tag">px</span> <span class="selector-id">#333</span>;  </span></span><br><span class="line">			&#125;  </span><br><span class="line"><span class="css">			<span class="selector-class">.box1</span> &#123;  </span></span><br><span class="line">				width: 200px;  </span><br><span class="line">				height: 400px;  </span><br><span class="line"><span class="css">				<span class="selector-tag">border</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#49FF33</span>;  </span></span><br><span class="line">				word-wrap: break-word;  </span><br><span class="line">			&#125;  </span><br><span class="line">		<span class="tag">&lt;/<span class="name">style</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">h1</span>&gt;</span>测试标题<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box1&quot;</span>&gt;</span>  </span><br><span class="line">			qw er ty ui op qw er ty uiwerwfsdfsdghrsthdfgdfssdfhsegdfg op qw er ty ui op qw er ty ui op qw er ty ui op qw er ty ui op qw er ty ui op   </span><br><span class="line">			qw er ty ui op qw er ty ui op qw er ty ui op qw er ty ui op qw er ty ui op qw er ty ui op qw er ty ui op   </span><br><span class="line">			qw er ty ui op qw er ty ui op qw er ty ui op qw er ty ui op qw er ty ui op qw er ty ui op qw er ty ui op   </span><br><span class="line">			qw er ty ui op qw er ty ui op qw er ty ui op qw er ty ui op qw er ty ui op qw er ty ui op qw er ty ui op   </span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span>  </span><br></pre></td></tr></table></figure>
+
+<p>使用下面的操作可以使用网络字体，在url里面填写对应的字体地址即可。</p>
+<p>不过现在网络上的在线字库也有用SDK提供接口的，一般也都会给接入教程。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>CSS3字体<span class="tag">&lt;/<span class="name">title</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span>  </span><br><span class="line"><span class="css">			<span class="keyword">@font-face</span> &#123;  </span></span><br><span class="line">				font-family: test;  </span><br><span class="line">				src: url(&quot;&quot;);  </span><br><span class="line">			&#125;  </span><br><span class="line">			div &#123;  </span><br><span class="line">				font-family: test;  </span><br><span class="line">			&#125;  </span><br><span class="line">		<span class="tag">&lt;/<span class="name">style</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span>&gt;</span>  </span><br><span class="line">			test  </span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span>  </span><br></pre></td></tr></table></figure>
+
+<h2 id="CSS3-2D效果"><a href="#CSS3-2D效果" class="headerlink" title="CSS3 2D效果"></a>CSS3 2D效果</h2><p>通过CSS3转换，可以对元素进行移动translate、缩放rotate、转动 scale、拉长skew、拉伸matrix。</p>
+<p>IE10+，火狐，Opera支持这些2D效果。</p>
+<p>Chrome和Safari需要添加<code>-webkit-</code></p>
+<p>IE9需要添加<code>-ms-</code></p>
+<p>比如<code>-webkit-transform: rotate(30deg)</code>就是让它顺时针旋转30度。</p>
+<p>API在菜鸟教程都能查到，我就先略过了。</p>
+<h2 id="CSS3-3D效果与过渡"><a href="#CSS3-3D效果与过渡" class="headerlink" title="CSS3 3D效果与过渡"></a>CSS3 3D效果与过渡</h2><p>3D效果对浏览器的要求和2D效果一样，属性名还是<code>transform</code>。使用<code>rotateX()</code>和<code>rotateY()</code>控制X和Y方向的变化，参数还是角度。</p>
+<p>通过CSS3，可以在不使用Flash或者JS的情况下，当元素从一种样式变换到另一种样式时为元素添加效果。</p>
+<p>过渡效果对于IE10以上，火狐，Chrome，Opera是支持的，对于Safari需要加<code>-webkit-</code>。要实现过渡，需要确定希望把效果添加到哪个CSS属性上，并规定时长。</p>
+<p>基本格式：<code>transition: 属性名 变化时间;</code>，指定多个时，一个属性名对应一个变化时间算一对，多对之间逗号隔开。</p>
+<p>当事件发生（鼠标浮上，鼠标点击等）时，改变对应的属性，就能以动画的形式进行变化，而不是瞬间变化，这里可能需要用到<code>:hover</code>等选择器。</p>
+<h2 id="CSS3-动画"><a href="#CSS3-动画" class="headerlink" title="CSS3 动画"></a>CSS3 动画</h2><p>使用<code>@keyframes</code>规则创建动画，在里面规定某项CSS样式，就能创建由当前样式逐渐改为新样式的动画效果。</p>
+<p>IE10以上，火狐，Opera支持这个规则和<code>animation</code>属性，Chrome和Safari需要加<code>-webkit-</code>。</p>
+<p>然后用<code>animation</code>调用刚才创建的动画就可以。通过至少规定动画的名称和时长这两个属性，就能将动画绑定到选择器。</p>
+<p>使用一些关键字来区分阶段，它是不同于过渡的。过渡效果是简单的从一个变为另一个，而动画可以有不同的阶段，比如各种百分比阶段的时候操作是怎样的。不同的阶段可能会有不同的操作。当然也可以简单的使用from和to实现从一个变为另一个。</p>
+<p>理论上讲，这是一个很强大的功能，可以用来做各种炫酷的骚气的网页动画，这部分内容值得深究。</p>
+<h2 id="CSS3-多列"><a href="#CSS3-多列" class="headerlink" title="CSS3 多列"></a>CSS3 多列</h2><p>对文本进行多列布局，像报纸那样。word里面也有对应类似的功能（分栏）。</p>
+<p>（其实这玩意用盒模型也能写的出来，就是麻烦，用多列做会方便一些）</p>
+<p>属性有<code>column-count</code>确定分多少列，<code>column-gap</code>确定分隔宽度，<code>column-role</code>设定分栏样式等等</p>
+<p>IE10以上和Opera支持多列，火狐需要<code>-moz-</code>，Chrome和Safari需要<code>-webkit-</code></p>
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          打赏
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://shawnzhou.world/2020/01/19/css3/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS3/" rel="tag">CSS3</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2020/02/07/vue-collection/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            Vue.js框架学习笔记整合
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/01/14/html5/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">html5学习笔记</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "YolIyMzPHjxT49twQAhzxsQ8-gzGzoHsz",
+    app_key: "Dtrq0zAmtB8CqcKdwVCk7JBn",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2018-2022
+        <i class="ri-heart-fill heart_icon"></i> Shawn Zhou
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        
+        由 <a href="https://hexo.io" target="_blank">Hexo</a> 框架强力驱动
+        <span class="division">|</span>
+        主题 - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></s>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://v1.cnzz.com/z_stat.php?id=1279352967&amp;web_id=1279352967'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/avatar1.png" alt="ShawnZhou的小站"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">图集</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://friends.shawnzhou.world/">友链站</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://dev.shawnzhou.world/">开发站</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://sources.shawnzhou.world/">资源站</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>感谢打赏~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://shawnzhou.world/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://shawnzhou.world/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+
+<script src="/js/clickBoom2.js"></script>
+
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+  </div>
+</body>
+
+</html>

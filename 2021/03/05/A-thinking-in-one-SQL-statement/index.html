@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="博客,前端博客,JavaScript,html5,css3,html,css,js,acm,noip,橙果工作室,shawnzhou,shawn zhou" />
+   
+  <meta name="description" content="ShawnZhou的小站" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    由一条SQL语句引发的思考 |  ShawnZhou的小站
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+  
+  
+
+  
+
+<link rel="alternate" href="/atom.xml" title="ShawnZhou的小站" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+      <canvas width="1777" height="841"
+        style="position: fixed; left: 0px; top: 0px; z-index: 99999; pointer-events: none;"></canvas>
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-A-thinking-in-one-SQL-statement"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  由一条SQL语句引发的思考
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/03/05/A-thinking-in-one-SQL-statement/" class="article-date">
+  <time datetime="2021-03-05T06:37:51.000Z" itemprop="datePublished">2021-03-05</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B8%E5%85%B3/">数据库相关</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">2k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">7 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>帮老师干活，做2020年山东高考录取情况的汇总表，纯靠Excel总归有些操作不是很好处理，所以我借助了MySQL数据库完成一些比如复杂条件合并的操作。</p>
+<p>昨天晚上老师要我把两个Excel表里面的一些数据合并一下，但在执行修改操作时发现这条语句跑了两分钟还要多，感觉这不合理，于是来思考一下，到底是为什么会造成这样的？</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/1619365291923.jpg"></p>
+<a id="more"></a>
+
+<h2 id="确认需求"><a href="#确认需求" class="headerlink" title="确认需求"></a>确认需求</h2><p><img src="https://s3.ax1x.com/2021/03/05/6eXGH1.png"></p>
+<p><img src="https://s3.ax1x.com/2021/03/05/6eX8BR.png"></p>
+<p>上面是两个表的数据，其中<code>bkzy2020</code>表代表2020年本科专业的数据，我已经将专业代号和学校代号使用子串操作取了出来。<code>detail2020</code>是2020年本科专业招生的细节数据，其中我需要合并的是<code>detail2020</code>中的<code>major_name</code>（专业全称）和<code>subject_select</code>（选科要求），要把这两条数据按照专业代号和学校代号双对应的条件合并到<code>bkzy2020</code>中。</p>
+<h2 id="初期尝试与发现的问题"><a href="#初期尝试与发现的问题" class="headerlink" title="初期尝试与发现的问题"></a>初期尝试与发现的问题</h2><p>这好像挺简单的，思路是使用<code>UPDATE</code>语句修改<code>bkzy2020</code>中的<code>major_name_full</code>和<code>subject_select</code>，条件是两个表的专业代号和学校代号能对应起来。然后有了下面的SQL语句：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> bkzy2020, detail2020</span><br><span class="line"><span class="keyword">SET</span> bkzy2020.major_name_full = detail2020.major_name , bkzy2020.subject_select = detail2020.subject_select</span><br><span class="line"><span class="keyword">WHERE</span> bkzy2020.major_id = detail2020.major_id <span class="keyword">and</span> bkzy2020.school_id = detail2020.school_id</span><br></pre></td></tr></table></figure>
+
+<p>但这个SQL存在的问题是，他太慢了。跑了几十秒都没有出结果，感觉有点像是写错了，可就我这花瓶功夫的SQL技术也不知道该从哪下手，于是我去找了驼君同学。</p>
+<h2 id="与驼君同学的讨论"><a href="#与驼君同学的讨论" class="headerlink" title="与驼君同学的讨论"></a>与驼君同学的讨论</h2><p>果然是基础不牢地动山摇，其实这个更新是可以在形式上简化一下的。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> bkzy2020 a , detail2020 b</span><br><span class="line"><span class="keyword">SET</span> a.major_name_full = b.major_name , a.subject_select = b.subject_select</span><br><span class="line"><span class="keyword">WHERE</span> a.major_id = b.major_id <span class="keyword">and</span> a.school_id = b.school_id</span><br></pre></td></tr></table></figure>
+
+<p>这样写就舒服多了，其中a和b是代表<code>bkzy2020</code>和<code>detail2020</code>的别名。</p>
+<p>实际上在第一次跑SQL的时候，我漏加了一个条件，当时没注意，后来我在后台挂着这条语句的执行去和驼君讨论，没想到过了一会后，它提示跑出来了…</p>
+<p><img src="https://s3.ax1x.com/2021/03/05/6mCIAJ.png"></p>
+<p>135秒，两分钟多了。然而由于这里只对了专业id没有加学校id，导致到后面对应出来的成了这样子：</p>
+<p><img src="https://s3.ax1x.com/2021/03/05/6mPp4A.png"></p>
+<p>其实这里如果是所有学校专业代号互不重复的话，不判断学校也是没问题的，但实际上专业代号在学校之间会重复，只能保证在某个学校内的专业代号互不重复。</p>
+<p>后来我加上学校的判断条件后（也就是执行了上面贴出来那段SQL），又跑了140多秒，这次执行应该没啥问题了…奇怪，为啥仍然有对不上的？</p>
+<p><img src="https://s3.ax1x.com/2021/03/05/6mPM3q.png"></p>
+<p><img src="https://s3.ax1x.com/2021/03/05/6mPQg0.png"></p>
+<p>后来发现这其实是个低级错误…这是第一次修改遗留下来的问题！在执行第二次修改时没有对数据进行清空，所以导致出现了这样的问题。</p>
+<p>清空一下，重新开始再跑两分钟..</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> bkzy2020 <span class="keyword">set</span> major_name_full = <span class="literal">null</span>, subject_select = <span class="literal">null</span></span><br></pre></td></tr></table></figure>
+
+<p>这样总算是能做到结果没问题了，我将数据表导出为Excel文件，接下来就轮到复盘瞎搞的时间了。</p>
+<h2 id="最终解决方案与思考"><a href="#最终解决方案与思考" class="headerlink" title="最终解决方案与思考"></a>最终解决方案与思考</h2><p>为什么这条SQL会这么慢？</p>
+<p>就数据量而言，说大不大，说小不小。两个表的规模大概都在16000条左右，但不相同。驼君同学说，因为我没加索引，这条修改走的是全表扫描，也就是规模大概有个一万六乘一万六的笛卡尔积。想想貌似挺恐怖的…</p>
+<p><img src="https://s3.ax1x.com/2021/03/05/6mVXRJ.png"></p>
+<p>那加上索引试试吧：</p>
+<p><img src="https://s3.ax1x.com/2021/03/05/6mZsSJ.png"></p>
+<p>索引类型选NORMAL，索引方法选BTREE，此时再分析一下刚才那条查询，对比一下添加前后的执行情况，如图所示：</p>
+<p><img src="https://s3.ax1x.com/2021/03/05/6mZoSH.png"><br><img src="https://s3.ax1x.com/2021/03/05/6mZTld.png"></p>
+<p>能够看到，扫描的行数直接减少了一万六，所以理论上性能会得到一个很大的提升。</p>
+<p>此时再清空数据尝试一下：</p>
+<p><img src="https://s3.ax1x.com/2021/03/05/6meEkT.png"></p>
+<p>时间降低到了0.29秒，这才对味。</p>
+<p>感觉以我的能力而言，这样的优化已经算是做到极限了。那么，为什么增加索引能够有效提升性能呢？</p>
+<p>索引是一种特殊的数据库结构，由数据表中的一列或多列组合而成，可以用来快速查询数据表中有某一特定值的记录。通过索引，查询数据时不用读完记录的所有信息，而只是查询索引列。否则，数据库系统将读取每条记录的所有信息进行匹配。</p>
+<p>在MySQL中，通常是使用顺序访问和索引访问两种方式访问数据库表的数据。其中顺序访问即为全表扫描，在数据量大时速度会很低。索引访问相当于建立了一个快速查找的表，通过关键字直接定位到数据所在行，当然这里的关键字不应当重复。返回到我的问题中，我的情况还不太一样，我有两个id，必须得保证两两对应才行，可是如果要这样想，索引有两个，要怎么办呢？其实可以把思维换个方向，把学校代号-专业代号这一对看成一个整体的id，这样就可以保证完全不重复了！所以在索引字段中，就把<code>major_id</code>和<code>school_id</code>加上。</p>
+<p>索引类型有FULLTEXT、NORMAL、SPATIAL、UNIQUE，分别是全文索引，普通索引，空间索引，唯一索引。</p>
+<p>这里使用的是NORMAL索引，大部分情况下的默认选择。</p>
+<p>UNIQUE代表不重复索引，适用于字段信息保证不会重复的情况。</p>
+<p>FULLTEXT代表全文索引，适用于检索长文本，搜索长文章的时候效果最好，这里的ID都很短，所以就不首选使用这个了。</p>
+<p>SPATIAL是空间索引，对空间数据类型建立的索引。这个一般用于多维度的数据，比如空间几何上或者GPS上的信息，这里也不使用。</p>
+<p>索引方法一般有BTREE，Hash，RTREE。</p>
+<p>BTREE索引是最常见的索引类型，我曾经也做过一个用B-TREE模拟数据库索引进行快速查询的课程设计。</p>
+<p>Hash索引的检索效率比BTREE高，但是对查询有所限制。</p>
+<p>RTREE索引很少使用，一般是用在SPATIAL索引里面。</p>
+<p>这个整理数据的工作我也是做了一段时间了，做之前感觉无非就是增删改查，我写写SQL语句然后拿Excel处理处理还不就行了，有什么难的，但实际接手之后才发现其实有各种各样的问题。因为全国各种学校的数据真的是太复杂了，还赶上了新高考改革，不仅专业有改变，名称也不完全一样，这在我匹配数据时出现了相当多的麻烦。最初做成绩数据合并的时候因为很难直接用SQL语句做修改，所以我加急学了Node.js做了个小后端，挂上MySQL数据库驱动硬写了个半自动的程序，就算这样也跑了好长时间，性能优化之类的事情完全不懂。这次这个小需求又遇到了性能问题，越来越能感觉到自己其实很多东西学的仍然不是很牢固，大二下学期学的数据库全还给老师了。。即便是方向上选择了前端开发，但也不代表说其他计算机的基础知识就能一点不懂，如果真的变成了那样，那我这科班读出来的学生和花几万块钱在外面辅导班培训出来的又有什么区别呢？</p>
+<p>不仅专业知识要过硬，基础知识也要过硬，业务能力要有，科学素养也有，这样才是一个合格的计算机行业工作者，现在的我仍然还是欠缺一些啊。。</p>
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          打赏
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://shawnzhou.world/2021/03/05/A-thinking-in-one-SQL-statement/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" rel="tag">性能优化</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2021/04/06/deep-copy-and-shallow-copy/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            JavaScript中的深拷贝与浅拷贝
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2021/03/03/vue-review-note/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">Vue.js复习巩固笔记</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "YolIyMzPHjxT49twQAhzxsQ8-gzGzoHsz",
+    app_key: "Dtrq0zAmtB8CqcKdwVCk7JBn",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2018-2022
+        <i class="ri-heart-fill heart_icon"></i> Shawn Zhou
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        
+        由 <a href="https://hexo.io" target="_blank">Hexo</a> 框架强力驱动
+        <span class="division">|</span>
+        主题 - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></s>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://v1.cnzz.com/z_stat.php?id=1279352967&amp;web_id=1279352967'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/avatar1.png" alt="ShawnZhou的小站"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">图集</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://friends.shawnzhou.world/">友链站</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://dev.shawnzhou.world/">开发站</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://sources.shawnzhou.world/">资源站</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>感谢打赏~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://shawnzhou.world/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://shawnzhou.world/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+
+<script src="/js/clickBoom2.js"></script>
+
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+  </div>
+</body>
+
+</html>

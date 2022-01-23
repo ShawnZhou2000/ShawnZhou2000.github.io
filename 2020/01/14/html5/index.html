@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="博客,前端博客,JavaScript,html5,css3,html,css,js,acm,noip,橙果工作室,shawnzhou,shawn zhou" />
+   
+  <meta name="description" content="ShawnZhou的小站" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    html5学习笔记 |  ShawnZhou的小站
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+  
+  
+
+  
+
+<link rel="alternate" href="/atom.xml" title="ShawnZhou的小站" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+      <canvas width="1777" height="841"
+        style="position: fixed; left: 0px; top: 0px; z-index: 99999; pointer-events: none;"></canvas>
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-html5"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  html5学习笔记
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/01/14/html5/" class="article-date">
+  <time datetime="2020-01-14T05:16:10.000Z" itemprop="datePublished">2020-01-14</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/">前端开发那些事</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">2.1k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">10 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>这里记载了关于HTML5相关的学习笔记，该部分内容是曾在2020年发布的。</p>
+<p>当前博客显示的发布时间非真实时间，而是这些内容在当时发布时的最后发布时间。</p>
+<p><img src="https://i.loli.net/2020/04/02/JR8cbUE39LtwPeT.jpg"></p>
+<a id="more"></a>
+
+<h2 id="H5音频"><a href="#H5音频" class="headerlink" title="H5音频"></a>H5音频</h2><p>HTML5提供了播放音频文件的标准，control属性供添加播放，暂停和音量控件。</p>
+<p><code>&lt;audio&gt;</code>定义声音，<code>&lt;source&gt;</code>规定多媒体资源，可以是多个</p>
+<p>使用src属性为audio标签提供资源，<code>controls=“controls”</code>提供控制控件</p>
+<p>注意audio是双标签，中间的内容可以是“浏览器不支持”之类的话，代表浏览器无法解析这个标签，如果浏览器可以解析audio标签，则在页面里显示播放器。</p>
+<p>有些浏览器对mp3等格式支持不是很好，可以这样解决：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">audio</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">&quot;1.mp3&quot;</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">&quot;1.ogg&quot;</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">audio</span>&gt;</span>  </span><br></pre></td></tr></table></figure>
+
+<p>使用source标签提供资源。</p>
+<h2 id="H5视频"><a href="#H5视频" class="headerlink" title="H5视频"></a>H5视频</h2><p>以前的时候，在浏览器中播放视频需要借助flash插件，现在随着flash慢慢淡出舞台，H5视频应运而生。flash插件播放视频有诸多不便，H5播放视频就可以解决这些问题。</p>
+<p><code>&lt;video&gt;</code>定义视频，<code>&lt;source&gt;</code>规定多媒体资源，可以是多个，有两个属性，width和height定义宽高。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">controls</span>=<span class="string">&quot;controls&quot;</span> <span class="attr">height</span>=<span class="string">&quot;300px&quot;</span> <span class="attr">width</span>=<span class="string">&quot;500px&quot;</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">&quot;1.mp4&quot;</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">&quot;1.webm&quot;</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">video</span>&gt;</span>  </span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="H5拖放"><a href="#H5拖放" class="headerlink" title="H5拖放"></a>H5拖放</h2><p>拖放是一种常见的特性，即抓取对象以后拖到另一个位置。IE9以上，火狐，Opera12以上，Chrome以及Safari5以上支持拖放。</p>
+<p>使用<code>draggable=&quot;true&quot;</code>设置元素为可拖放，使用<code>ondragstart</code>和<code>setData()</code>设置拖动什么，使用<code>ondragover</code>设置放到何处，使用<code>ondrop</code>进行放置。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>fuck<span class="tag">&lt;/<span class="name">title</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span>  </span><br><span class="line"><span class="css">			<span class="selector-id">#div1</span> &#123;  </span></span><br><span class="line">				width: 300px;  </span><br><span class="line">				height: 300px;  </span><br><span class="line">				border: 1px solid black;  </span><br><span class="line">			&#125;  </span><br><span class="line">		<span class="tag">&lt;/<span class="name">style</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span>  </span><br><span class="line"><span class="javascript">			<span class="function"><span class="keyword">function</span> <span class="title">allowDrop</span>(<span class="params">ev</span>) </span>&#123;  </span></span><br><span class="line"><span class="javascript">				ev.preventDefault(); <span class="comment">// 阻止浏览器的默认事件  </span></span></span><br><span class="line">			&#125;  </span><br><span class="line"><span class="javascript">			<span class="function"><span class="keyword">function</span> <span class="title">drag</span>(<span class="params">ev</span>) </span>&#123;  </span></span><br><span class="line"><span class="javascript">				ev.dataTransfer.setData(<span class="string">&quot;Text&quot;</span>,ev.target.id); <span class="comment">// 定位控制元素  </span></span></span><br><span class="line">			&#125;  </span><br><span class="line"><span class="javascript">			<span class="function"><span class="keyword">function</span> <span class="title">drop</span>(<span class="params">ev</span>) </span>&#123;  </span></span><br><span class="line">				ev.preventDefault();  </span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> data = ev.dataTransfer.getData(<span class="string">&quot;Text&quot;</span>);  </span></span><br><span class="line"><span class="javascript">				ev.target.appendChild(<span class="built_in">document</span>.getElementById(data));<span class="comment">// 放置  </span></span></span><br><span class="line">			&#125;  </span><br><span class="line">		<span class="tag">&lt;/<span class="name">script</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span>请拖动图片<span class="tag">&lt;/<span class="name">p</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;div1&quot;</span> <span class="attr">ondrop</span>=<span class="string">&quot;drop(event)&quot;</span> <span class="attr">ondragover</span>=<span class="string">&quot;allowDrop(event)&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;img/11.png&quot;</span> <span class="attr">id</span>=<span class="string">&quot;d1&quot;</span> <span class="attr">draggable</span>=<span class="string">&quot;true&quot;</span> <span class="attr">ondragstart</span>=<span class="string">&quot;drag(event)&quot;</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span>  </span><br></pre></td></tr></table></figure>
+
+<h2 id="H5-canvas"><a href="#H5-canvas" class="headerlink" title="H5 canvas"></a>H5 canvas</h2><p>画布是一个矩形区域，可以控制它的每一个像素。</p>
+<p>canvas拥有多种绘制路径、矩形、圆形、字符以及添加图像的方法。但注意，canvas只是画布，不是画笔，只用于承载画面。</p>
+<p>需要画笔操作的话，使用js控制。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>canvas<span class="tag">&lt;/<span class="name">title</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">&quot;can&quot;</span> <span class="attr">width</span>=<span class="string">&quot;400px&quot;</span> <span class="attr">height</span>=<span class="string">&quot;400px&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span>  </span><br><span class="line"><span class="javascript">			<span class="keyword">var</span> c = <span class="built_in">document</span>.getElementById(<span class="string">&quot;can&quot;</span>);  </span></span><br><span class="line"><span class="javascript">			<span class="keyword">var</span> cxt = c.getContext(<span class="string">&quot;2d&quot;</span>); <span class="comment">// 确定以2D方式绘制  </span></span></span><br><span class="line"><span class="javascript">			cxt.fillStyle = <span class="string">&quot;#0000FF&quot;</span>; <span class="comment">// 确定绘制颜色  </span></span></span><br><span class="line"><span class="javascript">			cxt.fillRect(<span class="number">0</span>,<span class="number">0</span>,<span class="number">100</span>,<span class="number">100</span>); <span class="comment">// 绘制一个矩形  </span></span></span><br><span class="line">			  </span><br><span class="line"><span class="javascript">			cxt.beginPath(); <span class="comment">//绘制圆使用,路径开始  </span></span></span><br><span class="line"><span class="javascript">			cxt.arc(<span class="number">200</span>,<span class="number">20</span>,<span class="number">15</span>,<span class="number">0</span>,<span class="built_in">Math</span>.PI*<span class="number">2</span>,<span class="literal">true</span>); <span class="comment">// 绘制圆  </span></span></span><br><span class="line"><span class="javascript">			cxt.closePath(); <span class="comment">// 记得再关闭路径  </span></span></span><br><span class="line"><span class="javascript">			cxt.fill(); <span class="comment">// 绘制图形输出到屏幕  </span></span></span><br><span class="line">			  </span><br><span class="line"><span class="javascript">			<span class="keyword">var</span> img = <span class="keyword">new</span> Image(); <span class="comment">// 绘制图片的变量初始化  </span></span></span><br><span class="line"><span class="javascript">			img.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="comment">// 当图片加载完毕时才绘制  </span></span></span><br><span class="line"><span class="javascript">				cxt.drawImage(img,<span class="number">200</span>,<span class="number">200</span>); <span class="comment">// 绘制图像  </span></span></span><br><span class="line">			&#125;  </span><br><span class="line"><span class="javascript">			img.src = <span class="string">&quot;img/right.png&quot;</span>; <span class="comment">// 图片资源位置  </span></span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">script</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span>  </span><br></pre></td></tr></table></figure>
+
+<p>  H5 SVG</p>
+<p>什么是SVG？它指可伸缩矢量图形（Scalable Vector<br>Graphics），用于定义在网络上使用的矢量图形，它使用XML格式定义图形，在放大或者改变尺寸的情况下图形质量不会受到损失，SVG是万维网联盟的标准。</p>
+<p>与其他图像格式相比，SVG的优势在于：</p>
+<ul>
+<li>它可以被文本编辑器创建和修改</li>
+<li>可被搜索，索引，脚本化或压缩</li>
+<li>SVG可伸缩</li>
+<li>可在任何分辨率下高质量打印</li>
+<li>可在图像质量不下降的情况下被放大</li>
+</ul>
+<p>IE9以上，火狐，Opera，Chrome以及Safari都支持内联SVG。</p>
+<p>在<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/SVG/Element">https://developer.mozilla.org/zh-CN/docs/Web/SVG/Element</a><br>上可以找到大量SVG图形的API，还可以看到各个浏览器的兼容性信息。</p>
+<p>使用.svg后缀的文件为矢量图形文件，内部代码即是SVG代码，方便图形重用。</p>
+<p>使用<code>&lt;iframe src=&quot;svg.svg&quot; width=&quot;150px&quot; height=&quot;150px&quot; frameborder=&quot;no&quot;&gt;&lt;/iframe&gt;</code>就可以显示一个svg文件的图形。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>SVG<span class="tag">&lt;/<span class="name">title</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">svg</span> <span class="attr">viewbox</span>=<span class="string">&quot;0 0 120 120&quot;</span> <span class="attr">version</span>=<span class="string">&quot;1.1&quot;</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.w3.org/2000/svg&quot;</span>&gt;</span>  </span><br><span class="line">			<span class="tag">&lt;<span class="name">circle</span> <span class="attr">cx</span>=<span class="string">&quot;60&quot;</span> <span class="attr">cy</span>=<span class="string">&quot;60&quot;</span> <span class="attr">r</span>=<span class="string">&quot;50&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">circle</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;/<span class="name">svg</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">svg</span> <span class="attr">viewbox</span>=<span class="string">&quot;0 0 120 120&quot;</span> <span class="attr">version</span>=<span class="string">&quot;1.1&quot;</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.w3.org/2000/svg&quot;</span>&gt;</span>  </span><br><span class="line">			<span class="tag">&lt;<span class="name">polygon</span> <span class="attr">points</span>=<span class="string">&quot;60,20 100,40 100,80 60,100 20,80 20,40&quot;</span>/&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;/<span class="name">svg</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span>  </span><br></pre></td></tr></table></figure>
+
+<h2 id="H5-地理定位"><a href="#H5-地理定位" class="headerlink" title="H5 地理定位"></a>H5 地理定位</h2><p>在用户允许的情况下，使用H5的Geolocation<br>API获取用户的地理位置。IE9以上，火狐，Chrome，Safari以及Opera支持地理定位，如果设备支持GPS，则地理定位会更加精确，所以它对手机的支持相对好一些。</p>
+<p>这个示例代码使用的是谷歌地图，由于某些原因测试不出来。国内的地图倒是有提供的api，做的挺完善，如果有需求可以去调用。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>地理定位<span class="tag">&lt;/<span class="name">title</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;http://maps.google.com/maps/api/js?sensor=false&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span>  </span><br><span class="line"><span class="javascript">			<span class="comment">// 获取当前地理位置  </span></span></span><br><span class="line"><span class="javascript">			<span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params"></span>) </span>&#123;  </span></span><br><span class="line"><span class="javascript">				navigator.geolocation.getCurrentPosition(<span class="function"><span class="keyword">function</span>(<span class="params">position</span>) </span>&#123;  </span></span><br><span class="line"><span class="javascript">					<span class="comment">// 设定地图参数,将用户当前的地理经纬度设置为地图中心点  </span></span></span><br><span class="line"><span class="javascript">					<span class="keyword">var</span> coords = position.coords;  </span></span><br><span class="line"><span class="javascript">					<span class="keyword">var</span> latlng = <span class="keyword">new</span> google.maps.LatLng(coords.latitude, coords.longitude);  </span></span><br><span class="line"><span class="javascript">					<span class="keyword">var</span> myOptions = &#123;  </span></span><br><span class="line">						zoom : 14,  </span><br><span class="line">						center : latlng,  </span><br><span class="line">						mapTypeId: google.maps.MapTypeId.ROADMAP  </span><br><span class="line">					&#125;  </span><br><span class="line"><span class="javascript">					<span class="comment">// 创建地图并在div中显示  </span></span></span><br><span class="line"><span class="javascript">					<span class="keyword">var</span> map1;  </span></span><br><span class="line"><span class="javascript">					map1 = <span class="keyword">new</span> google.maps.Map(<span class="built_in">document</span>.getElementById(<span class="string">&quot;map&quot;</span>),myOptions);  </span></span><br><span class="line"><span class="javascript">					<span class="comment">// 地图上创建标记  </span></span></span><br><span class="line"><span class="javascript">					<span class="keyword">var</span> marker = <span class="keyword">new</span> google.maps.InfoWindow(&#123;  </span></span><br><span class="line"><span class="javascript">						content : <span class="string">&quot;当前位置&quot;</span>  </span></span><br><span class="line">					&#125;)  </span><br><span class="line">					infowindow.open(map1, marker);  </span><br><span class="line">				&#125;)  </span><br><span class="line">				  </span><br><span class="line">			&#125;  </span><br><span class="line">		<span class="tag">&lt;/<span class="name">script</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;map&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width: 2000px; height: 1000px;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span>  </span><br></pre></td></tr></table></figure>
+
+<h2 id="H5-Web存储"><a href="#H5-Web存储" class="headerlink" title="H5 Web存储"></a>H5 Web存储</h2><p>HTML5提供了两种在客户端存储数据的新方法：<code>localStorage</code>是没有时间限制的数据存储，一年以后数据仍可使用。<code>sessionStorage</code>是针对一个session的数据存储。之前数据存储是由cookie来完成的，但是cookie不适合大量数据的存储，因为它们由每个对服务器的请求来传递，这使得cookie速度很慢而且效率也不高。</p>
+<p>使用<code>localStorage</code>对数据进行存储是可以保存很长时间的，当浏览器关闭或刷新页面时输入的数据不会消失，而是会保存在<code>localStorage</code>里面。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>web存储<span class="tag">&lt;/<span class="name">title</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span>  </span><br><span class="line"><span class="javascript">			<span class="keyword">var</span> ta;  </span></span><br><span class="line"><span class="javascript">			<span class="keyword">var</span> btn;  </span></span><br><span class="line"><span class="javascript">			<span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;  </span></span><br><span class="line"><span class="javascript">				ta = <span class="built_in">document</span>.getElementById(<span class="string">&quot;ta&quot;</span>);  </span></span><br><span class="line"><span class="javascript">				<span class="keyword">if</span> (<span class="built_in">localStorage</span>.text) &#123;  </span></span><br><span class="line"><span class="javascript">					ta.value = <span class="built_in">localStorage</span>.text;  </span></span><br><span class="line">				&#125;  </span><br><span class="line"><span class="javascript">				btn = <span class="built_in">document</span>.getElementById(<span class="string">&quot;btn&quot;</span>);  </span></span><br><span class="line"><span class="javascript">				btn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;  </span></span><br><span class="line"><span class="javascript">					<span class="built_in">localStorage</span>.text = ta.value;  </span></span><br><span class="line">				&#125;  </span><br><span class="line">			&#125;  </span><br><span class="line">		<span class="tag">&lt;/<span class="name">script</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">textarea</span> <span class="attr">rows</span>=<span class="string">&quot;10&quot;</span> <span class="attr">cols</span>=<span class="string">&quot;20&quot;</span> <span class="attr">id</span>=<span class="string">&quot;ta&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">id</span>=<span class="string">&quot;btn&quot;</span>&gt;</span>save<span class="tag">&lt;/<span class="name">button</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span>  </span><br></pre></td></tr></table></figure>
+
+<p><code>sessionStorage</code>方法针对一个会话进行数据存储，当用户关闭当前浏览器窗口，数据就会被删除。以下代码展示了一个简单的累加器。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>web存储<span class="tag">&lt;/<span class="name">title</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span>  </span><br><span class="line"><span class="javascript">			<span class="keyword">var</span> num = <span class="number">0</span>;  </span></span><br><span class="line"><span class="javascript">			<span class="keyword">var</span> txt;  </span></span><br><span class="line"><span class="javascript">			<span class="keyword">var</span> btn;  </span></span><br><span class="line"><span class="javascript">			<span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;  </span></span><br><span class="line"><span class="javascript">				txt = <span class="built_in">document</span>.getElementById(<span class="string">&quot;txt&quot;</span>);  </span></span><br><span class="line"><span class="javascript">				btn = <span class="built_in">document</span>.getElementById(<span class="string">&quot;addbtn&quot;</span>);  </span></span><br><span class="line">				if (sessionStorage.num) &#123;  </span><br><span class="line">					num = sessionStorage.num;  </span><br><span class="line">					showNum();  </span><br><span class="line">				&#125;  </span><br><span class="line"><span class="javascript">				<span class="keyword">else</span> &#123;  </span></span><br><span class="line">					num = 0;  </span><br><span class="line">				&#125;  </span><br><span class="line">				  </span><br><span class="line"><span class="javascript">				btn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;  </span></span><br><span class="line">					num++;  </span><br><span class="line">					sessionStorage.num = num;  </span><br><span class="line">					showNum();  </span><br><span class="line">				&#125;  </span><br><span class="line">			&#125;  </span><br><span class="line"><span class="javascript">			<span class="function"><span class="keyword">function</span> <span class="title">showNum</span>(<span class="params"></span>) </span>&#123;  </span></span><br><span class="line">				txt.innerHTML = num;  </span><br><span class="line">			&#125;  </span><br><span class="line">		<span class="tag">&lt;/<span class="name">script</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;txt&quot;</span>&gt;</span>0<span class="tag">&lt;/<span class="name">span</span>&gt;</span>  </span><br><span class="line">		<span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">id</span>=<span class="string">&quot;addbtn&quot;</span>&gt;</span>+1<span class="tag">&lt;/<span class="name">button</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span>  </span><br></pre></td></tr></table></figure>
+
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          打赏
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://shawnzhou.world/2020/01/14/html5/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2020/01/19/css3/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            css3学习笔记
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2019/12/15/data-structure/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">基础数据结构归档</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "YolIyMzPHjxT49twQAhzxsQ8-gzGzoHsz",
+    app_key: "Dtrq0zAmtB8CqcKdwVCk7JBn",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2018-2022
+        <i class="ri-heart-fill heart_icon"></i> Shawn Zhou
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        
+        由 <a href="https://hexo.io" target="_blank">Hexo</a> 框架强力驱动
+        <span class="division">|</span>
+        主题 - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></s>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://v1.cnzz.com/z_stat.php?id=1279352967&amp;web_id=1279352967'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/avatar1.png" alt="ShawnZhou的小站"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">图集</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://friends.shawnzhou.world/">友链站</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://dev.shawnzhou.world/">开发站</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://sources.shawnzhou.world/">资源站</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>感谢打赏~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://shawnzhou.world/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://shawnzhou.world/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+
+<script src="/js/clickBoom2.js"></script>
+
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+  </div>
+</body>
+
+</html>

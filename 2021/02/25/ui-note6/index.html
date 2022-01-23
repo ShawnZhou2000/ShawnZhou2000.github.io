@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="博客,前端博客,JavaScript,html5,css3,html,css,js,acm,noip,橙果工作室,shawnzhou,shawn zhou" />
+   
+  <meta name="description" content="ShawnZhou的小站" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    《规律与逻辑·用户体验设计法则》 学习笔记6 |  ShawnZhou的小站
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+  
+  
+
+  
+
+<link rel="alternate" href="/atom.xml" title="ShawnZhou的小站" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+      <canvas width="1777" height="841"
+        style="position: fixed; left: 0px; top: 0px; z-index: 99999; pointer-events: none;"></canvas>
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-ui-note6"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  《规律与逻辑·用户体验设计法则》 学习笔记6
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/02/25/ui-note6/" class="article-date">
+  <time datetime="2021-02-25T03:36:12.000Z" itemprop="datePublished">2021-02-25</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/">前端开发那些事</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">3.4k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">11 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>用户体验设计师的主要产出物是什么？从打开产品的引导页到数据为空状态的设计技巧，逐渐扩展到运营Banner设计，最后深入到界面层次感的打造以及不同风格产品的设计路线，全面解决用户体验设计实际工作中的各种难题。</p>
+<p>我打算用两次笔记学完这里。该部分为书中第四章内容，视觉体验进阶前半部分。笔记摘自《规律与逻辑》。</p>
+<p><img src="https://i.loli.net/2021/03/04/xbm9IsnTqGHe5J7.jpg"></p>
+<a id="more"></a>
+
+<h2 id="设计中的感性与理性"><a href="#设计中的感性与理性" class="headerlink" title="设计中的感性与理性"></a>设计中的感性与理性</h2><p>设计是感性与理性的结合体，只有两者完美融合，才能呈现出独特的美感。感性听从内心，理性服从大脑，理性让人逻辑，感性让人自然。</p>
+<p>如果理性束缚意识自由，感性就要消除压力。对于设计而言，应当做到感性和理性的结合，既要懂得设计规律逻辑思维，也不能让思维受到局限，勇于大胆尝试。</p>
+<h2 id="引导页设计"><a href="#引导页设计" class="headerlink" title="引导页设计"></a>引导页设计</h2><p>引导页是指导用户如何使用产品的页面，之所以会大量出现在移动端产品中，是因为受到传统PC软件时代的影响。PC时代的软件，用户往往不知道如何操作，所以对于软件而言必须配备一个完备的说明书，甚至需要进入专门的培训班进修才能掌握某种软件的使用。</p>
+<p>不过移动互联网时代，这样的说明书似乎显得有些笨重了。软件的轻量也使得用户学习成本大大降低，并不需要以前那样再配备一个说明书了。于是人们使用引导页代替说明书，对用户进行软件使用介绍。</p>
+<p>引导页分为产品介绍型、操作指引型和讲故事型。</p>
+<ul>
+<li>产品介绍型</li>
+</ul>
+<p>简单介绍产品，让用户有个大致的了解，体现产品的格调，多为图文共同展示形式。文字作为简要介绍，图片烘托氛围，下方最好提供一个阅读进度条，让用户了解当前介绍所处的位置。</p>
+<ul>
+<li>操作指引型</li>
+</ul>
+<p>这样的引导页除了会在首次打开产品时出现，还会在产品内首次打开某个界面时出现。这种引导方式会加深用户的印象，但在用户使用过程中，不经意间弹出的引导会打断用户操作，会引起用户反感。所以这样的引导页尽量不要出现在简单易理解的操作步骤中。</p>
+<ul>
+<li>讲故事型</li>
+</ul>
+<p>讲故事型引导页的主要目的是营造具有浓烈感情色彩的场景，增加用户对产品的关注，提升在用户心理认知中的情感。一般是设定一个与产品相关的场景进行介绍，使用形式也是图文共同展示较多。</p>
+<p>引导页设计规律：</p>
+<ul>
+<li>控制文字量并有效传达信息：人类对于文案在短时间内能记忆住的字符不超过9个。</li>
+<li>改变常规的交互方式：可以使用更创新的形式吸引用户关注，比如使用弹窗。</li>
+<li>信息聚焦：引导页中不应该出现过多的视觉焦点，容易分散用户注意力。</li>
+</ul>
+<h2 id="空状态设计"><a href="#空状态设计" class="headerlink" title="空状态设计"></a>空状态设计</h2><p>（老师！这个问题我会！让我来！）</p>
+<p>某列表或某区域的信息为空，没有任何可以展示的东西，或者说获取数据出错，断网，程序异常等情况，都可以认为是空状态适用的场合。</p>
+<p>空状态对于提升用户体验的重要性是极其高的。我在《前端工程简史》那篇笔记中写到AJAX技术改变了前端， AJAX技术进行的异步加载表现到页面上就是信息的更新，那如果更新出来是空或者调用接口时爆500了呢？（error 500代表服务器内部错误，一般是后台程序bug了）。此时如果是一个全白的区域，给人的感觉就类似于“是不是正在加载？卡了？”，那自然用户就会感到迷惑，但此时不一定是卡了，而是确实没有什么可以展示的。使用空状态便可解决这样的问题。</p>
+<p>空状态分为以下三类型：</p>
+<ul>
+<li>系统推荐型空状态</li>
+</ul>
+<p>适合在应用初次启动时使用，此时用户没有或很少在应用内执行任何操作，对于一些信息推荐相关的内容自然是“无米可炊”，那么可以设定一个推荐页面，让用户根据喜好选择一些内容，就解决了内容空的问题。</p>
+<ul>
+<li>操作指引型空状态</li>
+</ul>
+<p>这样的空状态适合以下逻辑：界面应该展示产生的内容→界面并没有展示产生的内容→空状态指引用户前往产生内容的页面。</p>
+<p>举个例子，某书籍阅读类应用，用户刚注册账号时书单内没有任何书，此时访问书单页面时，空状态提示用户书单为空，可以前往找书页面发现自己喜欢的书籍，给出一个明显的按钮便于用户跳转。</p>
+<p>刚才的例子，使用推荐型空状态一样适合，但同样需要给出跳转找书页面的链接，否则用户体验会不太好。</p>
+<ul>
+<li>情感表达型空状态</li>
+</ul>
+<p>这是一种“实话实说”型空状态，适用于用户操作的结果页面。比如用户搜索某关键词却什么都没搜到，此时并不怎么需要多余的跳转（毕竟当用户没搜到东西时，常见的操作要么是返回上一页，要么是换个关键词继续搜），此时只需要放一张有趣的图片，可以配上一些幽默的文案，提示用户没有结果，就足够了。</p>
+<p>设计空状态应该避免死角，每个有可能为空的状态都应当考虑一下（是考虑一下，不是都需要，下面会说），在用户使用一个产品并完成他之前从未完成过的功能时，不能让用户“走进死胡同”。</p>
+<p>但并不是每个空状态都需要设计，也不是每个空状态都需要来个配图进行精心设计。当同屏只有一个版块时，使用带图空状态是合适的，但如果同屏有多个版块，每个版块的空状态都带个图就显得有点占地方了，这时候空状态只给一句话就可以。如果是多版块页面，某版块信息为空时也可以直接设定其折叠显示或者不显示，这样其实也是空状态的一种体现。</p>
+<h2 id="Banner设计"><a href="#Banner设计" class="headerlink" title="Banner设计"></a>Banner设计</h2><p>Banner可以作为网站界面的横幅广告，也可以作为活动用的旗帜，还可以作为报纸、杂志上的大标题。对于移动端设计，Banner可以理解为最高视觉层级的功能或活动入口，因为Banner在设计时通常都会花里胡哨的，视觉层级相当高。</p>
+<p>Banner的尺寸并没有固定的规范，形状也没有规范，圆角矩形，弧形都是可以的。我在工程实践中常用到的PC端Banner尺寸有<code>1920*700px</code>和<code>1200*400px</code>，手机端可以等比缩放一下或者根据实际情况调整。</p>
+<p>Banner的组成五要素：文案、素材商品或模特、背景渐变、纹理叠加、点缀图形。</p>
+<p>Banner的设计要点：</p>
+<ul>
+<li>文案注意排列规则，一行文字不能超过9个字。</li>
+<li>设计背景渐变让视觉添加纵深感，用色应当符合产品特性。（色彩选取参考请参照我的同系列学习笔记3）</li>
+<li>合理使用纹理叠加衬托主体，但避免过度使用喧宾夺主。</li>
+<li>实物点缀，人物点缀，图形点缀对设计Banner尤为必要，这三者至少应当出现一个。</li>
+<li>注意控制版面色彩与版式平衡。</li>
+</ul>
+<p>据书上说，带着这几个要点去网上找找比较成熟的banner图，会发现万变不离其宗。</p>
+<p>Banner的组成形式分为纯文案型和文案素材结合型。</p>
+<p>纯文案的Banner一般出现在电商以外的产品中，这种Banner不需要图的原因或者结果就是重点突出文案，所以设计这样的Banner必须在字体上下功夫（字体规律请参考我的同系列学习笔记5）。这样的Banner需要元素和图形来烘托气氛，绘制或选取素材时应当尽量贴合Banner的主题。</p>
+<p>文案与素材结合型的Banner在电商类或音乐类产品中应用较多，电商类Banner推广销售产品，音乐类Banner推广音乐专辑。设计这样的Banner需要注意权衡文案和素材的视觉层级关系，同时两者尽可能统一风格，营造产品应当表达的氛围。</p>
+<p>Banner的设计风格有以下六种：</p>
+<ul>
+<li>素雅文艺型：大面积留白，字体多宋体，字号差距大，饱和度较低，明度拉高点，常见灰白色。</li>
+<li>高冷时尚型：文案很简洁，黑体无衬线，色调就两种，素材大比例，摄影很细腻，点缀得小心。</li>
+<li>传统中国风型：灰调用的多，书法中国色，文案多竖排，排版右到左，不要渐变感，传统元素加：印章、山水画、墨迹、扇面、剪纸、园林窗格、祥云、京剧元素、卷轴、锦鲤等。</li>
+<li>青春活力型：排版随你意，饱和度拉高，互补加对比，标题别太细，背景多点缀，字体也随意。</li>
+<li>节日促销型：就图一热闹，多用红黄紫，画面少留白，标题得夸张，字号放大些，视觉冲击强。</li>
+<li>科技概念型：底色用暗色，光效配科技，不要大圆角，配色蓝紫黑，画面要硬朗，科技元素加：光线，金属，线条，光点，宇宙，地球，人脑等。</li>
+</ul>
+<p>Banner在设计中需要注意的问题：</p>
+<ul>
+<li>主题要明确，构图要紧凑，整体性要强</li>
+<li>左边的视觉重量更高，想突出什么元素就尽量把它放左边</li>
+<li>巧用装饰元素，避免画面单调</li>
+<li>纹理应当体现一定的质感</li>
+<li>装饰性图案元素一般不让用户明显感知到，视觉上隐约可见即可</li>
+<li>留白和点缀的多少应当根据风格确定</li>
+</ul>
+<p>装饰元素的分布方法：</p>
+<ul>
+<li>散点分布法</li>
+<li>流星雨分布法</li>
+<li>点状环绕分布法</li>
+<li>放射发散分布法</li>
+</ul>
+<p>装饰元素的设计方法：</p>
+<ul>
+<li>渐变图形法</li>
+<li>元素提取法</li>
+<li>发散联想法</li>
+</ul>
+<h2 id="启动页设计"><a href="#启动页设计" class="headerlink" title="启动页设计"></a>启动页设计</h2><p>启动应用程序后，进入主功能界面之前一般会有一张图或一个动画，在程序进行加载时显示，加载完成后消失，这就是启动页。</p>
+<p>启动页本身不是为了展示艺术品，而是解决用户会因为等待时间过长产生厌烦的问题。PC时代一般都是大型软件和网游才有启动页，移动端应用程序启动页应用变得非常广泛了。</p>
+<p>启动页设计有以下四种形式：</p>
+<ul>
+<li>快速启动型启动页，尽量让用户不去感知界面的存在，无缝衔接到应用中。这样的形式有两种实现方法，第一种是把App首页背景图作为启动页，第二种是把首页加载状态作为启动页，但这样的设计具有局限性，仅适合轻量级应用，使用量较少。</li>
+<li>品牌传递型启动页，这样的启动页是比较常见的，通常包括三个要素：产品图标，产品名称，宣传口号。部分启动页还会加入如开发者信息等其他信息，这样的启动页能加深用户的直观印象，拉近与用户的距离，强调品牌性格。</li>
+<li>节日氛围型启动页：这样的启动页多以插画形式出现，一般会在节日或特殊纪念日时出现，时效性很强。当然也有一些直接用普通插画当启动页的，这样的启动页会很吸引用户的注意力，所以在设计插画时应当用心一些。</li>
+<li>广告推广型启动页：恰饭启动页，无非就是弹广告了，这样的启动页在设计时和节日氛围型差不太多，细节之处其实在于没多少用户愿意看广告，所以最好给个倒计时提示或能点击跳过（恶心心做法：跳过按钮做成跳转按钮，参照几年前的某app）</li>
+</ul>
+<p>设计启动页的注意事项：</p>
+<ul>
+<li>避免过度设计，不能画的太花里胡哨，做到简洁耐看就足够了。</li>
+<li>避免高频率改动，启动页往往可以代表产品的第一印象，频繁更换会造成心理感觉等待时间加长，如果像QQ，微信那样长时间不换的，用户甚至有时候回感受不到启动页的存在，这只是心理感受，并不代表实际时间一定变短了。</li>
+</ul>
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          打赏
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://shawnzhou.world/2021/02/25/ui-note6/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UI%E8%AE%BE%E8%AE%A1/" rel="tag">UI设计</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2021/02/26/ui-note7/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            《规律与逻辑·用户体验设计法则》 学习笔记7
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2021/02/23/javascript-array/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">JavaScript中对数组的各种操作方法</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "YolIyMzPHjxT49twQAhzxsQ8-gzGzoHsz",
+    app_key: "Dtrq0zAmtB8CqcKdwVCk7JBn",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2018-2022
+        <i class="ri-heart-fill heart_icon"></i> Shawn Zhou
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        
+        由 <a href="https://hexo.io" target="_blank">Hexo</a> 框架强力驱动
+        <span class="division">|</span>
+        主题 - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></s>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://v1.cnzz.com/z_stat.php?id=1279352967&amp;web_id=1279352967'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/avatar1.png" alt="ShawnZhou的小站"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">图集</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://friends.shawnzhou.world/">友链站</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://dev.shawnzhou.world/">开发站</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://sources.shawnzhou.world/">资源站</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>感谢打赏~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://shawnzhou.world/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://shawnzhou.world/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+
+<script src="/js/clickBoom2.js"></script>
+
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+  </div>
+</body>
+
+</html>

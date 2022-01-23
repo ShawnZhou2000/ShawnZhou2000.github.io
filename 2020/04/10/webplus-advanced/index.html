@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="博客,前端博客,JavaScript,html5,css3,html,css,js,acm,noip,橙果工作室,shawnzhou,shawn zhou" />
+   
+  <meta name="description" content="ShawnZhou的小站" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    WebPlus网站群平台操作指南—进阶篇 |  ShawnZhou的小站
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+  
+  
+
+  
+
+<link rel="alternate" href="/atom.xml" title="ShawnZhou的小站" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+      <canvas width="1777" height="841"
+        style="position: fixed; left: 0px; top: 0px; z-index: 99999; pointer-events: none;"></canvas>
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-webplus-advanced"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  WebPlus网站群平台操作指南—进阶篇
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/04/10/webplus-advanced/" class="article-date">
+  <time datetime="2020-04-10T05:14:20.000Z" itemprop="datePublished">2020-04-10</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%AB%99%E7%BE%A4%E5%B7%A5%E4%BD%9C%E7%BB%84%E7%9B%B8%E5%85%B3/">站群工作组相关</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">4.6k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">15 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>上一篇文章中介绍了站群的基本操作方法和一些需要注意的地方，本篇整理一些比较复杂的操作。</p>
+<p><img src="https://s1.ax1x.com/2020/04/08/GWxQXV.jpg"></p>
+<a id="more"></a>
+
+<h2 id="如何调整原始模板"><a href="#如何调整原始模板" class="headerlink" title="如何调整原始模板"></a>如何调整原始模板</h2><p>通常，拿到一个默认模版后，结构会比较混乱。所以我们应该想办法把它调整得协调一些。</p>
+<p><img src="https://s1.ax1x.com/2020/04/10/GTwri4.jpg"></p>
+<p>调整的思路其实是多样的，要根据实际的模板情况灵活运用。有冗余模块则去掉，有缺失模块则添加，如果出现样式问题则开审查调试样式。不过这里仍给出一个一般的操作顺序供以参考。</p>
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><p>第一步是删除。首先将模板中无用的模块或冗余的模块删除。</p>
+<blockquote>
+<p>注意：请提前备份好删除之前的模版，因为删除操作是无法撤销的。</p>
+</blockquote>
+<p><img src="https://s1.ax1x.com/2020/04/10/GTcxRU.jpg"></p>
+<p>例如，站群默认设置的站点logo存在一些问题，我们需要把这个模块删掉，后期换上自制的logo。只需要点击模块右上角的叉号，在弹出框中点击确定后即可删除。</p>
+<p>如果因遇到未知原因导致模块无法删除的，可以考虑在本地删除相应代码。</p>
+<p><img src="https://s1.ax1x.com/2020/04/10/GTWzkR.jpg"></p>
+<p>作为内嵌模块的代码有这样的一个规律，它们的最根层的div含有一个<code>frag=&quot;窗口xx&quot;</code>的属性。如果要对模块进行修改，改动这些地方的代码即可。</p>
+<blockquote>
+<p>对模块内部元素的直接CSS修改是有可能不生效的，如果有对模块的CSS修改需求，建议在预览界面使用审查定位到具体的CSS元素。</p>
+</blockquote>
+<h3 id="增加"><a href="#增加" class="headerlink" title="增加"></a>增加</h3><p>经过一番删除之后，现在的模板应该是一种比较干净的状态。接下来就可以在上面增加内容了。</p>
+<p><img src="https://s1.ax1x.com/2020/04/10/GTfXgf.jpg"></p>
+<blockquote>
+<p>提示：在编辑界面看到的结构可能是显示不正常的，尽管预览时一切正常。这是站群的一个缺陷。</p>
+</blockquote>
+<p>点击右上角的设计按钮，可以看到整个页面的大概布局。在这个页面点击配置按钮即可返回编辑界面。</p>
+<p><img src="https://s1.ax1x.com/2020/04/10/GT4JWq.jpg"></p>
+<p>如果出现拖动模块报错的情况，类似下图，此时考虑清除模块配置或者直接点进编辑查看是否已经存在需要的模块。</p>
+<p><img src="https://s1.ax1x.com/2020/04/10/GT5icV.jpg"></p>
+<blockquote>
+<p>注意：诸如导航栏等三个页面都会有的模块，应该在三个页面模板中都做出相应的修改。不能仅修改<code>main.htm</code>。</p>
+</blockquote>
+<h4 id="添加导航菜单"><a href="#添加导航菜单" class="headerlink" title="添加导航菜单"></a>添加导航菜单</h4><p>添加导航菜单时，先查看站点下的目录是否齐全，如果目录不全则先切换到栏目管理增加相应栏目。不要忘记同时添加栏目下的子栏目。顺序是不重要的，因为在添加时会以手动选择的顺序为主。</p>
+<p><img src="https://s1.ax1x.com/2020/04/10/GT7vJH.jpg"></p>
+<p><img src="https://s1.ax1x.com/2020/04/10/GT7xWd.jpg"></p>
+<p>将导航菜单模块拖动至导航栏所在的模块，即弹出配置页面。按照原型图的顺序依次点入即可。</p>
+<p><img src="https://s1.ax1x.com/2020/04/10/GTbFj1.jpg"></p>
+<h4 id="添加新闻列表"><a href="#添加新闻列表" class="headerlink" title="添加新闻列表"></a>添加新闻列表</h4><p>与添加导航菜单的操作类似，还是需要先拖动导航菜单模块到相应区域。当然，如果该区域已经有了导航菜单模块可以直接点击进入配置。</p>
+<p><img src="https://s1.ax1x.com/2020/04/10/GTqtqx.jpg"></p>
+<p>点击某一个栏目选择导入，该新闻列表就会展示此栏目下的文章标题。</p>
+<blockquote>
+<p>提示：如果你选择了多个栏目，在导入时会增加一个虚拟目录存放整合的信息，该虚拟目录不会在列表中显示。使用这个操作也可以做到信息聚合的作用。</p>
+</blockquote>
+<p>内容定义配置完毕后，有时还需要在展示配置中调整其他信息。</p>
+<p><img src="https://s1.ax1x.com/2020/04/10/GTLkTK.jpg"></p>
+<p>箭头所示的选项为平时修改频率较高的选项。窗口标题按照具体需求修改，显示条数需要根据实际显示效果确定，太多或太少都会不协调。标题长度默认为15字符，但是在有些比较宽的列表中太短的标题长度会导致右边有大量留白，此时可以考虑将标题长度适当加长，或直接改为-1（无限制）。More图标有些老师会要求去掉，在设置中修改选项就可以。</p>
+<blockquote>
+<p>注意：如果标题长度限制过长导致有些标题变成了两行显示，这一般是不被允许的，要考虑把显示长度调短一些。</p>
+</blockquote>
+<h4 id="添加轮播大图"><a href="#添加轮播大图" class="headerlink" title="添加轮播大图"></a>添加轮播大图</h4><p>轮播图模块的名称叫多图交替，一般位于导航栏正下方。对轮播图的修改一般是以尺寸和显示内容为主。有些模板会自定义好轮播图的样式，所以不需要我们去过多改动。</p>
+<p>轮播图的本质其实仍然是一个新闻列表。播放的图片为文章的封面图。在基础篇中有提到过一个操作是，建立一篇只有图片的文章，放入轮播栏目内，即可完成单图片显示。如果需要轮播图点击进入具体文章，则简单修改即可。</p>
+<p>展示方式中有两个是需要着重注意的。</p>
+<p><img src="https://s1.ax1x.com/2020/04/10/GTXDWF.jpg"></p>
+<p>与新闻列表类似，显示条数也要按照具体需求改动。缩略图的显示尺寸是需要重点考虑的问题。通常的，如果要做宽屏的大轮播，需要把显示模式改为指定高度。固定宽度的显示方式对多尺寸显示非常不友好，在制作响应式布局时会带来麻烦。</p>
+<blockquote>
+<p>注意：在改为指定宽度或指定高度模式时，未指定的参数会继承原来的设置。所以有时候你需要手动把宽高度按当前分辨率改好后再修改设置，这是站群的一个缺陷。通常内容主体部分的宽度为1200px，这或许是一个有借鉴意义的参考值。</p>
+</blockquote>
+<p><img src="https://s1.ax1x.com/2020/04/10/GTvKC8.jpg"></p>
+<h3 id="调整"><a href="#调整" class="headerlink" title="调整"></a>调整</h3><p>将模块基本设置完毕后，接下来的任务是对页面的样式进行调整。</p>
+<p>这可能会是一个漫长而又繁琐的过程。既需要按照原型图和需求去改，又要参照设计的基本原则。需要不断地重复这样的一个操作：把模板下载到本地，使用dw修改后再打包上传，在预览中调试页面并做出修改。这样来回几次后，直到基本满意，才算结束。</p>
+<blockquote>
+<p>注意：假如在某次操作后改动了模块内容，则必须要以当前最新改动的版本为基础进行修改，否则会修改掉对模块的设置。此时的下载请选择模板，配置及内容项。</p>
+</blockquote>
+<p>假如我要对这个导航栏做出改动：</p>
+<p><img src="https://s1.ax1x.com/2020/04/10/G7ShxU.jpg"></p>
+<p>现在这个模块有什么问题？</p>
+<pre><code>1. 它不够居中
+2. 按照需求，要把它的主题色变成蓝色</code></pre>
+<p>接下来我们一点一点的尝试解决这两个问题。打开审查元素，定位到问题元素所在位置，分析此处代码。</p>
+<p><img src="https://s1.ax1x.com/2020/04/10/G7pmLQ.jpg"></p>
+<p><img src="https://s1.ax1x.com/2020/04/10/G7pMon.jpg"></p>
+<p>可以发现，该元素通过设定外边距来保持与相邻元素之间的间距。目前的左右间距为23px，但是这太小了。经过简单调试后，发现在36px时是可以正常显示的。</p>
+<p><img src="https://s1.ax1x.com/2020/04/10/G7phFI.jpg"></p>
+<p>但是在审查中修改的元素只能临时生效，想要保存这个修改要怎么办？看到这里：</p>
+<p><img src="https://s1.ax1x.com/2020/04/10/G7pxf0.jpg"></p>
+<p>这表示，当前选择器位于style.css的第91行，那么我们只需要在dw里跟踪到这个位置，并将修改同步，就可以了。</p>
+<p><img src="https://s1.ax1x.com/2020/04/10/G79Zfx.jpg"></p>
+<p>然后再来解决颜色的问题。首先定位到某一个选项，发现在这个选项的代码中没有对颜色的设置，所以我们一级一级的向上寻找，直到找到可以修改颜色的代码段为止。</p>
+<p><img src="https://s1.ax1x.com/2020/04/10/G794HJ.jpg"></p>
+<p>最终我们定位到这个元素：</p>
+<p><img src="https://s1.ax1x.com/2020/04/10/G79qgK.jpg"></p>
+<p>那么问题来了，这个颜色要修改成什么呢？为了保持与原模板的风格相似度，我选择改动为原海洋学院模板的主体颜色。打开现在的海洋学院网站，使用审查元素或吸色工具获取主体颜色。另外，注意到在footer部分也有同样的颜色配置，所以建议在替换时将那些颜色同时换掉。</p>
+<p><img src="https://s1.ax1x.com/2020/04/10/G7CRPI.jpg"></p>
+<p>然而，仍然有一些颜色我们没有修改，这仍然会影响用户体验。注意看下图：</p>
+<p><img src="https://s1.ax1x.com/2020/04/10/G7C5M8.jpg"></p>
+<p>鼠标浮动上去之后的显示颜色仍然是红色。要修改这个显示样式，仍然需要定位到控制它的CSS。</p>
+<p><img src="https://s1.ax1x.com/2020/04/10/G7CxMT.jpg"></p>
+<p><img src="https://s1.ax1x.com/2020/04/10/G7P6yT.jpg"></p>
+<p>hover型元素是无法直接聚焦到的，但是在开启审查元素面板时鼠标浮动会让控制此样式的代码显示出来。这样只需要按照相同的方式修改属性就可以。</p>
+<blockquote>
+<p>提示：直接点击右上角的示踪标记可以进入审查元素中的CSS编辑界面，hover元素鼠标移开代码就会在审查中消失，但是可以根据记忆在原CSS中进入所在位置修改，效果相同。</p>
+<p><img src="https://s1.ax1x.com/2020/04/10/G7PGSP.jpg"></p>
+</blockquote>
+<p>修改完成的示例：</p>
+<p><img src="https://s1.ax1x.com/2020/04/10/G7ivbF.jpg"></p>
+<p>经过这样几番调整之后，你就可以把当前的本地文件夹打包成zip文件，上传到站群系统中了。之后再按照需求对其余的模块进行调试，直到基本满足效果。</p>
+<h2 id="解决显示bug"><a href="#解决显示bug" class="headerlink" title="解决显示bug"></a>解决显示bug</h2><p>由于模板与模板之间不相同的特性，显示bug的类型非常繁杂，并且有可能并非是看到的错误。在模板显示出现问题时，可以往两个方向去思考。</p>
+<p>第一个方向是由于出错位置本身的设置问题导致的错误，比如因为边距过大导致的导航栏折行bug。这种类型比较好办，只需要将出错位置直接定位修改即可。第二个方向是由于其他元素的设置问题导致原本显示正常的模块显示不正常。比如下图这种显示错位问题，看似是导航栏折行导致的显示错位，但是无论怎么修改导航栏都无法让显示变为正常。最后经过排查发现，是父级元素的宽度太窄，将其改大一些一切变回正常。</p>
+<p><img src="https://s1.ax1x.com/2020/04/10/G7EMG9.png"></p>
+<p><img src="https://s1.ax1x.com/2020/04/10/G7EOJJ.png"></p>
+<p>当显示出现问题时，仍然可以选用上面那种一级一级向上排查的方法，考虑到所有可能的问题所在，比如边距，长宽等。耐心查错总能发现问题。</p>
+<h2 id="高度自定义页面"><a href="#高度自定义页面" class="headerlink" title="高度自定义页面"></a>高度自定义页面</h2><h3 id="响应式布局"><a href="#响应式布局" class="headerlink" title="响应式布局"></a>响应式布局</h3><p>对一些模板原生支持响应式，且需求需要适应移动端显示时，需要考虑响应式布局。这里我们以招生办公室主页为例。</p>
+<p><img src="https://s1.ax1x.com/2020/04/11/GHGB0e.jpg"></p>
+<p>上图为最常见的宽屏PC端，旧式4:3屏幕上的显示是基本一致的，只是两边留白小了一些。</p>
+<p><img src="https://s1.ax1x.com/2020/04/11/GHGytA.jpg"></p>
+<p>上图为pad端，在本模板中结构与手机端是一致的。</p>
+<p><img src="https://s1.ax1x.com/2020/04/11/GHGbpq.jpg"></p>
+<p>上图为手机端。手机端由于机型繁杂多样，尺寸也可能不尽相同。在设计的时候我们可以仅以几种机型为例测试，可以直接使用Chrome调试中默认的iPhone尺寸作为调试基础，基本显示正常的话即可认为它能适应大部分机型。实际上，Android机型的尺寸和iPhone机型的尺寸大多是基本相同的，所以完全可以按照机型更少的iPhone端来进行测试，会方便一些。</p>
+<p><img src="https://s1.ax1x.com/2020/04/11/GHJP91.jpg"></p>
+<p>以Responsive模式下进行的调试是可以任意改变屏幕尺寸的宽高的。这种方式比较灵活但也有它自己的局限性。在这个模式下，由于尺寸改变导致的显示bug，有可能并不是实际的显示bug，原因很简单，实际的设备并不会随意改变自己的尺寸。倒不如设定好某个尺寸后刷新一下页面，让它在这个尺寸下重新加载，这样看到的才是接近真实的效果。</p>
+<p>在网页模板中，通常会留有独立出来的响应式设置CSS，比如<code>media.css</code>或<code>responsive.css</code>，建议将响应式代码写在这种专门的CSS里面，也是为了后续维护方便。</p>
+<p><img src="https://s1.ax1x.com/2020/04/11/GHtvB8.jpg"></p>
+<blockquote>
+<p>提示：由于解析顺序不同，响应式CSS应当在主CSS之后再进行引入，不然会导致响应式设置无效。</p>
+</blockquote>
+<p>要考虑到因为响应式设置造成的结构改变可能带来的问题，诸如显示错位等问题是非常常见的。仍然需要耐心修改并仔细调试。尽管并不要求模板能在任何的宽高尺寸下都可以显示正常，但必须要保证在主流分辨率下它是可以正常显示的。可以借助dw中的预览显示帮助确定响应式范围。</p>
+<p><img src="https://s1.ax1x.com/2020/04/11/GHNcVS.jpg"></p>
+<p>上图红框中每一个标记都代表代码中有一个此种范围的媒体查询，在不同的范围之内存在着不同的样式设置。这也许能比较直观的帮助你调试。</p>
+<h4 id="不要忘记真机测试"><a href="#不要忘记真机测试" class="headerlink" title="不要忘记真机测试"></a>不要忘记真机测试</h4><p>这是我个人的一点经验之谈，写在这里供给大家参考。在实际的开发中，我偶然发现到，预览的真机界面和实际的真机界面有时仍然是略有差距的，这不仅与机型相关，还与用户所使用的浏览器相关。在电脑端模拟上看似结构完整的，在真机上可能就会因为浏览器默认设置或尺寸的细微差异而导致结构错位。这就需要我们在设计响应式布局时要尽量设计的更能适应更多的尺寸条件，简单来说，不去强求，但尽量做到。</p>
+<h3 id="嵌入自定义结构"><a href="#嵌入自定义结构" class="headerlink" title="嵌入自定义结构"></a>嵌入自定义结构</h3><p>有时候，站群提供的模块并不能满足全部的需求。比如招生办公室页面中专业介绍的菜单：</p>
+<p><img src="https://s1.ax1x.com/2020/04/10/G7FfR1.jpg"></p>
+<p>新教务处（开发中）的快捷入口：</p>
+<p><img src="https://s1.ax1x.com/2020/04/10/G7kCdg.jpg"></p>
+<p>甚至头部的logo都是自定义结构：</p>
+<p><img src="https://s1.ax1x.com/2020/04/10/G7ZsUS.jpg"></p>
+<p>这些站群中没有的结构只能依靠自己开发完成。拥有良好的盒模型构建基础的话写出这样的结构并不是一件困难的事情。需要注意的是代码块编写的位置和响应式。尽量不要把代码块放在模块里面，这可能会造成一些未知的结果，在编写之前最好明确一下页面的结构，确定好这块代码是要放在哪里和哪里之间。同时要考虑到的问题是，新加入的模块有可能破坏了原有的结构布局，比如依靠绝对定位的模块会出现高度“变矮”而表现出一种“穿模”的现象。此时需要改动一些CSS以适应新加入的模块。此外，如果引入了一些其他的框架库，可能会导致由于它的全局设置而改变了其他原本正常元素的显示方式。</p>
+<p><img src="https://s1.ax1x.com/2020/04/11/GHaMOx.jpg"></p>
+<p>专业介绍列表中我使用了bootstrap的流式网格布局，但引入bootstrap导致了原本显示正常的页面出现了一些其他问题，后来我选择保留该模块，手动修复那些因引入bootstrap而导致显示错位的问题。</p>
+<h4 id="自定义结构与站群模块的混合"><a href="#自定义结构与站群模块的混合" class="headerlink" title="自定义结构与站群模块的混合"></a>自定义结构与站群模块的混合</h4><p>实际上，站群的每一个目录建立好之后，进入它的链接也随之固定了。只需要掌握了链接生成的规律就能将进入某个模块的入口混合到自定义结构当中。</p>
+<p>首先要明确要制作的页面的域名是什么，链接的地址必须是在那个域名之下。实际上，在调试的时候，显示的地址和实际的地址是不一样的。</p>
+<p><img src="https://s1.ax1x.com/2020/04/11/GHwddf.jpg"></p>
+<p><img src="https://s1.ax1x.com/2020/04/11/GHwDJg.jpg"></p>
+<p>尽管都是招生办公室的主页，但是域名不一样，也就说明它们是不一样的页面。以<code>webplus.qlu.edu.cn</code>打头的地址是调试地址，链接模块时不能以这个为准，会造成打不开的现象。</p>
+<p>我们任意点进一个二级页面，看它的地址是：</p>
+<p><img src="https://s1.ax1x.com/2020/04/11/GH0npQ.jpg"></p>
+<p>接下来发挥合理作死精神，把可疑的2909换成2910试试？奇怪的事情发生了：</p>
+<p><img src="https://s1.ax1x.com/2020/04/11/GH0MXn.jpg"></p>
+<p>它变成了下一个栏目。为什么会这样呢？我们进入栏目管理，就可以发现真相：</p>
+<p><img src="https://s1.ax1x.com/2020/04/11/GH00n1.jpg"></p>
+<p>没错，起作用的是这个虚拟目录。我们只需要知道相对应的虚拟目录就可以进入到该列表中。有多级目录的话也是同理。</p>
+<blockquote>
+<p>提示：链接可以最短简化成下图这样。</p>
+<p><img src="https://s1.ax1x.com/2020/04/11/GHDpqI.jpg"></p>
+</blockquote>
+<p>现在你就可以把一些栏目的链接通过此种方法找到，并写在自定义结构下的超链接中了。该操作的反向操作比较简单，即为在目录中添加外链，该部分已在基础篇有过讲解。</p>
+<h2 id="信息采集与一键扒站"><a href="#信息采集与一键扒站" class="headerlink" title="信息采集与一键扒站"></a>信息采集与一键扒站</h2><p>本部分操作官方文档解释的很详细，这里将它们转载来。</p>
+<h3 id="信息采集"><a href="#信息采集" class="headerlink" title="信息采集"></a>信息采集</h3><p>信息采集工具是针对互联网页面的源代码进行一定的人工分析，获取唯一规则后，由服务器端进行访问获取文章的标题，内容，发布时间，浏览次数等信息。站群中，只有站点管理员和系统管理员才拥有信息采集权限。简单来讲就是把一些非站群页面中的文章列表和正文通过一种类似于爬虫的东西全部爬进来，一般用于将非站群页面的网站转换到站群页面来。现在这样的需求应该比较少了。</p>
+<p>详情请参考<a target="_blank" rel="noopener" href="http://pro.webplus.net.cn/_s80/xxcj/list.psp">http://pro.webplus.net.cn/_s80/xxcj/list.psp</a></p>
+<h3 id="一键扒站"><a href="#一键扒站" class="headerlink" title="一键扒站"></a>一键扒站</h3><p>用于把别的网站的页面转化成站群可用的模板，需要对页面结构比较熟悉，而且扒下来后可能会有很多bug需要修复。</p>
+<p>详情请参考<a target="_blank" rel="noopener" href="http://121.40.124.129/_s80/59/19/c1236a22809/page.psp">http://121.40.124.129/_s80/59/19/c1236a22809/page.psp</a></p>
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          打赏
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://shawnzhou.world/2020/04/10/webplus-advanced/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AB%99%E7%BE%A4/" rel="tag">站群</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2020/05/29/webplus-bugfix/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            WebPlus网站群平台往期bug整理+零碎知识
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/04/08/webplus-tutorial/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">WebPlus网站群平台操作指南—初级篇</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "YolIyMzPHjxT49twQAhzxsQ8-gzGzoHsz",
+    app_key: "Dtrq0zAmtB8CqcKdwVCk7JBn",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2018-2022
+        <i class="ri-heart-fill heart_icon"></i> Shawn Zhou
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        
+        由 <a href="https://hexo.io" target="_blank">Hexo</a> 框架强力驱动
+        <span class="division">|</span>
+        主题 - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></s>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://v1.cnzz.com/z_stat.php?id=1279352967&amp;web_id=1279352967'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/avatar1.png" alt="ShawnZhou的小站"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">图集</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://friends.shawnzhou.world/">友链站</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://dev.shawnzhou.world/">开发站</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://sources.shawnzhou.world/">资源站</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>感谢打赏~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://shawnzhou.world/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://shawnzhou.world/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+
+<script src="/js/clickBoom2.js"></script>
+
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+  </div>
+</body>
+
+</html>

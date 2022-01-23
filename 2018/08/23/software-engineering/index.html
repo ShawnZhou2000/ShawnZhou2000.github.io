@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="博客,前端博客,JavaScript,html5,css3,html,css,js,acm,noip,橙果工作室,shawnzhou,shawn zhou" />
+   
+  <meta name="description" content="ShawnZhou的小站" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    软件工程基础 学习笔记 |  ShawnZhou的小站
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+  
+  
+
+  
+
+<link rel="alternate" href="/atom.xml" title="ShawnZhou的小站" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+      <canvas width="1777" height="841"
+        style="position: fixed; left: 0px; top: 0px; z-index: 99999; pointer-events: none;"></canvas>
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-software-engineering"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  软件工程基础 学习笔记
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2018/08/23/software-engineering/" class="article-date">
+  <time datetime="2018-08-23T08:22:32.000Z" itemprop="datePublished">2018-08-23</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%9F%BA%E7%A1%80/">软件工程基础</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">9.1k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">30 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>这里记录了关于软件工程基础概念的一些相关内容，该部分学习笔记曾在2018年发布。</p>
+<p>当前博客显示的发布时间非真实时间，而是这些内容在当时发布时的最后发布时间。</p>
+<p><img src="https://i.loli.net/2018/08/22/5b7d73173aed7.png"></p>
+<a id="more"></a>
+
+<h2 id="软件定义与软件特点"><a href="#软件定义与软件特点" class="headerlink" title="软件定义与软件特点"></a>软件定义与软件特点</h2><p>计算机软件是计算机系统中与硬件相互依存的另一部分。是包括程序，数据以及相关文档的完整集合。可见软件由两部分组成：一是机器可执行的程序和数据，二是机器不可执行的，与软件开发、运行、维护、使用等有关的文档。软件是一种逻辑实体，而不是物理实体，它具有抽象性。人们可以把它记录在纸上或者存储介质上，但是没有办法看到软件本身的形态。软件的生产与硬件不同，它没有明显的制作过程。一旦研制开发成功，可以大量拷贝同一内容副本。此外，软件在运行、使用期间不存在磨损，老化问题。但是软件可以退化，因为随着软件的不断更新，开发者们需要对软件做出一定的修改，而这些修改又会不可避免地引入错误，软件失效率会升高，软件就有可能退化。</p>
+<p>与此同时，软件的开发与运行对计算机系统具有依赖性，受到计算机系统的限制，这会导致很多软件的移植问题。<br>目前的软件还存在很多跨版本兼容问题。软件的复杂性决定了开发软件的成本是很高的。可以说，软件是人类有史以来生产的复杂度最高的工业产品。软件涉及到人类社会的各行各业，方方面面。也就是说，软件开发通常会涉及到其他领域的专业知识。软件开发需要投入大量、高强度的脑力劳动，成本高，风险大<br><del>（祭天事件，手机壳事件了解一下）</del> 。</p>
+<p>而且，软件的开发还涉及很多的社会因素。许多软件的开发和运行涉及到软件用户的机构设置，体制问题以及管理方式等等因素，它甚至会涉及到人们的观念，心理，甚至知识产权和法律的问题。</p>
+<p>软件根据应用目标的不同，分类是多种多样的。按照功能，可以分为应用软件、系统软件、工具软件。应用软件是为了解决特定领域的应用而开发的软件。系统软件是计算机管理自身资源，提高计算机使用效率并服务于其他程序的软件。工具软件介于系统软件和应用软件之间，它可以协助用户进行开发。</p>
+<h2 id="软件危机与软件工程"><a href="#软件危机与软件工程" class="headerlink" title="软件危机与软件工程"></a>软件危机与软件工程</h2><p>软件工程的的概念的出现源自于软件危机。所谓软件危机是泛指在计算机软件的开发和维护中遇到的一系列严重的问题。实际上，几乎所有的软件都不同程度的存在这样的问题。随着计算机技术的发展和应用领域的扩大，计算机的性价比和质量在逐步提高，软件规模不断增加，复杂度也不断增加。</p>
+<p>那么软件危机主要体现在哪些地方呢？</p>
+<p>1.软件需求的增长得不到用户的满足，用户对软件不满意的情况时常发生。</p>
+<p>（行行行你是甲方你牛逼）</p>
+<p>2.软件开发的成本和进度无法控制，开发成本日常超出预算，开发周期远超过计划的事情时有发生。</p>
+<p>3.软件质量难以保证。</p>
+<p>4.软件可维护性很差。</p>
+<p>（上一个接手这个项目的程序员在哪？我要砍死这个一句注释不写的小崽子）</p>
+<p>5.软件开发的生产率的提高赶不上硬件发展和应用需求的增长</p>
+<p>（说白了还是你们甲方牛逼是吧，你们以为程序员是创造神吗，想要啥就能立马造出啥来。。）</p>
+<p>总之，软件危机很严重就是了。。。。</p>
+<p>所以，为了消除软件危机，软件工程的概念慢慢进入人们的视野。软件工程就是试图用工程、科学和数学的原理与方法研制维护计算机软件的有关技术以及管理方法。它让软件开发更加系统化，规范化。</p>
+<p>软件工程包含三个要素，方法，工具和过程。方法是完成软件工程项目的技术手段，工具用来支持软件的开发、管理、文档生成；过程支持软件开发的各个环节的控制和管理。软件工程的进步和学科的发展是近几十年来软件产业迅速发展的重要原动力。软件工程的核心思想就是把软件产品看作是一个工程产品来处理。把各种工程化的概念引入到软件生产当中。同时，软件工程也有很多有别于一般工业工程技术的一些技术方法。</p>
+<p>特别的，从经济学的意义上来说，考虑到软件庞大的维护费用远比软件开发费用高，因而开发软件不能只考虑开发期间的费用，而应该考虑到软件在一个生命周期内需要的全部费用。</p>
+<h2 id="软件过程与软件生命周期"><a href="#软件过程与软件生命周期" class="headerlink" title="软件过程与软件生命周期"></a>软件过程与软件生命周期</h2><p>软件过程是把输入转化为输出的一组彼此相关的资源和活动。软件过程通常包含4中基本活动。</p>
+<p>1.软件规格说明，简称P，规定软件的功能以及限制。</p>
+<p>2.软件开发或软件设计与实现，简称D，生产满足规格的软件。</p>
+<p>3.软件确认，简称C，确认客户满意该软件。</p>
+<p>4.软件演进，简称A，为了满足客户变得比天都快的需求，软件必须能够在不断使用中演进。</p>
+<p>通常，将软件产品从提出、实现、使用到维护到停止使用的过程称为软件生命周期。我们可以把它分成简单的三个阶段，首先是定义阶段，它包括可行性研究与初步项目计划，然后就是需求分析。然后是开发阶段，从上至下是总体设计，详细设计，编码，测试。第三阶段就是软件的维护阶段，分为使用，维护和退役三个过程。</p>
+<h2 id="软件工程的目标与原则"><a href="#软件工程的目标与原则" class="headerlink" title="软件工程的目标与原则"></a>软件工程的目标与原则</h2><p>在给定成本、进度的前提下，开发出具有有效性、可靠性、可理解性、可维护性、可重用性、可适应性、可移植性、可追踪性和可操作性且满足用户需求的产品。基于软件工程的目标，软件工程的理论和技术性研究的内容主要包括软件开发技术和软件工程管理。</p>
+<p>软件开发技术包括软件开发方法学、开发过程、开发工具和软件工程环境，其主题内容是软件开发方法学。软件开发方法学是根据不同的软件类型，按照不同的观点和原则对软件开发中应该遵循的策略、原则、步骤和必须产生的文档资料都做出规定，从而使得软件的开发能进入规范化和工程化的阶段。</p>
+<p>软件工程管理包括软件管理学，软件工程经济学，软件心理学等内容。</p>
+<p>软件工程管理是软件按工程化生产时的重要环节，它要求<br>按照预先制定的计划、进度和预算执行，以实现预期的经济效益和社会效益。有很多软件开发项目的失败，并不是由于软件开发技术方面的原因，它们的失败是由于管理不当造成的。</p>
+<p>软件工程经济学是研究软件开发中成本的估算、成本效益分析的方法和技术。它用经济学基本原理研究软件工程开发中的经济效益问题。</p>
+<p>软件心理学是软件工程领域具有挑战性的一个全新视角，它是从个体心理、人类行为、组织行为和企业文化等角度来研究软件管理和软件工程的。</p>
+<p>所以，为了达到上述的软件工程目标，在软件开发过程中，必须遵循软件工程的基本原则。下面就说一下这些基本原则。</p>
+<p>1.抽象。抽取事物最基本的特性和行为，而忽略非本质细节。</p>
+<p>2.信息隐蔽。采用封装技术，把程序模块的实现细节隐藏起来，使得模块接口尽量简单。</p>
+<p>3.模块化。之前反复强调过。</p>
+<p>4.局部化。要求在一个物理模块内集中逻辑上相互关联的计算资源，保证模块之间具有松散的耦合关系，模块内部内聚性较强，这有助于控制解的复杂性。</p>
+<p>5.确定性。软件开发中所有的概念的表达应该是确定的、无歧义的而且应该是规范的。</p>
+<p>6.一致性。包括程序、数据和文档的整个软件系统的各个模块应该使用已知的概念、符号和术语；程序的内部和外部接口应该保持一致，系统规格说明与系统行为应保持一致。</p>
+<p>7.完备性。软件不能丢失任何重要成分。</p>
+<p>8.可验证性。开发大型软件需要对系统自上而下逐层分解。系统分解应该遵循容易检查、测评、评审的原则，以确保系统的正确性。</p>
+<h2 id="软件开发工具与软件开发环境"><a href="#软件开发工具与软件开发环境" class="headerlink" title="软件开发工具与软件开发环境"></a>软件开发工具与软件开发环境</h2><p>早期的软件开发除了一般的程序设计语言之外，尚缺少工具的支持，致使编程工作量大，质量和进度难以保证，导致人们将很多精力和时间花费在程序的编制和调试上。软件开发工具的完善和发展可以促进软件开发以高速度和高质量发展。所谓“工欲善其事，必先利其器”，发展软件开发工具是很重要的。</p>
+<p>软件开发环境或者说软件工程环境是全面支持软件开发全过程的软件工具集合。这些软件开发工具按照一定的方法或者模式组合起来，支持软件生命周期内的各个阶段和各项任务的完成。</p>
+<p>计算机辅助软件工程（CASE）是当前软件开发环境中富有特色的研究工作和发展方向。CASE将各种软件工具、开发机器和一个存放开发过程信息的中心数据库组合起来，形成软件工程环境。CASE的成功产品将最大限度地降低软件开发的技术难度并且使全检的开发的质量得以保证。</p>
+<p>结构化方法经过30多年的发展，已经成为系统、成熟的软件开发方法之一。结构化方法包括已经形成了配套的结构化分析方法、结构化设计方法和结构化设计方法，其核心和基础是结构化程序设计理论。</p>
+<h2 id="需求分析与需求分析方法"><a href="#需求分析与需求分析方法" class="headerlink" title="需求分析与需求分析方法"></a>需求分析与需求分析方法</h2><p>先来明确什么是需求。需求是用户解决问题或达到目标所需的条件或权能；系统或系统部件要满足合同、标准、规范或其他正式规定文档所具有的条件或权能；由需求的定义可知，需求以及需求分析的内容包括提炼、分析和仔细审查已经收集到的需求；确保所有利益相关者都明白其含义并且能够找出其中的错误、遗漏或者其他不足的地方。从用户最初的非形式化需求到满足用户对软件产品要求的映射，对用户意图进行不断地提示和判断。</p>
+<p>需求分析阶段的工作，可以概括为四个方面。</p>
+<p>首先是需求获取，它涉及的关键问题有：对问题空间的理解，人与人之间的通信和不断变化的需求。在同用户的交流过程中，不断收集和积累用户的信息，并且通过认真理解用户的各项要求，澄清模糊的需求，排除不合理的需求，全面地提炼系统的功能性和非功能性需求。要特别注意的是，在需求获取过程中，容易产生诸如与用户交流存在障碍，相互误解，缺乏共同语言，忽视需求变化，混淆目标和需求等问题，这些问题都将直接影响到需求分析和系统后续开发的成败。</p>
+<p>然后是需求分析。搞定了难缠的客户，程序员们就要分析一下这些需求到底应该怎么实现。这一步最终的结果就是给出系统的解决方案，或者说模型。</p>
+<p>第三步是编写需求规格说明书。它为各方面人员之间的交流提供了方便。</p>
+<p>最后就是需求评审。在需求分析的最后一步，对需求分析阶段的工作进行复审，验证需求文档的一致性，可行性，完整性和有效性。</p>
+<p>常见的需求分析方法有结构化分析方法和面向对象的分析方法。</p>
+<h2 id="结构化分析方法"><a href="#结构化分析方法" class="headerlink" title="结构化分析方法"></a>结构化分析方法</h2><p>结构化分析方法是结构化程序设计理论在软件需求分析阶段的运用。其目的是帮助弄清用户对软件的需求。</p>
+<p>结构化分析方法的是指是着眼于数据流，自顶向下逐层分解，建立系统的处理流程，以数据流图和数据字典为主要工具，建立系统的逻辑模型。</p>
+<p>它的步骤如下：</p>
+<p>1.通过对用户的调查，以软件的需求为线索，获得当前系统的具体模型。</p>
+<p>2.去掉具体模型中的非本质因素，抽象出逻辑模型。</p>
+<p>3.根据计算机的特点分析当前系统与目标系统的差别，建立目标系统的逻辑模型。</p>
+<p>4.完善目标系统并补充细节，写出目标系统的软件需求规格说明。</p>
+<p>5.评审直到确认完全符合用户对软件的需求。</p>
+<p>结构化分析的常用工具。其中第一个就是数据流图，简称DFD。它是描述数据处理过程的工具，是需求理解的逻辑模型的图形表示，它直接支持系统的功能建模。</p>
+<p>这种图主要的图形元素有四个。</p>
+<p><img src="https://i.loli.net/2018/08/18/5b7811a228066.png"><br>这个代表数据的源点和终点。它表示系统和环境的接口，属于系统之外的实体。</p>
+<p><img src="https://i.loli.net/2018/08/18/5b7811a235f75.png"><br>这个代表数据流。沿着箭头的方向为传送数据的通道，一般在旁边标注数据流名。</p>
+<p><img src="https://i.loli.net/2018/08/18/5b7811a236404.png"><br>这个代表存储文件。表示处理过程中存放的各种数据文件。</p>
+<p><img src="https://i.loli.net/2018/08/18/5b7811a243005.png"><br>这个代表加工或者转换。输入数据经过这样的加工变换产生输出。</p>
+<p>我们使用数据流图为系统建立逻辑模型。</p>
+<p>第一步，由外向里，先画出系统的输入输出，然后再画出系统的内部。</p>
+<p>第二步，自顶向下，顺序完成顶层，中间层，底层数据流图。</p>
+<p>第三步，逐层分解。</p>
+<p>数据流图的建立从顶层开始。顶层数据流图应该包含说有相关外部实体，以及外部实体与软件中间的数据流，其作用主要是描述软件的作用范围，对总体功能，输入，输出进行抽象描述，并反应软件和系统，环境的关系。对复杂系统的表达应采用控制复杂度策略，需要按照问题的层次结构逐步分解细化，使用分层的数据流图表达这种结构关系。</p>
+<p>应注意以下几个地方：</p>
+<p>1.对加工处理建立唯一、层次性的编号，每个加工处理通常要求既有输入又有输出。</p>
+<p>2.数据存储之间不应该有数据流。</p>
+<p>3.数据流图应该具有一致性。读和写应该是同时存在的。</p>
+<p>4.相邻两层的DFD之间具有父子关系。子图代表对父图的详细描述，父图表示了子图间的接口。子图个数不大于父图中的处理个数。</p>
+<p>第二个是数据字典，简称DD。</p>
+<p>它是结构化分析方法的核心。数据字典是对所有与系统相关的数据元素的一个有组织的列表，以及精确的严格的定义，使得用户和系统分析员对于输入，输出，存储成分和中间计算结构有着共同的理解。数据字典把不同的需求文档和分析模型紧密地结合在一起，与各模型的图形表示配合，能清楚地表达大数据处理的要求。</p>
+<p>数据字典的作用是对DFD中出现的被命名的图形元素做出确切解释。通常，数据字典包含的信息有：名称，别名，何处/如何使用，内容描述，补充信息等。</p>
+<p>在数据字典中，通常要用到一些符号，释义如下：</p>
+<p>“=”：表示等于，定义为，或者说，由某物构成。</p>
+<p>“[…|…]”：表示或的关系，选项中用|分隔各项中的某一项</p>
+<p>“+”：表示与，和</p>
+<p>“n{ }ｍ”：表示重复，即花括号中的项要重复若干次，n和m表示下限和上限。</p>
+<p>“(…)”：表示可选，括号中的项可以没有。</p>
+<p>“* *”：表示注释。</p>
+<p>“..”：表示连接符。</p>
+<h2 id="软件需求规格说明书"><a href="#软件需求规格说明书" class="headerlink" title="软件需求规格说明书"></a>软件需求规格说明书</h2><p>它简称为SRS，是描述需求中的重要文档。它有很多作用。</p>
+<p>1.便于用户和开发人员进行理解和交流。</p>
+<p>2.反映出用户问题的结构，可以作为软件开发工作的基础和依据。</p>
+<p>3.作为确认测试和验收的依据。</p>
+<p>4.为成本估算和编制计划进度提供基础。</p>
+<p>5.软件不断改进的基础。</p>
+<p>软件需求规格说明书应该重点描述软件的目标，软件的功能需求，性能需求，外部接口，属性以及约束条件。该说明书是确保软件质量的有力措施，衡量软件需求规格说明书好坏的标准、标准的优先级以及标准的内涵是：</p>
+<p>1.正确性。</p>
+<p>2.无歧义性。</p>
+<p>3.完整性。</p>
+<p>4.可验证性。</p>
+<p>5.一致性。</p>
+<p>6.可理解性。</p>
+<p>7.可修改性。</p>
+<p>8.可追踪性。</p>
+<p>软件需求规格说明是一份在软件生命周期中至关重要的文档，它在开发早期就为尚未诞生的软件系统建立了一个可见的逻辑模型，它可以保证开发工作的顺利进行，因而应该及时地建立并保证它的质量。说明书越精确，以后出现错误，混淆，反复的可能性越小。用户能看懂需求说明书，并且发现和指出其中的错误是保证软件系统质量的关键，因而需求说明必须简单易懂，尽量少包含术语。</p>
+<h2 id="软件设计的基本概念"><a href="#软件设计的基本概念" class="headerlink" title="软件设计的基本概念"></a>软件设计的基本概念</h2><p>软件设计是软件工程的重要阶段，是一个把软件需求转换为软件表示的过程。软件设计是确定系统的物理模型。</p>
+<p>从技术观点来看，包括软件结构设计，数据设计，接口设计，过程设计。其中，结构设计是定义软件系统各个主要部件之间的关系；数据设计是将分析时创建的模型转化为数据结构的定义；接口设计是描述软件内部、软件和协作系统之间以及软件与人之间如何通信；过程设计则是把系统结构部件转换成软件的过程性描述。软件设计分成概要设计和详细设计。</p>
+<p>软件设计的一般过程是：软件设计是一个迭代的过程；先进行高层次的结构设计，再进行低层次的过程设计；穿插进行数据设计和接口设计。</p>
+<p>软件设计过程中应该遵循软件工程的基本原理。该基本原理可以概括为以下几点：</p>
+<p>1.抽象。抽象是把事物本质的共同特性提取出来而暂时忽略它们的细节以及它们之间的差异。软件设计中考虑模块化解决方案时，可以定义多个抽象级别。抽象的层次从软件的总体设计到详细设计到编码逐层降低。软件工程的每一步都是对上一层抽象的一次精化。</p>
+<p>2.逐步求精和模块化。这个之前说过，化繁为简，分而治之。</p>
+<p>3.信息隐蔽和局部化。所涉及的模块其包含的信息对于不需要这些信息的模块是不可以访问的。局部化与信息隐蔽概念密切相关。它是指把一些关系密切的软件元素物理地放得彼此靠近。局部化有助于实现信息隐蔽。</p>
+<p>4.模块独立性。它的概念时抽象、模块化、信息隐蔽和局部化的直接结果。模块的独立性是指软件模块的编写和修改应使得其具有独立供暖，且与其他模块的关联尽可能少。换句话讲，设计软件结构时，应使得每一个模块仅完成一个相对独立的子功能。</p>
+<p>与结构化需求分析方法相对应的事结构化设计方法。它的基本思想是将软件设计成由相对独立、单一功能的模块组成的结构。</p>
+<h2 id="软件概要设计"><a href="#软件概要设计" class="headerlink" title="软件概要设计"></a>软件概要设计</h2><p>1.设计软件系统结构。</p>
+<p>2.数据结构以及数据库设计。</p>
+<p>3.编写概要设计文档。</p>
+<p>4.概要设计文档评审。</p>
+<p>常用的软件结构设计工具是结构图，简称SC，也称程序结构图。它反映了整个系统的功能实现以及模块与模块之间的联系与通信。</p>
+<p>经常使用的四种模块类型：传入模块，传出模块，变换模块和协调模块。</p>
+<p>这里先解释一些术语：</p>
+<p>深度：表示控制的层数。</p>
+<p>上级模块、从属模块：上、下两层模块，上调用下，称上为上级模块，下为从属模块。</p>
+<p>宽度：整体控制跨度的表示。跨度是指最大模块数的层。</p>
+<p>扇入：调用一个给定模块的模块个数。</p>
+<p>扇出：一个模块直接调用的其他模块数。</p>
+<p>原子模块：树中位于叶子节点的模块。</p>
+<p>这四种模块类型是这样解释的：</p>
+<p>传入模块：从下属模块取得数据，经过处理再将其传送给上级模块。</p>
+<p>传出模块：和传入模块相反。</p>
+<p>变换模块：从上级模块取得数据经过特定处理，转换成其他形式再传回上级模块。</p>
+<p>协调模块：对所有下属模块进行协调和管理的模块。</p>
+<h2 id="面向数据流的结构化设计方法"><a href="#面向数据流的结构化设计方法" class="headerlink" title="面向数据流的结构化设计方法"></a>面向数据流的结构化设计方法</h2><p>典型的数据流类型有两种：变换型和事务型。变换型是指信息沿着输入通路进入系统，同时由外部形式变换成内部形式。它大致分为三步，取得数据，变换数据，输出数据。还有一种叫做事务型。在很多软件应用中，存在某种作业数据流，它可以引发一个或多个处理，这些处理能够完成该作业要求的功能，这种数据流就叫做事务。它的特点是接收一项事务，根据事务处理的特点与性质，选择分派一个适当的处理单元，然后给出结果。</p>
+<p>那么，面向数据流的设计方法实施要点是什么呢？</p>
+<p>1.分析，确认是事务型还是变换型。</p>
+<p>2.说明数据流的边界。</p>
+<p>3.把数据流图映射为程序结构。</p>
+<p>4.根据设计准则对产生的结构进行细化和求精。</p>
+<h2 id="常见的过程设计工具"><a href="#常见的过程设计工具" class="headerlink" title="常见的过程设计工具"></a>常见的过程设计工具</h2><p>图形工具有程序流程图，N-S图，PAD图，HIPO图。表格工具有判定表。语言工具有PDL（伪码）。</p>
+<p>程序流程图就是程序框图。这玩意高中学过。它虽然简单易学，但是若程序员不受任何约束，随意转移控制，会破坏结构化设计的原则，并且它不太适合表示数据结构。</p>
+<p>N-S图其实是用方框图来代替传统的程序流程图。对于一张N-<br>S图来说，每个构建都具有明确的功能域。控制转移必须遵守结构化设计要求。它易于确定局部数据和全局数据的作用域，易于表达嵌套关系和模块的程序结构。</p>
+<p>PAD图是问题分析图的英文缩写。PAD图结构清晰，结构化程度高，易于阅读。对于这样的图，最左端的纵线是程序的主干线，对应程序的第一层结构；每增加一层PAD图向右扩展一条纵线，所以纵线的条数就是程序层次数。程序执行时，从PAD图最左边的纵线上端结点开始，自上而下、自左向右依次执行，程序中止于最左干线。</p>
+<p>PDL的中文全称是过程设计语言。它也被称为结构化的英语和伪码。它是一种混合语言。PDL可以由编程语言转换得到，也可以是专门为过程描述而设计的。但应该具备以下特征：由为结构化构成元素、数据说明和模块化特征提供的关键词语法；处理部分的描述采用自然语言语法；可以说明简单和复杂的数据结构；支持各种接口的描述的子程序定义和调用技术。</p>
+<h2 id="软件测试的目的、定义与准则"><a href="#软件测试的目的、定义与准则" class="headerlink" title="软件测试的目的、定义与准则"></a>软件测试的目的、定义与准则</h2><p>通过对软件产品进行必要的测试是非常重要的一个环节。软件测试也是在软件投入运行前对软件需求、设计、编码的最后审核。软件测试的投入，包括人员和资金的投入是巨大的。软件测试是保证软件质量的重要手段，其主要过程涵盖了整个软件生命期的过程.</p>
+<p>在1990年，IEEE610.12标准中给出了软件测试的定义。在规定条件下运行系统或构件的过程：在此过程中观察和记录结果，并对系统或构件的某些方面给出评价。检测现有状况和所需状况的不同（也就是找bug），并评估软件项目的特性。</p>
+<p>软件测试是一个过程，它是一项验证和评估的活动，其目的是基于满足规定的需求来保证软件的质量。测试要以查找错误为中心，而不是为了演示软件的正确功能。</p>
+<p>软件测试人员需要充分理解和运用软件测试的一些基本准则：</p>
+<p>1.所有测试都应追溯到需求。最严重的错误不外乎是导致程序无法满足用户需求的错误。</p>
+<p>2.严格执行测试计划，排除测试的随意性。测试计划应该包括：所测软件的功能、输入和输出、测试内容、各项测试的目的和进度安排、测试资料、测试工具、测试用例的选择、资源要求、测试的控制方式和过程等。</p>
+<p>3.充分注意测试中的群集现象。经验表明，程序中存在错误的概率与该程序中已发现的错误数成正比。这一现象说明，为了提高测试效率，测试人员应该集中对付那些错误群集的程序。</p>
+<p>4.程序员应该避免检查自己的程序。为了达到好的测试效果，应该由独立的第三方来构造测试。因为从心理学的角度来讲，程序人员或设计方在测试自己的程序时，要采取客观的态度是程度不同地存在障碍的。</p>
+<p>5.穷举测试不可能。所谓穷举测试就是把程序所有可能的执行路径都进行检查的测试。但是，即使规模较小的程序，其路径排列数也是相当大的。实际测试过程中根本不可能去把所有路径都测试一遍。这说明，测试只能证明程序有错误，不能证明程序没有错误。</p>
+<p>6.妥善保存测试计划、测试用例、出错统计和最终分析报告，为维护提供方便。</p>
+<h2 id="软件测试方法与技术综述"><a href="#软件测试方法与技术综述" class="headerlink" title="软件测试方法与技术综述"></a>软件测试方法与技术综述</h2><p>若从是否需要执行被测软件的角度，可以分为静态测试与动态测试。若按照功能划分，可以分为白盒测试和黑盒测试方法。</p>
+<p>1.静态测试与动态测试</p>
+<p>静态测试包括代码检查，静态结构分析，代码速度质量等。静态测试可以人工进行，充分发挥人的思维优势，也可以借助工具。经验表明，使用人工测试能够有效地发现30%到70%的逻辑设计和编码错误。代码检查主要检查代码设计的一致性，包括代码的逻辑表达的正确性，代码结构的合理性等方面。这项工作可以发现违背程序编写标准的问题，程序中不安全、不明确和模糊的部分，找出程序中不可移植的部分、违背程序编程风格的问题。代码检查包括代码审查，代码走查，桌面检查，静态分析等具体方式。</p>
+<p>代码审查指的是小组集体阅读、讨论、检查代码。代码走查是执行代码的过程中进行检查，但是这个执行过程是在脑内进行。桌面检查是指的程序员自己检查自己编写的程序。程序员在程序过编译之后，绝对源代码进行分析，检验，并且补充相关文档，目的是发现错误。静态分析是指的对代码的机械性，程式化的特性分析方法。包括控制流分析，数据流分析，接口分析和表达式分析。</p>
+<p>动态测试是基于计算机的测试。与静态测试不同，静态测试主要通过人工进行，动态测试是根据软件开发各个阶段的规格说明和程序的内部结构而精心设计一批测试用例，并利用这些测试用例去运行程序，以发现程序错误的过程。</p>
+<p>2.白盒测试方法与测试用例设计</p>
+<p>白盒测试方法也成结构测试或逻辑驱动测试。白盒测试是在程序内部进行，主要用于完成软件内部操作的验证。它要求保证所测模块中每一独立路径至少执行一次；保证所测模块所有判断的每一分支至少执行一次；保证所测模块每一循环都在边界条件和一般条件下至少各执行一次；验证所有内部数据结构的有效性。可以看出，它是一种穷举路径测试。但是即使每条路径都测试了，可能还是会有错误。</p>
+<p>有三种错误是白盒测试检测不出来的。首先，违反设计规范的错误无法检测；其次，遗漏路径的错误无法检测；最后，与数据相关的错误无法检测。</p>
+<p>白盒测试的主要方法有逻辑覆盖测试和基本路径测试。</p>
+<p>3.黑盒测试方法与测试用例设计</p>
+<p>黑盒测试方法也称功能测试或数据驱动测试。黑盒测试是对软件已经实现的功能是否满足需求进行测试和验证。黑盒测试完全不考虑程序内部的逻辑结构和内部特性，只依据程序的需求和功能规格说明。黑盒测试主要诊断功能不对或遗漏、界面错误、数据结构或外部数据库访问错误、性能错误、初始化和终止条件（边界）错。</p>
+<p>黑盒测试的主要方法有等价划分法、边界值分析法、错误推测法、因果图法。</p>
+<p>实际上，没有一种用例测试及方法能够适应所有的解决方案，应该根据实际情况进行选择使用或者混合使用。应该在测试成本和测试效果之间做一个合理的折中。</p>
+<h2 id="软件测试的策略"><a href="#软件测试的策略" class="headerlink" title="软件测试的策略"></a>软件测试的策略</h2><p>软件测试一般是按照4个步骤进行，即单元测试、集成测试、确认测试和系统测试。</p>
+<p>1.单元测试</p>
+<p>单元测试的目的是发现各模块内部可能存在的错误，它的依据是详细设计说明书和源程序。单元测试的技术可以采用静态分析和动态测试。对动态测试来说，用白盒测试比较多，辅之以黑盒测试。</p>
+<p>它主要针对下面的五个基本特性进行：模块接口测试、局部数据结构测试、重要的执行路径的检查、出错处理测试、影响以上各点以及其他相关点的边界条件测试。</p>
+<p>2.集成测试</p>
+<p>集成测试是测试和组装软件的过程。它是在把模块按照设计要求组装起；来的同时进行测试，主要目的是发现与接口有关的错误。集成测试的依据是概要设计说明书。</p>
+<p>集成测试所涉及的内容包括：软件单元的接口测试、全局数据和结构测试、边界条件和非法输入的测试等。</p>
+<p>集成测试时将模块组装成程序通常采用两种方式:非增量方式组装和增量方式组装。</p>
+<p>3.确认测试</p>
+<p>确认测试的任务是验证软件的功能和性能以及其他特性是否满足需求规格说明中确定的需求，以及软件配置是否完全、正确。</p>
+<p>4.系统测试</p>
+<p>系统测试是将通过测试确认的软件，作为整个基于计算机系统的一个元素，与计算机硬件、外设、支持软件、数据和人员等其他元素组合在一起，在实际运行环境下对计算机系统进行一系列的集成测试和确认测试。</p>
+<p>系统测试的具体实施一般包括：功能测试、性能测试、操作测试、配置测试、外部接口测试、安全测试等。</p>
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          打赏
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://shawnzhou.world/2018/08/23/software-engineering/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" rel="tag">软件工程</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2018/08/25/database/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            数据库系统概论 学习笔记
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2018/08/06/c-game/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">控制台小游戏集锦</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "YolIyMzPHjxT49twQAhzxsQ8-gzGzoHsz",
+    app_key: "Dtrq0zAmtB8CqcKdwVCk7JBn",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2018-2022
+        <i class="ri-heart-fill heart_icon"></i> Shawn Zhou
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        
+        由 <a href="https://hexo.io" target="_blank">Hexo</a> 框架强力驱动
+        <span class="division">|</span>
+        主题 - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></s>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://v1.cnzz.com/z_stat.php?id=1279352967&amp;web_id=1279352967'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/avatar1.png" alt="ShawnZhou的小站"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">图集</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://friends.shawnzhou.world/">友链站</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://dev.shawnzhou.world/">开发站</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://sources.shawnzhou.world/">资源站</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>感谢打赏~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://shawnzhou.world/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://shawnzhou.world/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+
+<script src="/js/clickBoom2.js"></script>
+
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+  </div>
+</body>
+
+</html>

@@ -6,7 +6,7 @@
   <link href="https://shawnzhou.world/atom.xml" rel="self"/>
   
   <link href="https://shawnzhou.world/"/>
-  <updated>2022-01-23T14:42:21.687Z</updated>
+  <updated>2022-01-23T14:53:31.214Z</updated>
   <id>https://shawnzhou.world/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://shawnzhou.world/2022/01/20/vue-change-detect/"/>
     <id>https://shawnzhou.world/2022/01/20/vue-change-detect/</id>
     <published>2022-01-20T09:17:23.000Z</published>
-    <updated>2022-01-23T14:42:21.687Z</updated>
+    <updated>2022-01-23T14:53:31.214Z</updated>
     
     
     <summary type="html">&lt;p&gt;Vue 的一大特性是可以由数据的变化引起DOM的变化，这得益于它设计精巧的响应式系统。一个 Vue 应用程序在运行时会因为数据的变化而不断进行重新渲染，Vue 的响应式系统就赋予了框架重新渲染的能力。&lt;/p&gt;

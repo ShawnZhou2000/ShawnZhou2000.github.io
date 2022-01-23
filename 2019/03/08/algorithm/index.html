@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="博客,前端博客,JavaScript,html5,css3,html,css,js,acm,noip,橙果工作室,shawnzhou,shawn zhou" />
+   
+  <meta name="description" content="ShawnZhou的小站" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    基础算法归档 |  ShawnZhou的小站
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+  
+  
+
+  
+
+<link rel="alternate" href="/atom.xml" title="ShawnZhou的小站" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+      <canvas width="1777" height="841"
+        style="position: fixed; left: 0px; top: 0px; z-index: 99999; pointer-events: none;"></canvas>
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-algorithm"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  基础算法归档
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2019/03/08/algorithm/" class="article-date">
+  <time datetime="2019-03-08T05:15:40.000Z" itemprop="datePublished">2019-03-08</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">10.3k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">40 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>一些关于基础算法的归档整理放在了这里，包括贪心，排序，查找，图论相关等。该部分内容是曾在2018年和2019年发布的。</p>
+<p>当前博客显示的发布时间非真实时间，而是这些内容在当时发布时的最后发布时间。</p>
+<p><img src="https://s2.ax1x.com/2019/03/10/ApdsfO.jpg"></p>
+<a id="more"></a>
+
+<h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><p>算法是指解题方案的准确而完整的描述。程序可以作为算法的一种描述。作为一个算法，它应该具有可行性，确定性，有穷性，同时应该拥有有用的情报。</p>
+<p>可行性主要包括两个方面。第一，算法中的每一个步骤必须都是可实现的。比如不可除以0，实数集范围内不可求负数的平方根等。第二，算法执行后的结果要能够达到预期的目的。算法在执行过程中往往受到计算工具的能力限制，有可能会使结果产生一定的偏差（主要是指有效数字等）。同时需要注意，算法≠计算公式，它们之间是有区别的。</p>
+<p>算法的确定性是指算法中的每一个步骤都应该有明确的定义，严禁模棱两可，也不能出现歧义。它也反映了算法与数学公式的差别。比如说，在解决某个现实中的问题时，数学公式是正确的，但按照这个数学公式设计的算法可能不会让计算机接受，这是因为数学公式没有考虑异常情况，当出现异常情况时，计算机就不知道该怎么办了。</p>
+<p>算法的有穷性是指的是算法必须能够在有限的时间内完成，也就是它的步骤一定是有限的。同时算法的有穷性还意味着必须要在合理的时间内完成。比如未加任何优化的八皇后问题，它一共要执行648次运算，如果一台计算机每秒钟能执行循环100万次，那这个程序执行完毕也要9年时间。这显然没有实用价值。</p>
+<p>一个算法是否有效，还取决于为算法提供的情报是否足够。一个算法的执行结果总是与其输入的数据有关，不同的输入可能会带来不同的输出。当输入不够或者格式错误时，算法将无法执行。一般来说，当算法拥有足够的情报时才是有效的，否则就是无效的。</p>
+<h3 id="算法设计的基本方法"><a href="#算法设计的基本方法" class="headerlink" title="算法设计的基本方法"></a>算法设计的基本方法</h3><p>计算机的解题过程通常是在实行某种算法。这种算法我们称之为计算机算法。计算机算法不同于人工处理的方法。</p>
+<p>1.列举法（穷举法）</p>
+<p>它的基本思想很简单，根据提出的问题，找出所有可能出现的情况，并用问题所给出的条件去检索哪些是需要的，哪些是不需要的。因此，列举法常用来解决存在性或方案数问题。</p>
+<p>列举法的实现通常都比较简单，暴力枚举，暴力搜索都算是列举法。但是它有一个致命的缺点，当列举的情况比较多时，该算法的执行速度会令人非常不满意。因此，在使用列举法时，可以稍加优化（剪枝）。在设计列举算法时，只要对实际问题做出详细的分析，将与问题有关的知识条理化，是可以大大减少枚举量的。有许多实际问题的规模很大，如果采用人工操作的话工作量通常难以想象，但借助计算机强大的计算能力，这会变得很简单。</p>
+<p>2.归纳法</p>
+<p>通过列举少量的特殊情况，经过（冷静）分析，找出一般的关系。它是一个由特殊到一般，由现象到本质的过程。它可以解决列举量为无限的问题。但是，从一个实际问题中归纳总结出一个一般的关系，通常来说并不是一件容易的事情。尤其是归纳为一个数学模型时更为困难。归纳是一种抽象，从特殊现象中找出一般关系。但由于在归纳过程中不可能对所有的情况进行列举，因此，由归纳法得到的结论本质上还是一种猜测，我们还需要对这种猜测加以论证才可以证明归纳正确。</p>
+<p>3.递推法</p>
+<p>所谓递推是指，从已知的初始条件出发，逐次推出所要求的各个中间结果和最后结果。其中初始条件一般是所给问题中指定，或是从初始条件经过推导得来。递推的本质也是归纳法，它是归纳法的一种。因此，递推的关系式通常是归纳的结果。递推法在数值计算中极为常见，但是，对于数值型的递推算法必须要注意数值计算的稳定性问题。</p>
+<p>4.递归法</p>
+<p>人们在解决一些特殊的复杂问题时，为了降低问题的复杂程度，一般会将问题逐层分解，最后归结为一些简单的问题。这种将问题逐层分解的过程，其实并没有降低问题的复杂程度，只是将原来规模大的问题划分成若干个规模小的问题，逐个解决后合并为整个大问题的答案。换句话说，是沿着原来分解的逆过程进行综合。这就是递归法的基本思想。其实不难看出，递归的本质也是归纳。在工程中，有很多问题是递归定义的，数学上的许多函数也是递归定义的。</p>
+<p>其实就是</p>
+<p><del>我 调 用 我 自 己</del></p>
+<p>实际上，有一些问题既可以归纳为递推算法，也可以归纳为递归算法。但是递推和递归的实现方法是大不一样的。递推是从初始条件出发，逐次推出所需的结果，一环扣一环。但是递归是从算法本身直接到达递归边界，然后逐个处理子问题。通常的，递推算法要比递归算法清晰易读，递推算法的结构也相对于递归算法要简练一些。</p>
+<p>5.分治法</p>
+<p>在一些资料上也叫做减半递推技术。所谓减半，是指的将问题的规模减半，但是问题的性质不变，所谓递推，是指的重复减半的过程。</p>
+<p>如果您听过一个术语叫“二分答案”，说的是一回事其实</p>
+<p>6.回溯法</p>
+<p>实际上，有些实际问题很难归纳出一组简单的递推公式或者是直观的求解步骤，并且也很难做到无限列举。对于这类问题，“试”是一种很好的方法。通过对问题的分析，找出一个解决问题的线索，然后沿着这个线索逐步试探，对于每一步试探，如果成功，就得到问题的一个“可行解”，如果试探失败，就返回上一步，再寻找下一个方案。这种方法称作回溯法。</p>
+<h2 id="算法的复杂度"><a href="#算法的复杂度" class="headerlink" title="算法的复杂度"></a>算法的复杂度</h2><p>算法的复杂度主要包括时间复杂度和空间复杂度。</p>
+<p>算法的时间复杂度是指执行算法所需要的计算量。</p>
+<p>为了能够比较客观的反映出一个算法的效率，在度量一个算法的计算量时，应该要与计算机本身，编写算法的人员本身，编写算法的语言无关，而且还要与实现过程中的各种细节无关。唯一有关的是算法在执行过程中的计算量，即基本运算的执行次数。同时，算法所执行的次数还与问题的规模有关，在OI上，问题的规模通常用n来表示。</p>
+<p>综上所述，算法的工作量用算法所执行的基本运算次数来度量，而算法所执行的基本运算次数是问题规模的一个函数。即 </p>
+<p><em>算法的工作量 = f(n)</em></p>
+<p>比如有一个二重循环，每一层都是从1到n，这个算法总共要执行n2次，也就是说时间复杂度是O(n2)</p>
+<p>ps:刚才牵扯到一个记号，叫大O记号，有兴趣的读者可以自行查阅相关资料。</p>
+<p>通常的，我们在分析算法的时间复杂度时，要以最坏情况为基础进行分析，它更具有说服力和实用价值。还有一种方法是用各种特定输入下的基本运算次数的加权平均值来度量算法的工作量，但是不常用。</p>
+<p>一个算法的空间复杂度，一般是指执行这个算法所需要的内存空间。一般包括三部分，一是算法本身所占的空间，二是输入数据所占的空间，三是算法执行过程需要的额外空间。如果额外空间量相对于问题规模来说是一个常数，则我们说这个算法是在原地工作的。在许多实际问题中，为了减少算法所占用的存储空间，我们通常会采用一些压缩存储技术，以便尽量减少不必要的额外空间。</p>
+<h2 id="贪心算法"><a href="#贪心算法" class="headerlink" title="贪心算法"></a>贪心算法</h2><p>它是一种求解最优化问题的常用算法。与其说它是一种算法，倒不如说它是一种思想更为合适。在众多的算法中，贪心算法可以算是最接近人们日常思维的一种算法。</p>
+<p>比较抽象的来说，就是从问题的初始状态出发，通过若干次的贪心选择而得到最优值的一种策略。换句话说，贪心策略是一种在每次决策时采取当前意义下的最优策略的算法，它只能满足局部最优，但是是否能满足全局最优则并不一定。这主要取决于问题的最优解是否包含全部的局部最优解。</p>
+<p>简单来讲，就是哪个最能满足当下的需求就选哪个。比如新生赛上alice和bob那个题。</p>
+<blockquote>
+<p>题目大意：有n堆糖果，数量可能不同，Alice和bob轮流拿糖果直到全部拿完。<br>保证总是Alice先拿糖果，而且这两个人绝顶聪明，最后谁的糖果多谁获胜。<br>Alice获胜输出A Bob获胜输出B 平局输出again</p>
+</blockquote>
+<p>在这个问题里面，alice和bob每次的选择一定是最对他们有利的。那么什么才是最有利的？显然，它们会照着最大的取，这样每次都选择当前最大的堆，最后能保证答案的最大化。可以想出，如果中间有任何一个环节取走的不是最大值，那么显然最后的结果一定不是所有可能里面最大的结果，那么也就不满足“绝顶聪明”这个设定了。</p>
+<p>当时我是这样想的：（具体请见原文）</p>
+<blockquote>
+<p>思路：两个人拿糖果自然是哪一堆最多就拿哪个，这样是对自己最有利的。所以这题考场上我直接采用了贪心思想，所以先对所有的糖果堆从大到小排个序，然后Alice拿第一大，Bob拿第二大，Alice拿第三大……如此循环往复，可以看出Alice永远拿奇数堆，Bob永远拿偶数堆，然后统计一下这俩人最后能拿到的总糖数对比一下就是结果了。</p>
+</blockquote>
+<h3 id="贪心算法的特点"><a href="#贪心算法的特点" class="headerlink" title="贪心算法的特点"></a>贪心算法的特点</h3><p>贪心选择。所谓贪心选择是指应用同一规则，将原问题变为一个相似的但规模更小的子问题，而后的每一步都是当前看似最佳的选择，这种选择只依赖于已作出的选择，而不依赖于未作出的选择。</p>
+<p>执行算法时，每一次得到的结果都是当前局部的最优解，但只有满足全局最优解包含局部最优解时，才能保证贪心算法正确。此规律常用来证明贪心算法的正确性。</p>
+<p>（实际上，在考场上几乎不会给你证明贪心正确性的时间，所以如果想到贪心算法的话，可以尝试举几个反例，如果实在举不出来，就可以基本判定贪心正确）</p>
+<h3 id="简单的贪心实例"><a href="#简单的贪心实例" class="headerlink" title="简单的贪心实例"></a>简单的贪心实例</h3><h4 id="最优装载问题"><a href="#最优装载问题" class="headerlink" title="最优装载问题"></a>最优装载问题</h4><p>给定n个物品，第i个物品重量为wi，选择尽量多的物体，使得总重量不超过C。</p>
+<p>只需要考虑物体的重量，那么显然按着轻的装能够保证装的物体最多，也就是选择尽量多的物品。所以排个序，从轻到重挨个装就好，一直到全部装完（所有物品重量和加起来不够C或者直到装不下）。</p>
+<h4 id="部分背包问题"><a href="#部分背包问题" class="headerlink" title="部分背包问题"></a>部分背包问题</h4><p>给定n个物品，第i个物品重量为wi，价值为vi。在重量不超过C的前提下让价值最大，价值与重量成比例。</p>
+<p>这里就不能只简简单单考虑物品的重量或者价值了，我们应该考虑把性价比最大化，才能保证既装的又多，价值又高。所以先预处理一下所有物品，把所有物品的性价比列出来，对性价比进行排序，然后按照性价比从大到小依次装，直到装不下或者全装上都不到C。</p>
+<p>值得注意的是，在这个问题里是不存在装不下下一个东西后背包有剩余空间的情况的。因为物品可以只选择一部分。所以一直到装不下那个物品之前，之前的物品必然是全部装上的，这也是贪心思想的一种体现。</p>
+<h4 id="乘船问题"><a href="#乘船问题" class="headerlink" title="乘船问题"></a>乘船问题</h4><p>有n个人，第i个人的重量为wi，每艘船的载重量为C，且每艘船最多只能载两个人。求用最少的船装下所有人的方案。</p>
+<p>最早mhr讲到这个问题的时候，我这个sb是这样想的：</p>
+<blockquote>
+<p>把所有人的人分成两部分，一部分是重量大于C/2的，另一部分是重量小于C/2的，然后这些重量大的自己乘一艘船，重量小的两人一艘船。</p>
+</blockquote>
+<p>但是很快，这个算法被我自己否决了。如果有两个或更多的人的体重极小，以至于船上站上一个体重大于C/2的人还能再让他们上那几条船，那么这个答案就不正确了。</p>
+<p>这个正常的贪心算法比较巧妙。它试图让最轻的人和最重的人配对。</p>
+<p>大意是这样，先考虑最重的人和最轻的人，如果这俩人加起来重量超过C，那么说明这个体重比较重的人是一定不可以和任何一个其他人同乘一条船的。所以他要自己一条船，此时继续向后找体重第二大，第三大……分别与最小体重的人放在一块看一下重量是不是大于C，一直找到第一个两人加起来不大于C的组合。此时之前找过的那些人一定是无法和其他任何人同乘一条船的。所以这些人的数量直接就计入答案的一部分。在剩下这些人里面，由于最重的和最轻的都可以同乘一条船，那显然剩余的组合（就是第二重与第二轻，第三重与第三轻……）都可以同乘一条船（想一想，为什么）。</p>
+<p>最后答案的话，假设找出那些只能一人一条船的人后剩下的人数为k，那么最终答案就是：(n - k) + k / 2<br>（k是偶数），奇数的话再在这个结果下+1就好。</p>
+<h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><p>排序也是数据处理中的一个重要的操作。排序的过程其实就是一个整理的过程。它将一个无序序列按照一定的原则整理为有序的序列。</p>
+<p>可以对很多不同的数据结构进行排序，这里主要说对线性表的排序。</p>
+<p>讲的可能会比较粗略，只介绍一下思路和复杂度。</p>
+<h3 id="交换类排序"><a href="#交换类排序" class="headerlink" title="交换类排序"></a>交换类排序</h3><p>这是一类排序方法，它的原理是借助数据元素之间的互相交换。</p>
+<p>1.冒泡排序</p>
+<p>冒排是最简单的一种交换类排序。它通过相邻元素之间的交换逐步将无序变成有序。这里讲改进后的冒泡排序。</p>
+<p>基本过程如下。假设我们要升序排序。</p>
+<p>从表头开始往后扫描线性表，在扫描过程中逐次比较相邻两个元素的大小，如果在两个相邻的元素之间，前边的元素大于后边的元素，则将它们互换位置。显然，在扫描过程中，不断地将两个相邻元素中较小的向前移动，最后会得到一个升序序列。此时，在数组最右边的元素一定是最大的元素。因为通过之前的移动，最大的元素会被一直交换到最右边。然后我们从倒数第二位开始从后往前扫，扫到两者较小的数就往前移动，同理，这一趟排序下来最小的元素就会被放在第一位。然后再从正数第二位开始从前往后扫……这样一直扫到左界与右界重合，就完成了排序。</p>
+<p>如果线性表的长度位n，那么在最坏情况下，冒泡排序需要n/2遍的从前往后的扫描与n/2遍的从后往前的扫描，需要的比较次数为n(n-1)/2，展开，得到时间复杂度为O（n2）。</p>
+<p>2.快速排序</p>
+<p>冒泡排序在扫描过程中只对相邻的两个元素进行比较，因此，每次互换相邻两个元素只能消除一个逆序。实际上，通过一些改进，我们可以通过一次交换消除多个逆序。快速排序就是这样的。</p>
+<p>它的基本思路如下：</p>
+<p>从线性表中取一个元素，让该线性表中所有比它小的元素移动到它前面，所有比它大的元素移动到它的后面。实际上是一个分割的过程，以我们所取的元素为分界点，最后使得该元素之前的元素都比它小，之后的元素都比它大。与此同时，我们需要再对分割后的两个线性表再次使用这个操作，一直到所有的元素都排列好。可以看出，这也是一个递归的过程。</p>
+<p>实际上，在选取元素的过程中，我们常选取中间元素。我们设置两个指针i和j，分别指向线性表中的开始位置和结束位置，然后反复操作下面两个步骤：</p>
+<p>1.j逐渐减小，并且逐次比较线性表第j项与选取的元素的大小，直到找到一个这个第j项小于我们选取的元素。然后把这个元素与第i个元素互换。</p>
+<p>2.i逐渐增大，并且逐次比较线性表第i项与选取的元素的大小，直到找到一个这个第i项大于我们选取的元素。然后把这个元素与第j个元素互换。</p>
+<p>上述两个操作交替进行，直到i=j为止。</p>
+<p>在快速排序过程中，随着对各个子表不断地递归地进行分割，划分出的表会越来越多，由于是递归进行，所以系统会使用栈来进行存储所有的表。在对某个表进行分割后，可以将分割出的后一个子表的第一个元素与最后一个元素的位置入栈。当分割出的子表为空时，可以从栈中退出一个子表进行分割。直到栈空为止。</p>
+<p>快速排序的平均时间复杂度是O(nlogn)，但是在最坏情况下会退化成O（n2）。</p>
+<h3 id="插入类排序法"><a href="#插入类排序法" class="headerlink" title="插入类排序法"></a>插入类排序法</h3><p>1.插入排序</p>
+<p>所谓插入排序，实际上是指将无序序列中的各个元素依次插入到已经有序的线性表中。类似于现实中的摸牌，在把牌摸到手里的同时会立即把它放在对应的位置那样。</p>
+<p>不难得出，如果表中只有一个元素，那么它一定是有序的（这不是废话么）。假设目前有n-1个元素已经按顺序排好，我现在有第n个元素，我该怎么做？</p>
+<p>想一下你摸牌后是怎么整理牌的。对线性表来说，要从第n-1个元素起，向左找，挨个比对，所有大于这第n个元素的元素都要后移一位。</p>
+<p>在一次操作中，只能最多“消除一个逆序”。因此，它的时间复杂度与冒泡排序相同，是O（n2）。</p>
+<p>2.希尔排序</p>
+<p>希尔排序也属于插入类排序。但它相对普通的插入排序做了一些改进。</p>
+<p>（NOIP2017考过希尔排序，但我用快排用习惯了，完全不知道这是什么鬼东西）</p>
+<p>它的基本思想是将整个无序序列分割成若干的小子序列进行插入排序。既然用到了子序列，那么一定是要先分割出子序列。我们设一个改变量（增量）大小为h，那么每相隔h我们就划分一次，构成许多子序列。在各个子序列内直接进行插入排序。在排序过程中，要让这个h不断减小，最后当h减小到1时，进行一次插入排序，就可以了。</p>
+<p>增量序列一般取h = n/2k(k = 1,2,……,[log2n])，其中n代表原无序序列长度。</p>
+<p>一般的，初次取序列的一半为增量，以后每次减半，直到增量为1。在最坏情况下，它的比较次数为O(n3/2)。</p>
+<h3 id="选择类排序法"><a href="#选择类排序法" class="headerlink" title="选择类排序法"></a>选择类排序法</h3><p>1.选择排序</p>
+<p>扫描整个线性表，从中选出最小的元素，将它交换到表的最前面，然后再从线性表的第二个位置开始，从中选出最小的元素，将它交换到表的最前面……依此类推。直到剩下没排的表空为止。该排序算法并不难理解。它的时间复杂度也是O（n2）。</p>
+<p>2.堆排序</p>
+<p>先来说一下什么是堆。堆的基本定义是：一个具有n个元素的序列(n1,n2,……,nk)，当且仅当满足：{ni ≥ n2i,ni ≥ n2i+1} 或者{ni<br>≤ n2i,ni ≤ n2i+1}时，称之为堆。当满足前者的条件时称之为大根堆，满足后者的条件时称之为小根堆。</p>
+<p>可能细心的读者能发现，这个数据结构其实就是一个完全二叉树……拿大根堆举例来说，所有的非叶节点值都不小于其左子树或右子树的根节点值。</p>
+<p>所谓堆排序，其实就是调整结点的问题。我们可以把一个无序序列看成一棵完全二叉树，这棵完全二叉树是无序的，我们要通过变换结点把它调整为一个堆，就完成了排序。<br>在调整建堆的过程中，总是将根节点的值与左、右子树的根节点值进行比较，<br>如果不满足条件，则将左右子树的根节点的值中的较大的那个与根节点进行交换。一直做到所有的子树都变成了堆，排序就完成了。</p>
+<p>堆排序对于规模较小的线性表并不适合，但是如果线性表规模较大，它的优势就会变得比较明显。即使是最坏情况，它的时间复杂度也是很优秀的O(nlogn)。</p>
+<h3 id="快排模板"><a href="#快排模板" class="headerlink" title="快排模板"></a>快排模板</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> maxn 23333  </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;  </span><br><span class="line"><span class="keyword">int</span> a[maxn], n;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">qsort</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;  </span><br><span class="line">	<span class="keyword">int</span> i = l, j = r;  </span><br><span class="line">	<span class="keyword">int</span> mid = a[(l + r) &gt;&gt; <span class="number">1</span>];  </span><br><span class="line">	<span class="keyword">while</span> (i &lt;= j) &#123;  </span><br><span class="line">		<span class="keyword">while</span> (a[i] &lt; mid)  </span><br><span class="line">			i++;  </span><br><span class="line">		<span class="keyword">while</span> (a[j] &gt; mid)  </span><br><span class="line">			j--;  </span><br><span class="line">		<span class="keyword">if</span> (i &lt;= j) &#123;  </span><br><span class="line">			swap(a[i], a[j]);  </span><br><span class="line">			i++, j--;  </span><br><span class="line">		&#125;  </span><br><span class="line">	&#125;  </span><br><span class="line">	<span class="keyword">if</span> (l &lt; j)  </span><br><span class="line">		qsort(l, j);  </span><br><span class="line">	<span class="keyword">if</span> (i &lt; r)  </span><br><span class="line">		qsort(i, r);  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n;  </span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;  </span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; a[i];  </span><br><span class="line">	&#125;  </span><br><span class="line">	qsort(<span class="number">1</span>, n);  </span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;  </span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; a[i] &lt;&lt; <span class="string">&quot; &quot;</span>;  </span><br><span class="line">	&#125;  </span><br><span class="line">	system(<span class="string">&quot;pause&quot;</span>);  </span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">	  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="二路归并模板"><a href="#二路归并模板" class="headerlink" title="二路归并模板"></a>二路归并模板</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> maxn 233333  </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;  </span><br><span class="line"><span class="keyword">int</span> ans = <span class="number">0</span>;  </span><br><span class="line"><span class="keyword">int</span> a[maxn];  </span><br><span class="line"><span class="keyword">int</span> t[maxn];  </span><br><span class="line"><span class="keyword">int</span> n;  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">merge_sort</span><span class="params">(<span class="keyword">int</span> *a, <span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> *t)</span> </span>&#123;  </span><br><span class="line">	<span class="keyword">if</span> (y - x &gt; <span class="number">1</span>) &#123;  </span><br><span class="line">		<span class="keyword">int</span> mid = (x + y) &gt;&gt; <span class="number">1</span>;  </span><br><span class="line">		<span class="keyword">int</span> p = x, q = mid, i = x;  </span><br><span class="line">		merge_sort(a, x, mid, t);  </span><br><span class="line">		merge_sort(a, mid, y, t);  </span><br><span class="line">		<span class="keyword">while</span> (p &lt; mid || q &lt; y) &#123;  </span><br><span class="line">			<span class="keyword">if</span> (q &gt;= y || p &lt; mid &amp;&amp; a[p] &lt;= a[q])  </span><br><span class="line">				t[i++] = a[p++];  </span><br><span class="line">			<span class="keyword">else</span> &#123;  </span><br><span class="line">				t[i++] = a[q++];  </span><br><span class="line">				ans += (mid - p); <span class="comment">// 用来求逆序对  </span></span><br><span class="line">			&#125;  </span><br><span class="line">		&#125;  </span><br><span class="line">		<span class="keyword">for</span> (i = x; i &lt; y; i++)  </span><br><span class="line">			a[i] = t[i];  </span><br><span class="line">	&#125;  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n;  </span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)  </span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; a[i];  </span><br><span class="line">	merge_sort(a, <span class="number">1</span>, n + <span class="number">1</span>, t);  </span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;  </span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; a[i] &lt;&lt; <span class="string">&quot; &quot;</span>;  </span><br><span class="line">	&#125;  </span><br><span class="line">	system(<span class="string">&quot;pause&quot;</span>);  </span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+
+<h2 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h2><p>先来说个我之前听到的笑话：</p>
+<p><img src="https://i.loli.net/2018/08/13/5b717442d61e3.jpg"></p>
+<p>这个笑话其实就是讲的顺序查找与二分查找。大妈以为这里面只有一本书没有过安检，所以采用了二分查找来提高效率，但实际上这些书都没有过安检233333</p>
+<p>查找算法是一种非常重要的算法。查找的效率直接关系着数据处理的效率。顾名思义，查找算法就是在一个给定的数据结构中寻找指定的元素。通常的，根据数据结构的不同，所使用的查找算法也不同。这里重点讨论顺序查找与二分查找。</p>
+<h3 id="顺序查找"><a href="#顺序查找" class="headerlink" title="顺序查找"></a>顺序查找</h3><p>顺序查找一般用于线性表。它的思路很简单，挨个比对。从线性表的第一个元素开始，依次比对需要查找的元素。如果发现线性表中的某个元素与需要查找的元素相符，则说明查找成功。如果查遍了整个线性表都没有找到那就是查找失败。</p>
+<p>顺序查找所需要的时间取决于查找元素相对于第一个元素的距离。在最坏情况下，需要对整个线性表做比较才能找到。平均的，利用顺序查找法在线性表中查找一个元素，大约要与线性表中的一半的元素进行比较。</p>
+<p>也就是说，在线性表比较大的情况下，使用顺序查找的效率是比较低的。但是有两种情况，这两种情况下只能使用顺序查找。</p>
+<pre><code>1. 线性表无序。这种情况下只能使用顺序查找，因为下面要介绍的二分查找是需要元素有序的（笑话所提到的那种情况比较特殊，那个不能用顺序和无序来解释）。
+2. 如果采用链式存储结构，则只能使用顺序查找。</code></pre>
+<h3 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h3><p>二分查找只适用于顺序存储的线性有序表。它要求元素必须要递增或者递减排列。</p>
+<p>其实二分查找是一个递归的过程。对于整个元素区间，我们知道它是有序的，那么我们就取一下整个区间的中间元素，比对一下是不是要找的元素。如果不是，就要判断大小。这里我们以元素从左到右升序排列举例。</p>
+<p>如果要查找的值比中值小，那说明中值是比较大的，那说明要查找的值是在区间的左半边的。然后我们以中值作为最大值，最小值还是原来那个，递归地查找这个元素。递归的边界是左右区间重合。如果最后查到区间长度就剩1，这个最后的元素也不是我们想要的，那只能说明线性表中没有我们要查找的元素。</p>
+<p>虽然应用二分查找需要一定条件，但是二分查找的效率要比顺序查找高得多。这就正如笑话中提到的那两个时间复杂度。顺序查找的时间复杂度是O(n)，但是二分查找的时间复杂度就是O(log2n)。</p>
+<h2 id="初等数论"><a href="#初等数论" class="headerlink" title="初等数论"></a>初等数论</h2><h3 id="快速幂"><a href="#快速幂" class="headerlink" title="快速幂"></a>快速幂</h3><p>计算 a^x % p。</p>
+<p>其实就是想办法把x拆开。考虑先把它表示成二进制形式，可以用不超过logx个f[i]拼出我们想要的答案。</p>
+<p>在x的二进制表示中，1表示“取”。二进制中的每一个1都表示2的i次方。<br>比如说计算a^100，100的二进制是01100100，可以看出在2^2，2^5，2^6位置是1，而这些数分别对应4,32,64，那么只需要把a^100拆分成a^64×a^32×a^4即可。</p>
+<p>实现很容易，每次提取处最低的二进制位再除以2即可。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> <span class="title">fast_pow</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> a,<span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> x,<span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> p)</span></span>&#123;  </span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> ans = <span class="number">1</span>;  </span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> sum = a % p;  </span><br><span class="line">    <span class="keyword">for</span> (;x;x&gt;&gt;=<span class="number">1</span>,sum = sum*sum%p)  </span><br><span class="line">        <span class="keyword">if</span> (x&amp;<span class="number">1</span>)  </span><br><span class="line">            ans = ans*sum%p;  </span><br><span class="line">    <span class="keyword">return</span> ans;  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="欧几里得-扩展欧几里得"><a href="#欧几里得-扩展欧几里得" class="headerlink" title="欧几里得/扩展欧几里得"></a>欧几里得/扩展欧几里得</h3><p>gcd:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;  </span><br><span class="line">　　<span class="keyword">if</span> (!b)  </span><br><span class="line">　　　　<span class="keyword">return</span> a;  </span><br><span class="line">　　<span class="keyword">return</span> gcd(b, a % b);  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+
+
+
+<p>证明（摘自ljp学长的课件）：</p>
+<blockquote>
+<p> 证明欧几里得算法正确性的关键是证明 Gcd(a,b)=Gcd(b%a,a);  </p>
+<p>令x=Gcd(a,b),y=Gcd(b%a,a);  </p>
+<p>b%a可表示为a和b的线性组合：b%a=b-(b/a)×a;  </p>
+<p>因为 a%x=0,b%x=0;  </p>
+<p>所以 (b%a)%x=0;  </p>
+<p>故y%x=0;<br>又(b%a)%y=[b-(b/a)×a]%y=0, a%y=0;<br>根据同余定理可得<br>b%y-(b/a)×a%y=0,所以b%y=(b/a)×a%y=0;<br>所以x%y=0;<br>所以Gcd(a,b)=Gcd(b%a,a);<br>证毕;</p>
+</blockquote>
+<p>exgcd:<br>给出不定方程 ax+by = Gcd(a,b) ，拓展欧几里得算法可以用于求解不等方程组的整数根（x,y）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">exgcd</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> &amp;d, <span class="keyword">int</span> &amp;x, <span class="keyword">int</span> &amp;y)</span></span>&#123;  </span><br><span class="line">　　<span class="keyword">if</span> (!b) &#123;  </span><br><span class="line">　　　　d = a;  </span><br><span class="line">　　　　x = <span class="number">1</span>;  </span><br><span class="line">　　　　y = <span class="number">0</span>;  </span><br><span class="line">　　&#125;  </span><br><span class="line">　　<span class="keyword">else</span> &#123;  </span><br><span class="line">　　　　exgcd(b, a % b, d, y, x);  </span><br><span class="line">　　　　y -= (a / b) * x;  </span><br><span class="line">　　&#125;  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+
+
+
+<p>用来求解形似ax+by = gcd(a,b)一类方程的解。  </p>
+<p>这里的x和y不一定是正整数，有可能是负数或0.  比如说我举个例子，求一直线ax+by+c = 0上有多少个整数点(x,y)满足x∈[x1,x2]，y∈[y1,y2]</p>
+<p>边界情况：  </p>
+<p>当b=0时，</p>
+<p>gcd(a,b)=a，x=1,y=0</p>
+<p>假设 ax1 + by1= gcd(a,b)，bx2 + (a % b)y2= gcd(b,a % b)  </p>
+<p>由gcd的意义，知gcd(a,b) = gcd(b,a % b)，那么有ax1 + by1 = bx2+ (a % b)y2;  </p>
+<p>也就是说ax1 + by1 = bx2 + (a - [a / b] × b)y2 = ay2 + bx2 - [a / b] × by2;  </p>
+<p>也就是说ax1 + by1 == ay2+ b(x2 - [a / b] × y2);  </p>
+<p>那么，x1 = y2; y1 = x2 - [a / b] × y2;  </p>
+<p>这样我们就得到了求解 x1,y1 的方法：x1，y1 的值基于 x2，y2。我们可以通过不断递归调用求解。</p>
+<p>我们这样只能得出一组解，其他解呢？如果我们现在有解（x1,y1)，任取另外一组解(x2,y2)，则有ax1 + by1 = ax2 + by2 =<br>gcd(a, b)，变形可以得到a(x1 – x2) = b(y2 – y1)，两边同时除以gcd(a, b)，得到a’(x1 – x2) = b’(y2<br>– y1)，因为(a’,b’)=1，所以(x1-x2)一定是b’的倍数，取x1-x2=kb’,得y2-y1=ka’。</p>
+<p>所以我们有以下结论：  </p>
+<p><strong>对方程ax+by+c=0，一组整数解为(x0,y0)，则它的任意整数解可以写成(x0+kb’,y0-ka’),其中a’=a/gcd(a,</strong><br><strong>b)，b’=b/gcd(a, b)</strong></p>
+<p>关于ax+by=c有没有解，我们有这么一个结论：  </p>
+<p>对于方程ax+by=c（a,b,c均为整数），如果c为gcd(a,b)的倍数，则方程有整数解，反之无整数解。因为a和b都是gcd(a,b)的倍数，所以ax+by一定也是gcd(a,b)的倍数，如果c不是gcd(a,b)的倍数，一定无解。  </p>
+<p>那刚才那道题怎么做呢？</p>
+<p>方程变形为ax+by = -c，看一下-c是不是gcd(a,b)的倍数，然后用exgcd求一下ax+by = gcd(a,b)的解，记为(x0,y0)。  </p>
+<p>等式两边同乘(-c)/gcd(a,b)，就有ax0’+by0’ = -c  </p>
+<p>用刚才的结论，求出使x = x0 + kb’落在区间[x1,x2]内的k的范围和使y = y0-ka’落在区间[y1,y2]内的k的范围，取交集就是答案。</p>
+<h3 id="欧拉筛法"><a href="#欧拉筛法" class="headerlink" title="欧拉筛法"></a>欧拉筛法</h3><p>核心思想是通过让每一个数只会被它最小的质因子筛到，从而每个数只会被筛一次，时间复杂度O(n)。</p>
+<p>对于任意一个合数，我们可以拆成最小质因子×某数i的形式，我们枚举这个数i，然后再枚举出所有筛的质数。</p>
+<p>当我们枚举的质数可以整除i时，如果再往大里枚举，枚举的质数就不可能是最小质数了。这时就可以终止循环，继续枚举下一个i。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> cnt;  </span><br><span class="line"><span class="keyword">int</span> prime[maxn];  </span><br><span class="line"><span class="keyword">bool</span> vis[maxn];  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Eular</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;  </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++)&#123;  </span><br><span class="line">        <span class="keyword">if</span> (!vis[i])      </span><br><span class="line">            prime[++cnt] = i;  </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=cnt &amp;&amp; prime[j]*i&lt;=n;++j)&#123;  </span><br><span class="line">            vis[prime[j]*i] = <span class="number">1</span>;  </span><br><span class="line">            <span class="keyword">if</span> (i % prime[j] == <span class="number">0</span>)  </span><br><span class="line">                <span class="keyword">break</span>;  </span><br><span class="line">        &#125;      </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+
+<h2 id="简单图论"><a href="#简单图论" class="headerlink" title="简单图论"></a>简单图论</h2><h3 id="多源最短路：Floyd算法"><a href="#多源最短路：Floyd算法" class="headerlink" title="多源最短路：Floyd算法"></a>多源最短路：Floyd算法</h3><p>多适用于邻接矩阵，时间复杂度O(n3)，适用负边权</p>
+<p>令dis[u][v]表示从u到v的最短路径长度，w[u][v]表示连接u，v边的长度。</p>
+<p>首先初始化所有的dis，如果对于任意u,v有边相连则dis[u][v] = w[u][v]，如果没有则dis[u][v] = INF。</p>
+<p>算法过程：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">1</span>; k &lt;= n; k++) &#123; <span class="comment">//这层循环必须放在最外面  </span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;  </span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++) &#123;  </span><br><span class="line">			<span class="keyword">if</span> (dis[i][j] &gt; dis[i][k] + dis[k][j])  </span><br><span class="line">				dis[i][j] = dis[i][k] + dis[k][j];  </span><br><span class="line">		&#125;  </span><br><span class="line">	&#125;  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="单源最短路：Dijkstra算法"><a href="#单源最短路：Dijkstra算法" class="headerlink" title="单源最短路：Dijkstra算法"></a>单源最短路：Dijkstra算法</h3><p>多适用于邻接表，时间复杂度O(n²)（未经优化），O((n+m)logm)（加入堆优化），不适用负边权</p>
+<p>它是一种基于贪心思想的算法。开始时设定两个集合，一个是已经更新了最短路径的点的集合，另一个就是还没有更新的。然后通过不断更新连接点的最短距离，最后一步一步地求出到达目标点的路径。</p>
+<p>通过dijkstra，每一个节点都会产生若干（候选）最小距离。这些（候选）最小距离里面最小的才是真正的最小距离。  </p>
+<p>具体流程：  </p>
+<p>开一个数组，记录每个点当前属于哪一个阵营。  </p>
+<p>从堆中所有（候选）最小距离里面挑出一个最小的。如果node属于A阵营，说明之前已经遇到了一个node的（候选）最小距离，现在这个不是真的最小，跳过。 </p>
+<p>反之，检查所有node这个点的出边。假设出边指向v。如果v属于B阵营，那么我们将{v, dis[node]+w}加入堆中。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long   </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 2147483647  </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;  </span><br><span class="line"><span class="keyword">int</span> n,m,s,head[<span class="number">50010</span>],cnt;  </span><br><span class="line">ll dis[<span class="number">10010</span>];   </span><br><span class="line"><span class="keyword">bool</span> used[<span class="number">10010</span>];  </span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Edge</span>&#123;</span>  </span><br><span class="line">    <span class="keyword">int</span> to,from,dis;  </span><br><span class="line">&#125;edge[<span class="number">500010</span>];  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add_edge</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> v,<span class="keyword">int</span> dis)</span></span>&#123;  </span><br><span class="line">    edge[cnt].to=v;  </span><br><span class="line">    edge[cnt].from=head[u];  </span><br><span class="line">    edge[cnt].dis=dis;  </span><br><span class="line">    head[u]=cnt++;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="keyword">typedef</span> <span class="built_in">pair</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; P;  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dijkstra</span><span class="params">(<span class="keyword">int</span> s)</span></span>&#123;  </span><br><span class="line">    <span class="built_in">priority_queue</span>&lt;P,<span class="built_in">vector</span>&lt;P&gt;,greater&lt;P&gt; &gt; q;  </span><br><span class="line">    fill(dis,dis+n+<span class="number">1</span>,INF);  </span><br><span class="line">    fill(used,used+n+<span class="number">1</span>,<span class="literal">false</span>);  </span><br><span class="line">    dis[s]=<span class="number">0</span>;  </span><br><span class="line">    q.push(P(<span class="number">0</span>,s));  </span><br><span class="line">    <span class="keyword">while</span>(!q.empty())&#123;  </span><br><span class="line">        P p=q.top();q.pop();  </span><br><span class="line">        <span class="keyword">int</span> u=p.second;  </span><br><span class="line">        <span class="keyword">if</span>(used[u]) <span class="keyword">continue</span>;  </span><br><span class="line">        used[u]=<span class="literal">true</span>;  </span><br><span class="line">        <span class="keyword">int</span> pp=head[u];  </span><br><span class="line">        <span class="keyword">while</span>(pp!=<span class="number">-1</span>)&#123;  </span><br><span class="line">            <span class="keyword">int</span> v=edge[pp].to;  </span><br><span class="line">            <span class="keyword">if</span>(!used[v]&amp;&amp;dis[v]&gt;dis[u]+edge[pp].dis)&#123;  </span><br><span class="line">                dis[v]=dis[u]+edge[pp].dis;  </span><br><span class="line">                q.push(P(dis[v],v));  </span><br><span class="line">            &#125;  </span><br><span class="line">            pp=edge[pp].from;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;  </span><br><span class="line">    <span class="built_in">memset</span>(head,<span class="number">-1</span>,<span class="keyword">sizeof</span>(head));  </span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n&gt;&gt;m&gt;&gt;s;  </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;  </span><br><span class="line">        <span class="keyword">int</span> u,v,d;  </span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>,&amp;u,&amp;v,&amp;d);  </span><br><span class="line">        add_edge(u,v,d);  </span><br><span class="line">    &#125;  </span><br><span class="line">    dijkstra(s);  </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) <span class="built_in">printf</span>(<span class="string">&quot;%lld &quot;</span>,dis[i]);  </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="单源最短路：Bellman-Ford算法"><a href="#单源最短路：Bellman-Ford算法" class="headerlink" title="单源最短路：Bellman-Ford算法"></a>单源最短路：Bellman-Ford算法</h3><p>（经过队列优化后的中国叫法是SPFA）</p>
+<p>多适用于邻接表，时间复杂度O(NE)（未经优化，N为点数，E为边数），O(kE)（k是常数，加入队列优化），适用负边权。</p>
+<p>SPFA<br>在形式上和广度优先搜索非常类似，不同的是广度优先搜索中一个点出了队列就不可能重新进入队列，但是SPFA中一个点可能在出队列之后再次被放入队列，也就是说一个点修改过其它的点之后，过了一段时间可能会获得更短的路径，于是再次用来修改其它的点，这样反复进行下去。<br>算法时间复杂度：O(kE)，E是边数。K是常数，平均值为2。</p>
+<p>SPFA代码模板：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> maxn 5000015  </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 2147483647  </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ms(x) memset(x,0,sizeof(x));  </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;  </span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Edge</span>&#123;</span>  </span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> from,to,dis;  </span><br><span class="line">&#125;;  </span><br><span class="line">Edge edge[maxn];  </span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> n,m,s,u,v,d;  </span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> head[maxn];  </span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> dis[maxn];  </span><br><span class="line"><span class="keyword">bool</span> inq[maxn];  </span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> cnt = <span class="number">0</span>;  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add_edge</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> from,<span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> to,<span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> dis)</span></span>&#123;  </span><br><span class="line">    edge[++cnt].from = head[from];  </span><br><span class="line">    edge[cnt].to = to;  </span><br><span class="line">    edge[cnt].dis = dis;  </span><br><span class="line">    head[from] = cnt;  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">spfa</span><span class="params">(<span class="keyword">void</span>)</span></span>&#123;  </span><br><span class="line">    <span class="built_in">queue</span>&lt;<span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span>&gt; q;  </span><br><span class="line">    q.push(s);  </span><br><span class="line">    ms(inq);  </span><br><span class="line">    inq[s] = <span class="literal">true</span>;  </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)  </span><br><span class="line">        dis[i] = INF;  </span><br><span class="line">    dis[s] = <span class="number">0</span>;  </span><br><span class="line">    <span class="keyword">while</span> (!q.empty())&#123;  </span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> u = q.front();  </span><br><span class="line">        q.pop();  </span><br><span class="line">        inq[s] = <span class="literal">false</span>;  </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=head[u];i!=<span class="number">0</span>;i=edge[i].from)&#123;  </span><br><span class="line">            <span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> v = edge[i].to;  </span><br><span class="line">            <span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> w = edge[i].dis;  </span><br><span class="line">            <span class="keyword">if</span> (dis[u]+w &lt; dis[v])&#123;  </span><br><span class="line">                dis[v] = w+ dis[u];  </span><br><span class="line">                <span class="keyword">if</span> (!inq[v])&#123;  </span><br><span class="line">                    q.push(v);  </span><br><span class="line">                    inq[v] = <span class="literal">true</span>;  </span><br><span class="line">                &#125;  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">      </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;  </span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m &gt;&gt; s;  </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;  </span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; u &gt;&gt; v &gt;&gt; d;  </span><br><span class="line">        add_edge(u,v,d);  </span><br><span class="line">    &#125;  </span><br><span class="line">    spfa();  </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)  </span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; dis[i] &lt;&lt; <span class="string">&quot; &quot;</span>;  </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+
+
+
+<p>该算法的速度非常之快，但当该算法运行在稠密图或者人为构造的网格图上，该算法的复杂度极有可能退化成O(NE)。</p>
+<h3 id="Kruskal算法"><a href="#Kruskal算法" class="headerlink" title="Kruskal算法"></a>Kruskal算法</h3><p>时间复杂度O(ElogE)（E为边数）</p>
+<p>按照边权排序所有边，然后从低到高一条一条取，每次取一条边询问这条边的两个点在不在同一个集合里，如果不在同一集合说明可以进行合并（因为如果在同一集合里，再连就不是树了），然后并这两个点，这个操作一直做，做到生成树已经有n-1条边为止。    </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> maxn 5005  </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> maxm 200005  </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;  </span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Edge</span>&#123;</span>  </span><br><span class="line">    <span class="keyword">int</span> from,to,dis;  </span><br><span class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span> &lt;(<span class="keyword">const</span> Edge &amp;rhs)<span class="keyword">const</span>&#123;  </span><br><span class="line">        <span class="keyword">return</span> dis &lt; rhs.dis;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;;  </span><br><span class="line">Edge edge[maxm];  </span><br><span class="line"><span class="keyword">int</span> father[maxm];  </span><br><span class="line"><span class="keyword">int</span> n,m;  </span><br><span class="line"><span class="keyword">int</span> totedge = <span class="number">0</span>;  </span><br><span class="line"><span class="keyword">int</span> k = <span class="number">0</span>;  </span><br><span class="line"><span class="keyword">int</span> ans = <span class="number">0</span>;  </span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span></span>&#123;  </span><br><span class="line">    <span class="keyword">int</span> num = <span class="number">0</span>;  </span><br><span class="line">    <span class="keyword">char</span> c;  </span><br><span class="line">    <span class="keyword">bool</span> flag = <span class="literal">false</span>;  </span><br><span class="line">    <span class="keyword">while</span> ((c = getchar()) == <span class="string">&#x27; &#x27;</span> || c == <span class="string">&#x27;\n&#x27;</span> || c == <span class="string">&#x27;\r&#x27;</span>);  </span><br><span class="line">    <span class="keyword">if</span> (c == <span class="string">&#x27;-&#x27;</span>)  </span><br><span class="line">        flag = <span class="literal">true</span>;  </span><br><span class="line">    <span class="keyword">else</span>  </span><br><span class="line">        num = c - <span class="string">&#x27;0&#x27;</span>;  </span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">isdigit</span>(c = getchar()))  </span><br><span class="line">        num = num * <span class="number">10</span> + c - <span class="string">&#x27;0&#x27;</span>;  </span><br><span class="line">    <span class="keyword">return</span> (flag ? <span class="number">-1</span> : <span class="number">1</span>) * num;  </span><br><span class="line">&#125;      </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;  </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">register</span> <span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)  </span><br><span class="line">        father[i] = i;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;  </span><br><span class="line">    <span class="keyword">if</span> (father[x] == x)  </span><br><span class="line">        <span class="keyword">return</span> father[x];  </span><br><span class="line">    father[x] = find(father[x]);  </span><br><span class="line">    <span class="keyword">return</span> father[x];  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;  </span><br><span class="line">    father[find(x)]  = find(y);  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;  </span><br><span class="line">    n = read();m = read();  </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">register</span> <span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;  </span><br><span class="line">        edge[i].from = read();  </span><br><span class="line">        edge[i].to = read();  </span><br><span class="line">        edge[i].dis = read();  </span><br><span class="line">    &#125;  </span><br><span class="line">    sort(edge+<span class="number">1</span>,edge+m+<span class="number">1</span>);  </span><br><span class="line">    init();  </span><br><span class="line">    <span class="keyword">while</span> (totedge &lt; n<span class="number">-1</span>)&#123;  </span><br><span class="line">        <span class="keyword">if</span> (find(edge[++k].from) != find(edge[k].to))&#123;  </span><br><span class="line">            ans += edge[k].dis;  </span><br><span class="line">            merge(edge[k].from,edge[k].to);  </span><br><span class="line">            totedge++;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,ans);  </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="拓扑排序"><a href="#拓扑排序" class="headerlink" title="拓扑排序"></a>拓扑排序</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> maxn 23333  </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;  </span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Edge</span> &#123;</span>  </span><br><span class="line">	<span class="keyword">int</span> from, to, dis;  </span><br><span class="line">&#125;;  </span><br><span class="line">Edge edge[maxn];  </span><br><span class="line"><span class="keyword">int</span> n, m, s, u, v, d;  </span><br><span class="line"><span class="keyword">int</span> inDegree[maxn];  </span><br><span class="line"><span class="keyword">int</span> tot = <span class="number">0</span>;  </span><br><span class="line"><span class="keyword">int</span> head[maxn];  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">addEdge</span><span class="params">(<span class="keyword">int</span> from, <span class="keyword">int</span> to, <span class="keyword">int</span> dis)</span> </span>&#123;  </span><br><span class="line">	edge[++tot].from = head[from];  </span><br><span class="line">	edge[tot].to = to;  </span><br><span class="line">	edge[tot].dis = dis;  </span><br><span class="line">	head[from] = tot;  </span><br><span class="line">	inDegree[to]++;  <span class="comment">// update in-degree  </span></span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">output</span><span class="params">(<span class="keyword">int</span> u)</span> </span>&#123;  </span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; u &lt;&lt; <span class="string">&quot; &quot;</span>;  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">topoSort</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">	<span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;  </span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;  </span><br><span class="line">		<span class="keyword">if</span> (inDegree[i] == <span class="number">0</span>)  </span><br><span class="line">			q.push(i);  </span><br><span class="line">	&#125;  </span><br><span class="line">	<span class="keyword">while</span> (!q.empty()) &#123;  </span><br><span class="line">		<span class="keyword">int</span> u = q.front();  </span><br><span class="line">		q.pop();  </span><br><span class="line">		output(u);  </span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = head[u]; i; i = edge[i].from) &#123;  </span><br><span class="line">			<span class="keyword">int</span> v = edge[i].to;  </span><br><span class="line">			inDegree[v]--;  </span><br><span class="line">			<span class="keyword">if</span> (inDegree[v] == <span class="number">0</span>)  </span><br><span class="line">				q.push(v);  </span><br><span class="line">		&#125;  </span><br><span class="line">	&#125;  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;  </span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++) &#123;  </span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; u &gt;&gt; v &gt;&gt; d;  </span><br><span class="line">		addEdge(u, v, d);  </span><br><span class="line">	&#125;  </span><br><span class="line">	topoSort();  </span><br><span class="line">	system(<span class="string">&quot;pause&quot;</span>);  </span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+
+
+
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          打赏
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://shawnzhou.world/2019/03/08/algorithm/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/" rel="tag">拓扑排序</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E8%AE%BA/" rel="tag">数论</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" rel="tag">最小生成树</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/" rel="tag">最短路</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9F%A5%E6%89%BE/" rel="tag">查找</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/" rel="tag">贪心算法</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2019/09/02/opencv-collection/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            OpenCV相关图形操作整合
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2019/02/05/clear-keyboard/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">ikbc c87机械键盘拆解+清理过程全记录</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "YolIyMzPHjxT49twQAhzxsQ8-gzGzoHsz",
+    app_key: "Dtrq0zAmtB8CqcKdwVCk7JBn",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2018-2022
+        <i class="ri-heart-fill heart_icon"></i> Shawn Zhou
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        
+        由 <a href="https://hexo.io" target="_blank">Hexo</a> 框架强力驱动
+        <span class="division">|</span>
+        主题 - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></s>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://v1.cnzz.com/z_stat.php?id=1279352967&amp;web_id=1279352967'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/avatar1.png" alt="ShawnZhou的小站"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">图集</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://friends.shawnzhou.world/">友链站</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://dev.shawnzhou.world/">开发站</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://sources.shawnzhou.world/">资源站</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>感谢打赏~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://shawnzhou.world/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://shawnzhou.world/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+
+<script src="/js/clickBoom2.js"></script>
+
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+  </div>
+</body>
+
+</html>

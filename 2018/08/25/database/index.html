@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="博客,前端博客,JavaScript,html5,css3,html,css,js,acm,noip,橙果工作室,shawnzhou,shawn zhou" />
+   
+  <meta name="description" content="ShawnZhou的小站" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    数据库系统概论 学习笔记 |  ShawnZhou的小站
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+  
+  
+
+  
+
+<link rel="alternate" href="/atom.xml" title="ShawnZhou的小站" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+      <canvas width="1777" height="841"
+        style="position: fixed; left: 0px; top: 0px; z-index: 99999; pointer-events: none;"></canvas>
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-database"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  数据库系统概论 学习笔记
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2018/08/25/database/" class="article-date">
+  <time datetime="2018-08-25T08:21:56.000Z" itemprop="datePublished">2018-08-25</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B8%E5%85%B3/">数据库相关</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">9.1k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">31 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>数据库技术是计算机领域的一个重要分支。数据库技术就是作为一门数据处理技术发展起来的。随着计算机应用的普及和深入，数据库技术变得越来越重要。</p>
+<p>该部分学习笔记曾在2018年发布。</p>
+<p>当前博客显示的发布时间非真实时间，而是这些内容在当时发布时的最后发布时间。</p>
+<p><img src="https://i.loli.net/2018/08/25/5b80d069098b0.png"></p>
+<a id="more"></a>
+
+<h2 id="数据库系统的基本概念"><a href="#数据库系统的基本概念" class="headerlink" title="数据库系统的基本概念"></a>数据库系统的基本概念</h2><p>数据是一种描述事物的符号记录。计算机中的数据一般分为两个部分，其中一部分与程序仅有短时间的交互关系，它们被称之为临时性数据，它一般被放在内存里。还有一部分数据被称之为持久性数据，它对系统起着长期而持久的作用。数据库处理什么？处理持久性数据。</p>
+<p>我们知道，数据是有一定结构的。首先，数据有型与值之分，数据的型给出了数据表示的类型，如整型，实型，字符型等，而数据的值给出了符合型的一个值。许多复杂的数据按照一定方式组合到一起是数据结构。数据库在特定条件下称之为数据模式。在数据库系统中需要对数据进行集中、统一的管理。</p>
+<p>数据库是数据的集合，它具有统一的结构形式并存放于统一的存储介质中。数据库存放数据是按照数据所提供的数据模式存放的。数据库中的数据具有“集成”，“共享”的特点。</p>
+<h2 id="数据库管理系统"><a href="#数据库管理系统" class="headerlink" title="数据库管理系统"></a>数据库管理系统</h2><p>数据库管理系统简称DBMS，是数据库的机构，它是一种系统软件，负责数据库中的数据组织、数据操纵、数据维护、控制及保护数据服务等。数据库中的数据结构复杂，必须要提供管理工具。数据库管理系统是数据库系统的核心，它主要有如下几方面的具体功能：</p>
+<p>1.数据模式定义。</p>
+<p>2.数据存取的物理构建</p>
+<p>3.数据操纵</p>
+<p>4.数据的完整性</p>
+<p>5.数据库的并发控制与故障恢复</p>
+<p>6.数据的服务</p>
+<p>数据库管理系统一般提供相应的数据语言，它们是：数据定义语言（DDL），该语言负责数据的定义与构建。数据操纵语言（DML），该语言负责数据的操纵。数据控制语言（DCL），该语言负责数据的完整性、安全性的定义与检查以及并发控制、故障恢复等功能。</p>
+<p>上述数据语言按其使用方式有两种结构形式：交互式命令语言与宿主型语言。</p>
+<p>关系数据库中普遍使用了结构化查询语言SQL，该语言是一种介于关系代数数和关系演算之间的非过程性操作语言，是集DDL、DML、DCL于一体的关系数据库语言。SQL是高级的非过程性语言，允许用户在高层数据结构上工作。SQL语言也可以嵌入到其他高级语言中使用。</p>
+<p>此外，数据库管理系统还有为用户提供服务的服务性程序，包括数据初始装入程序、数据转存程序、性能监测程序、数据库再组织程序、数据转换程序、通信程序等。</p>
+<p>目前流行的DBMS均为关系数据库系统。另外有一些小型的数据库，他们只具备数据库管理系统的一些简单功能。</p>
+<h2 id="数据库管理员"><a href="#数据库管理员" class="headerlink" title="数据库管理员"></a>数据库管理员</h2><p>由于数据库的共享性，因此对数据库的规划、设计、维护、监视等需要有人专门管理，我们称他们为数据库管理员（DBA）。</p>
+<p>DBA的主要任务之一是做数据库设计，具体的说是数据模式的设计。DBA必须对数据库中的数据安全性、完整性、并发控制及系统恢复、数据定期转存等实施提供维护。</p>
+<p>DBA必须随时监视数据库运行状态，不断调整内部结构，使系统保持最佳状态与最高效率。当效率下降时，DBA应该采取适当的措施。</p>
+<h2 id="数据库系统"><a href="#数据库系统" class="headerlink" title="数据库系统"></a>数据库系统</h2><p>数据库系统（DBS）由如下几部分组成：数据库，数据库管理系统，数据库管理员，硬件平台，软件平台。这五个部分构成了一个以数据库为核心的的完整的运行实体，简称为数据库系统。</p>
+<p>硬件平台包括：计算机，网络。</p>
+<p>软件平台包括：操作系统，数据库系统开发工具，接口软件。</p>
+<h2 id="数据库系统的发展"><a href="#数据库系统的发展" class="headerlink" title="数据库系统的发展"></a>数据库系统的发展</h2><p>数据管理发展至今经历了三个阶段：人工阶段，文件系统阶段和数据库系统阶段。随着计算机应用领域不断扩大，数据库系统的功能和应用范围越来越广，到目前已成为计算机系统的基本及主要的支撑软件。</p>
+<p>目前，数据库技术也与其他信息技术一样在迅速发展之中，计算机处理能力的增强和越来越广泛的英语是促进数据库技术发展的重要动力。分布式数据库技术是大数据时代云计算技术的基础，是数据的基本存储方式；在大量应用中对数据库管理系统提出里高可靠性、高性能、高伸缩性和高安全性的要求。一般认为，未来的数据库系统应该支持数据管理、对象管理和知识管理，应该具有面向对象的基本特征。在关于数据库的诸多新技术中，下面三种是比较重要的。</p>
+<p>面向对象的数据库系统：用面向对象的方法构筑面向对象数据模型，使其具有比关系数据库系统更为通用的能力；</p>
+<p>知识库系统：用人工智能中的方法特别是用谓词逻辑知识表示方法构筑数据模型，使其模型具有特别通用的能力。</p>
+<p>关系数据库系统的扩充：利用关系数据库做进一步扩展，使其在模型的表达能力与功能上有进一步的加强。</p>
+<h2 id="数据库系统的基本特点"><a href="#数据库系统的基本特点" class="headerlink" title="数据库系统的基本特点"></a>数据库系统的基本特点</h2><p>1.数据的集成性</p>
+<p>在数据库系统中采用统一的数据结构方式。在数据库系统中按照多个应用的需要组织全局的统一的数据结构，数据模式不仅可以建立全局的数据结构，还可以建立数据见的语义联系从而构成一个内在紧密联系的数据整体。数据库系统中的数据模式是多个应用共同的、全局的数据结构，而每个应用的数据则是全局结构中的一部分，称为局部结构。这种全局与局部的结构模式构成了数据库系统数据集成性的主要特征。</p>
+<p>2.数据的高共享性与低冗余性</p>
+<p>数据库与网络的结合扩大了数据关系的应用范围。数据的共享自身又可极大的减少数据的冗余性。</p>
+<p>3.数据独立性</p>
+<p>数据独立性是数据与程序间的互不依赖性，即数据库中数据独立于应用程序而不依赖于应用程序。数据独立性一般分为物理独立性与逻辑独立性两级。</p>
+<p>物理独立性即是数据的物理结构的改变都不影响数据库的逻辑结构，从而不至于引起应用程序的变化。</p>
+<p>数据库总体逻辑结构的改变，不需要相应修改应用程序。</p>
+<p>4.数据统一管理与控制</p>
+<h2 id="数据库系统的内部结构体系"><a href="#数据库系统的内部结构体系" class="headerlink" title="数据库系统的内部结构体系"></a>数据库系统的内部结构体系</h2><p>数据库系统在其内部具有三级模式以及二级映射。三级模式分别是概念级模式、内部级模式、外部级模式。二级映射则分别是概念级到内部级映射以及外部级到概念级的映射。这种三级模式与二级映射构成了数据库系统内部抽象的结构体系。</p>
+<h2 id="数据库设计概述"><a href="#数据库设计概述" class="headerlink" title="数据库设计概述"></a>数据库设计概述</h2><p>数据库设计是数据库应用的核心。在数据库应用系统中的一个核心问题就是设计一个能满足用户要求，性能良好的数据库，这就是数据库设计。数据库设计的基本任务是根据用户对象的信息需求，处理需求和数据库的支持环境设计出数据模式。所谓信息需求主要是值用户对象的数据以及其结构，它反映了数据库的静态要求；所谓处理需求则表示用户对象的行为和动作，它反映了数据库的动态要求。数据库设计中有一定的制约条件，它们是系统设计平台，包括系统软件、工具软件以及设备、网络等硬件。因此，数据库设计即是在一定平台的制约下，根据信息需求与处理需求设计出性能良好的数据模式。</p>
+<p>在数据库设计中有两种方法。一种是以信息需求为主，兼顾处理需求，称之为面向数据的方法。另一种方法则是处理需求为主，兼顾信息需求，称为面向过程的方法。这两种方法目前都在使用中，在早期面向过程的方法应用比较多，目前是面向数据的方法使用越来越广泛。数据在系统中稳定性较高，目前数据已经成为了系统的核心，因此面向数据的设计方法已经成为了主流方法。</p>
+<p>数据库设计目前一般采用生命周期法，即将整个数据库应用系统的开发分解成目标独立的若干阶段。它们是：需求分析阶段、概念设计阶段、逻辑设计阶段、物理设计阶段、编码阶段、测试阶段、运行阶段、进一步修改阶段。</p>
+<h2 id="数据库设计的需求分析"><a href="#数据库设计的需求分析" class="headerlink" title="数据库设计的需求分析"></a>数据库设计的需求分析</h2><p>这是数据库设计的第一阶段。这一阶段收集到的基础数据和一组DFD是下一步的基础。需求分析阶段的任务是通过详细调查现实世界要处理的对象吗充分了解原系统的工作概况，明确用户的各种调查需求，然后在此基础上确定新系统的功能。新系统必须充分考虑今后可能的扩充和改点，不能仅按照当前应用需求来设计数据库。</p>
+<p>调查的重点是数据和处理，需要如下要求。</p>
+<p>1.信息要求，指用户需要从数据库中获得信息的内容与性质。</p>
+<p>2.处理要求，指用户要完成什么处理功能，对处理的响应时间、方式做何要求。</p>
+<p>3.安全性和完整性的要求。</p>
+<h2 id="数据库概念设计"><a href="#数据库概念设计" class="headerlink" title="数据库概念设计"></a>数据库概念设计</h2><p>数据库概念设计的方法有以下两种：</p>
+<p>1.集中式模式设计法。这是一种统一的模式设计方法，它根据需求由一个统一机构或人员设计一个综合的全局模式。这种方法简单方便，适合小型部门，但是对大型单位则不太适合。</p>
+<p>2.视图集成设计法。将一个单位分解为若干部分，对每个部分做局部模式设计， 建立视图，再以视图为基础进行集成。集成过程中可能存在冲突。</p>
+<p>使用E-R模型与视图继承法进行设计时，首先选择局部应用，再进行局部视图设计，最后对局部视图进行集成得到概念模式。</p>
+<h2 id="数据库的逻辑设计"><a href="#数据库的逻辑设计" class="headerlink" title="数据库的逻辑设计"></a>数据库的逻辑设计</h2><p>数据库的逻辑设计主要工作是将E-R图转换为指定RDBMS中的关系模式。从E-<br>R图到关系模式的转换是比较直接的，实体与联系都可以表示成关系。E-R图中的属性也可以转化成关系的属性。</p>
+<p>转换时可能绘遇到一些问题。</p>
+<p>关系模式中的命名可以用E-<br>R图中原有命名，也可以另行命名，但是应该尽量避免重名。RDBMS一般只支持有限种的数据类型。如果有RDBMS不支持的数据类型则要进行转换。</p>
+<p>E-R图中允许出现非原子属性。但是关系模式一般不允许。非原子属性主要有集合型和元组型，如果有这种情况可以进行转换。集合属性纵向展开，元组关系横向展开。</p>
+<p>转换一定要体现规范化。关系数据库设计的关键是关系数据库模式的设计，即确定构造几个关系模式以及每一个模式自身包含的属性，将相互关联的模式组成合适的关系模型。设计不良的关系模式会有数据冗余，插入删除修改异常等问题。</p>
+<p>逻辑设计的另一个重要内容是关系视图的设计。它又称为外模式设计。关系视图是在关系模式基础上所设计的直接面向操作用户的视图，它可以根据用户需求随时创建。一般的RDBMS都提供这样的功能。</p>
+<h2 id="数据库的物理设计"><a href="#数据库的物理设计" class="headerlink" title="数据库的物理设计"></a>数据库的物理设计</h2><p>数据库物理设计的主要目标是对数据库内部物理结构做出调整并选择合理的存取路径，以提高数据库访问速度以及有效利用存储空间。在现代关系数据库中已经大量屏蔽了内部物理结构，因此留给用户参与物理设计的余地并不多。一般的RDBMS中留给用户参与物理设计的内容大概有：索引设计、集簇设计和分区设计。</p>
+<h2 id="数据库管理"><a href="#数据库管理" class="headerlink" title="数据库管理"></a>数据库管理</h2><p>数据库管理需要专人进行。这人叫DBA，之前的文章说过。</p>
+<p>首先是数据库的建立。数据模式由DBA负责建立。在数据模式定义后就可以加载数据，DBA可以编制加载程序将外界数据加载至数据模式内，从而建立起数据库。</p>
+<p>然后是数据库的调整。数据库建立并经过一段时间后往往会产生一些不适应的情况，这时候我们需要对它们做出调整。这个工作也是DBA去完成。主要是调整关系模式与视图，调整索引与集簇，调整分区、数据库缓冲区大小等。</p>
+<p>然后是数据库的重组。数据库在经过一定时间运行后性能会有所下降，下降的原因主要是不断地修改，删除和插入造成的。由于不断地删除造成盘区内废块增多，磁盘的I/O速度会受到影响，DBA要对此情况作出整理操作。实际中，往往是先做程序卸载，再加载数据从而达到数据重组的目的。</p>
+<p>然后是数据库安全心控制与完整性控制。数据库是一个单位的重要资源，安全性是极端重要的。DBA应该采取措施保证数据不被非法盗用或者破坏。此外，为保证数据的正确性，需要有数据的完整性控制。</p>
+<p>最后是数据库的故障恢复与监控。一旦数据库中的数据遭受破坏，DBA应该立即着手恢复。现在的RBDMS一般都提供这个功能。DBA需要随时观察数据库的动态变化，并且在发生异常时做出判断并采取措施。</p>
+<h2 id="数据模型的基本概念"><a href="#数据模型的基本概念" class="headerlink" title="数据模型的基本概念"></a>数据模型的基本概念</h2><p>数据是现实世界符号的抽象，而数据模型则是数据特征的抽象，它从抽象层次上描述了系统的静态特征、动态行为和约束条件，为数据库的信息表示与操作提供一个抽象的框架。数据模型所描述的内容分成三个部分，数据结构，数据操作与数据约束。</p>
+<p>1.数据结构</p>
+<p>数据模型中的数据结构主要描述数据的类型、内容、性质以及数据之间的联系等。数据结构是数据模型的基础，数据操作与约束都建立在数据结构上。</p>
+<p>2.数据操作</p>
+<p>数据模型中的数据操作主要描述在相应数据结构上的操作类型与操作方式。</p>
+<p>3.数据约束</p>
+<p>数据模型中的数据约束主要描述数据结构内数据见的语法、语义联系，他们之间的制约与依存关系，以及数据动态变化的规则，以保证数据的正确，有效与相容。</p>
+<h2 id="E-R模型"><a href="#E-R模型" class="headerlink" title="E-R模型"></a>E-R模型</h2><p>长期一来被广泛使用的概念模型是E-<br>R模型。该模型将现实世界的要求转化为实体、联系、属性等几个基本概念，以及它们间的两种基本连接关系，并且可以用一种图非常直观地表示出来。</p>
+<p>1.E-R模型的基本概念</p>
+<p>现实世界中的事物可以抽象为实体，实体是概念中的基本单位，它们是客观存在的且又能相互区别的事物。</p>
+<p>现实世界中事物均有一些特性，这些特性可以用属性来表示。属性刻画了实体的特征。</p>
+<p>现实世界中事物的关联称之为联系。在概念世界中联系反映了实体集间的一定关系。这种联系的个数可以是一个也可以是多个。两个实体之间的联系实际上是实体集之间的函数关系。</p>
+<p>函数关系还是那些，一对一，一对多或多对一，多对多……其中一对一简记为1:1，它是最常见的函数关系。一对多简记为1：M，多对一简记为M：1，这两种函数关系其实算一种，举个例子，学生与其宿舍房间的关系是多对（有好多学生入住这一个宿舍），但是宿舍房间对学生的关系就是一对多。多对多简记为M:N，这种关系相对复杂一些，比如教师与学生的关系。一个教师可以教很多学生，同时，一个学生又可以被多个老师教。</p>
+<p>2.E-R模型三个基本概念之间的连接关系。</p>
+<p>E-R模型的基本概念是哪三个？</p>
+<p>实体，联系，属性。这三者结合起来才能表示现实世界。</p>
+<p>实体是概念世界中的基本单位，属性附属于实体，属性本身并不构成独立单位。属性有属性域，每个实体可以取这个域内的值。一个实体的所有属性取值的集合叫做元组。在概念世界中，元组可以表示实体，也可以区别实体。</p>
+<p>实体有型和值之分，和之前讲的数据一样。</p>
+<p>联系也可以附有属性，联系和它的所有属性构成了联系的一个完整描述，因此，联系与属性间也有连接关系。</p>
+<p>实体集间可通过联系建立关系。一般而言，实体集间无法建立直接关系，他只能通过联系才能建立起连接关系。</p>
+<p>在E-R模型中有三个基本概念以及它们之间的两种基本连接关系。它们将现实世界中的错综复杂现象抽象成简单明了的几个概念关系，具有极强的概括性和表达能力。</p>
+<p>3.E-R模型的图示法</p>
+<p>E-R模型可以通过一个很直观的图来表示，这种图叫做E-R图。在E-R图中我们下面不同的几何图形表示这三个概念和两个连接关系。</p>
+<p>首先是实体集表示法。用矩形表示，在里面写实体集的名字。</p>
+<p><img src="https://i.loli.net/2018/08/24/5b8008c27f7d6.png"></p>
+<p>然后是属性表示法。用椭圆。里面写属性名。</p>
+<p><img src="https://i.loli.net/2018/08/24/5b8008c27f376.png"></p>
+<p>最后是联系表示法。用菱形。内写联系名。</p>
+<p><img src="https://i.loli.net/2018/08/24/5b8008c285e5f.png"></p>
+<p>要表示之间有关系，连起来就好了。</p>
+<p>（图片来自网络，博主有点懒）（摊┑(￣Д ￣)┍</p>
+<p><img src="https://i.loli.net/2018/08/24/5b8009de76095.jpg"></p>
+<p>连起来大概是这么个玩意。</p>
+<p>然后，这鬼东西还有两种不同的模型。</p>
+<h2 id="层次模型"><a href="#层次模型" class="headerlink" title="层次模型"></a>层次模型</h2><p>层次模型是最早发展起来的数据库模型。它的基本结构是树形。这种结构方式在现实生活中非常普遍。自顶向下，层次分明。既然基本结构是树，那么树的一些性质它也是满足的。</p>
+<p>性质1 每棵树有且仅有一个无双亲结点，称之为根。</p>
+<p>性质2 树中除根节点外所有一个节点有且只有一个父节点。</p>
+<p>由性质2，这种模型是受到一定限制的。在对这种模型进行插入或者删除操作时，一定要注意满足约束条件。层次模型的结构简单，操作简单，层次模型的性能是比较高的。但是由于它受文件系统影响大，模型限制较多，在实际使用上效果并不是很理想。它并不适合表示非层次关系。</p>
+<p>大概长这个样：（图片来自网络）</p>
+<p><img src="https://i.loli.net/2018/08/24/5b800bcbe79f9.jpg"></p>
+<p>·网状模型</p>
+<p>网状模型的出现略晚于层次模型。如果从图论的角度去理解网状模型，它就是一张无向图。网状模型在结构上要稍微好一点，它的要求没有层次模型那么严格。</p>
+<p>在实现中，网状模型将通用的网络拓扑结构分成一些基本结构。一般采用的分解方法是将一个网络分成若干个二级树，也就是只有两个层次的树。为了实现的方便，一般规定根节点与任一叶节点间的联系都是一对多的（有时候也是一堆一）。</p>
+<p>在网状模型的标准中，基本结构简单二级树叫系，系的基本数据单位是记录，它相当于E-R模型中的实体集。记录又可以由若干数据项组成，它相当于E-<br>R模型中的属性。系有一个首记录，它相当于简单二级树的根，若干个成员记录相当于叶。</p>
+<p>（图片来自刚才的图，博主懒）（摊┑(￣Д ￣)┍</p>
+<p><img src="https://i.loli.net/2018/08/24/5b8009de76095.jpg"></p>
+<h2 id="关系模型"><a href="#关系模型" class="headerlink" title="关系模型"></a>关系模型</h2><p>1.关系的数据结构</p>
+<p>关系模型用表格来表示。这个表格我们一般称二维表。二维表由框架以及元组组成。</p>
+<p>表框架由n和属性组成，n称作属性元数。每个属性有一个取值范围，称为值域。</p>
+<p>在表框架中按行可以存放数据，每一行的数据称为元组。实际上，一个元组是由n个元组分量构成的。一个表框架可以放m个元组，m称为基数。</p>
+<p>这种二维表的元组个数是有限的，各个元组互不相同，元组次序可任意交换，元组的分量是不可以再分割的基本数据项，属性名各不相同，属性与次序无关，属性的分量具有与该属性相同的值域。</p>
+<p>如果一个二维表能够满足上面的性质，那么它被称为关系。以这种二维表为基本结构建立的模型就是关系模型。</p>
+<p>关系模型中的一个重要概念是键。键具有标识元组、建立元组间联系等重要作用。在二维表中凡能唯一标识元组的最小属性集称为该表的键。</p>
+<p>二维表可能有很多的键，它们称为该表的候选键。</p>
+<p>从二维表的所有候选键中选一个作为用户的键，称为主键。表A中的某个属性集是某表B的键，则称该属性集为A的外键。</p>
+<p>在关系元组的分量中允许出现空值，表示信息空缺。空值表示未知或者不可能的值，一般表示为NULL。</p>
+<p>2.关系操纵</p>
+<p>关系模型的数据操纵即是建立在关系上的数据操纵。一般有查询、增加、删除和修改这四种操作。</p>
+<p>用户可以查询关系数据库中的数据，它包括一个关系内的查询以及多个关系之间的查询。</p>
+<p>这四种操作可以分解成六种基本操作：关系的属性指定；关系的元组选择；两个关系的合并；一个或多个关系的查询；关系中元组的插入；关系中元组的删除。</p>
+<p>3.关系中的数据约束</p>
+<p>关系模型中存在一些约束。</p>
+<p>首先是实体完整性约束，它要求主键不能为NULL。这是数据库完整性的最基本的要求，因为主键是唯一决定元组的，如果为空值那么就不符合定义了。</p>
+<p>然后是参照完整性约束。它不允许关系引用不存在的元组，即在关系中的外键要么是所关联关系中所实际存在的元组，要么为空。</p>
+<p>最后是用户自定义的一些完整性约束。这个是针对具体情况由用户进行编写的。</p>
+<p>实体完整性约束和参照完整性约束是关系数据库必须遵守的规则，在任何一个关系数据库管理系统中均由系统自动支持。</p>
+<p>关系数据库系统的特点之一就是它建立在数学理论的基础之上。有很多数学理论可以表示关系模型的数据操作。其中最著名的是关系代数与关系演算。数学上已经证明了二者是等价的。关系数据库中使用的SQL语言可以支持关系代数中的运算和操作。</p>
+<h2 id="关系模型的基本操作"><a href="#关系模型的基本操作" class="headerlink" title="关系模型的基本操作"></a>关系模型的基本操作</h2><p>关系是由若干个不同的元组组成，因此关系可以视为元组的集合。n元关系是一个n元有序组的集合。</p>
+<p>设有一个n元关系R，它有n个域，分别是D1，D2，….，Dn。此时它们的笛卡尔积是</p>
+<p><code>D1ｘD2ｘ…ｘDｎ</code></p>
+<p>完了，笛卡尔积是啥……</p>
+<blockquote>
+<p>百度百科上这样讲：笛卡尔乘积是指在数学中，两个集合X和Y的笛卡尓积（Cartesian product），又称直积，表示为X × Y，第一个对象是X的成员而第二个对象是Y的所有可能有序对的其中一个成员。</p>
+</blockquote>
+<p>其实就是集合里面的成员乘积辣……</p>
+<p>该集合的每个元素都是具有如下形式的n元有序组：</p>
+<p><code>(d1,d2,…,dｎ)di∈Di(i = 1,2,…,n)</code></p>
+<p>该集合与n元关系R有如下联系：</p>
+<p><code>R⊆D1×D2×…×Dn</code></p>
+<p>即n元关系R是n元有序组的集合，是它的域的笛卡尔积的子集。</p>
+<p>关系模型的六种基本操作是：</p>
+<p>1.关系的属性指定。用来检索与定位，用它确定列。</p>
+<p>2.关系的元组的选择。也是用来检索与定位，用它确定行。</p>
+<p>3.两个关系的合并。将两个关系合并成一个关系。</p>
+<p>这三个操作可以进行多个关系的定位。</p>
+<p>4.关系的查询。在一个关系或多个关系之间做查询，结果也是一个关系。</p>
+<p>5.关系元组的插入。</p>
+<p>6.关系元组的删除。</p>
+<h2 id="关系模型的基本运算"><a href="#关系模型的基本运算" class="headerlink" title="关系模型的基本运算"></a>关系模型的基本运算</h2><p>由于操作是对关系的运算，而关系是有序组的集合，因此可以把操作看成集合之间的运算。</p>
+<p>首先是插入，设把R插入到R’中，插入可以用集合的并运算。表示为<code>R∪R’</code></p>
+<p>然后是删除，比如从R元组中删除掉关系R’（它是要删除的元组组成的集合），就可以用集合的差运算。表示为<code>R-R’</code></p>
+<p>然后是修改，如果需要修改R’，那么先把它删除。然后进行修改操作，设修改后的元组构成关系R’’，再将其插入。<code>(R-R’)∪R’’</code></p>
+<p>然后是查询。查询的操作没有办法用集合运算表示，需要引入一些新的运算。</p>
+<p>投影运算</p>
+<p>对于关系内的域，指定可引入新的运算叫做投影运算。它是一个一元运算，一个关系通过投影运算后仍为一个关系R’，R’是R中投影运算所指出的那些域的列所组成的关系。假设这个R有n个域，分别是A1，A2，….，An，则在R上对域的Ai1，Ai2，….，Aim(Aij ∈ |A1，A2，….，An|)的投影可以表示为下面的一元运算:</p>
+<p><code>πAi1，Ai2，….，Aim(R)</code></p>
+<p>选择运算</p>
+<p>选择运算也是一个一元运算，关系R通过选择运算后仍为一个关系。这个关系是由R中那些满足逻辑条件的元组构成。如果设关系的逻辑条件为F，则R满足F的选择运算可以写成：</p>
+<p><code>σF(R)</code></p>
+<p>逻辑条件F是一个表达式，该表达式遵循下面的规则。</p>
+<p>①可以是αΘβ的形式，α和β是变量（也就是域）或者常量，但是不能同时为常量，Θ作为比较符，就是什么大于小于等于不等于……这种东西。这一个形式的表达式是基本的逻辑条件，如果想表达更复杂的逻辑条件，还要用到且或非。这里且运算表示为∧，或运算表示为∨，非运算注意，表示为~而不是┐。</p>
+<p>使用这些运算可以快速地限定寻找范围。</p>
+<p>笛卡尔积运算</p>
+<p>对于两个关系的合并操作可以用笛卡尔积来表示。设有n元关系R以及m元关系S，他们分别有p和q个元组，则关系R与S经过笛卡尔积运算记作R×S，它是一个n+m元的关系，元组个数是p×q，由R和S的有序组组合而成。</p>
+<h2 id="关系代数中的扩充运算"><a href="#关系代数中的扩充运算" class="headerlink" title="关系代数中的扩充运算"></a>关系代数中的扩充运算</h2><p>1.交运算</p>
+<p>关系R和S经过交运算后得到的关系是那些两者都在的有序组所组成。记作R∩S。</p>
+<p>其实，不难得出</p>
+<center>R∩S = R-(R-S)</center>
+
+<p>等号右边不就是S吗？R∩S=S？？？</p>
+<p>并不，这里的R-S说白了是集合间的运算，去括号那套操作……没法用。</p>
+<p>2.除运算</p>
+<p>它其实就是笛卡尔积的逆运算。当存在T = R×S时，则有</p>
+<center>T÷R=S</center>
+
+<p>也可以写成</p>
+<center>T/R=S</center>
+
+<p>S称为T除以R的商。</p>
+<p>由于除法是一种逆运算，因此它的执行是需要满足一定条件的。假设有关系T和R，T能被除的充要条件是T的域中包含R的所有属性，且T中有一些域不在R中。</p>
+<p>说白了就是R得是T的子集T才能除以R。。</p>
+<p>除法运算不是基本运算，下面给出推导。</p>
+<p>设关系R有域A1，A2，….，An，关系S有An-s+1，An-s+2，….，An，此时，有：</p>
+<p><code>R÷S = πA1，A2，….，An-s(R)-πA1，A2，….，An-s( (πA1，A2，….，An-s(R)×S )-R )</code></p>
+<p>妈耶，这也太复杂了……</p>
+<p>3.连接与自然连接运算</p>
+<p>在数学上，可以用笛卡尔积建立两个关系之间的连接，但是这样得到的关系巨大，数据冗余也比较多。实际应用中一般两个相互连接的关系往往须满足一些条件，所得到的结果也相对比较简单，这样我们引入了连接运算与自然连接运算。</p>
+<p>连接运算是一种二元运算，它可以将两个关系合并为一个大关系。设有关系R、S以及表达式αΘβ，α表示R的域，β表示S中的域，Θ还是那个Θ，那么可以把连接运算定义为（woc这个我是真用HTML打不出来了，画图解决）</p>
+<p><img src="https://i.loli.net/2018/08/25/5b811e7a55a1e.png"></p>
+<p>这个鬼畜的式子啥意思呢。。R与S的的Θ链接是由R与S的笛卡尔积中满足限制αΘβ的元构成的关系，一般其元组的数目远少于R×S的数目。应当注意的是，在Θ连接中，α与β应该具有相同的域，否则无法做出比较。</p>
+<p>在Θ连接中，如果Θ为“=”号，那么我们称该连接为等值连接，否则称为不等值连接。</p>
+<p>在实际应用中最常用的连接是一个叫自然连接的特例。它满足下面的条件：两个关系之间具有公共域，通过公共域的相等值进行连接。</p>
+<p>设有关系R、S，R有域A1，A2，….，An，S有域B1，B2，….，Bm，并且，Ai1，Ai2，….，Aij与B1，B2，….，Bj分别为相同域，此时它们的自然连接可以记为</p>
+<p><img src="https://i.loli.net/2018/08/25/5b81219e20989.png" alt="img"></p>
+<p>自然连接的含义可以用下式表示：</p>
+<p><img src="https://i.loli.net/2018/08/25/5b8126075c311.png" alt="img"></p>
+<p>（↑做上边那几个式子快把我做吐了）</p>
+<p>在以上运算中最常用的是投影运算、选择运算、自然连接运算、并运算、差运算。</p>
+<h2 id="关系代数的应用举例"><a href="#关系代数的应用举例" class="headerlink" title="关系代数的应用举例"></a>关系代数的应用举例</h2><p>不难看出，查询其实是最复杂的操作。查询语言一般是非过程语言，仅仅说明查询的要求，不说明查询的做法。最终通过查询优化技术解决了这个问题，而对于查询语句本身的优化也就是代数优化是最基本的技术。</p>
+<p>比如说有一个学生选课的数据库，它由下面三个关系模式组成：</p>
+<p>S(S#,Sn,Sd,Sa)</p>
+<p>C(C#,Cn,P#)</p>
+<p>SC(S#,C#,G)</p>
+<p>其中S#表示学号，C#表示课程号（喂不是那个C#啊），Sn表示学生姓名，Sd表示学生系别，Sa表示学生年龄，Cn表示课程名，P#表示预修课程号，G表示成绩，C表示课程，S表示学生，SC表示选课关系。</p>
+<p>那么，各种查询表达式：</p>
+<p>1.检查学生所有情况。顾名思义，所有情况，那看来要把整个关系都调出来，所以查询表达式是</p>
+<center>S</center>
+2.检查学生年龄大于等于20岁的学生姓名。这里要用到投影运算。其实不难理解，我们只是调出来看一看，不用修改，投影运算正好是不改变原来的关系的。这里有两个限制，一个是学生姓名，还有一个是大于等于二十岁。我们要查的是姓名，所以要写πSn，后面年龄的条件怎么写呢？是σSa≥20。可是这样就完了吗？并不，我们要查询的关系是在哪的？查询的是学生，所以在S里面，最后，写出来是这么个鬼东西：
+
+<center>π<sub>Sn</sub>(σ<sub>Sa</sub>≥<sub>20</sub>(S))</center>
+3.我要检索预修课号为C2的课程的课程号。这是查询课程，要在C里面查询。课程号是C#，预修课号是P#，所以，很简单的吧。。
+
+<center>π<sub>C#</sub>(σ<sub>P#</sub>=<sub>C2</sub>(C))</center>
+4.检索课程号为C里面所有成绩是A的学生姓名。这个就稍微复杂一些，学生选课的关系放在SC里面，学生姓名放在S里面，所以查询的位置应该是S⋈SC。课程号为C，成绩为A，两个条件，同时满足，写表达式时要用到且运算。最后写出来是这么个鬼东西：
+
+<center>π<sub>Sn</sub>(σ<sub>C#</sub>=<sub>C∧G</sub>=<sub>A</sub>(S⋈SC))</center>
+
+<p>前面看起来挺懵逼的，其实实际操作起来还是相对容易一些。如果要查询非常多条件的数据，可以分步，然后再合并。</p>
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          打赏
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://shawnzhou.world/2018/08/25/database/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%85%B3%E7%B3%BB%E4%BB%A3%E6%95%B0/" rel="tag">关系代数</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B/" rel="tag">数据模型</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2018/08/29/c-language/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            C语言语法基础
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2018/08/23/software-engineering/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">软件工程基础 学习笔记</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "YolIyMzPHjxT49twQAhzxsQ8-gzGzoHsz",
+    app_key: "Dtrq0zAmtB8CqcKdwVCk7JBn",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2018-2022
+        <i class="ri-heart-fill heart_icon"></i> Shawn Zhou
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        
+        由 <a href="https://hexo.io" target="_blank">Hexo</a> 框架强力驱动
+        <span class="division">|</span>
+        主题 - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></s>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://v1.cnzz.com/z_stat.php?id=1279352967&amp;web_id=1279352967'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/avatar1.png" alt="ShawnZhou的小站"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">图集</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://friends.shawnzhou.world/">友链站</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://dev.shawnzhou.world/">开发站</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://sources.shawnzhou.world/">资源站</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>感谢打赏~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://shawnzhou.world/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://shawnzhou.world/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+
+<script src="/js/clickBoom2.js"></script>
+
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+  </div>
+</body>
+
+</html>

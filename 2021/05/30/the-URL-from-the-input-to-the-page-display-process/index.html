@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="博客,前端博客,JavaScript,html5,css3,html,css,js,acm,noip,橙果工作室,shawnzhou,shawn zhou" />
+   
+  <meta name="description" content="ShawnZhou的小站" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    一文搞懂从输入URL到页面展示全过程 |  ShawnZhou的小站
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+  
+  
+
+  
+
+<link rel="alternate" href="/atom.xml" title="ShawnZhou的小站" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+      <canvas width="1777" height="841"
+        style="position: fixed; left: 0px; top: 0px; z-index: 99999; pointer-events: none;"></canvas>
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-the-URL-from-the-input-to-the-page-display-process"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  一文搞懂从输入URL到页面展示全过程
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/05/30/the-URL-from-the-input-to-the-page-display-process/" class="article-date">
+  <time datetime="2021-05-30T06:19:37.000Z" itemprop="datePublished">2021-05-30</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/">前端开发那些事</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">7.4k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">25 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>前段时间因为各种事情一直在忙，最近总算是告一段落了，学点东西记录一下。</p>
+<p>URL从输入到解析再到展示的全过程是一个非常经典的面试题，也是非常考验一个程序员基本能力的问题，以此为轴，可以串出很多深层次的知识点。</p>
+<p>之前我对这个问题的了解非常浅层次，后来参阅了很多资料之后，感觉是将它整理出来的时候了。它可能不是最细的，但我会尽力完善。</p>
+<p>“从一个网址从浏览器中输入并跳转起，到页面展示在你的屏幕上，这中间发生了什么？”接下来我们就开始一探究竟。</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/20210530145341.jpg"></p>
+<a id="more"></a>
+
+<h2 id="流程概览"><a href="#流程概览" class="headerlink" title="流程概览"></a>流程概览</h2><p>整个解析到显示的过程可以这样简单描述：</p>
+<ul>
+<li>浏览器首先使用HTTP协议或HTTPS协议，向服务端请求页面；</li>
+<li>服务端响应浏览器请求，返回HTML代码等资源；</li>
+<li>浏览器将HTML代码构建为DOM树，计算DOM树上的CSS属性；</li>
+<li>根据CSS属性对元素逐个进行渲染，得到存放于内存中的位图，该步骤中的位图可以进行合成以加快绘制速度；</li>
+<li>将最终合成的结果绘制在页面上。</li>
+</ul>
+<p>概览看起来简单，但其中每个环节展开讲解都会牵扯到很多问题。</p>
+<p>如果用一个稍微复杂点的流程图来描述，那就是这样的：</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/20210530150801.png"></p>
+<p>这个过程需要牵扯到三个进程，浏览器进程、网络进程和渲染进程，它们分别的职责是：</p>
+<ul>
+<li>浏览器进程：主要负责用户交互、子进程管理和文件储存等功能。</li>
+<li>网络进程：面向渲染进程和浏览器进程等提供网络下载功能。</li>
+<li>渲染进程：把从网络下载的 HTML、JavaScript、CSS、图片等资源解析为可以显示和交互的页面。</li>
+</ul>
+<p>也可以将这个图稍微简化一下：</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/20210530151820.png"></p>
+<p>接下来我将过程简单分为三个阶段：<strong>网络阶段</strong>、<strong>构建阶段</strong>、<strong>渲染阶段</strong>三个部分进行描述。</p>
+<h2 id="网络阶段"><a href="#网络阶段" class="headerlink" title="网络阶段"></a>网络阶段</h2><p>网络阶段是指从用户输入起直到获取到HTTP响应报文后的这个阶段，这是整个流程的起点。</p>
+<p>首先用户需要输入URL，当然实际上，用户输入的也不一定是URL，浏览器首先需要判断用户的输入，从而确定用户输入的到底是URL还是一些其他内容。现在很多浏览器的地址栏都会集成一个搜索引擎，用户可以直接在地址栏输入搜索关键词，浏览器则将根据搜索引擎的URL规则生成一个URL并准备发起请求。而当用户输入的是一个准确的URL时，浏览器应当对此URL进行完整性检查，确认格式后再准备发起请求。这一步很容易理解，比如我想访问百度主页，我只需要输入<code>baidu.com</code>，浏览器即可自动帮我将前面的协议名称等内容补全，最终获得一个请求URL为<code>https://www.baidu.com/</code>。而假如浏览器判断用户输入的可能是搜索关键词，则自动根据默认搜索引擎构造URL，比如我在地址栏输入<code>shawnzhou</code>并按回车，我最终请求的URL是<code>https://cn.bing.com/search?q=shawnzhou&amp;PC=U316&amp;FORM=CHROMN</code>。</p>
+<p>此时在浏览器进程上，URL已经构造完毕，可以准备发起请求了。但因为发起请求是网络进程要做的事情，所以这一步还需要通过进程间通信（IPC）将URL传入网络进程，由网络进程负责建立TCP连接并发送HTTP或HTTPS请求。</p>
+<p>在上面那个比较复杂的图中，我们现在的位置是：</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/20210530162345.png"></p>
+<p>网络进程拿到URL之后并不会直接去向外发送请求，它会首先寻找本地缓存中是否有这个URL对应的资源（具体策略请看文末扩展知识），如果有，而且没有比如过期等异常情况，那就不需要再耗费网络资源进行加载了，直接从本地把资源调出来准备渲染即可。这里我们就假设没有缓存，必须要进行请求。</p>
+<p>请求即试图通过网络与互联网上的其他服务器建立通信。每个服务器都有自己的ip地址作为公网上识别自己的名称，但是想要人去记这些毫无规律杂乱无章的ip地址也太费劲了。所以人们通过比如baidu.com这样的域名，使用某个形象的名字去对应某个ip地址（也就是对应某个服务器）。但现在还有一个问题，人能看明白域名的意思，但机器不一定，所以此时需要有个翻译官来帮忙把各种域名翻译成对应的ip地址，这个翻译官就是DNS服务器。</p>
+<p>可是，全世界每天的解析量大到几乎无法估算，只用一台DNS服务器怕不是能给他累到冒烟，而且万一哪天这个服务器挂掉了，那全世界的网络岂不就和瘫痪没什么区别了？所以DNS的需求就决定了它必须是个分布式的。总之，DNS会按照一定的解析顺序对URL进行解析，然后给出目标服务器的IP地址，这个具体的解析策略在文末的扩展知识中。</p>
+<p>拿到服务器的IP地址之后，现在就可以与服务器进行TCP连接了。TCP是在客户端和服务端之间传输数据的桥梁，通过请求-响应的形式进行可靠的传输连接。HTTP请求即是建立在TCP连接之上的，要想建立TCP连接，需要经过一个三次握手的过程，那为什么必须要三次握手而不是两次或者四次？</p>
+<p>实际上，TCP的三次握手是为了做到保证数据的可靠传输和尽可能提高传输效率而规定的。少于三次，则可能会出现信息丢失从而无法保证可靠传输，多于三次，则可以简化为三次。TCP需要seq序列号来做可靠重传或接收，而避免连接复用时无法分辨出 seq 是延迟的或者是旧的 seq，但seq没有绑定到整个网络的全局时钟上，因此无法判断这个包是不是迟到了，所以需要三次握手来约定确定双方的初始 seq 。假如只有两次握手，客户端首先向服务端发起第一次握手，服务端确认后向客户端发起第二次握手，但此时客户端到底是否确认收到是不确定的，这就造成了服务端向客户端发送的数据不一定可靠，同理，一次握手的话更加不可靠了。而如果是四次甚至更多次握手，则会造成确认重复，浪费网络资源。</p>
+<p>OK，走到现在这一步，TCP连接是建立起来了，接下来就是HTTP或HTTPS进行请求的阶段了。这里以HTTP为例，HTTPS多出的步骤放在了扩展知识中。首先浏览器需要构造一个请求，这个请求包含了请求头和请求体，请求头携带了一些配置等信息，请求体可能有也可能没有，里面包含的是请求的具体内容。假如是按照现在常用的RESTful风格的API，它具有很多比如GET，PUT之类的方式，获取的内容一般也不相同，比如需要获得一个html文件或者需要下载一个东西，如何去界定返回的内容到底是什么东西呢？通过在请求头设定<code>Content-type</code>，就可以确定到底是什么类型了。比如需要返回html，则需要<code>text/html</code>，需要下载文件，则需要字节流，则需要<code>application/octet-stream</code>，如果是前后端分离开发需要json格式的数据，则需要<code>application/json</code>。请求头可以写的有很多，根据不同的请求可以携带不同的内容，还可以带cookie。</p>
+<p>浏览器发出请求，服务器接收到请求后根据服务端的业务逻辑执行对应代码，然后构造一个响应并返回。响应也包括响应头和响应体，有一个核心内容是响应状态码，这个在我以前的文章里有写，我附在了扩展知识中。浏览器接收到来自服务端的响应后则开始解析，首先会从响应头开始解析，判断状态码是多少，如果需要重定向，则会读取重定向地址并重新发出HTTP请求，如果响应200，说明成功，则会继续处理本次请求。解析完请求头，可以继续的话，就解析请求体。用户发出 URL 请求到页面开始解析的过程，叫做导航。</p>
+<p>上面这些操作都是在网络进程中完成的，如果要渲染页面，在网络进程读取到这会是一个网页之后，浏览器渲染进程将开始准备，但渲染进程准备好后还不能立即开始解析，因为此时html代码文档还在网络进程，所以网络进程此时需要通过IPC提交文档，由浏览器进程再确定文档确实被提交。具体流程如下：</p>
+<ul>
+<li><p>首先，浏览器进程接收到网络进程的响应头数据，然后向渲染进程发送提交文档的消息；</p>
+</li>
+<li><p>渲染进程接收到提交文档的消息后，会和网络进程建立传输数据的管道，即IPC；</p>
+</li>
+<li><p>管道建立，文档开始传输，传输完成之后，渲染进程会返回确认提交的消息给浏览器进程；</p>
+</li>
+<li><p>浏览器进程在收到确认提交的消息后，会更新浏览器界面状态，包括安全状态、地址栏的 URL、前进后退的历史状态，并渲染HTML然后更新。</p>
+</li>
+</ul>
+<p>这同时也解释了为什么在浏览器的地址栏里面输入了一个地址后，如果加载速度比较慢，之前的页面不会立马消失，而是需要等待加载一会才能把页面内容更新。</p>
+<p>默认情况下，Chrome 会为每个页面分配一个渲染进程，也就是说，每打开一个新页面就会配套创建一个新的渲染进程。</p>
+<p>再来标注一下我们现在的位置：</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/20210530230041.png"></p>
+<p>此时这个流程已经几乎快走完了，最后看起来只剩下了解析DOM树和渲染的过程，但其实，这个过程还是很复杂的。</p>
+<h2 id="构建阶段"><a href="#构建阶段" class="headerlink" title="构建阶段"></a>构建阶段</h2><p>在构建阶段，浏览器已经获得了需要的HTML字节流代码文件，但是不能直接把代码打出来，那样不是网页，可是浏览器也没法自己读代码，这可咋整？有办法，渲染进程在这一步将负责解析获得的字节流，并先构建DOM树。</p>
+<p>在说DOM树之前，先说说DOM的作用吧。从页面视角来看，DOM是生成页面的基础数据结构；从JavaScript视角来看 ，DOM提供给JavaScript操作的API，从安全视角来看，DOM是一道安全线，会在解析阶段将不安全的内容剔除。DOM树即是由各种DOM结点组成的一棵树。在渲染引擎内部，有一个叫做HTML Parser的模块，它的职责就是负责将HTML字节流转化为DOM结构。</p>
+<p>DOM的具体生成流程示意图：</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/20210530235859.png"></p>
+<p>在HTML解析器中，有一个叫做分词器的东西，它将字节流分为很多Token，规定了最小语义单元。分词器对字节流进行处理，将HTML代码拆分为标签和文本，即找出组成HTML页面的单元，然后生成结点，最后将它们组合起来就生成了DOM。上图所示的HTML代码经过分词器区分之后的的结构如下：</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/20210530235618.png"></p>
+<p>好了，现在能够把标签区分开来了，但是要如何区分结点的父子关系呢？毕竟我们要做的是DOM树，既然是树结构那就免不了要讨论结点之间的父子关系，这里采用的是Token栈的方式进行生成，Token栈可以用入栈和退栈操作完成父子关系的计算。</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/20210530235832.png"></p>
+<p>简单描述一下Token栈的算法过程：循环遍历每个Token直到所有的Token都解析完，当遇到开始标签时，将起标签压入Token栈，在DOM树中绘制一个同名结点。在栈中上下相邻的两个Token在绘制时表示为父子关系，栈中靠顶为子，靠底为父。如果遇到文本结点，则会直接将它绘制到DOM中，但不会压入Token栈。当遇到结束标签时，栈顶弹出，代表此结点的内容已经放入DOM。</p>
+<p>到了现在这个阶段，我们已经拿到DOM树结构了，实际上，DOM树结构此时还是一个对象，它还不能直接展示在页面上，此时还缺少CSS的加持，有了样式之后，就可以进行渲染了。要加入样式，则需要计算一个叫做CSSOM的东西，它判断每个DOM结点都有哪些CSS参与了修饰。对于CSSOM的介绍，我放在了扩展知识里。</p>
+<p>拿到的CSS样式表首先需要过一次标准化，即将属性值统一，比如rem转化为px，color写颜色名的转化为RGB值，同时还需要考虑CSS的继承，层叠等概念，比较复杂。但这时候的CSS代码还是不能被浏览器识别的，需要一步转化，将CSS样式转化成<code>document.styleSheets</code>，这里我们可以先暂时把这些算好的属性叫做<code>ComputedStyle</code>，即计算样式。现在有了DOM树，有了CSSOM，接下来就是将它们结合起来，生成布局树的步骤了。</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/20210531003655.png"></p>
+<p>创建布局树时，需要将DOM树和计算样式结合起来，流程如下：</p>
+<ul>
+<li>对DOM树进行剔除操作，也就是剔除掉比如head这种不可见的结点，它们不需要被渲染。</li>
+<li>查看<code>ComputedStyle</code>中的结点，判断是否带有如<code>display: none</code>这样的令其不可见属性，这样的不可见结点也不会放在布局树中。</li>
+<li>最终将留下来的结点的DOM和CSSOM结合起来，生成布局树。</li>
+</ul>
+<p>题外话：要是因为JS或者其他原因，导致布局需要随时变动，如何优化性能？这里有重绘和重排两个概念，我在扩展知识中说明了这一部分。</p>
+<p>总之现在是有了布局树，下面该准备将它渲染了。</p>
+<h2 id="渲染阶段"><a href="#渲染阶段" class="headerlink" title="渲染阶段"></a>渲染阶段</h2><p>渲染是什么？将页面布局显示在屏幕上就是渲染。说到屏幕就不得不先提一些它的相关知识。</p>
+<p>每个显示器都有其固定的刷新频率，比如60Hz的普通屏幕，144Hz，240Hz的高刷新率屏幕。那这个单位Hz到底代表什么？它是频率的单位，代表每秒钟的周期性变动的重复次数，也就是说，一块60Hz的屏幕每秒钟刷新60次，再通俗点说，刷新频率就是屏幕每秒画面被刷新的次数，表示每秒钟显示屏上的“图片”被重新绘制了多少次。</p>
+<p>我们知道，显卡是负责图形计算和图形输出的硬件，显卡中有个部分叫做前缓冲区，它负责将计算好的画面输出到屏幕，如果刷新率为60Hz，则每秒钟内，显示器从前缓冲区读取60张合成的图像，然后输出到屏幕上。显卡合成的图像会临时保存在后缓冲区，当前缓冲区的图像已经被输送走的时候，后缓冲区的图像将被立即送入前缓冲区，等待下一次显示，而后面输出的图像又会放在后缓冲区待命，这样循环往复，便实现了屏幕图像的刷新。</p>
+<p>还有一个概念叫做帧和帧率，它一般出现于使用动画时，比如滑动，缩放等，一般的网页刷新帧率是60帧/秒，也就是渲染引擎每秒要输送60张计算好的图片发送到显卡的后缓冲区，有时候会感觉到页面卡到掉帧，也就是说帧率出现了下降，即渲染引擎的计算量增大，每秒钟没办法输送正好60张图片，这就会导致帧率下降。比如60Hz的屏幕，代表1000ms内刷新60次，所以每次计算的时间限制大约只有16.67ms，如果某个组件在16.67ms内无法计算完成，则帧率就会下降，计算时间越长下降越多。当帧率下降严重时，你就会感觉到卡。这启示我们，生成布局树时应当让DOM尽量少，尽量少触发重排和重绘，这样就会提升显示性能。</p>
+<p>这样，一次从URL输入到加载的全过程就算说完啦~呼，好久没有写过长文了，偶尔记录记录还是很有成就感的。</p>
+<h2 id="扩展知识"><a href="#扩展知识" class="headerlink" title="扩展知识"></a>扩展知识</h2><h3 id="网络与通信相关"><a href="#网络与通信相关" class="headerlink" title="网络与通信相关"></a>网络与通信相关</h3><ul>
+<li>HTTP标准</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc2616">https://tools.ietf.org/html/rfc2616</a></p>
+<p><a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc7234">https://tools.ietf.org/html/rfc7234</a></p>
+<p><a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc2818">https://tools.ietf.org/html/rfc2818</a></p>
+<p><a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc7540">https://tools.ietf.org/html/rfc7540</a></p>
+<ul>
+<li>HTTP请求类型</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/http/http-methods.html">https://www.runoob.com/http/http-methods.html</a></p>
+<ul>
+<li>HTTP请求状态码</li>
+</ul>
+<p><a href="https://shawnzhou.world/2021/04/07/HTTP-status-code/">https://shawnzhou.world/2021/04/07/HTTP-status-code/</a></p>
+<ul>
+<li>OSI七层模型</li>
+</ul>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/20210531014011.png"></p>
+<ul>
+<li>IPC示意图：</li>
+</ul>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/20210530162723.png" alt="image-20210530162723558"></p>
+<h3 id="浏览器缓存策略"><a href="#浏览器缓存策略" class="headerlink" title="浏览器缓存策略"></a>浏览器缓存策略</h3><p>详情参阅<a target="_blank" rel="noopener" href="https://www.jiqizhixin.com/articles/2020-07-24-12">https://www.jiqizhixin.com/articles/2020-07-24-12</a></p>
+<p>缓存是一种请求资源的副本，可以存储各种URL请求要用到的东西，比如HTML，CSS，JS代码，以及图片，视频，数据等资源。缓存会根据进来的请求保存输出内容的副本；当下一个请求来到的时候，如果是相同的 URL，缓存会根据缓存机制决定是直接使用副本响应访问请求，还是向源服务器再次发送请求。</p>
+<p>本地和Web服务器都可以拥有缓存。使用缓存可以减少网络延迟，加快页面加载速度，减少带宽消耗和服务器压力。缓存的规则有新鲜度（过期机制判断是否陈旧）和校验值（验证机制判断是否修改），缓存分为强缓存（本地缓存）和协商缓存（弱缓存）。</p>
+<p>在网络进程根据URL判断缓存是否存在时，会首先查看强缓存，如果命中则直接获取。如果未命中，则进入协商缓存阶段，此时将向浏览器发出请求判断是否命中，如果协商缓存命中，服务器会返回304，不带任何响应实体，此时可以从浏览器（客户端）中使用缓存。假如协商缓存也没有命中，则直接从服务器加载全部资源。</p>
+<blockquote>
+<p>304 Not Modified 表示资源已找到，但是并不符合条件中的要求，此时服务器端资源并未改变，可以直接使用客户端未过期的缓存。</p>
+</blockquote>
+<h3 id="DNS解析策略"><a href="#DNS解析策略" class="headerlink" title="DNS解析策略"></a>DNS解析策略</h3><p>感谢工作室一位对计算机网络了如指掌的学长给我的耐心讲解Orz</p>
+<p>就目前来说，一次DNS解析的顺序是如下面这样：</p>
+<ul>
+<li>首先寻找本地DNS缓存（包括浏览器缓存，系统缓存，路由器缓存），假如缓存不过期，合法，且命中，则直接从缓存拿出解析结果，这是最快的。</li>
+<li>如果缓存里没有，则会去寻找操作系统设定的hosts文件，如果在hosts文件里面有解析结果，则直接拿走结果，这个速度也很快。</li>
+<li>如果hosts里面也没有，那就去看看本地DNS服务器里有没有记录。本地DNS服务器一般都是由DHCP自动分配，当然也有特殊情况下需要手动分配的，比如需要在某个内网环境中过滤掉一些域名，那就需要搭建本地DNS服务器并自定义解析策略。</li>
+<li>如果上面这些都没有，那只能说明本地就彻底没有这个解析了。此时解析会向ISP-DNS缓存（互联网运营商提供）中查看有没有这个记录，有则返回这个记录，到这一步的解析其实可能会有点需要时间了，但这里能解析的域名也就是国内的绝大多数域名了，国内网站几乎没有到这一步还找不到记录的。</li>
+<li>假如你要访问的确实就是国内找不到的，那就还会继续向外延伸。解析会根据根域名服务器→顶级域名服务器→主域名服务器的顺序依次进行，直到找到记录后返回。</li>
+<li>到上一步还是找不到？你是不是域名写错了…</li>
+</ul>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/20210530213359.png"></p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/20210530213649.png"></p>
+<h3 id="TCP的三次握手和四次挥手"><a href="#TCP的三次握手和四次挥手" class="headerlink" title="TCP的三次握手和四次挥手"></a>TCP的三次握手和四次挥手</h3><p>详情参阅<a target="_blank" rel="noopener" href="https://www.cnblogs.com/davina123/p/12978114.html">https://www.cnblogs.com/davina123/p/12978114.html</a></p>
+<p>TCP的三次握手如下：</p>
+<ul>
+<li>第一次握手：建立连接时，客户端发送syn包（syn=x）到服务器，并进入SYN_SENT（Synchronize Sequence Numbers）状态，等待服务器确认；</li>
+<li>第二次握手：服务器收到syn包，必须确认客户的SYN（ack=x+1），同时自己也发送一个SYN包（syn=y），即SYN+ACK包，此时服务器进入SYN_RECV状态；</li>
+<li>第三次握手：客户端收到服务器的SYN+ACK包，向服务器发送确认包ACK(ack=y+1），此包发送完毕，客户端和服务器进入ESTABLISHED（TCP连接成功）状态，完成三次握手。</li>
+</ul>
+<p>借用一张网上的图解释一下三次握手，上面的漫画形象来自《图解HTTP》，这本书很不错，推荐买来一读。</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/20210530221625.png"></p>
+<p>完成三次握手之后，TCP连接成功建立。</p>
+<p>TCP的四次挥手如下：</p>
+<ul>
+<li><p>第一次挥手： 首先从客户端开始发出连接释放报文，并且停止发送数据，这客户端进入到终止等待1状态。</p>
+</li>
+<li><p>第二次挥手：从服务器到客户端 。服务器收到连接释放报文，发出确认报文且带上自己的序列号，这时服务器端进入了关闭等待状态。这时TCP服务器要通知高层的应用进程，客户端向服务器释放，这时服务器处于半关闭状态。如果服务器还有数据要发送，客户端依然要接受。这个状态还要持续一段时间，也就是整个CLOSE-WAIT状态持续的时间。客户端收到服务器的确认请求后，此时，客户端就进入FIN-WAIT-2状态，等待服务器发送连接释放报文（在这之前还需要接受服务器发送的最后的数据</p>
+</li>
+<li><p>第三次挥手：服务器将最后的数据发送完毕后，就向客户端发送连接释放报文，由于在半关闭状态，服务器很可能又发送了一些数据，服务器就进入了最后确认状态，等待客户端的确认。</p>
+</li>
+<li><p>第四次挥手：客户端收到服务器释放报文后，发出确认此时，客户端就进入了时间等待状态。因为此时TCP连接还没有释放，必须经过一段时间2∗MSL（最长报文段寿命），因为网络是不可靠的，有可以最后一个ACK丢失。所以时间状态就是用来重发可能丢失的ACK报文的。当客户端撤销相应的TCB后，才进入CLOSED状态。</p>
+</li>
+</ul>
+<p>服务器只要收到了客户端发出的确认，立即进入CLOSED状态。同样，撤销TCB后，就结束了这次的TCP连接。服务器结束TCP连接的时间要比客户端早一些。所以我们可以看到当服务器端收到客户端的SYN连接请求报文后，可以直接的发送请求连接和确认连接，但在关闭的时候，服务器收么到关闭信息后，很可能不会立即关闭，它需要时间来反应，只能先回复一个确认，只有当服务器端所有的报文都发送完后，服务器端才能发送希望断开连接。所以需要挥手需要四步来完成。</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/20210530222248.png" alt="img"></p>
+<h3 id="浏览器如何处理HTTPS协议"><a href="#浏览器如何处理HTTPS协议" class="headerlink" title="浏览器如何处理HTTPS协议"></a>浏览器如何处理HTTPS协议</h3><p>详情参阅<a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000012196642">https://segmentfault.com/a/1190000012196642</a>与<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/ecbae815baf2">https://www.jianshu.com/p/ecbae815baf2</a></p>
+<p>HTTPS是一种安全的，加密的协议，由于HTTP协议使用明文，有被窃听，伪装，篡改的可能性，它并不适合安全传输，使用HTTPS则可以解决这个问题。</p>
+<p>HTTP加上加密处理、认证机制、以及完整性保护后的就是HTTPS。</p>
+<p>需要知道的是，HTTPS并非是应用层的一种新的协议。只是HTTP通信接口部分用SSL或TLS协议代替而已。也就是说，所谓的HTTPS，其实就是身披SSL协议外壳的HTTP。HTTPS中使用了SSL和TLS这两个协议，TLS是以SSL为原型开发的协议，有时候会统称该协议为SSL。HTTPS在加密过程中使用了非对称加密技术和对称加密技术，公钥加密后的密文只能通过对应的私钥来解密，而私钥加密的密文却可以通过对应的公钥来解密，使用证书保证公钥的正确性，非对称加密算法加密的是证书的数字签名。</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/20210530231645.webp" alt="img"></p>
+<h3 id="CSSOM"><a href="#CSSOM" class="headerlink" title="CSSOM"></a>CSSOM</h3><p>详情参阅<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/23569241">https://zhuanlan.zhihu.com/p/23569241</a>和<a target="_blank" rel="noopener" href="https://www.cnblogs.com/mcad/p/10753212.html">https://www.cnblogs.com/mcad/p/10753212.html</a></p>
+<p>CSSOM 是 CSS 的对象模型，在 W3C 标准中，它包含两个部分：</p>
+<ul>
+<li>描述样式表和规则等 CSS 的模型部分（CSSOM）</li>
+<li>跟元素视图相关的 View 部分（CSSOM View）</li>
+</ul>
+<p>最后渲染出CSSOM树大概是这个样子：</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/20210531002914.png" alt="img"></p>
+<h3 id="重绘和重排"><a href="#重绘和重排" class="headerlink" title="重绘和重排"></a>重绘和重排</h3><p>详情参阅<a target="_blank" rel="noopener" href="https://www.cnblogs.com/cencenyue/p/7646718.html">https://www.cnblogs.com/cencenyue/p/7646718.html</a>和<a href="cnblogs.com/yadongliang/p/10677589.html">cnblogs.com/yadongliang/p/10677589.html</a></p>
+<p>重绘是指一个元素外观的改变所触发的浏览器行为，浏览器会根据元素的新属性重新绘制，使元素呈现新的外观。触发重绘的条件是改变元素的外观属性，比如字体颜色和背景颜色。重排又称回流，当渲染树中的一部分或全部，因为元素的规模尺寸，布局，隐藏等改变而需要重新构建时，就称为回流。每个页面至少需要一次回流，就是在页面第一次加载的时候。</p>
+<p>重绘和重排的关系：在回流的时候，浏览器会使渲染树中受到影响的部分失效，并重新构造这部分渲染树，完成回流后，浏览器会重新绘制受影响的部分到屏幕中，该过程称为重绘。所以，重排必定会引发重绘，但重绘不一定会引发重排。</p>
+<p>重绘和重排会导致性能下降，浏览器本身带有一个优化策略：浏览器会维护一个队列，把所有会引起重排，重绘的操作放入这个队列，等队列中的操作到一定数量或者到了一定时间间隔，浏览器就会flush队列，进行一批处理，这样多次重排，重绘变成一次重排重绘。</p>
+<p>减少重绘和重排的操作有以下方法：</p>
+<ul>
+<li>不要一条一条地修改 DOM 的样式。可以先定义好 css 的 class，然后修改 DOM 的 className。</li>
+<li>不要把 DOM 结点的属性值放在一个循环里当成循环里的变量。</li>
+<li>为动画的 HTML 元件使用 fixed 或 absoult 的 position，那么修改他们的 CSS 是不会 reflow 的。</li>
+<li>不要使用 table 布局。因为可能很小的一个小改动会造成整个 table 的重新布局。（table及其内部元素除外，它可能需要多次计算才能确定好其在渲染树中节点的属性，通常要花3倍于同等元素的时间。这也是为什么要避免使用table做布局的一个原因)</li>
+<li>不要在布局信息改变的时候做查询（会导致渲染队列强制刷新）</li>
+<li>不要经常访问浏览器的flush队列属性；如果一定要访问，可以利用缓存。将访问的值存储起来，接下来使用就不会再引发回流</li>
+<li>先设置元素为display：none然后进行页面布局等操作；设置完成后将元素设置为display：block这样的话就只引发两次重绘和重排</li>
+<li>将需要多次重排的元素，position属性设为absolute或fixed，元素脱离了文档流，它的变化不会影响到其他元素</li>
+</ul>
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          打赏
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://shawnzhou.world/2021/05/30/the-URL-from-the-input-to-the-page-display-process/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2021/07/25/javascript-proxy/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            JavaScript ES6 Proxy学习笔记
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2021/05/06/css-flex-layout/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">CSS flex布局学习笔记</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "YolIyMzPHjxT49twQAhzxsQ8-gzGzoHsz",
+    app_key: "Dtrq0zAmtB8CqcKdwVCk7JBn",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2018-2022
+        <i class="ri-heart-fill heart_icon"></i> Shawn Zhou
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        
+        由 <a href="https://hexo.io" target="_blank">Hexo</a> 框架强力驱动
+        <span class="division">|</span>
+        主题 - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></s>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://v1.cnzz.com/z_stat.php?id=1279352967&amp;web_id=1279352967'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/avatar1.png" alt="ShawnZhou的小站"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">图集</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://friends.shawnzhou.world/">友链站</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://dev.shawnzhou.world/">开发站</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://sources.shawnzhou.world/">资源站</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>感谢打赏~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://shawnzhou.world/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://shawnzhou.world/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+
+<script src="/js/clickBoom2.js"></script>
+
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+  </div>
+</body>
+
+</html>

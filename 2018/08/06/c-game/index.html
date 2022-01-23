@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="博客,前端博客,JavaScript,html5,css3,html,css,js,acm,noip,橙果工作室,shawnzhou,shawn zhou" />
+   
+  <meta name="description" content="ShawnZhou的小站" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    控制台小游戏集锦 |  ShawnZhou的小站
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+  
+  
+
+  
+
+<link rel="alternate" href="/atom.xml" title="ShawnZhou的小站" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+      <canvas width="1777" height="841"
+        style="position: fixed; left: 0px; top: 0px; z-index: 99999; pointer-events: none;"></canvas>
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-c-game"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  控制台小游戏集锦
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2018/08/06/c-game/" class="article-date">
+  <time datetime="2018-08-06T05:15:09.000Z" itemprop="datePublished">2018-08-06</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/C%E8%AF%AD%E8%A8%80%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/">C语言游戏开发</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">9.8k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">43 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>这里收集了我初次接触C语言游戏开发时的学习笔记，该部分内容是曾在2018年发布的。</p>
+<p>当前博客显示的发布时间非真实时间，而是这些内容在当时发布时的最后发布时间。</p>
+<p><img src="https://i.loli.net/2018/08/10/5b6d26f421718.png"></p>
+<a id="more"></a>
+
+<h2 id="实现一个简易的反弹球游戏"><a href="#实现一个简易的反弹球游戏" class="headerlink" title="实现一个简易的反弹球游戏"></a>实现一个简易的反弹球游戏</h2><h3 id="屏幕坐标"><a href="#屏幕坐标" class="headerlink" title="屏幕坐标"></a>屏幕坐标</h3><p><img src="https://i.loli.net/2018/08/08/5b6ad9113c956.png"></p>
+<p>我们要让一个小球在一个给定的平面上弹跳，第一步是什么？</p>
+<p>当然是要创造一个平面啊……在控制台上，这个平面的“建立”就可以由一个二重for循环来完成。两个循环变量i和j，走到哪个地方，这里的“坐标”就可以由相应的i，j的值来代替。看一下这张图片，相信您就能大致的明白小球的坐标应该如何表示了。</p>
+<p>可能有人会问，我们要坐标干什么？其实，小球在平面上的移动，本质上是小球坐标的改变，我们只需要改变小球的坐标，就可以改变小球的位置。</p>
+<p>这个所谓的“坐标系”，严格来说并不可以称之为坐标系，只能说它可以方便我们描述物体在屏幕上的位置。</p>
+<p>思考：坐标原点在哪？</p>
+<h3 id="打印一个静止的小球"><a href="#打印一个静止的小球" class="headerlink" title="打印一个静止的小球"></a>打印一个静止的小球</h3><p>我们使用printf()函数打印小球，利用for循环找到小球的位置。</p>
+<p>下面给出一个简单的代码示例：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;  </span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> x = <span class="number">15</span>;  </span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> y = <span class="number">20</span>;  </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; x; i++)  </span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);  </span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; y; j++)  </span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot; &quot;</span>);  </span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;O\n&quot;</span>);  </span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+
+<p>把它改成一个二重循环也可以，但是要通过if else来换行，不如这样实现的简洁一些。执行程序，发现在一个大黑框中出现了一个静止的小球（字母O），就算大功告成。更改x和y的值，就可以改变小球的位置。</p>
+<p>当然，如果使用二维数组会让更简单。想一想，怎么做？</p>
+<h3 id="让小球动起来"><a href="#让小球动起来" class="headerlink" title="让小球动起来"></a>让小球动起来</h3><p>我们已经有了一个静止的小球，现在我们要尝试让这个球上下弹跳。</p>
+<p>（暂时不考虑落体和弹跳的物理规律）<br>先来考虑一下，要让小球一直不停地跳，要怎么办？使用for循环只能显示小球静止，那要让小球动起来，要怎么办？</p>
+<p>一个显然的想法是一直不停地使用for循环。可以在打印的for循环之外再加一层管理“时间”的循环。可是那样的程序小球也只能跳动一定时间。</p>
+<p>想让小球一直跳动，外面得加一层“死循环”——while(1)。</p>
+<p>与此同时，需要注意的是，使用for循环打印换行符或者空格后，那些位置已经有字符存在了，如果直接去打印下一帧的小球肯定是不行的，此时我们需要一个清除屏幕的操作，只需要把以前打印的符号全部删除，然后重新画就可以了。</p>
+<p>放心，电脑运行速度很快。这个操作听起来麻烦，但是电脑却可以在几乎一瞬间完成。可以使用位于stdlib.h里的system函数来清屏，只需调用system(“cls”);即可。</p>
+<p>好，下面解决最主要的问题，处理下落，上升和碰撞。</p>
+<p>我们先考虑单独处理下落。由坐标变化可以得知，下落的本质是x坐标的增加（想一想，为什么）。那么在外层管理“时间”的循环只需要写成管理x的循环就可以啦，每次循环x都要增加，小球看起来就像是“下落的”。</p>
+<p>hint：只需要将上一份示例代码的打印部分外面套一层x递增的循环，然后在里面调用一下清屏函数就可以了。</p>
+<p>下面，我们要让小球在这个平面的一条直线上来回运动。既然考虑到碰撞，碰撞所需要的边界就是我们需要考虑的问题。需要设置一个“地板”和一个“天花板”，也就是下界和上界。这一点很好实现，设置好常量即可。</p>
+<p>再来想下一个问题，如何处理碰撞？我们不考虑现实的物理规律，只需要知道，当球碰到地板或者天花板时，速度的方向应该和原来的方向相反，大小是不需要改变的。（实际碰撞并非如此，我们只是简化了一下）</p>
+<p>这里牵扯到了速度，我们设速度为v就好。  </p>
+<p>那么，坐标的变化，就可以由一个公式来表达。  </p>
+<p>设原来的x坐标是x __ old，该时刻变化后的坐标是x __ new，那么有：  </p>
+<p><em>x __ new = x __ old + v</em></p>
+<p>可能有人会说，这个公式是错误的。为什么？你怎么能直接把坐标和速度相加呢？实际上，这里的“速度”是已经“乘”上了“时间”的。换句话说，这里的v虽然我们设成了“速度”，但它实际上表示的是坐标的改变量，也算作是坐标。这个公式是在死循环下使用的，也就是说每执行一次循环都会使用一次这个公式，这样x就可以不断改变了。</p>
+<p>但是，v并不是保持不变的。当小球触碰天花板或地板时，根据我们简化的碰撞规律，速度要变为反向。那么如何体现速度为反向呢？学过高中物理的同学应该知道，速度是一个矢量，它既有大小又有方向。表示速度时所带的正负号不参与比较大小，只代表速度的方向是与给定的正方向相同还是相反。所以，要让速度反向，取一个相反数就好啦。</p>
+<p>下面给出一个简单的代码示例：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Top 20  </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Bottom 0  </span></span><br><span class="line"><span class="keyword">int</span> x = <span class="number">5</span>;										<span class="comment">//这里就不能加const了  </span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> y = <span class="number">10</span>;  </span><br><span class="line"><span class="keyword">int</span> v = <span class="number">1</span>;  </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">	<span class="keyword">while</span> (<span class="number">1</span>) &#123;  </span><br><span class="line">		x = x + v;  </span><br><span class="line">		system(<span class="string">&quot;cls&quot;</span>);  </span><br><span class="line">  </span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; x; i++)  </span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);  </span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; y; j++)  </span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot; &quot;</span>);  </span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;O\n&quot;</span>);  </span><br><span class="line">  </span><br><span class="line">		<span class="keyword">if</span> (x == Top || x == Bottom)  </span><br><span class="line">			v = -v;  </span><br><span class="line">  </span><br><span class="line">	&#125;  </span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+
+<p>运行该程序，会发现有一个小球以超级快的速度上下运动。如果想让它慢下来，可以使用Sleep()函数。这个函数可以让程序在执行至某位置时暂停一定时间，该时间由函数的参数决定，参数的单位是毫秒。这个函数在windows.h里，使用函数时不要忘了#include &lt;windows.h&gt;。</p>
+<h3 id="斜向弹跳"><a href="#斜向弹跳" class="headerlink" title="斜向弹跳"></a>斜向弹跳</h3><p>其实和在一条直线上来回弹跳是一样的，把上下的速度设为vx，左右的速度设为vy就可以。实现方式和上文所述完全相同。设定边界的时候除了Top和Bottom外还要加上左边和右边的“墙”——Left和Right。</p>
+<h3 id="绘制边框和添加撞击音效"><a href="#绘制边框和添加撞击音效" class="headerlink" title="绘制边框和添加撞击音效"></a>绘制边框和添加撞击音效</h3><p>绘制边框在打印换行时一并完成。此时打印部分需要做少许修改。</p>
+<p>我们不能只打印到球为止，而是应该要把整个画布打印出来。所以此时需要二重循环+if判断再输出的结构。</p>
+<p>我们来看一下代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;windows.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Top 20  </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Bottom 0  </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Left 0  </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Right 30  </span></span><br><span class="line"><span class="keyword">int</span> x = <span class="number">5</span>;									  </span><br><span class="line"><span class="keyword">int</span> y = <span class="number">10</span>;  </span><br><span class="line"><span class="keyword">int</span> vx = <span class="number">1</span>;  </span><br><span class="line"><span class="keyword">int</span> vy = <span class="number">1</span>;  </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">	<span class="keyword">while</span> (<span class="number">1</span>) &#123;  </span><br><span class="line">		x = x + vx;  </span><br><span class="line">		y = y + vy;  </span><br><span class="line">		system(<span class="string">&quot;cls&quot;</span>);  </span><br><span class="line">  </span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = Bottom; i &lt; Top; i++) &#123;  </span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = Left; j &lt; Right; j++) &#123;  </span><br><span class="line">				<span class="keyword">if</span> ((i == Bottom) || (i == Top - <span class="number">1</span>))  </span><br><span class="line">					<span class="built_in">printf</span>(<span class="string">&quot;-&quot;</span>);  </span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span> ((j == Left) || (j == Right - <span class="number">1</span>))  </span><br><span class="line">					<span class="built_in">printf</span>(<span class="string">&quot;|&quot;</span>);  </span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span> ((i == x) &amp;&amp; (j == y))  </span><br><span class="line">					<span class="built_in">printf</span>(<span class="string">&quot;O&quot;</span>);  </span><br><span class="line">				<span class="keyword">else</span>  </span><br><span class="line">					<span class="built_in">printf</span>(<span class="string">&quot; &quot;</span>);				  </span><br><span class="line">                    <span class="comment">//没有东西的地方一定要打印空格,不能什么也不做,这点一定注意  </span></span><br><span class="line">			&#125;  </span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);  </span><br><span class="line">		&#125;  </span><br><span class="line">  </span><br><span class="line">		<span class="keyword">if</span> (x == Top - <span class="number">1</span> || x == Bottom + <span class="number">1</span>)  </span><br><span class="line">			vx = -vx;  </span><br><span class="line">		<span class="keyword">if</span> (y == Left + <span class="number">1</span> || y == Right - <span class="number">1</span>)  </span><br><span class="line">			vy = -vy;  </span><br><span class="line">  </span><br><span class="line">		Sleep(<span class="number">100</span>);  </span><br><span class="line">	&#125;  </span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+
+<p>可以看出，在打印部分使用了if<br>else结构来判断到某个位置应该打印什么。有个比较细节的地方需要说一下。在打印后的碰撞检测里，我们检测的边界不再是Top、Bottom、Left、Right，而是Top + 1、Bottom + 1、Left + 1、Right -1，这是为什么呢？很简单，本来要检测的边界变成了边框，小球的活动范围就缩小了一圈，不然会出现小球进墙的bug。</p>
+<p>碰撞音效？其实就是printf(“\a”)啦。在碰撞检测成功后，变换速度的同时加一句这个就可以啦。这其实是系统的提示声，如果想播放其他声音……emmmm后续会说到的。</p>
+<h2 id="实现一个简易的打砖块游戏"><a href="#实现一个简易的打砖块游戏" class="headerlink" title="实现一个简易的打砖块游戏"></a>实现一个简易的打砖块游戏</h2><h3 id="代码重构"><a href="#代码重构" class="headerlink" title="代码重构"></a>代码重构</h3><p>接着昨天的反弹球继续写。运用昨天的反弹球可以写出例如flappy bird，打砖块等游戏的核心部分。</p>
+<p>为了方便我们的开发，程序中的各个部分通常要用函数进行封装，这样会使各种功能模块化，方便我们日后的调试和维护。</p>
+<p>这里给出一个书上的最初的简易游戏框架。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;  </span><br><span class="line">	startup();  </span><br><span class="line">	<span class="keyword">while</span> (<span class="number">1</span>)&#123;  </span><br><span class="line">		show();  </span><br><span class="line">		updateWithInput();  </span><br><span class="line">		updateWithoutInput();  </span><br><span class="line">	&#125;  </span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+
+<p>解释一下那几个函数所需要包含的功能。</p>
+<p>startup：游戏数据初始化</p>
+<p>show：显示游戏画面</p>
+<p>updateWithInput：和用户输入有关的游戏更新</p>
+<p>updateWithoutInput：和用户输入无关的游戏更新</p>
+<p>以后的程序我尽量都会按照这样的结构进行代码编写，这只是一个最基础的框架，随着游戏变得更复杂，游戏所需要的函数就会变得更多。</p>
+<p>好，那么让我们把昨天的框架弹球程序按照这个结构重构一下。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;windows.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Top 20  </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Bottom 0  </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Left 0  </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Right 30  </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> x,y,vx,vy;  </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">startup</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">	x = <span class="number">5</span>;  </span><br><span class="line">	y = <span class="number">10</span>;  </span><br><span class="line">	vx = <span class="number">1</span>;  </span><br><span class="line">	vy = <span class="number">1</span>;  </span><br><span class="line">&#125;   </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">    system(<span class="string">&quot;cls&quot;</span>);  </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = Bottom; i &lt; Top; i++) &#123;  </span><br><span class="line">    	<span class="keyword">for</span> (<span class="keyword">int</span> j = Left; j &lt; Right; j++) &#123;  </span><br><span class="line">    		<span class="keyword">if</span> ((i == Bottom) || (i == Top - <span class="number">1</span>))  </span><br><span class="line">    			<span class="built_in">printf</span>(<span class="string">&quot;-&quot;</span>);  </span><br><span class="line">    		<span class="keyword">else</span> <span class="keyword">if</span> ((j == Left) || (j == Right - <span class="number">1</span>))  </span><br><span class="line">    			<span class="built_in">printf</span>(<span class="string">&quot;|&quot;</span>);  </span><br><span class="line">    		<span class="keyword">else</span> <span class="keyword">if</span> ((i == x) &amp;&amp; (j == y))  </span><br><span class="line">   				<span class="built_in">printf</span>(<span class="string">&quot;O&quot;</span>);  </span><br><span class="line">   		 	<span class="keyword">else</span>  </span><br><span class="line">    			<span class="built_in">printf</span>(<span class="string">&quot; &quot;</span>);			  </span><br><span class="line">    	&#125;  </span><br><span class="line">    	<span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">updateWithInput</span><span class="params">()</span> </span>&#123;   <span class="comment">//该程序不需要用户进行输入，所以该函数是空的，但是不可以删去   </span></span><br><span class="line"></span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">updateWithoutInput</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">x = x + vx;  </span><br><span class="line">y = y + vy;  </span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (x == Top - <span class="number">1</span> || x == Bottom + <span class="number">1</span>)  </span><br><span class="line">vx = -vx;  </span><br><span class="line"><span class="keyword">if</span> (y == Left + <span class="number">1</span> || y == Right - <span class="number">1</span>)  </span><br><span class="line">vy = -vy;  </span><br><span class="line"></span><br><span class="line">Sleep(<span class="number">100</span>);  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">	startup();  </span><br><span class="line">	<span class="keyword">while</span> (<span class="number">1</span>) &#123;  </span><br><span class="line">		show();  </span><br><span class="line">		updateWithInput();  </span><br><span class="line">		updateWithoutInput();  </span><br><span class="line">	&#125;  </span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+
+<p>重构完成。不过该程序在显示方面有一个很明显的缺陷：闪屏现象严重，并且伴随光标胡乱跳动。这是由于system(“cls”)的性能较差导致的。现在来介绍一个新的清屏函数。这里面牵扯到一个叫句柄的东西，不理解的话只需要记住这个函数能干什么就好。下面给出实现方式。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">gotoxy</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;  </span><br><span class="line">	HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);  </span><br><span class="line">	COORD pos;  </span><br><span class="line">	pos.X = x;  </span><br><span class="line">	pos.Y = y;  </span><br><span class="line">	SetConsoleCursorPosition(handle, pos);  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+
+<p>然后把system(“cls”)替换为gotoxy(0,0)就可以了。</p>
+<p>下面我们来解决光标的问题。可以自定义一个HideCursor()函数进行解决。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">HideCursor</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">	CONSOLE_CURSOR_INFO cursor_info = &#123; <span class="number">1</span>,<span class="number">0</span> &#125;;  </span><br><span class="line">	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &amp;cursor_info);  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+
+<p>这个函数只需要调用一次，放在while(1)之前就可以。</p>
+<h3 id="添加挡板"><a href="#添加挡板" class="headerlink" title="添加挡板"></a>添加挡板</h3><p>既然是打砖块游戏，接砖块的挡板自然是必不可少的。对于一个挡板，我们需要两个参数（其实是三个）来进行决定。一个是挡板的中心坐标，另一个是挡板左右延伸的长度。此外，还需要两个辅助变量来记录挡板左右端点的位置，方便我们进行打印和后续的接球判定。</p>
+<p>（实际上，以左端起始，再加一个长度参数也可以，只要能正确表示出一个挡板就可以）</p>
+<p>我们在上一篇文章的代码基础上修改三个函数。此外，再添加一些全局变量。</p>
+<p>全局变量部分：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> ball_x, ball_y;  </span><br><span class="line"><span class="keyword">int</span> ball_vx, ball_vy;  </span><br><span class="line"><span class="keyword">int</span> pos_x, pos_y;  </span><br><span class="line"><span class="keyword">int</span> ridus;  </span><br><span class="line"><span class="keyword">int</span> pos_left, pos_right;  </span><br></pre></td></tr></table></figure>
+
+<p>初始化：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">startup</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">	ball_x = Top - <span class="number">3</span>;  </span><br><span class="line">	ball_y = Right / <span class="number">2</span>;  </span><br><span class="line">	ball_vx = <span class="number">1</span>;  </span><br><span class="line">	ball_vy = <span class="number">1</span>;  </span><br><span class="line">	ridus = <span class="number">5</span>;  </span><br><span class="line">	pos_x = Top - <span class="number">2</span>;  </span><br><span class="line">	pos_y = Right / <span class="number">2</span>;  </span><br><span class="line">	pos_left = pos_y - ridus;  </span><br><span class="line">	pos_right = pos_y + ridus;  </span><br><span class="line">  </span><br><span class="line">&#125;   </span><br></pre></td></tr></table></figure>
+
+<p>显示函数：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">	gotoxy(<span class="number">0</span>, <span class="number">0</span>);  </span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = Bottom; i &lt; Top; i++) &#123;  </span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = Left; j &lt; Right; j++) &#123;  </span><br><span class="line">			<span class="keyword">if</span> ((i == Bottom) || (i == Top - <span class="number">1</span>))  </span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot;-&quot;</span>);  </span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span> ((j == Left) || (j == Right - <span class="number">1</span>))  </span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot;|&quot;</span>);  </span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span> ((i == ball_x) &amp;&amp; (j == ball_y))  </span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot;O&quot;</span>);  </span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span> ((i == Top - <span class="number">2</span>) &amp;&amp; (j &gt;= pos_left) &amp;&amp; (j &lt;= pos_right))  </span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot;=&quot;</span>);  </span><br><span class="line">			<span class="keyword">else</span>  </span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot; &quot;</span>);			  </span><br><span class="line">		&#125;  </span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);  </span><br><span class="line">	&#125;  </span><br><span class="line">	  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+
+<p>这里要注意，我们的游戏界面存在一个方框，它的上边界是0，由于高度是Top，所以下边界是Top-1，左右边界同理。所以想要把挡板放在离下边界最近的地方的话，就要放在Top-2了。小球的位置倒是可以随意，别放在边界上就好。</p>
+<p>运行程序，大抵如此：  </p>
+<p><img src="https://i.loli.net/2018/08/08/5b6ad91138892.png"></p>
+<p>可是这个时候挡板是不能运动的，而且小球碰到挡板时会直接把挡板“吃掉”，接下来我们要怎么办呢？</p>
+<h3 id="让挡板动起来"><a href="#让挡板动起来" class="headerlink" title="让挡板动起来"></a>让挡板动起来</h3><p>要让挡板按照玩家的意愿移动，需要从键盘获取录入信息。</p>
+<p>从键盘读取数据？难道要用scanf吗？</p>
+<p>实际上，使用scanf输入字符后要按一下回车才可以继续进行，但这显然不是我们想要的。这里我们使用conio.h里面的getch()函数获取输入。getch不需要任何参数，用法和getchar一样的（我相信您会用getchar）。</p>
+<p>再来介绍一个函数，它叫kbhit，也是在conio.h里面的一个函数，它可以监听键盘输入，如果有任何键盘输入就会返回1，否则返回0。</p>
+<p>这里我用a控制左移，d控制右移。如果想用上下左右来控制也是可以的，这里给出方向键对应的ascii码：</p>
+<p>左键：37 上键：38 右键：39 下键：40</p>
+<p>判断键盘输入其实很简单，使用if或者switch就可以，当输入为什么按键时要向哪里移动，更新坐标的值即可。</p>
+<p>PS：笔者使用Visual Studio 2017 Community最初编译此程序时出现了编译错误的问题，后发现高版本的Visual<br>Studio直接使用getch和kbhit函数会出现编译错误，要让编译通过应该在函数名前加一下划线，具体原因未知。</p>
+<p>下面给出修改后的函数：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">updateWithInput</span><span class="params">()</span> </span>&#123;    </span><br><span class="line">	<span class="keyword">char</span> input;  </span><br><span class="line">	<span class="keyword">if</span> (_kbhit()) &#123;  </span><br><span class="line">		input = _getch();  </span><br><span class="line">		<span class="keyword">if</span> (input == <span class="string">&#x27;a&#x27;</span>) &#123;  </span><br><span class="line">			pos_y--;  </span><br><span class="line">			pos_left = pos_y - ridus;  </span><br><span class="line">			pos_right = pos_y + ridus;  </span><br><span class="line">		&#125;  </span><br><span class="line">		<span class="keyword">if</span> (input == <span class="string">&#x27;d&#x27;</span>) &#123;  </span><br><span class="line">			pos_y++;  </span><br><span class="line">			pos_left = pos_y - ridus;  </span><br><span class="line">			pos_right = pos_y + ridus;  </span><br><span class="line">		&#125;  </span><br><span class="line">	&#125;  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+
+<p>思路是，先检测有无输入，有则获取输入并判断。为什么不直接用getch呢？如果直接用getch，当程序跑到getch那一行时会一直等待键盘输入，这样会导致一个不按键不进行游戏的bug。更新挡板坐标位置的操作并不难理解，由于打砖块游戏通常不允许挡板上下移动，所以只会有y坐标发生变化。中心坐标发生变化时，其左端点和右端点的坐标也要随之变化。</p>
+<h3 id="判定接球和失球"><a href="#判定接球和失球" class="headerlink" title="判定接球和失球"></a>判定接球和失球</h3><p>当小球到达游戏画面底部时，应要做一些判断。如果小球即将到达与挡板平齐的位置时，我们要检测小球的y坐标是否在左右端点覆盖的范围之内。如果是则按照反弹规律反弹小球，否则游戏失败。</p>
+<p>由于小球的反弹与用户输入没有联系，所以我们修改updateWithoutInput函数。只需要在撞墙反弹前判断是否撞上了挡板就可以。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">updateWithoutInput</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">	  </span><br><span class="line">	<span class="keyword">if</span> (ball_x == Top - <span class="number">3</span>) &#123;  </span><br><span class="line">		<span class="keyword">if</span> ((ball_y &gt;= pos_left) &amp;&amp; (ball_y &lt;= pos_right)) &#123;  </span><br><span class="line">			  </span><br><span class="line">		&#125;  </span><br><span class="line">		<span class="keyword">else</span> &#123;  </span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;GAME OVER\n&quot;</span>);  </span><br><span class="line">			system(<span class="string">&quot;pause&quot;</span>);  </span><br><span class="line">			<span class="built_in">exit</span>(<span class="number">0</span>);  </span><br><span class="line">		&#125;  </span><br><span class="line">	&#125;  </span><br><span class="line">	  </span><br><span class="line">	ball_x = ball_x + ball_vx;  </span><br><span class="line">	ball_y = ball_y + ball_vy;  </span><br><span class="line">		  </span><br><span class="line">	<span class="keyword">if</span> (ball_x == Top - <span class="number">3</span> || ball_x == Bottom + <span class="number">1</span>)  </span><br><span class="line">		ball_vx = -ball_vx;  </span><br><span class="line">	<span class="keyword">if</span> (ball_y == Left + <span class="number">1</span> || ball_y == Right - <span class="number">1</span>)  </span><br><span class="line">		ball_vy = -ball_vy;  </span><br><span class="line">	  </span><br><span class="line">	Sleep(<span class="number">100</span>);  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+
+<p>目前有一个问题不能解决，那就是“底线”到底在哪。如果把底线放在与挡板相同一行，那么小球会落到边框上才会宣告失败，这和我们的想法是一样的，但是小球打在挡板上时会先进入到挡板里面再反弹，但如果把底线放在挡板上一行，挡板没有接到小球时小球会悬停在半空中宣告失败，这也是不太合适的。但是这个问题等使用了easyX就可以解决。</p>
+<p>代码当中有一个if后面执行的语句我留了空，那里可以写一些当小球撞到挡板上可以做的事情，比如记分，播放音效等。</p>
+<h3 id="添加得分记录器和一个砖块"><a href="#添加得分记录器和一个砖块" class="headerlink" title="添加得分记录器和一个砖块"></a>添加得分记录器和一个砖块</h3><p>得分记录很好实现，设立一个变量score初始化为0，然后在show函数的最后添加一行printf输出这个变量就好。</p>
+<p>那么怎样判断是否得分呢？既然是打砖块游戏，那自然是习惯上认作是打掉砖块得分。所以我们来添加一个砖块，没错，先只加一个。</p>
+<p>在updateWithoutInput函数里，添加这样的一块代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> ((ball_x == block_x) &amp;&amp; (ball_y == block_y)) &#123;  </span><br><span class="line">	score++;  </span><br><span class="line">	block_x = rand() % <span class="number">5</span> + <span class="number">1</span>;  </span><br><span class="line">	block_y = (rand() % (Right - <span class="number">1</span>)) + <span class="number">1</span>;  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+
+<p>我们让这个砖块被敲掉后在一个限定的范围内重新生成一个砖块，同时加1分。在使用前我先初始化了随机数种子，使用了srand((unsignedint)time(NULL));即以时间为种子初始化随机数。srand函数接收一个无符号整型的参数，而time函数的返回值是time_t类型，如果不进行类型转换会产生一个warning：</p>
+<p>warning C4244: “参数”: 从“time_t”转换到“unsigned int”，可能丢失数据</p>
+<p>好了，现在一个最基础的打砖块游戏就做好了。</p>
+<p>下一步我们要添加大量砖块，同时要用到二维数组作为画布，这样的画布从某种方面上讲会更方便。</p>
+<h3 id="重构"><a href="#重构" class="headerlink" title="重构"></a>重构</h3><p>我们用一个二维数组canvas存储需要打印到屏幕上的所有元素。该数组存储几个特定的值，比如0输出空格，1输出小球，在后续添加挡板，砖块时可以用2，3来表示。</p>
+<p>ps:我只是说用这个数字来进行表示，并不是要直接打印0,1,2到屏幕上。</p>
+<p>（偷个懒，用了以前的代码，该代码只会显示一半的边框，你可以尝试在细节处进行修改。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">	gotoxy(<span class="number">0</span>, <span class="number">0</span>);  </span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; High; i++) &#123;  </span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; Width; j++) &#123;  </span><br><span class="line">			<span class="keyword">if</span> (canvas[i][j] == <span class="number">0</span>)  </span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot; &quot;</span>);  </span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span> (canvas[i][j] == <span class="number">1</span>)  </span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot;0&quot;</span>);  </span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span> (canvas[i][j] == <span class="number">2</span>)  </span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot;*&quot;</span>);  </span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span> (canvas[i][j] == <span class="number">3</span>)  </span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot;#&quot;</span>);  </span><br><span class="line">			  </span><br><span class="line">		&#125;  </span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;|\n&quot;</span>);  </span><br><span class="line">	&#125;  </span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; Width; j++)  </span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;-&quot;</span>);  </span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);  </span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;score: %d\n&quot;</span>, score);  </span><br><span class="line">  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+
+<h3 id="添加大量砖块"><a href="#添加大量砖块" class="headerlink" title="添加大量砖块"></a>添加大量砖块</h3><p>在采用数组后，初始化砖块变得方便了许多。敲掉砖块的操作也很好写，直接把值3变为值0即可。</p>
+<p>在startup函数里可以这样写：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> k = left; k &lt;= right; k++)  </span><br><span class="line">		canvas[position_x][k] = <span class="number">2</span>;  </span><br><span class="line">  </span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; Width; k++)  </span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; High / <span class="number">4</span>; i++)  </span><br><span class="line">			canvas[i][k] = <span class="number">3</span>;  </span><br></pre></td></tr></table></figure>
+
+<p>消砖块</p>
+<p>判断小球坐标是否与砖块坐标重合即可。其实没那么麻烦，只需要询问一下小球坐标对应的canvas值是不是3就可以了。在敲掉砖块后小球也是要反弹的，规律与撞墙相同。</p>
+<p>在updateWithoutInput这样写：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (canvas[ball_x - <span class="number">1</span>][ball_y] == <span class="number">3</span>) &#123;  </span><br><span class="line">	ball_vx = -ball_vx;  </span><br><span class="line">	canvas[ball_x - <span class="number">1</span>][ball_y] = <span class="number">0</span>;  </span><br><span class="line">	score++;  </span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;\a&quot;</span>);  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+
+<h3 id="成品"><a href="#成品" class="headerlink" title="成品"></a>成品</h3><p>（里面包含了少许我用来debug的东西，无视就好。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;conio.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;Windows.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> High 15  </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Width 20  </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> debug printf(<span class="meta-string">&quot;ok\n&quot;</span>);  </span></span><br><span class="line">  </span><br><span class="line"><span class="keyword">int</span> ball_x, ball_y;  </span><br><span class="line"><span class="keyword">int</span> ball_vx, ball_vy;  </span><br><span class="line"><span class="keyword">int</span> canvas[High][Width] = &#123; <span class="number">0</span> &#125;;  </span><br><span class="line"><span class="keyword">int</span> position_x, position_y;  </span><br><span class="line"><span class="keyword">int</span> ridus;  </span><br><span class="line"><span class="keyword">int</span> left, right;  </span><br><span class="line"><span class="keyword">int</span> score;  </span><br><span class="line"><span class="keyword">int</span> SPD;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">gotoxy</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;  </span><br><span class="line">	HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);  </span><br><span class="line">	COORD pos;  </span><br><span class="line">	pos.X = x;  </span><br><span class="line">	pos.Y = y;  </span><br><span class="line">	SetConsoleCursorPosition(handle, pos);  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">HideCursor</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">	CONSOLE_CURSOR_INFO cursor_info = &#123; <span class="number">1</span>,<span class="number">0</span> &#125;;  </span><br><span class="line">	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &amp;cursor_info);  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">startup</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">	ball_x = <span class="number">10</span>;  </span><br><span class="line">	ball_y = Width / <span class="number">2</span>;  </span><br><span class="line">	ball_vx = <span class="number">-1</span>;  </span><br><span class="line">	ball_vy = <span class="number">1</span>;  </span><br><span class="line">	canvas[ball_x][ball_y] = <span class="number">1</span>;  </span><br><span class="line">  </span><br><span class="line">	ridus = <span class="number">5</span>;  </span><br><span class="line">	position_x = High - <span class="number">1</span>;  </span><br><span class="line">	position_y = Width / <span class="number">2</span>;  </span><br><span class="line">	left = position_y - ridus;  </span><br><span class="line">	right = position_y + ridus;  </span><br><span class="line">	  </span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> k = left; k &lt;= right; k++)  </span><br><span class="line">		canvas[position_x][k] = <span class="number">2</span>;  </span><br><span class="line">	  </span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; Width; k++)  </span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; High / <span class="number">4</span>; i++)  </span><br><span class="line">			canvas[i][k] = <span class="number">3</span>;  </span><br><span class="line">	  </span><br><span class="line">	score = <span class="number">0</span>;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">	gotoxy(<span class="number">0</span>, <span class="number">0</span>);  </span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; High; i++) &#123;  </span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; Width; j++) &#123;  </span><br><span class="line">			<span class="keyword">if</span> (canvas[i][j] == <span class="number">0</span>)  </span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot; &quot;</span>);  </span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span> (canvas[i][j] == <span class="number">1</span>)  </span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot;0&quot;</span>);  </span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span> (canvas[i][j] == <span class="number">2</span>)  </span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot;*&quot;</span>);  </span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span> (canvas[i][j] == <span class="number">3</span>)  </span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot;#&quot;</span>);  </span><br><span class="line">			  </span><br><span class="line">		&#125;  </span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;|\n&quot;</span>);  </span><br><span class="line">	&#125;  </span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; Width; j++)  </span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;-&quot;</span>);  </span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);  </span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;score: %d\n&quot;</span>, score);  </span><br><span class="line">  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">updateWithoutInput</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">	<span class="keyword">if</span> (ball_x == High - <span class="number">2</span>) &#123;  </span><br><span class="line">		<span class="keyword">if</span> ((ball_y &gt;= left) &amp;&amp; (ball_y &lt;= right)) &#123;  </span><br><span class="line">			<span class="comment">//printf(&quot;\a&quot;);  </span></span><br><span class="line">		&#125;  </span><br><span class="line">		<span class="keyword">else</span> &#123;  </span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;GG\n&quot;</span>);  </span><br><span class="line">			system(<span class="string">&quot;pause&quot;</span>);  </span><br><span class="line">			<span class="built_in">exit</span>(<span class="number">0</span>);  </span><br><span class="line">		&#125;  </span><br><span class="line">   &#125;  </span><br><span class="line">	canvas[ball_x][ball_y] = <span class="number">0</span>;  </span><br><span class="line">	ball_x = ball_x + ball_vx;  </span><br><span class="line">	ball_y = ball_y + ball_vy;  </span><br><span class="line">	canvas[ball_x][ball_y] = <span class="number">1</span>;  </span><br><span class="line">	  </span><br><span class="line">	<span class="keyword">if</span> ((ball_x == <span class="number">0</span>) || (ball_x == High - <span class="number">2</span>)) &#123;  </span><br><span class="line">		ball_vx = -ball_vx;  </span><br><span class="line">	&#125;  </span><br><span class="line">	<span class="keyword">if</span> ((ball_y == <span class="number">0</span>) || (ball_y == Width - <span class="number">1</span>)) &#123;  </span><br><span class="line">		ball_vy = -ball_vy;  </span><br><span class="line">	&#125;  </span><br><span class="line">	  </span><br><span class="line">	<span class="keyword">if</span> (canvas[ball_x - <span class="number">1</span>][ball_y] == <span class="number">3</span>) &#123;  </span><br><span class="line">		ball_vx = -ball_vx;  </span><br><span class="line">		canvas[ball_x - <span class="number">1</span>][ball_y] = <span class="number">0</span>;  </span><br><span class="line">		score++;  </span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;\a&quot;</span>);  </span><br><span class="line">	&#125;  </span><br><span class="line">	  </span><br><span class="line">	Sleep(<span class="number">100</span>);  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">updateWithInput</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">	<span class="keyword">char</span> input;  </span><br><span class="line">	<span class="keyword">if</span> (_kbhit()) &#123;  </span><br><span class="line">		input = _getch();  </span><br><span class="line">		<span class="keyword">if</span> ((input == <span class="string">&#x27;a&#x27;</span>) &amp;&amp; (left &gt; <span class="number">0</span>)) &#123;  </span><br><span class="line">			canvas[position_x][right] = <span class="number">0</span>;  </span><br><span class="line">			position_y--;  </span><br><span class="line">			left = position_y - ridus;  </span><br><span class="line">			right = position_y + ridus;  </span><br><span class="line">			canvas[position_x][left] = <span class="number">2</span>;  </span><br><span class="line">		&#125;  </span><br><span class="line">		<span class="keyword">if</span> ((input == <span class="string">&#x27;d&#x27;</span>) &amp;&amp; (right &lt; Width - <span class="number">1</span>)) &#123;  </span><br><span class="line">			canvas[position_x][left] = <span class="number">0</span>;  </span><br><span class="line">			position_y++;  </span><br><span class="line">			left = position_y - ridus;  </span><br><span class="line">			right = position_y + ridus;  </span><br><span class="line">			canvas[position_x][right] = <span class="number">2</span>;  </span><br><span class="line">		&#125;  </span><br><span class="line">	&#125;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">	startup();  </span><br><span class="line">	HideCursor();  </span><br><span class="line">	<span class="keyword">while</span> (<span class="number">1</span>) &#123;  </span><br><span class="line">		show();  </span><br><span class="line">		updateWithInput();  </span><br><span class="line">		updateWithoutInput();  </span><br><span class="line">	&#125;  </span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<h2 id="实现一个简易的flappy-bird游戏"><a href="#实现一个简易的flappy-bird游戏" class="headerlink" title="实现一个简易的flappy bird游戏"></a>实现一个简易的flappy bird游戏</h2><p>最后一个游戏示例了。后续将介绍easyX以及使用easyX包装后的程序。  </p>
+<h3 id="显示小鸟"><a href="#显示小鸟" class="headerlink" title="显示小鸟"></a>显示小鸟</h3><p>对flappy bird中小鸟的控制与之前在反弹球中介绍的差不多。我们还是用二维数组当作画布，先画一个随时间下落的小鸟，然后通过按下空格让小鸟的位置上升，代码如下。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;conio.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;windows.h&gt;  </span></span></span><br><span class="line">  </span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> High 15  </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Width 20  </span></span><br><span class="line">  </span><br><span class="line"><span class="keyword">int</span> bird_x, bird_y;  </span><br><span class="line"><span class="keyword">int</span> canvas[High][Width];  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">gotoxy</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;  </span><br><span class="line">	HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);  </span><br><span class="line">	COORD pos;  </span><br><span class="line">	pos.X = x;  </span><br><span class="line">	pos.Y = y;  </span><br><span class="line">	SetConsoleCursorPosition(handle, pos);  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">HideCursor</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">	CONSOLE_CURSOR_INFO cursor_info = &#123; <span class="number">1</span>,<span class="number">0</span> &#125;;  </span><br><span class="line">	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &amp;cursor_info);  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">startup</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">	<span class="built_in">memset</span>(canvas, <span class="number">0</span>, <span class="keyword">sizeof</span>(canvas));  </span><br><span class="line">	bird_x = High / <span class="number">2</span>;  </span><br><span class="line">	bird_y = <span class="number">3</span>;  </span><br><span class="line">	  </span><br><span class="line">	canvas[bird_x][bird_y] = <span class="number">1</span>;  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">	gotoxy(<span class="number">0</span>, <span class="number">0</span>);  </span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; High; i++) &#123;  </span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; Width; j++) &#123;  </span><br><span class="line">			<span class="keyword">if</span> (canvas[i][j] == <span class="number">1</span>)  </span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot;@&quot;</span>);  </span><br><span class="line">			<span class="keyword">else</span>  </span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot; &quot;</span>);  </span><br><span class="line">		&#125;  </span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);  </span><br><span class="line">	&#125;  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">updateWithInput</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">	<span class="keyword">char</span> input;  </span><br><span class="line">	<span class="keyword">if</span> (_kbhit()) &#123;  </span><br><span class="line">		input = _getch();  </span><br><span class="line">		<span class="keyword">if</span> (input == <span class="string">&#x27; &#x27;</span>) &#123;  </span><br><span class="line">			canvas[bird_x][bird_y] = <span class="number">0</span>;  </span><br><span class="line">			bird_x -= <span class="number">3</span>;  </span><br><span class="line">			canvas[bird_x][bird_y] = <span class="number">1</span>;  </span><br><span class="line">		&#125;  </span><br><span class="line">	&#125;  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">updateWithoutInput</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">	Sleep(<span class="number">150</span>);  </span><br><span class="line">	canvas[bird_x][bird_y] = <span class="number">0</span>;  </span><br><span class="line">	bird_x++;  </span><br><span class="line">	canvas[bird_x][bird_y] = <span class="number">1</span>;  </span><br><span class="line">	  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">	startup();  </span><br><span class="line">	HideCursor();  </span><br><span class="line">	<span class="keyword">while</span> (<span class="number">1</span>) &#123;  </span><br><span class="line">		show();  </span><br><span class="line">		updateWithInput();  </span><br><span class="line">		updateWithoutInput();  </span><br><span class="line">	&#125;  </span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+
+<h3 id="制造障碍物"><a href="#制造障碍物" class="headerlink" title="制造障碍物"></a>制造障碍物</h3><p>其实没必要在设置的时候把整个障碍物都设置出来。想一下，flappy bird的障碍物是长什么样的？其实，我们只需要设定三个值就可以表示一个障碍物。</p>
+<p>我们默认同屏有三个障碍物出现。笔者尝试用数组优化实现但是无果，最后选择使用单独的变量。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;conio.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;windows.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;time.h&gt;  </span></span></span><br><span class="line">  </span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> High 20  </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Width 30  </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Barnum 3  </span></span><br><span class="line">  </span><br><span class="line"><span class="keyword">int</span> bird_x, bird_y;  </span><br><span class="line"><span class="keyword">int</span> canvas[High][Width];  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">int</span> bar1_y, bar2_y, bar3_y;  </span><br><span class="line"><span class="keyword">int</span> bar1_xtop, bar2_xtop, bar3_xtop;  </span><br><span class="line"><span class="keyword">int</span> bar1_xbottom, bar2_xbottom, bar3_xbottom;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">gotoxy</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;  </span><br><span class="line">	HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);  </span><br><span class="line">	COORD pos;  </span><br><span class="line">	pos.X = x;  </span><br><span class="line">	pos.Y = y;  </span><br><span class="line">	SetConsoleCursorPosition(handle, pos);  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">HideCursor</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">	CONSOLE_CURSOR_INFO cursor_info = &#123; <span class="number">1</span>,<span class="number">0</span> &#125;;  </span><br><span class="line">	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &amp;cursor_info);  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">startup</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">	<span class="built_in">memset</span>(canvas, <span class="number">0</span>, <span class="keyword">sizeof</span>(canvas));  </span><br><span class="line">	bird_x = High / <span class="number">2</span>;  </span><br><span class="line">	bird_y = <span class="number">3</span>;  </span><br><span class="line">	canvas[bird_x][bird_y] = <span class="number">-1</span>;  </span><br><span class="line">	  </span><br><span class="line">	bar1_y = Width / <span class="number">2</span> - <span class="number">5</span>;  </span><br><span class="line">	bar2_y = bar1_y + <span class="number">9</span>;  </span><br><span class="line">	bar3_y = bar2_y + <span class="number">9</span>;  </span><br><span class="line">  </span><br><span class="line">	<span class="keyword">int</span> temp = rand() % <span class="keyword">int</span>(High * <span class="number">0.8</span>);  </span><br><span class="line">	bar1_xbottom = temp - High / <span class="number">10</span>;  </span><br><span class="line">	bar1_xtop = temp + High / <span class="number">10</span>;  </span><br><span class="line">  </span><br><span class="line">	temp = rand() % <span class="keyword">int</span>(High * <span class="number">0.8</span>);  </span><br><span class="line">	bar2_xbottom = temp - High / <span class="number">10</span>;  </span><br><span class="line">	bar2_xtop = temp + High / <span class="number">10</span>;  </span><br><span class="line">  </span><br><span class="line">	temp = rand() % <span class="keyword">int</span>(High * <span class="number">0.8</span>);  </span><br><span class="line">	bar3_xbottom = temp - High / <span class="number">10</span>;  </span><br><span class="line">	bar3_xtop = temp + High / <span class="number">10</span>;  </span><br><span class="line">  </span><br><span class="line">	canvas[bar1_xtop][bar1_y] = <span class="number">1</span>;  </span><br><span class="line">	canvas[bar1_xbottom][bar1_y] = <span class="number">1</span>;  </span><br><span class="line">  </span><br><span class="line">	canvas[bar2_xtop][bar2_y] = <span class="number">1</span>;  </span><br><span class="line">	canvas[bar2_xbottom][bar2_y] = <span class="number">1</span>;  </span><br><span class="line">  </span><br><span class="line">	canvas[bar3_xtop][bar3_y] = <span class="number">1</span>;  </span><br><span class="line">	canvas[bar3_xbottom][bar3_y] = <span class="number">1</span>;  </span><br><span class="line">  </span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; High; i++) &#123;  </span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; Width; j++) &#123;  </span><br><span class="line">			<span class="keyword">if</span> ((j == bar1_y) &amp;&amp; ((i &lt; bar1_xbottom) || (i &gt; bar1_xtop)))  </span><br><span class="line">				canvas[i][j] = <span class="number">1</span>;  </span><br><span class="line">			<span class="keyword">if</span> ((j == bar2_y) &amp;&amp; ((i &lt; bar2_xbottom) || (i &gt; bar2_xtop)))  </span><br><span class="line">				canvas[i][j] = <span class="number">1</span>;  </span><br><span class="line">			<span class="keyword">if</span> ((j == bar3_y) &amp;&amp; ((i &lt; bar3_xbottom) || (i &gt; bar3_xtop)))  </span><br><span class="line">				canvas[i][j] = <span class="number">1</span>;  </span><br><span class="line">		&#125;  </span><br><span class="line">	&#125;  </span><br><span class="line">  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">	gotoxy(<span class="number">0</span>, <span class="number">0</span>);  </span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; High; i++) &#123;  </span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; Width; j++) &#123;  </span><br><span class="line">			<span class="keyword">if</span> (canvas[i][j] == <span class="number">-1</span>)  </span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot;@&quot;</span>);  </span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span> (canvas[i][j] == <span class="number">1</span>)  </span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot;*&quot;</span>);  </span><br><span class="line">			<span class="keyword">else</span>  </span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot; &quot;</span>);  </span><br><span class="line">		&#125;  </span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);  </span><br><span class="line">	&#125;  </span><br><span class="line">  &#125;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">updateWithInput</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">	<span class="keyword">char</span> input;  </span><br><span class="line">	<span class="keyword">if</span> (_kbhit()) &#123;  </span><br><span class="line">		input = _getch();  </span><br><span class="line">		<span class="keyword">if</span> (input == <span class="string">&#x27; &#x27;</span>) &#123;  </span><br><span class="line">			canvas[bird_x][bird_y] = <span class="number">0</span>;  </span><br><span class="line">			bird_x -= <span class="number">3</span>;  </span><br><span class="line">			canvas[bird_x][bird_y] = <span class="number">-1</span>;  </span><br><span class="line">		&#125;  </span><br><span class="line">	&#125;  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">updateWithoutInput</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">	Sleep(<span class="number">150</span>);  </span><br><span class="line">	canvas[bird_x][bird_y] = <span class="number">0</span>;  </span><br><span class="line">	bird_x++;  </span><br><span class="line">	canvas[bird_x][bird_y] = <span class="number">-1</span>;  </span><br><span class="line">	  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">	startup();  </span><br><span class="line">	HideCursor();  </span><br><span class="line">	<span class="keyword">while</span> (<span class="number">1</span>) &#123;  </span><br><span class="line">		show();  </span><br><span class="line">		updateWithInput();  </span><br><span class="line">		updateWithoutInput();  </span><br><span class="line">	&#125;  </span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+
+
+
+
+<p>目前这样的障碍物是没办法动的，下一步我们让它动起来。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">updateWithoutInput</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">    Sleep(<span class="number">200</span>);  </span><br><span class="line">    canvas[bird_x][bird_y] = <span class="number">0</span>;  </span><br><span class="line">    bird_x++;  </span><br><span class="line">    canvas[bird_x][bird_y] = <span class="number">-1</span>;    </span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; High; i++) &#123;  </span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; Width; j++) &#123;  </span><br><span class="line">			<span class="keyword">if</span> ((j == bar1_y) &amp;&amp; ((i &lt; bar1_xbottom) || (i &gt; bar1_xtop)))  </span><br><span class="line">				canvas[i][j] = <span class="number">0</span>;  </span><br><span class="line">			<span class="keyword">if</span> ((j == bar2_y) &amp;&amp; ((i &lt; bar2_xbottom) || (i &gt; bar2_xtop)))  </span><br><span class="line">				canvas[i][j] = <span class="number">0</span>;  </span><br><span class="line">			<span class="keyword">if</span> ((j == bar3_y) &amp;&amp; ((i &lt; bar3_xbottom) || (i &gt; bar3_xtop)))  </span><br><span class="line">				canvas[i][j] = <span class="number">0</span>;  </span><br><span class="line">		&#125;  </span><br><span class="line">	&#125;  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   canvas[bar1_xtop][bar1_y] = <span class="number">0</span>;  </span><br><span class="line">   canvas[bar1_xbottom][bar1_y] = <span class="number">0</span>;  </span><br><span class="line">   bar1_y--;  </span><br><span class="line">   canvas[bar1_xtop][bar1_y] = <span class="number">1</span>;  </span><br><span class="line">   canvas[bar1_xbottom][bar1_y] = <span class="number">1</span>;  </span><br><span class="line">    	  </span><br><span class="line">    canvas[bar2_xtop][bar2_y] = <span class="number">0</span>;  </span><br><span class="line">    canvas[bar2_xbottom][bar2_y] = <span class="number">0</span>;  </span><br><span class="line">    bar2_y--;  </span><br><span class="line">    canvas[bar2_xtop][bar2_y] = <span class="number">1</span>;  </span><br><span class="line">    canvas[bar2_xbottom][bar2_y] = <span class="number">1</span>;  </span><br><span class="line"></span><br><span class="line">    canvas[bar3_xtop][bar3_y] = <span class="number">0</span>;  </span><br><span class="line">    canvas[bar3_xbottom][bar3_y] = <span class="number">0</span>;  </span><br><span class="line">    bar3_y--;  </span><br><span class="line">    canvas[bar3_xtop][bar3_y] = <span class="number">1</span>;  </span><br><span class="line">    canvas[bar3_xbottom][bar3_y] = <span class="number">1</span>;  </span><br><span class="line">	  </span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; High; i++) &#123;  </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; Width; j++) &#123;  </span><br><span class="line">            <span class="keyword">if</span> ((j == bar1_y) &amp;&amp; ((i &lt; bar1_xbottom) || (i &gt; bar1_xtop)))  </span><br><span class="line">                canvas[i][j] = <span class="number">1</span>;  </span><br><span class="line">            <span class="keyword">if</span> ((j == bar2_y) &amp;&amp; ((i &lt; bar2_xbottom) || (i &gt; bar2_xtop)))  </span><br><span class="line">                canvas[i][j] = <span class="number">1</span>;  </span><br><span class="line">            <span class="keyword">if</span> ((j == bar3_y) &amp;&amp; ((i &lt; bar3_xbottom) || (i &gt; bar3_xtop)))  </span><br><span class="line">                canvas[i][j] = <span class="number">1</span>;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+
+
+<p>其实只需要注意一点就好，就是在新位置绘画之前一定要先清除旧位置的内容。</p>
+<h3 id="判断碰撞，记分，循环出现，细节处理"><a href="#判断碰撞，记分，循环出现，细节处理" class="headerlink" title="判断碰撞，记分，循环出现，细节处理"></a>判断碰撞，记分，循环出现，细节处理</h3><p>这是最后的内容了。</p>
+<p>由于三个障碍物会循环出现，判断时要略微注意。</p>
+<p>小鸟的碰撞和用户的输入无关，所以我们修改updateWithoutInput函数。</p>
+<p>记分和游戏失败是同时出现的。小鸟过障碍物只会有两个结果，如果过得去就+1分，过不去则宣告游戏失败。</p>
+<p>同时要注意，小鸟触底也算游戏失败，如果小鸟试图飞出屏幕，那么我们应该把它限制在最高位置。具体参见代码：（无力优化，有点冗长）</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;conio.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;windows.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;time.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> High 20  </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Width 40  </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Barnum 3  </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> bird_x, bird_y;  </span><br><span class="line"><span class="keyword">int</span> canvas[High][Width];  </span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> bar1_y, bar2_y, bar3_y;  </span><br><span class="line"><span class="keyword">int</span> bar1_xtop, bar2_xtop, bar3_xtop;  </span><br><span class="line"><span class="keyword">int</span> bar1_xbottom, bar2_xbottom, bar3_xbottom;  </span><br><span class="line"><span class="keyword">int</span> score;  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">gotoxy</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;  </span><br><span class="line">	HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);  </span><br><span class="line">	COORD pos;  </span><br><span class="line">	pos.X = x;  </span><br><span class="line">	pos.Y = y;  </span><br><span class="line">	SetConsoleCursorPosition(handle, pos);  </span><br><span class="line">&#125;  </span><br><span class="line">	  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">HideCursor</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">	CONSOLE_CURSOR_INFO cursor_info = &#123; <span class="number">1</span>,<span class="number">0</span> &#125;;  </span><br><span class="line">	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &amp;cursor_info);  </span><br><span class="line">&#125;  </span><br><span class="line">	  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">startup</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">		<span class="built_in">memset</span>(canvas, <span class="number">0</span>, <span class="keyword">sizeof</span>(canvas));  </span><br><span class="line">		bird_x = High / <span class="number">2</span>;  </span><br><span class="line">		bird_y = <span class="number">3</span>;  </span><br><span class="line">		canvas[bird_x][bird_y] = <span class="number">-1</span>;  </span><br><span class="line">		  </span><br><span class="line">		bar1_y = Width / <span class="number">2</span> - <span class="number">5</span>;  </span><br><span class="line">		bar2_y = bar1_y + <span class="number">10</span>;  </span><br><span class="line">		bar3_y = bar2_y + <span class="number">10</span>;  </span><br><span class="line">	  </span><br><span class="line">		<span class="keyword">int</span> temp = rand() % <span class="keyword">int</span>(High * <span class="number">0.8</span>);  </span><br><span class="line">		bar1_xbottom = temp - High / <span class="number">10</span>;  </span><br><span class="line">		bar1_xtop = temp + High / <span class="number">10</span>;  </span><br><span class="line">	  </span><br><span class="line">		temp = rand() % <span class="keyword">int</span>(High * <span class="number">0.8</span>);  </span><br><span class="line">		bar2_xbottom = temp - High / <span class="number">10</span>;  </span><br><span class="line">		bar2_xtop = temp + High / <span class="number">10</span>;  </span><br><span class="line">	  </span><br><span class="line">		temp = rand() % <span class="keyword">int</span>(High * <span class="number">0.8</span>);  </span><br><span class="line">		bar3_xbottom = temp - High / <span class="number">10</span>;  </span><br><span class="line">		bar3_xtop = temp + High / <span class="number">10</span>;  </span><br><span class="line">	  </span><br><span class="line">		canvas[bar1_xtop][bar1_y] = <span class="number">1</span>;  </span><br><span class="line">		canvas[bar1_xbottom][bar1_y] = <span class="number">1</span>;  </span><br><span class="line">	  </span><br><span class="line">		canvas[bar2_xtop][bar2_y] = <span class="number">1</span>;  </span><br><span class="line">		canvas[bar2_xbottom][bar2_y] = <span class="number">1</span>;  </span><br><span class="line">	  </span><br><span class="line">		canvas[bar3_xtop][bar3_y] = <span class="number">1</span>;  </span><br><span class="line">		canvas[bar3_xbottom][bar3_y] = <span class="number">1</span>;  </span><br><span class="line">	  </span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; High; i++) &#123;  </span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; Width; j++) &#123;  </span><br><span class="line">				<span class="keyword">if</span> ((j == bar1_y) &amp;&amp; ((i &lt; bar1_xbottom) || (i &gt; bar1_xtop)))  </span><br><span class="line">					canvas[i][j] = <span class="number">1</span>;  </span><br><span class="line">				<span class="keyword">if</span> ((j == bar2_y) &amp;&amp; ((i &lt; bar2_xbottom) || (i &gt; bar2_xtop)))  </span><br><span class="line">					canvas[i][j] = <span class="number">1</span>;  </span><br><span class="line">				<span class="keyword">if</span> ((j == bar3_y) &amp;&amp; ((i &lt; bar3_xbottom) || (i &gt; bar3_xtop)))  </span><br><span class="line">					canvas[i][j] = <span class="number">1</span>;  </span><br><span class="line">			&#125;  </span><br><span class="line">		&#125;  </span><br><span class="line">	  </span><br><span class="line">		score = <span class="number">0</span>;  </span><br><span class="line">	  </span><br><span class="line">	&#125;  </span><br><span class="line">	  </span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">		gotoxy(<span class="number">0</span>, <span class="number">0</span>);  </span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; High; i++) &#123;  </span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; Width; j++) &#123;  </span><br><span class="line">				<span class="keyword">if</span> (canvas[i][j] == <span class="number">-1</span>)  </span><br><span class="line">					<span class="built_in">printf</span>(<span class="string">&quot;@&quot;</span>);  </span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span> (canvas[i][j] == <span class="number">1</span>)  </span><br><span class="line">					<span class="built_in">printf</span>(<span class="string">&quot;*&quot;</span>);  </span><br><span class="line">				<span class="keyword">else</span>  </span><br><span class="line">					<span class="built_in">printf</span>(<span class="string">&quot; &quot;</span>);  </span><br><span class="line">			&#125;  </span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);  </span><br><span class="line">		&#125;  </span><br><span class="line">	  </span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;得分： %d&quot;</span>, score);  </span><br><span class="line">	&#125;  </span><br><span class="line">	  </span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">updateWithInput</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">		<span class="keyword">char</span> input;  </span><br><span class="line">		<span class="keyword">if</span> (_kbhit()) &#123;  </span><br><span class="line">			input = _getch();  </span><br><span class="line">			<span class="keyword">if</span> (input == <span class="string">&#x27; &#x27;</span>) &#123;  </span><br><span class="line">				canvas[bird_x][bird_y] = <span class="number">0</span>;  </span><br><span class="line">				<span class="keyword">if</span> (bird_x - <span class="number">3</span> &gt;= <span class="number">0</span>)  </span><br><span class="line">					bird_x -= <span class="number">3</span>;  </span><br><span class="line">				<span class="keyword">else</span>  </span><br><span class="line">					bird_x = <span class="number">0</span>;  </span><br><span class="line">				canvas[bird_x][bird_y] = <span class="number">-1</span>;  </span><br><span class="line">			&#125;  </span><br><span class="line">		&#125;  </span><br><span class="line">	&#125;  </span><br><span class="line">	  </span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">updateWithoutInput</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">		Sleep(<span class="number">200</span>);  </span><br><span class="line">		canvas[bird_x][bird_y] = <span class="number">0</span>;  </span><br><span class="line">		bird_x++;  </span><br><span class="line">		canvas[bird_x][bird_y] = <span class="number">-1</span>;  </span><br><span class="line">	  </span><br><span class="line">		<span class="keyword">if</span> (bird_x == High - <span class="number">1</span>) &#123;  </span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;GAME OVER\n&quot;</span>);  </span><br><span class="line">			system(<span class="string">&quot;pause&quot;</span>);  </span><br><span class="line">			<span class="built_in">exit</span>(<span class="number">0</span>);  </span><br><span class="line">		&#125;  </span><br><span class="line">	  </span><br><span class="line">		<span class="keyword">if</span> (bird_y == bar1_y) &#123;  </span><br><span class="line">			<span class="keyword">if</span> ((bird_x &gt;= bar1_xbottom) &amp;&amp; (bird_y &lt;= bar1_xtop))  </span><br><span class="line">				score++;  </span><br><span class="line">			<span class="keyword">else</span> &#123;  </span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot;GAME OVER\n&quot;</span>);  </span><br><span class="line">				system(<span class="string">&quot;pause&quot;</span>);  </span><br><span class="line">				<span class="built_in">exit</span>(<span class="number">0</span>);  </span><br><span class="line">			&#125;  </span><br><span class="line">		&#125;  </span><br><span class="line">	  </span><br><span class="line">		<span class="keyword">if</span> (bird_y == bar2_y) &#123;  </span><br><span class="line">			<span class="keyword">if</span> ((bird_x &gt;= bar2_xbottom) &amp;&amp; (bird_y &lt;= bar2_xtop))  </span><br><span class="line">				score++;  </span><br><span class="line">			<span class="keyword">else</span> &#123;  </span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot;GAME OVER\n&quot;</span>);  </span><br><span class="line">				system(<span class="string">&quot;pause&quot;</span>);  </span><br><span class="line">				<span class="built_in">exit</span>(<span class="number">0</span>);  </span><br><span class="line">			&#125;  </span><br><span class="line">		&#125;  </span><br><span class="line">	  </span><br><span class="line">		<span class="keyword">if</span> (bird_y == bar3_y) &#123;  </span><br><span class="line">			<span class="keyword">if</span> ((bird_x &gt;= bar3_xbottom) &amp;&amp; (bird_y &lt;= bar3_xtop))  </span><br><span class="line">				score++;  </span><br><span class="line">			<span class="keyword">else</span> &#123;  </span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot;GAME OVER\n&quot;</span>);  </span><br><span class="line">				system(<span class="string">&quot;pause&quot;</span>);  </span><br><span class="line">				<span class="built_in">exit</span>(<span class="number">0</span>);  </span><br><span class="line">			&#125;  </span><br><span class="line">		&#125;  </span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; High; i++) &#123;  </span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; Width; j++) &#123;  </span><br><span class="line">				<span class="keyword">if</span> ((j == bar1_y) &amp;&amp; ((i &lt; bar1_xbottom) || (i &gt; bar1_xtop)))  </span><br><span class="line">					canvas[i][j] = <span class="number">0</span>;  </span><br><span class="line">				<span class="keyword">if</span> ((j == bar2_y) &amp;&amp; ((i &lt; bar2_xbottom) || (i &gt; bar2_xtop)))  </span><br><span class="line">					canvas[i][j] = <span class="number">0</span>;  </span><br><span class="line">				<span class="keyword">if</span> ((j == bar3_y) &amp;&amp; ((i &lt; bar3_xbottom) || (i &gt; bar3_xtop)))  </span><br><span class="line">					canvas[i][j] = <span class="number">0</span>;  </span><br><span class="line">			&#125;  </span><br><span class="line">		&#125;  </span><br><span class="line">	  </span><br><span class="line">		canvas[bar1_xtop][bar1_y] = <span class="number">0</span>;  </span><br><span class="line">		canvas[bar1_xbottom][bar1_y] = <span class="number">0</span>;  </span><br><span class="line">		bar1_y--;  </span><br><span class="line">		canvas[bar1_xtop][bar1_y] = <span class="number">1</span>;  </span><br><span class="line">		canvas[bar1_xbottom][bar1_y] = <span class="number">1</span>;  </span><br><span class="line">	  </span><br><span class="line">		canvas[bar2_xtop][bar2_y] = <span class="number">0</span>;  </span><br><span class="line">		canvas[bar2_xbottom][bar2_y] = <span class="number">0</span>;  </span><br><span class="line">		bar2_y--;  </span><br><span class="line">		canvas[bar2_xtop][bar2_y] = <span class="number">1</span>;  </span><br><span class="line">		canvas[bar2_xbottom][bar2_y] = <span class="number">1</span>;  </span><br><span class="line">	  </span><br><span class="line">		canvas[bar3_xtop][bar3_y] = <span class="number">0</span>;  </span><br><span class="line">		canvas[bar3_xbottom][bar3_y] = <span class="number">0</span>;  </span><br><span class="line">		bar3_y--;  </span><br><span class="line">		canvas[bar3_xtop][bar3_y] = <span class="number">1</span>;  </span><br><span class="line">		canvas[bar3_xbottom][bar3_y] = <span class="number">1</span>;  </span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; High; i++) &#123;  </span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; Width; j++) &#123;  </span><br><span class="line">				<span class="keyword">if</span> ((j == bar1_y) &amp;&amp; ((i &lt; bar1_xbottom) || (i &gt; bar1_xtop)))  </span><br><span class="line">					canvas[i][j] = <span class="number">1</span>;  </span><br><span class="line">				<span class="keyword">if</span> ((j == bar2_y) &amp;&amp; ((i &lt; bar2_xbottom) || (i &gt; bar2_xtop)))  </span><br><span class="line">					canvas[i][j] = <span class="number">1</span>;  </span><br><span class="line">				<span class="keyword">if</span> ((j == bar3_y) &amp;&amp; ((i &lt; bar3_xbottom) || (i &gt; bar3_xtop)))  </span><br><span class="line">					canvas[i][j] = <span class="number">1</span>;  </span><br><span class="line">			&#125;  </span><br><span class="line">		&#125; </span><br><span class="line">		<span class="keyword">if</span> (bar1_y &lt; <span class="number">0</span>) &#123;  </span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; High; i++) &#123;  </span><br><span class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; Width; j++) &#123;  </span><br><span class="line">					<span class="keyword">if</span> ((j == bar1_y) &amp;&amp; ((i &lt; bar1_xbottom) || (i &gt; bar1_xtop)))  </span><br><span class="line">						canvas[i][j] = <span class="number">0</span>;  </span><br><span class="line">				&#125;  </span><br><span class="line">			&#125;  </span><br><span class="line">			canvas[bar1_xtop][bar1_y] = <span class="number">0</span>;  </span><br><span class="line">        	canvas[bar1_xbottom][bar1_y] = <span class="number">0</span>;  </span><br><span class="line">        	bar1_y = Width;  </span><br><span class="line">			<span class="keyword">int</span> temp = rand() % <span class="keyword">int</span>(High * <span class="number">0.8</span>);  </span><br><span class="line">			bar1_xbottom = temp - High / <span class="number">10</span>;  </span><br><span class="line">			bar1_xtop = temp + High / <span class="number">10</span>;  </span><br><span class="line">	  </span><br><span class="line">			canvas[bar1_xtop][bar1_y] = <span class="number">1</span>;  </span><br><span class="line">			canvas[bar1_xbottom][bar1_y] = <span class="number">0</span>;  </span><br><span class="line">	  </span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; High; i++) &#123;  </span><br><span class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; Width; j++) &#123;  </span><br><span class="line">					<span class="keyword">if</span> ((j == bar1_y) &amp;&amp; ((i &lt; bar1_xbottom) || (i &gt; bar1_xtop)))  </span><br><span class="line">						canvas[i][j] = <span class="number">1</span>;  </span><br><span class="line">				&#125;  </span><br><span class="line">			&#125;  </span><br><span class="line">		&#125;  </span><br><span class="line">		  </span><br><span class="line">		<span class="keyword">if</span> (bar2_y &lt; <span class="number">0</span>) &#123;  </span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; High; i++) &#123;  </span><br><span class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; Width; j++) &#123;  </span><br><span class="line">					<span class="keyword">if</span> ((j == bar2_y) &amp;&amp; ((i &lt; bar2_xbottom) || (i &gt; bar2_xtop)))  </span><br><span class="line">						canvas[i][j] = <span class="number">0</span>;  </span><br><span class="line">				&#125;  </span><br><span class="line">			&#125;  </span><br><span class="line">			canvas[bar2_xtop][bar2_y] = <span class="number">0</span>;  </span><br><span class="line">			canvas[bar2_xbottom][bar2_y] = <span class="number">0</span>;</span><br><span class="line">			bar2_y = Width;  </span><br><span class="line">			<span class="keyword">int</span> temp = rand() % <span class="keyword">int</span>(High * <span class="number">0.8</span>);  </span><br><span class="line">			bar2_xbottom = temp - High / <span class="number">10</span>;  </span><br><span class="line">			bar2_xtop = temp + High / <span class="number">10</span>;  </span><br><span class="line">	  </span><br><span class="line">			canvas[bar2_xtop][bar2_y] = <span class="number">1</span>;  </span><br><span class="line">			canvas[bar2_xbottom][bar2_y] = <span class="number">0</span>;  </span><br><span class="line">	  </span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; High; i++) &#123;  </span><br><span class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; Width; j++) &#123;  </span><br><span class="line">					<span class="keyword">if</span> ((j == bar2_y) &amp;&amp; ((i &lt; bar2_xbottom) || (i &gt; bar2_xtop)))  </span><br><span class="line">						canvas[i][j] = <span class="number">1</span>;  </span><br><span class="line">				&#125;  </span><br><span class="line">			&#125;  </span><br><span class="line">		&#125;  </span><br><span class="line">	  </span><br><span class="line">		<span class="keyword">if</span> (bar3_y &lt; <span class="number">0</span>) &#123;  </span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; High; i++) &#123;  </span><br><span class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; Width; j++) &#123;  </span><br><span class="line">					<span class="keyword">if</span> ((j == bar3_y) &amp;&amp; ((i &lt; bar3_xbottom) || (i &gt; bar3_xtop)))  </span><br><span class="line">						canvas[i][j] = <span class="number">0</span>;  </span><br><span class="line">				&#125;  </span><br><span class="line">			&#125;  </span><br><span class="line">			canvas[bar3_xtop][bar3_y] = <span class="number">0</span>;  </span><br><span class="line">			canvas[bar3_xbottom][bar3_y] = <span class="number">0</span>;  </span><br><span class="line">			bar3_y = Width;  </span><br><span class="line">			<span class="keyword">int</span> temp = rand() % <span class="keyword">int</span>(High * <span class="number">0.8</span>);  </span><br><span class="line">			bar3_xbottom = temp - High / <span class="number">10</span>;  </span><br><span class="line">			bar3_xtop = temp + High / <span class="number">10</span>;  </span><br><span class="line">	  </span><br><span class="line">			canvas[bar3_xtop][bar3_y] = <span class="number">1</span>;  </span><br><span class="line">			canvas[bar3_xbottom][bar3_y] = <span class="number">0</span>;  </span><br><span class="line">	  </span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; High; i++) &#123;  </span><br><span class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; Width; j++) &#123;  </span><br><span class="line">					<span class="keyword">if</span> ((j == bar3_y) &amp;&amp; ((i &lt; bar3_xbottom) || (i &gt; bar3_xtop)))  </span><br><span class="line">						canvas[i][j] = <span class="number">1</span>;  </span><br><span class="line">				&#125;  </span><br><span class="line">			&#125;  </span><br><span class="line">		&#125;  </span><br><span class="line">	&#125;  </span><br><span class="line">	  </span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">		startup();  </span><br><span class="line">		HideCursor();  </span><br><span class="line">		<span class="keyword">while</span> (<span class="number">1</span>) &#123;  </span><br><span class="line">			show();  </span><br><span class="line">			updateWithInput();  </span><br><span class="line">			updateWithoutInput();  </span><br><span class="line">		&#125;  </span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">	&#125;  </span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2018/08/09/5b6c481eebfbd.jpg"></p>
+<h2 id="easyX到底是个什么鬼东西？？？"><a href="#easyX到底是个什么鬼东西？？？" class="headerlink" title="easyX到底是个什么鬼东西？？？"></a>easyX到底是个什么鬼东西？？？</h2><p>它是一个图形库，很简单，很简陋的图形库。但是由于非常简单易用，所以通常被用来作为初学者接触图形编程或者游戏编程的一个工具。使用easyX可以做出一些很简单的2D游戏。</p>
+<p>不过，麻雀虽小五脏俱全，easyX所附带的功能还是非常多的。具体的我会慢慢说。</p>
+<p>目前来说它只适用于VC平台。</p>
+<p>在easyX的官网<a target="_blank" rel="noopener" href="https://www.easyx.cn/">https://www.easyx.cn/</a>可以找到它的下载链接和一些技术性帮助文档。</p>
+<p>为方便安装，这里给出 <strong>官方文档</strong> 中提供的安装方法。</p>
+<blockquote>
+<p>安装<br>系统支持</p>
+<p>操作系统版本：Windows XP(sp3) 及以上操作系统。<br>编译环境版本：Visual C++ 6.0 / 2008 ~ 2017(x86 &amp; x64)。</p>
+<p>安装</p>
+<p>请下载最新版 EasyX 安装程序，直接运行，并跟随提示安装即可。</p>
+<p>安装程序会自动检测您已经安装的 VC 版本，并根据您的选择将对应的 .h 和 .lib 文件安装至 VC 的 include 和 lib<br>文件夹内。安装程序不会修改注册表或者您本机的其它任何文件。</p>
+<p>卸载</p>
+<p>由于安装程序并不改写注册表，因此您在“添加删除程序”中不会看到 EasyX<br>的卸载项。如需卸载，请再次执行对应版本的安装程序，并根据提示卸载。也可以手动将相关的 .h 和 .lib 删除，系统中不会残留任何垃圾信息。</p>
+<p>手动安装方法</p>
+<p>EasyX 安装程序是用 7-Zip 封装的自解压缩包程序。手动安装时，可以直接用 7-Zip<br>将安装文件解压，再根据下面的文件列表说明，将解压后的相关文件分别拷贝到 VC 对应的 include 和 lib 文件夹内。或者将所需的 include<br>和 lib 文件夹放到任意位置，然后在 VC 中增加 Lib 和 Include 的引用路径。</p>
+<p>文件列表说明：</p>
+<p>EasyX 安装程序<br>├ include<br>│ ├ easyx.h // 头文件<br>│ └ graphics.h // 头文件(模拟 BGI 绘图库)<br>├ lib<br>│ ├ VC6<br>│ │ └ x86<br>│ │ ├ EasyXa.lib // VC6 库文件(MBCS 版本)<br>│ │ └ EasyXw.lib // VC6 库文件(Unicode 版本)<br>│ ├ VC2013<br>│ │ ├ x64<br>│ │ │ ├ EasyXa.lib // VC2008 ~ 2013 库文件(x64, MBCS 版本)<br>│ │ │ └ EasyXw.lib // VC2008 ~ 2013 库文件(x64, Unicode 版本)<br>│ │ └ x86<br>│ │ ├ EasyXa.lib // VC2008 ~ 2013 库文件(x86, MBCS 版本)<br>│ │ └ EasyXw.lib // VC2008 ~ 2013 库文件(x86, Unicode 版本)<br>│ └ VC2017<br>│ ├ x64<br>│ │ ├ EasyXa.lib // VC2015 ~ 2017 库文件(x64, MBCS 版本)<br>│ │ └ EasyXw.lib // VC2015 ~ 2017 库文件(x64, Unicode 版本)<br>│ └ x86<br>│ ├ EasyXa.lib // VC2015 ~ 2017 库文件(x86, MBCS 版本)<br>│ └ EasyXw.lib // VC2015 ~ 2017 库文件(x86, Unicode 版本)<br>├ EasyX_Help.chm // 帮助文件<br>└ Setup.hta // 安装程序项目依赖</p>
+<p>EasyX 库采用静态链接方式，不会为您的程序增加任何额外的 DLL 依赖。</p>
+</blockquote>
+<h2 id="这玩意怎么用啊"><a href="#这玩意怎么用啊" class="headerlink" title="这玩意怎么用啊"></a>这玩意怎么用啊</h2><p>简单。这个图形库很多功能都已经打包成了函数，只需要来一句#include&lt;graphics.h&gt;就可以愉快地使用easyX啦。</p>
+<p>PS：一定要用好它附带的说明文档：</p>
+<p><img src="https://i.loli.net/2018/08/09/5b6c3ea605bf2.png"></p>
+<p>这里面有最官方并且最详细的解释说明。</p>
+<h2 id="一个通俗易懂的例子"><a href="#一个通俗易懂的例子" class="headerlink" title="一个通俗易懂的例子"></a>一个通俗易懂的例子</h2><p>easyX自带的绘图函数有很多。这里简单举个例子。</p>
+<p>一些最基本的图形，比如直线，矩形，圆，它都可以用对应的函数画出来。</p>
+<p>这里要注意，它并不是直接把图像画到控制台那个大黑框里，而是需要先进行初始化窗体，然后在这个初始化后的窗体里进行绘画。<br> <del>（虽然也是大黑框</del></p>
+<p>想要改变颜色的话也可以使用对应的函数。设置线条，填充，前景，背景……等等，都有对应的函数。当然，线条样式什么的也可以设定。</p>
+<p>easyX把一些常用的颜色设定好了颜色常量，我们可以直接使用。如果你需要其它颜色，可以通过三原色设置函数RGB()来进行更多颜色设定，它接受三个0~255之间的整型参数。</p>
+<p>给出一个简单的示例代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;graphics.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;conio.h&gt;  </span></span></span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">	initgraph(<span class="number">640</span>, <span class="number">480</span>);  </span><br><span class="line">	setcolor(GREEN);  </span><br><span class="line">	setfillcolor(YELLOW);  </span><br><span class="line">	fillcircle(<span class="number">233</span>, <span class="number">233</span>, <span class="number">100</span>);  </span><br><span class="line">	circle(<span class="number">233</span>, <span class="number">233</span>, <span class="number">200</span>);  </span><br><span class="line">	setcolor(RED);  </span><br><span class="line">	line(<span class="number">600</span>, <span class="number">0</span>, <span class="number">600</span>, <span class="number">480</span>);  </span><br><span class="line">	_getch();  </span><br><span class="line">	closegraph();  </span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+
+<p>解释一下吧。initgraph函数用来初始化绘图窗体，setcolor是设置线条颜色，setfillcolor是设置填充颜色。</p>
+<p>circle函数用来画一个“空心”圆，也就是不使用填充颜色的圆，它接受三个参数，前两个代表画布上的xy坐标（和之前说的一样），第三个代表半径，单位都是像素。</p>
+<p>fillcircle同理，不过画的是“实心”圆。</p>
+<p>line函数可以画一条直线。我们知道，两点确定一条直线，line函数就是这样，它接受四个参数，其实是代表两个点的坐标，然后它就可以画一条直线。</p>
+<p>_getch就是让你按任意键退出的……</p>
+<p>closegraph用来关闭图形界面。不关闭会发生什么呢？</p>
+<p>实测，什么也不会发生。</p>
+<p>这个程序执行效果是这样的：</p>
+<p><img src="https://i.loli.net/2018/08/09/5b6c45d083889.png"></p>
+<p>是不是很cooooooooooooooooooooooooooooooooool？（滑稽</p>
+<p>其实好玩的，好康的（误，东西还有很多。</p>
+<h2 id="使用easyx画一个动起来的小球"><a href="#使用easyx画一个动起来的小球" class="headerlink" title="使用easyx画一个动起来的小球"></a>使用easyx画一个动起来的小球</h2><p>首先让我们画一个不动的小球。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;graphics.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;conio.h&gt;  </span></span></span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">	initgraph(<span class="number">640</span>, <span class="number">480</span>);  </span><br><span class="line">	setcolor(LIGHTBLUE);<span class="comment">//颜色随意  </span></span><br><span class="line">	setfillcolor(BLUE);  </span><br><span class="line">	fillcircle(<span class="number">100</span>, <span class="number">100</span>, <span class="number">30</span>);  </span><br><span class="line">	_getch();  </span><br><span class="line">	closegraph();  </span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+
+<p>还记得之前用数组作为画布时如何更新小球的位置吗？先清除原位置的绘画，再改变坐标，再在新位置上画上小球。使用easyX实现动画一般也分三个步骤：</p>
+<pre><code>1. 绘制新图形
+2. 延时
+3. 清除旧图形</code></pre>
+<p>给出一个很简单的示例：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;graphics.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;conio.h&gt;  </span></span></span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">	initgraph(<span class="number">640</span>, <span class="number">480</span>);  </span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">100</span>; x &lt; <span class="number">500</span>; x++) &#123;  </span><br><span class="line">		setcolor(LIGHTBLUE);  </span><br><span class="line">		setfillcolor(BLUE);  </span><br><span class="line">		fillcircle(x, <span class="number">100</span>, <span class="number">20</span>);  </span><br><span class="line">		Sleep(<span class="number">5</span>);  </span><br><span class="line">		setcolor(BLACK);  </span><br><span class="line">		setfillcolor(BLACK);  </span><br><span class="line">		fillcircle(x, <span class="number">100</span>, <span class="number">20</span>);  </span><br><span class="line">	&#125;  </span><br><span class="line">	_getch();  </span><br><span class="line">	closegraph();  </span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+
+<p>诶？这里为什么不是先清除再绘制呢？</p>
+<p>看一下这个例子，在每一次for循环中，我们先在这个位置打印出小球，然后立即删除小球，然后x增加，在新位置打印小球，再删除小球……由于人的视觉暂留现象，你看到的就是一个移动的小球。试想，对于每一次for，如果先删除再绘制，那岂不是删除操作就没有任何意义了？因为你每次都会试图删除一个不存在的小球，因为这个小球根本就没有绘制。</p>
+<p>为啥要延时？</p>
+<p>不延时小球跑那么快你看得清吗……</p>
+<p>实际上，Sleep函数设定的值越低，动画就会看起来越流畅。但是会出现闪屏问题，这是我们不能接受的。</p>
+<p>其实我们可以借助批量绘图函数来代替延时功能。它们分别是BeginBatchDraw(),FlushBatchDraw(),EndBatchDraw()。</p>
+<p>BeginBatchDraw()用于开始绘图时，该命令执行后任何的绘图操作都暂时不会输出到屏幕上，直到遇到FlushBatchDraw()。EndBatchDraw()用来结束批量绘制，并且执行还没有完成的绘制任务。</p>
+<p>下面我们用easyX改进反弹球。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;graphics.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;conio.h&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> High 480  </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Width 640  </span></span><br><span class="line">  </span><br><span class="line"><span class="keyword">int</span> ball_x, ball_y;  </span><br><span class="line"><span class="keyword">int</span> ball_vx, ball_vy;  </span><br><span class="line"><span class="keyword">int</span> radius;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">initgraph(Width, High);  </span><br><span class="line">ball_x = Width / <span class="number">2</span>;  </span><br><span class="line">ball_y = High / <span class="number">2</span>;  </span><br><span class="line">ball_vx = <span class="number">1</span>;  </span><br><span class="line">ball_vy = <span class="number">1</span>;  </span><br><span class="line">radius = <span class="number">30</span>;  </span><br><span class="line">BeginBatchDraw();  </span><br><span class="line"><span class="keyword">while</span> (<span class="number">1</span>) &#123;  </span><br><span class="line">	setcolor(BLACK);  </span><br><span class="line">	setfillcolor(BLACK);  </span><br><span class="line">	fillcircle(ball_x, ball_y, radius);  </span><br><span class="line">	ball_x += ball_vx;  </span><br><span class="line">	ball_y += ball_vy;  </span><br><span class="line">  </span><br><span class="line">	<span class="keyword">if</span> ((ball_x &lt;= radius) || (ball_x &gt;= Width - radius))  </span><br><span class="line">		ball_vx = -ball_vx;  </span><br><span class="line">	<span class="keyword">if</span> ((ball_y &lt;= radius) || (ball_y &gt;= High - radius))  </span><br><span class="line">		ball_vy = -ball_vy;  </span><br><span class="line">	  </span><br><span class="line">	setcolor(LIGHTBLUE);  </span><br><span class="line">	setfillcolor(BLUE);  </span><br><span class="line">	fillcircle(ball_x, ball_y, radius);  </span><br><span class="line">	FlushBatchDraw();  </span><br><span class="line">	Sleep(<span class="number">5</span>);  </span><br><span class="line">&#125;  </span><br><span class="line">EndBatchDraw();  </span><br><span class="line">closegraph();  </span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+
+<p>诶，这里怎么是先清除再绘制啊，博主你不是说这没有意义吗？</p>
+<p>仔细看代码，我在执行完清除操作后， <strong>将小球位置进行了变动</strong><br>。来模拟一下这个过程，其实就不难理解了。第一遍循环，首先画一个黑球（这个黑球确实没有意义，但是只在这一遍循环中没有意义，你应该不会介意这个的），然后小球的坐标变化，在新位置画一个有颜色的球。然后下一遍循环会先把上一遍循环打印出的小球涂黑，再变化坐标，画一个新球……其实道理是一样的。</p>
+<p>想添加方框？画就是了。然后修改一下边界判定，把方框那块大小“扣出去”就好啦。</p>
+<p>其实写到这里，我发现已经没有其他内容了，才想起来，当时学到这里就被叫停了。</p>
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          打赏
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://shawnzhou.world/2018/08/06/c-game/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2018/08/23/software-engineering/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            软件工程基础 学习笔记
+          
+        </div>
+      </a>
+    
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "YolIyMzPHjxT49twQAhzxsQ8-gzGzoHsz",
+    app_key: "Dtrq0zAmtB8CqcKdwVCk7JBn",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2018-2022
+        <i class="ri-heart-fill heart_icon"></i> Shawn Zhou
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        
+        由 <a href="https://hexo.io" target="_blank">Hexo</a> 框架强力驱动
+        <span class="division">|</span>
+        主题 - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></s>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://v1.cnzz.com/z_stat.php?id=1279352967&amp;web_id=1279352967'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/avatar1.png" alt="ShawnZhou的小站"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">图集</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://friends.shawnzhou.world/">友链站</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://dev.shawnzhou.world/">开发站</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://sources.shawnzhou.world/">资源站</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>感谢打赏~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://shawnzhou.world/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://shawnzhou.world/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+
+<script src="/js/clickBoom2.js"></script>
+
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+  </div>
+</body>
+
+</html>

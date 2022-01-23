@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="博客,前端博客,JavaScript,html5,css3,html,css,js,acm,noip,橙果工作室,shawnzhou,shawn zhou" />
+   
+  <meta name="description" content="ShawnZhou的小站" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    《规律与逻辑·用户体验设计法则》 学习笔记2 |  ShawnZhou的小站
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+  
+  
+
+  
+
+<link rel="alternate" href="/atom.xml" title="ShawnZhou的小站" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+      <canvas width="1777" height="841"
+        style="position: fixed; left: 0px; top: 0px; z-index: 99999; pointer-events: none;"></canvas>
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-ui-note2"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  《规律与逻辑·用户体验设计法则》 学习笔记2
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/06/28/ui-note2/" class="article-date">
+  <time datetime="2020-06-28T05:17:12.000Z" itemprop="datePublished">2020-06-28</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/">前端开发那些事</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">4.5k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">15 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>不符合设计规范的设计很难被用户接受，也会极大地增加开发难度。界面设计严格按照规范来执行，是对用户体验设计师的基本要求。</p>
+<p>该部分学习笔记摘自《规律与逻辑》。</p>
+<p><img src="https://s1.ax1x.com/2020/06/28/NgVFx0.jpg"></p>
+<a id="more"></a>
+
+<h2 id="App基础布局规范"><a href="#App基础布局规范" class="headerlink" title="App基础布局规范"></a>App基础布局规范</h2><p>进行界面设计的第一步是了解市面上手机尺寸的规范和分辨率。但是市面上手机尺寸繁多，尺寸不尽相同。针对每一种机型都设计一套显示方案显然是不合理的，所以我们需要去了解不同手机屏幕之间的差距，还要找出之间的共性，同时应该学习布局中的理论规范。</p>
+<h3 id="显示理论基础"><a href="#显示理论基础" class="headerlink" title="显示理论基础"></a>显示理论基础</h3><p>首先引入单位dpi，dpi是dots per<br>inch的缩写。原用于表示打印机每英寸（约2.54cm）能打印的墨点数。这个数值越高，打印出来的东西就越清晰，当dpi高到一定程度时，人眼将无法感受到墨点的存在，看到的图片就会越来越清楚。</p>
+<p>然后引入单位ppi，ppi是pixels per<br>inch的缩写。表示每英寸可以容纳多少个像素点。类似打印机打印图像，屏幕显示图像使用的是许许多多的发光点。对于屏幕来说，ppi用于描述发光点的密度，也就是单位面积下发光点的数量。一般我们将屏幕上的一个发光点称作是一个像素。ppi可以认为是一个物理单位，因为一块屏幕在出厂时，其尺寸和像素点的数量就已经是确定的。</p>
+<p>以iPhone8为例，其手机屏幕宽度约为5.8cm，高度约为10.4cm，屏幕大小为4.7英寸（可根据勾股定理计算得出），像素尺寸为1334px×750px，也就是说每行可以容纳750个发光点，每列可以容纳1334个发光点。其实，1334px×750px也是iPhone6，iPhone7的屏幕分辨率。根据苹果提供的参数信息，iPhone8的ppi值为326，也就是说，在iPhone8中，每英寸（对角面积）可以容纳326个像素点。</p>
+<p>我们应该避免询问“一个像素是多大”这种问题，因为 <strong>像素点的大小通常是不确定的</strong><br>。虽然像素的显示要基于物理上的屏幕发光点，但是脱离了物理屏幕这个大前提，讨论像素就没有了大小可言。比如iPhone8<br>Plus，其屏幕像素尺寸为1920px×1080px，而常见的笔记本电脑屏幕像素尺寸也是1920px×1080px，iPhone8<br>Plus的屏幕再大也不会有笔记本屏幕的尺寸大，所以即使像素尺寸一样，其物理大小也是不一样的。</p>
+<p>基于上述讨论，可以知道，如果在设计界面时， <strong>只关注屏幕尺寸通常是不合理的</strong><br>。而通过屏幕尺寸和像素尺寸计算出的ppi值才是真正需要关注的数据。ppi的计算公式如下：</p>
+<p><img src="https://s1.ax1x.com/2020/06/28/NgnjAO.png"></p>
+<p>其中，x为屏幕的长度像素数，y为屏幕的宽度像素数，z代表屏幕尺寸。以iPhone8为例，x=750px，y=1334px，z=4.7inch，代入公式可以计算出ppi约为325.61，四舍五入后得到ppi值为326，与上方讨论得到的数据一致。</p>
+<p>同时根据ppi公式还可以反推出，在同样屏幕尺寸（即z不变）的情况下，一条同为长x像素的线条，在不同ppi值的显示下，显示展现出的长度并不相同。比如在iPhone8中，显示一条326px的线，由于iPhone8的ppi值为326，这条线的显示长度为1inch。假设将iPhone8的ppi值降低一半，到达163ppi，那么326px的线将显示为2inch。这是因为163ppi的屏幕每inch只有163像素，所以在显示326像素的内容时需要多花一倍的长度。</p>
+<h3 id="逻辑大小与像素大小"><a href="#逻辑大小与像素大小" class="headerlink" title="逻辑大小与像素大小"></a>逻辑大小与像素大小</h3><p>这里暂且定义 <strong>逻辑大小为人对物体真实大小的认知</strong><br>。人的视觉对于对象尺寸的判断是根据逻辑大小来决定的，以一本书为例，无论这本书离我们有多远，在我们的认知中，书的大小“就是那么大”，不会因为我离着这本书很远而感觉这本书“实际变小了”，这是不符合现实的，我们只会感觉“看起来变小了”。我们所认知的大小，就是书本的实际大小，这个实际大小，就可以作为书本的逻辑大小。在以后的讨论中，<br><strong>凡是牵扯到逻辑大小，均指从人的认知上看起来的大小。</strong></p>
+<p>物体真实尺寸不同，逻辑大小就不相同，给人的认知就会不一样，在眼中呈现的视觉大小也就不一样。像素大小相同，逻辑大小不一定相同。根据之前的讨论：</p>
+<blockquote>
+<p><strong>像素点的大小通常是不确定的</strong> 。虽然像素的显示要基于物理上的屏幕发光点，但是脱离了物理屏幕这个大前提，讨论像素就没有了大小可言。</p>
+</blockquote>
+<p>比如一个300×300的像素点阵，在大屏幕上和小屏幕上所使用的显像单元都是90000个，尽管他们的像素大小是一样的，但是能清楚地感受到两者显示的实际大小不一样，正是因为“1像素”的真实大小不同，造成了这个差距。<br><strong>屏幕像素数量不同，在图形有相同像素大小的情况下，图形的显示大小会不一样。</strong></p>
+<p>可以举例，对于一个64×64的icon，在iPhone8 Plus上显示的大小就会比iPhone8要小，因为iPhone8<br>Plus的ppi要比iPhone8更大。那么如果我们假设这个情况更为极端，某个屏幕的分辨率是另一个屏幕的好几倍，那么显示差距悬殊将会更大。业界通用的解决方法是将高ppi屏幕下的显示放大某倍，就可以将不同ppi屏幕下的逻辑大小控制到基本一致。这就是为什么我们感觉大屏幕的手机比小屏幕的手机看着更清楚，因为一般都会将显示部件进行放大。</p>
+<p>在引入了放大这个操作后，就有了逻辑像素与实际像素这两个不同的概念。</p>
+<h3 id="逻辑像素与实际像素"><a href="#逻辑像素与实际像素" class="headerlink" title="逻辑像素与实际像素"></a>逻辑像素与实际像素</h3><p>试想一个问题：假如我们在为div绘制边框时，使用了<code>border: 1px solid black;</code>这样的CSS进行设置，那么显示预览时，我们可以看到一个黑色的边框，并且大脑会收到认知，这是一个1px的边框。但是，这个边框真的是1px吗？</p>
+<p>实际上很多情况下并不是。在我们大脑中存在的1px是一个逻辑像素，根据上方逻辑大小的讨论，这个1px是我们看到的1px，它是逻辑大小。但是无论在iPhone8中显示，还是在iPhone8<br>Plus中显示，其占用的显像单元却并不是1px的显像单元，而应该是有好多px的显像单元。如果真的在手机上使用1px的显像单元显示1px，恐怕人眼很难看清楚。</p>
+<p>从iPhone4S起，苹果采用了一种叫做Retina的技术。这种技术支持把更多的像素当成一个像素来使用，这样可以提高显示的细腻度。</p>
+<blockquote>
+<p>所谓“Retina”是一种显示标准，是把更多的像素点压缩至一块屏幕里，从而达到更高的分辨率并提高屏幕显示的细腻程度。由摩托罗拉公司研发。最初该技术是用于Moto<br>Aura上。这种分辨率在正常观看距离下足以使人肉眼无法分辨其中的单独像素。也被称为视网膜显示屏。</p>
+</blockquote>
+<p>在使用了Retina的iphone4S中，一个1×1的物理像素点可以容纳2×2个像素，所以在其上一代手机iPhone3GS中的显示方案放在iPhone4S中就会显示的非常小，因为实际大小会缩为原来的二分之一。解决方法其实很简单，将设计稿中的全部元素等比放大为原来的2倍，就可以完美兼容iPhone4S。</p>
+<p>现在的手机都是向着分辨率越来越高的方向发展的，所以应该尽量优先保证高分辨率的屏幕显示效果。在设计贴图中常见到文件后缀有@2x，@3x等字样，其中不带此类字样的用于普通屏幕，带@2x的用于Retina屏幕，带@3x的用于iPhone<br>Plus系列机型。</p>
+<p>规律：实际像素除以放大倍率，得到的是逻辑像素，若两个屏幕中的逻辑像素相同，其显示的实际大小也是相同的。</p>
+<p>在iOS系统中，逻辑像素的单位是pt，普通像素的单位是px，在Android系统中，逻辑像素的单位是dp，普通像素的单位是px。</p>
+<p>有了逻辑像素可以用来做什么？在进行UI设计时，只需要按照逻辑像素大小进行设计即可，在生成素材时加入@2x，@3x，即可得到高分辨率机型采用的素材，不用再为某些类机型单独做设计。（当然，iPhone<br>X是一个很例外的机型，后面需要单独处理）</p>
+<h3 id="利用理论知识进行机型适配"><a href="#利用理论知识进行机型适配" class="headerlink" title="利用理论知识进行机型适配"></a>利用理论知识进行机型适配</h3><p>Android机的尺寸比iPhone多得多，分辨率高低跨度很大，但是我们可以根据各种设备的ppi划分成几个区间，并为不同的区间设定不同的放大倍率，这就可以做到统一了标准。至于一些老掉牙的小屏幕机型，在做设计时如果没有特殊需要一般就不需要考虑了，毕竟这样的设备现在也没多少人在继续使用了。</p>
+<p><img src="https://s1.ax1x.com/2020/06/28/NgtAht.md.jpg"></p>
+<p>对于iPhone<br>X的适配，重点关注应该是在其头部刘海和底部标签栏与工具栏。这两部分被苹果官方定义为非安全区域，不可以在非安全区域显示任何有效信息。上方不安全区的高度为44pt，下方不安全区的高度为33pt。在适配顶部导航栏，顶部banner，底部按钮，开屏大图时需要特殊注意，这块内容属于经验之谈，不太好呈现在书面上，这里就不做记录了。</p>
+<h2 id="界面布局中的栅格系统"><a href="#界面布局中的栅格系统" class="headerlink" title="界面布局中的栅格系统"></a>界面布局中的栅格系统</h2><p>在App界面设计中，栅格系统的应用不仅可以让界面看起来更美观，还可以提升程序开发的效率。给界面留出边距这一设计方式可以被视作最基础的栅格系统。</p>
+<h3 id="8px原则"><a href="#8px原则" class="headerlink" title="8px原则"></a>8px原则</h3><p>读中感觉不明其意，读完感觉，妙啊！</p>
+<p>8px原则有两个不同的版本，一种是印刷行业使用的硬栅格，即将元素都放到8px大小的栅格中，一种是App设计中使用的软栅格，即保证元素之间的距离为8px的整数倍数即可。整合起来说，8px原则就是在设计中所有元素的长宽和间距都可以被8px整除。当然这里的8px是基于@2x情况下讨论的，在@3x情况下就是12px，不放大的话就是4px。当然，这里的px理解为pt或者dp也是完全可以的。</p>
+<p>8px的由来不是没有道理的，简而言之，如果采用其他比较小px的原则的话，在一些小分辨率屏幕下会导致分辨率的像素参数出现小数，这就会导致元素出现虚边。但是现在来看的话，8px原则适用的320×480作为1×的时代已经过去了，我们可以把这个原则推广一下：</p>
+<p><strong>只要给界面中所有元素定义一个最小单位，一切元素的尺寸都是它的整数倍，就可以解决元素的适配问题。</strong></p>
+<p>读完后脑中瞬间想到rem，妙啊！rem就是一个相对大小的单位，1rem默认为16px，在开发中以rem作为标准就可以让写出来的东西变得很整齐。</p>
+<h2 id="常见的布局和适用场景"><a href="#常见的布局和适用场景" class="headerlink" title="常见的布局和适用场景"></a>常见的布局和适用场景</h2><ul>
+<li>标签式布局<ul>
+<li>也称网格式布局，用于承载重要的功能，各模块之间保持相对独立，一行不要超过五个。设计时注意保持风格和细节上的统一。</li>
+<li>优点：各个入口清晰呈现，方便用户快速查找信息</li>
+<li>缺点：扩展性较差</li>
+<li>例子：支付宝主界面的各种功能选项</li>
+</ul>
+</li>
+<li>列表式布局<ul>
+<li>适用于较长的文字信息组合界面布局，不适合在信息层级过多且字段内容不确定情况下使用</li>
+<li>优点：信息展示直观，节省界面空间，浏览效率高，字段长度不受限制，可以错行显示</li>
+<li>缺点：单一的列表页容易让人产生视觉疲劳，需要穿插其他板式让页面看起来富有变化</li>
+<li>例子：知乎问题推荐，b站视频页下方的相关视频推荐</li>
+</ul>
+</li>
+<li>卡片式布局<ul>
+<li>是在栅格系统上更进一步进行规范布局的方式，将整个界面切割为多个区域，方便设计迭代，视觉效果统一</li>
+<li>优点：最能支持图文混排，适用于信息组合层级较多的情况</li>
+<li>缺点：太费空间，用户可能需要大面积扫视才能获取到想要的信息。在不适合的场合强行使用卡片式布局会降低使用效率</li>
+<li>例子：淘宝中“我的淘宝”页面</li>
+</ul>
+</li>
+<li>瀑布流布局<ul>
+<li>界面内卡片大小不一致，产生错落视觉效果的布局称为瀑布流布局</li>
+<li>适用于图片为主信息的情况，一般是两列并行，偶见三列情况</li>
+<li>适合电商和小视频等界面，不适合文字过多或强调产品稳重性的场合</li>
+<li>优点：极大提升交互效率，制造丰富的视觉体验</li>
+<li>缺点：过于依赖图片的质量，如果图片质量不高，产品的格调会受影响</li>
+<li>例子：淘宝商品页，闲鱼商品页</li>
+</ul>
+</li>
+<li>多面板布局<ul>
+<li>适合在内容和分类都较多的情况下使用</li>
+<li>侧边栏显示竖排列标签，内容页显示相关内容</li>
+<li>优点：展示信息效率较高，操作效率较高，减少跳转，分类直观</li>
+<li>缺点：分类很多的情况下，侧边栏较窄，不利于单手操作</li>
+<li>例子：京东商城商品页</li>
+</ul>
+</li>
+<li>手风琴布局<ul>
+<li>常见于两级结构的页面中，用户可以点击展开折叠</li>
+<li>优点：可承载较多信息，保持界面的间接性，减少页面跳转，减少点击次数</li>
+<li>缺点：同时打开多个的情况下，分类标题不好找，界面布局容易被打乱</li>
+<li>例子：QQ分组列表页</li>
+</ul>
+</li>
+</ul>
+<h2 id="App基础组件规范"><a href="#App基础组件规范" class="headerlink" title="App基础组件规范"></a>App基础组件规范</h2><ul>
+<li>状态栏</li>
+</ul>
+<p>状态栏是显示手机信号，时间，电量等信息的区域，一般是白色和黑色两种方案，此处一般不特殊设计。在状态栏背景颜色不确定时，缺省设置为背景白色。</p>
+<ul>
+<li>导航栏</li>
+</ul>
+<p>位于状态栏的下方，一般显示当前界面的名称。Android系统的导航栏标题基于导航栏左边缘对齐，iOS系统的导航栏标题基于整体居中对齐。两者的相同之处在于左侧一般提供返回按钮，右侧为当前界面的功能按钮，按钮可以是文字可以是图形。iOS的导航栏高度一般为44pt（逻辑像素375×667pt），Android的导航栏高度一般为56dp（逻辑像素360×640dp）。</p>
+<ul>
+<li>标签栏</li>
+</ul>
+<p>位于界面的最下方，提供界面的切换，功能入口和界面导航等功能。作用是指示当前界面所处的位置和可以前往的方向。在视觉上着重解决“我在哪里”，所以需要清晰且高亮地标注当前界面所处的位置。标签可以是纯图，可以是纯文，可以是上图下文。iOS的标签栏高度一般为49pt（逻辑像素375×667pt），Android的导航栏高度一般为48dp（逻辑像素360×640dp）。Android系统中的标签栏也可以在上方显示（由于Android系统存在界面虚拟按键，现在全面屏的普及也使得这个规矩弱化了，放上放下都行）</p>
+<ul>
+<li>工具栏</li>
+</ul>
+<p>工具栏与标签栏显示位置相同，但同一界面中，工具栏与标签栏只能同时显示一条。一般作用是承载一些对当前界面做一些操作的按钮（区别于标签栏的导航），一行不可超过5个，当超过5个时，最后一个显示为“更多”样式。iOS的工具栏高度一般为44pt（逻辑像素375×667pt），Android的工具栏高度一般为48dp（逻辑像素360×640dp）。</p>
+<h2 id="App字体规范"><a href="#App字体规范" class="headerlink" title="App字体规范"></a>App字体规范</h2><p>其实一般不怎么需要改字体的。</p>
+<p>iOS11中系统默认中文字体为“苹方体”，英文和数字默认字体为“San<br>Francisco”。Android8.0系统默认字体为“思源黑体”，英文和数字默认字体为“Roboto”。</p>
+<p>字号规范相比字体来讲比较灵活，可以为每个产品都定一个自己的字号规范。但是一定要规定一个最小字号（小于此字号则会影响识别性），同时字号必须是整数，相同表意字段的字号必须一致。比如一级，二级，三级标题，大规模正文文本信息，非重要提示信息，非必读型信息，图标提示信息，它们之间的字号必须有区别，但是必须要保持整体一致。</p>
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          打赏
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://shawnzhou.world/2020/06/28/ui-note2/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UI%E8%AE%BE%E8%AE%A1/" rel="tag">UI设计</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2020/07/04/ui-note3/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            《规律与逻辑·用户体验设计法则》 学习笔记3
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/06/27/ui-note1/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">《规律与逻辑·用户体验设计法则》 学习笔记1</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "YolIyMzPHjxT49twQAhzxsQ8-gzGzoHsz",
+    app_key: "Dtrq0zAmtB8CqcKdwVCk7JBn",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2018-2022
+        <i class="ri-heart-fill heart_icon"></i> Shawn Zhou
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        
+        由 <a href="https://hexo.io" target="_blank">Hexo</a> 框架强力驱动
+        <span class="division">|</span>
+        主题 - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></s>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://v1.cnzz.com/z_stat.php?id=1279352967&amp;web_id=1279352967'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/avatar1.png" alt="ShawnZhou的小站"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">图集</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://friends.shawnzhou.world/">友链站</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://dev.shawnzhou.world/">开发站</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://sources.shawnzhou.world/">资源站</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>感谢打赏~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://shawnzhou.world/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://shawnzhou.world/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+
+<script src="/js/clickBoom2.js"></script>
+
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+  </div>
+</body>
+
+</html>

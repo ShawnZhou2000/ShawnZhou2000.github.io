@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="博客,前端博客,JavaScript,html5,css3,html,css,js,acm,noip,橙果工作室,shawnzhou,shawn zhou" />
+   
+  <meta name="description" content="ShawnZhou的小站" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    前端工程简史 学习笔记 |  ShawnZhou的小站
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+  
+  
+
+  
+
+<link rel="alternate" href="/atom.xml" title="ShawnZhou的小站" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+      <canvas width="1777" height="841"
+        style="position: fixed; left: 0px; top: 0px; z-index: 99999; pointer-events: none;"></canvas>
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-A-brief-history-of-front-end-engineering"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  前端工程简史 学习笔记
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/02/20/A-brief-history-of-front-end-engineering/" class="article-date">
+  <time datetime="2021-02-20T06:53:30.000Z" itemprop="datePublished">2021-02-20</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/">前端开发那些事</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">3.8k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">12 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>不好好了解一下过去，也便很难真正理解当今。</p>
+<p>这次来学习《前端工程化 体系设计与实践》中的第一章：前端工程简史，将其中精华部分加以个人理解做一些摘抄整理。</p>
+<p><img src="https://i.loli.net/2021/03/04/F9NvgZEnIXrdzu8.jpg"></p>
+<a id="more"></a>
+
+<p>前端工程出现的根本原因是前端工程师所负责的客户端功能逻辑在不断复杂化。现在的前端工程师已经不再做往年“切图仔”的工作，而是采用一种更加规范化、工程化的模式进行各种网站、应用、小程序的开发。想要弄明白前端工程化的来历，还得从web的老祖宗开始说起。</p>
+<p><strong>什么是前端工程化？前端工程化是一系列工具和规范的组合，规范为蓝本，工具为实现。</strong></p>
+<h2 id="前端工程发展历史"><a href="#前端工程发展历史" class="headerlink" title="前端工程发展历史"></a>前端工程发展历史</h2><p>1990年，Tim Berners Lee发明了世界上第一个网页浏览器WorldWideWeb。1995年，Brendan Eich用了10天时间完成了第一版网页脚本语言（后定名为JavaScript），这是网页应用开山鼻祖的年代，当时的网络条件与计算机硬件条件整体都是一个比较落后的状态，网页基本都是静态的，那时的脚本语言最初设想仅仅是完成一些简单的表单校验。</p>
+<p>（吐槽：直到现在完成表单校验也是一个令人头大的工作）</p>
+<p>对于那个时期的网页脚本语言来讲，它只需要做到功能简单、语法简洁、容易学习和部署就可以了。当时的Web应用完全以服务端为重，同时兼顾着客户端浏览器的开发，时代限定了那时并没有专门的前端工程师。</p>
+<p>前端技术的第一次大变革源自2005年AJAX技术的问世。AJAX带来的异步请求和局部刷新彻底改变了网页的交互模式，同时此时网络速度的增长与个人计算机的普及给网站带来了更多的用户，用户对网站的需求也越来越多。此时便出现了第一批“最原始的”前端工程师，但他们的工作也仅限于处理用户交互和UI，此时相当多的前端工程师其实是做设计出身的，所以当时也会称他们为网页美工，“切图仔”的外号也是从这个时代来的。但受限于此时浏览器JavaScript引擎的性能，尽管有了AJAX，但受限于JavaScript引擎的性能，浏览器仍然无法处理大量的JavaScript逻辑，此时的功能逻辑仍然十分简单（十几行，几十行，几百行左右）。</p>
+<p>AJAX技术起步于微软Outlook的XMLHTTP组件，微软将其作为ActiveX组件的一部分加入IE5。随后其他浏览器厂商实现了一个同样功能的JavaScript对象：XMLHttpRequest（微软你好惨），随后，W3C在2006年正式发布了XMLHttpRequest规范草案。自此，Web不仅是提供静态展示的网站，而且是一种由浏览器展现，资源寄存于Internet的应用程序。</p>
+<p>时间推移到2008年，Google推出了高性能JavaScript引擎Google V8，采用JIT（实时编译）技术解释JavaScript代码，极大地提升了JavaScript的运行性能，使浏览器承载成千上万行JavaScript逻辑代码成为可能。引擎性能如同起飞的提升使得以前必须依靠服务器完成的功能可以转移到浏览器中，此时业内开始提倡REST（具象状态传输）风格的Web服务API与SPA单页应用风格的客户端。此时前端工程师不再仅仅承担交互与UI的工作，也要承担浏览器端逻辑的开发，工作职责进一步完善。</p>
+<p>2009年，Node.js问世将JavaScript语言带到了服务端开发领域，但此时发布的第1版Node.js仅支持Linux和Mac OS X系统。目前（2021年）已经有很多公司使用Node.js应用到企业级产品中，尽管仍然无法撼动Java这种业界老大哥的地位，但Node.js对前端生态圈的促进是起到了巨大的推动作用的。Node.js带来的“大前端”模式已经在Web开发领域当中蔓延。Node.js实现异步操作的核心是Event Loop（事件驱动）。</p>
+<p>在2011年，Node.js发布了Windows版本，在Web开发界进一步流行了起来。Node.js改变了人们对JavaScript的看法，即便是AJAX，也没能做到让JavaScript脱离浏览器生存，但Node.js做到了。Node.js证明了JavaScript能做的事情越来越多，而不仅是局限于在浏览器里写点交互逻辑。JavaScript学习浪潮的兴起也加速了ECMAScript规范的迭代。如果说AJAX为前端带来了第一次新生，那Node.js就为前端带来了第二次新生。</p>
+<p>Node.js并非是一个JavaScript框架，而是一个可以使用JavaScript语言开发服务端应用的运行环境。同时，Node.js也是实现同构JavaScript开发的关键，这催生出了很多优秀的前端框架，比如React和Vue。</p>
+<h2 id="前端工程师技能栈"><a href="#前端工程师技能栈" class="headerlink" title="前端工程师技能栈"></a>前端工程师技能栈</h2><p>从最初的重交互与UI，轻JavaScript的开发模式，到三者一把抓，再到“大前端”的客户端服务端通吃，前端工程师的工作内容与职责在不断拓宽。可以总结出前端工程师的技能栈：</p>
+<ul>
+<li>硬技能：HTML CSS JavaScript相关技术，这是前端工程师必须掌握的三项核心技能。数据结构、算法、软件工程等基础知识对前端工程师而言同样重要。</li>
+<li>软技能：用户体验与性能。前端工程师的产出物直接面向用户，应当保证产品拥有良好的用户体验，还必须具备性能优化的意识和技能。</li>
+<li>扩展技能：以Node.js为首的Web客户端相关知识本身。了解Web应用从前到后的工作流程和整体架构模型，有助于前端工程师编写更合理的客户端逻辑。</li>
+</ul>
+<p>总结起来，前端工程师是承载用户层所有功能的资源产出着，不仅是客户端最终呈现给用户的HTML/CSS/JavaScript等资源成品，而且还包括这些资源从零开始到最终产出的生产流水线所涵盖的所有环节。也就是，既包括成品，又包括过程。</p>
+<h2 id="前后端分离与前端工程化"><a href="#前后端分离与前端工程化" class="headerlink" title="前后端分离与前端工程化"></a>前后端分离与前端工程化</h2><p>从传统网站到SPA再到同构JavaScript，前端工程师的工作已经不断加重，使用原始的前后端耦合串行开发流程已经不能满足现代Web产品的需要，于是前后端分离思想应运而生。</p>
+<p>前后端分离的核心是解耦，通过合理的分工将前端工程师与后端工程师的职责区分独立开来，改善前后端协作中拖慢开发进度的环节，提高工作效率。</p>
+<ul>
+<li>从开发角度来讲，前后端分离的宗旨是实现并行开发，缩短开发周期。</li>
+<li>从测试角度来讲，前后端分离令前端工程师和后端工程师更快捷、精准地对问题进行定位。</li>
+<li>从部署角度来讲，前后端分离将静态文件和动态文件分离部署并结合回滚策略，简化了部署流程，增强了应用程序的健壮性。</li>
+</ul>
+<p>对于前端工程师来说，后端工程师唯一的产出就是数据。“大前端”负责的并不是真正的Web服务层，而是中间层，这也是“大前端”与“全栈”的根本区别，前端工程师仍然不需要接触数据库的CRUD操作。</p>
+<p>在测试阶段，前后端分离能解决的是集成测试阶段的问题及时定位，通过明确责任承担角色。测试工程师等同于内测用户，他们反馈的问题就是用户反馈的问题。前端工程师负责所有与用户直接接触的功能和逻辑，自然是反馈过程的直接责任人。</p>
+<p>前后端分离不仅仅是通过技术手段解决问题，技术和工具永远只是辅助手段，前后端分离的本质仍然是分工和角色的细分。前端工程化的最终目的之一就是实现更合理、更便利的前后端分离开发环境。前端工程化的主要目标是解放生产力、提高生产效率。具体的衡量准则为“快、准、稳”。工程化方案的核心目标之一就是在保证质量的前提下，尽可能提高产品的开发速度。工程化要解决的就是尽量减少低级的逻辑错误，降低集成测试阶段消耗的时间成本。</p>
+<h2 id="前端工程化的进化历程"><a href="#前端工程化的进化历程" class="headerlink" title="前端工程化的进化历程"></a>前端工程化的进化历程</h2><ol>
+<li>混沌形态：前端写demo，后端写逻辑，然后套模板。这种时候是前端开发刚刚兴起的时候，Web产品的交互逻辑比较简单。在混沌形态下，前端工程师产出的资源除了CSS外，都需要后端工程师进行二次处理才可以上线，甚至有时候连CSS都得二次处理，此时毫无前端工程化可言。</li>
+<li>采用了AJAX的前后端分离形态：后端工程师负责前端逻辑开发的混沌形态被打破，改为前端逻辑、样式、和HTML交由前端工程师开发，这是催生前端工程化萌芽的关键一步。但此时仍然出现很多问题，比如开发阶段想要使用很多工具解决问题（ES规范不一致，CSS预编译器，图片压缩，资源定位等），有些JavaScript代码依赖数据接口交互但此时接口没开发完，静态文件仍然需要依靠后端工程师部署，这三个问题作为开发层面、协作层面、部署层面的三个典型问题代表在这个阶段存在着。所以人们在此基础上再次进行了多次优化。</li>
+<li>加入构建流程的前后端分离形态：构建流程可以确保前端工程师使用有助于提高开发和维护效率的框架，规范进行源代码的编写，此时能够解决开发阶段需要工具的问题，只需要在借助工具的开发结束之后使用构建工具转换一下再交付后端就OK了。但协作层面和部署层面的问题依旧存在。</li>
+<li>加入本地开发服务器的前后端分离形态：本地开发服务器本质上是一个Web服务，比如Mock服务，通过提供模拟接口和数据解决前端JavaScript对接口数据API依赖的问题，但这里需要前后端商定接口API文档的详细规范，不然会出问题。采用“假数据”的方式能够解决协作层面的问题，现在只剩下部署层面的问题了。</li>
+<li>加入静态动态资源分离部署的前后端分离形态：优化部署的基本原则是，确保单方问题的修复不需要调动多方资源。假如上线的网站上某个图片需要更换或者出了bug，那理应只换掉出问题的图片即可，但现在讨论的前后端分离开发模式下需要前后端配合再次重新部署项目，这样的工作效率是非常低下的。通过将动态静态资源分别部署，就可以减少耦合工作，提高迭代与维护效率。这样如果是静态文件（不一定非得是图片，CSS也算，HTML有时候也算）出了问题，前端工程师只需要修改对应的静态文件即可，并不需要牵扯到动态资源的重新部署，方便了很多。</li>
+</ol>
+<p>此时的前后端分离模式并非完美的，前后端工程师的分工也并非最合理，理想模式等到以后再来学习吧。</p>
+<h2 id="前端工程化的3个阶段"><a href="#前端工程化的3个阶段" class="headerlink" title="前端工程化的3个阶段"></a>前端工程化的3个阶段</h2><ol>
+<li>本地工具链——工程化不等同于工具化。工程化的核心并非工具，其最终目的是为了提高研发效率以及保证Web产品的线上质量。工具的作用是将规范具化为功能并且在一定程度上将开发者限定在既有规范内。开发者使用统一的工具链，遵循统一的规范进行业务代码的编写，利于多人协作与程序的维护。</li>
+<li>管理平台——进一步淡化差异，加深规范。本地工具链形态的工程化虽然解决了部分痛点问题，但所有模块都在本地工作，必然会受到环境差异性的影响，环境的差异性在一定程度上会影响构建产出代码的一致性。此外，本地工具链形态的权限不设限也带来了安全隐患，如果人人都能使用部署工具向生产环境部署文件，那是非常危险的，权限必须严格控制。使用集中管理的云平台便可以淡化环境差异性、权限集中管理、项目版本集中管理。</li>
+<li>持续集成——前端工程化的目标是融入整体。即便是到达管理平台形态，前端工程化方案解决问题的本质仍然是前后端的工作解耦，尽管提高了双方的工作效率，但各自的工作流还是独立的，最后不可避免的要进行人工的融合工作。不论前端工程化的功能如何完备，规范如何严谨，需要谨记的是，前端工程化必然是整体Web工作流中间的一个子集方案。前端工程化最终的完美形态必然与整体工作流结合，作为持续集成方案中的一环。</li>
+</ol>
+<h2 id="设计原则"><a href="#设计原则" class="headerlink" title="设计原则"></a>设计原则</h2><ol>
+<li>规范设计原则——用户至上。规范分两部分：工程化方案自身的配置API规范以及方案对代码编程范式的约束规范。编程规范的设计原则着重于代码的可移植性，减少对代码的捆绑性。</li>
+<li>架构设计原则——扩展至上。除能够解决现阶段的功能需求以外，对隐含需求的支持度也是评估一套工程化方案的标准之一。在设计工程化方案架构时，应当秉持“内核轻量、扩展丰富”的原则。</li>
+</ol>
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          打赏
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://shawnzhou.world/2021/02/20/A-brief-history-of-front-end-engineering/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js/" rel="tag">Node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" rel="tag">软件工程</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2021/02/20/daily-interview-question-2021-02-20/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            日常来点面试题2021.2.20
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2021/02/12/why-they-gone/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">原来的文章都跑到哪里去了？</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "YolIyMzPHjxT49twQAhzxsQ8-gzGzoHsz",
+    app_key: "Dtrq0zAmtB8CqcKdwVCk7JBn",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2018-2022
+        <i class="ri-heart-fill heart_icon"></i> Shawn Zhou
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        
+        由 <a href="https://hexo.io" target="_blank">Hexo</a> 框架强力驱动
+        <span class="division">|</span>
+        主题 - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></s>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://v1.cnzz.com/z_stat.php?id=1279352967&amp;web_id=1279352967'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/avatar1.png" alt="ShawnZhou的小站"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">图集</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://friends.shawnzhou.world/">友链站</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://dev.shawnzhou.world/">开发站</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="https://sources.shawnzhou.world/">资源站</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>感谢打赏~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://shawnzhou.world/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://shawnzhou.world/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+
+<script src="/js/clickBoom2.js"></script>
+
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+  </div>
+</body>
+
+</html>
