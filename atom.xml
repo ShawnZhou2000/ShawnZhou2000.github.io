@@ -6,7 +6,7 @@
   <link href="https://shawnzhou.world/atom.xml" rel="self"/>
   
   <link href="https://shawnzhou.world/"/>
-  <updated>2022-02-18T15:32:57.680Z</updated>
+  <updated>2022-02-18T15:36:25.413Z</updated>
   <id>https://shawnzhou.world/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>JavaScript函数防抖、节流的产生原因、实现和使用</title>
+    <title>JavaScript函数防抖、节流操作的原因与实现</title>
     <link href="https://shawnzhou.world/2022/02/18/debounce-and-throttle/"/>
     <id>https://shawnzhou.world/2022/02/18/debounce-and-throttle/</id>
     <published>2022-02-18T07:26:28.000Z</published>
-    <updated>2022-02-18T15:32:57.680Z</updated>
+    <updated>2022-02-18T15:36:25.413Z</updated>
     
     
     <summary type="html">&lt;p&gt;最早听到这两个名词的时候还是在牛客的面经里，初次听起来很陌生，但后来慢慢发现，这两个操作还是相当重要的，关键在于要弄懂背后的理念，至于如何实现反而倒是次要的。&lt;/p&gt;
