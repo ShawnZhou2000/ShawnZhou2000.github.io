@@ -6,7 +6,7 @@
   <link href="https://shawnzhou.world/atom.xml" rel="self"/>
   
   <link href="https://shawnzhou.world/"/>
-  <updated>2022-01-23T15:22:45.752Z</updated>
+  <updated>2022-02-18T15:32:57.680Z</updated>
   <id>https://shawnzhou.world/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaScript函数防抖、节流的产生原因、实现和使用</title>
+    <link href="https://shawnzhou.world/2022/02/18/debounce-and-throttle/"/>
+    <id>https://shawnzhou.world/2022/02/18/debounce-and-throttle/</id>
+    <published>2022-02-18T07:26:28.000Z</published>
+    <updated>2022-02-18T15:32:57.680Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;最早听到这两个名词的时候还是在牛客的面经里，初次听起来很陌生，但后来慢慢发现，这两个操作还是相当重要的，关键在于要弄懂背后的理念，至于如何实现反而倒是次要的。&lt;/p&gt;
+&lt;p&gt;这篇文章详细的记录一下为什么会用到防抖和节流，以及它们的实现方式和常见使用场景。我相信正确的面试题并不是凭空产生的，问题的背后总能折射出一种业务实现中的细节。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/d8c104d74fe43fe95a512ebd7b233c36.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="前端开发那些事" scheme="https://shawnzhou.world/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    
+    
+    <category term="JavaScript" scheme="https://shawnzhou.world/tags/JavaScript/"/>
+    
+    <category term="防抖" scheme="https://shawnzhou.world/tags/%E9%98%B2%E6%8A%96/"/>
+    
+    <category term="节流" scheme="https://shawnzhou.world/tags/%E8%8A%82%E6%B5%81/"/>
+    
+  </entry>
   
   <entry>
     <title>做前端的一点小感想</title>
@@ -441,28 +466,6 @@
     <category term="JavaScript" scheme="https://shawnzhou.world/tags/JavaScript/"/>
     
     <category term="面试题" scheme="https://shawnzhou.world/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript中的Promise对象</title>
-    <link href="https://shawnzhou.world/2021/04/12/javascript-promise/"/>
-    <id>https://shawnzhou.world/2021/04/12/javascript-promise/</id>
-    <published>2021-04-12T12:13:59.000Z</published>
-    <updated>2022-01-21T06:06:50.415Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;Promise是ES6中新增的一种特性，是异步编程的一种解决方案，相比于回调函数与事件更合理而且更加强大，可以用来解决“回调地狱”问题。&lt;/p&gt;
-&lt;p&gt;最早由社区提出并实现，ES6将它写入了语言标准，统一了用法，并原生提供了Promise对象。&lt;/p&gt;
-&lt;p&gt;尽管用过基于Promise的Axios，但是对于Promise本身我却知之甚少。所以这里把它学一学。这篇学习笔记摘自《ECMAScript标准入门》第十四章。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/2ce7cfae7bd62d6ba0b64ee875e8cf52.jpg&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="前端开发那些事" scheme="https://shawnzhou.world/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
-    
-    
-    <category term="JavaScript" scheme="https://shawnzhou.world/tags/JavaScript/"/>
     
   </entry>
   
