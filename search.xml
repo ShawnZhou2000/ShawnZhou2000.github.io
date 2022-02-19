@@ -6,13 +6,17 @@
     <content><![CDATA[<p>不保证能行噢，我只是简单做个测试。</p>
 <html>
 
+<input type="number" placeholder="可以设置振动的毫秒数" width="500" id="timer"  />
+
 <p><button onclick="testViberate()">点我试试手机振动</button></p>
 <script>
 
 function testViberate() {
     let  supportsVibrate = "vibrate" in navigator;
-    if (supportsVibrate)
-        navigator.vibrate(1000);
+    if (supportsVibrate) {
+        const timer = document.getElementById("timer").value;
+        navigator.vibrate(timer ? timer : 1000);
+    }
     else {
         alert('你的设备不支持此振动API');
     }
@@ -2273,8 +2277,8 @@ function testViberate() {
         <category>日常来点面试题</category>
       </categories>
       <tags>
-        <tag>面试题</tag>
         <tag>CSS</tag>
+        <tag>面试题</tag>
       </tags>
   </entry>
   <entry>
@@ -2380,8 +2384,8 @@ function testViberate() {
         <category>日常来点面试题</category>
       </categories>
       <tags>
-        <tag>面试题</tag>
         <tag>HTML</tag>
+        <tag>面试题</tag>
       </tags>
   </entry>
   <entry>
@@ -2442,8 +2446,8 @@ function testViberate() {
         <category>前端开发那些事</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>Node.js</tag>
+        <tag>JavaScript</tag>
         <tag>HTML</tag>
         <tag>CSS</tag>
         <tag>软件工程</tag>

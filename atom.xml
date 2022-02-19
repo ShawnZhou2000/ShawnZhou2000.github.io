@@ -6,7 +6,7 @@
   <link href="https://shawnzhou.world/atom.xml" rel="self"/>
   
   <link href="https://shawnzhou.world/"/>
-  <updated>2022-02-19T17:03:24.572Z</updated>
+  <updated>2022-02-19T17:14:31.111Z</updated>
   <id>https://shawnzhou.world/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://shawnzhou.world/2022/02/20/test-navigator-vibrate/"/>
     <id>https://shawnzhou.world/2022/02/20/test-navigator-vibrate/</id>
     <published>2022-02-19T16:57:53.000Z</published>
-    <updated>2022-02-19T17:03:24.572Z</updated>
+    <updated>2022-02-19T17:14:31.111Z</updated>
     
     
       
@@ -31,11 +31,9 @@
     <summary type="html">&lt;p&gt;不保证能行噢，我只是简单做个测试。&lt;/p&gt;
 &lt;html&gt;
 
-&lt;p&gt;&lt;button onclick=&quot;testViberate()&quot;&gt;点我试试手机振动&lt;/button&gt;&lt;/p&gt;
-&lt;script&gt;
+&lt;input type=&quot;number&quot; placeholder=&quot;可以设置振动的毫秒数&quot; width=&quot;500&quot; id=&quot;timer&quot;  /&gt;
 
-function testViberate() {
-    let </summary>
+&lt;p&gt;&lt;button</summary>
         
       
     

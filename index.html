@@ -185,13 +185,17 @@
   <p>不保证能行噢，我只是简单做个测试。</p>
 <html>
 
+<input type="number" placeholder="可以设置振动的毫秒数" width="500" id="timer"  />
+
 <p><button onclick="testViberate()">点我试试手机振动</button></p>
 <script>
 
 function testViberate() {
     let  supportsVibrate = "vibrate" in navigator;
-    if (supportsVibrate)
-        navigator.vibrate(1000);
+    if (supportsVibrate) {
+        const timer = document.getElementById("timer").value;
+        navigator.vibrate(timer ? timer : 1000);
+    }
     else {
         alert('你的设备不支持此振动API');
     }
