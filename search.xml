@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>测试一下Navigator的手机振动API</title>
+    <url>/2022/02/20/test-navigator-vibrate/</url>
+    <content><![CDATA[<p>不保证能行噢，我只是简单做个测试。</p>
+<html>
+
+<p><button onclick="testViberate()">点我试试手机振动</button></p>
+<script>
+
+function testViberate() {
+    let  supportsVibrate = "vibrate" in navigator;
+    if (supportsVibrate)
+        navigator.vibrate(1000);
+    else {
+        alert('你的设备不支持此振动API');
+    }
+}
+
+</script>
+
+</html>
+]]></content>
+      <categories>
+        <category>各种瞎搞操作</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>BOM</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JavaScript函数防抖、节流操作的原因与实现</title>
     <url>/2022/02/18/debounce-and-throttle/</url>
     <content><![CDATA[<p>最早听到这两个名词的时候还是在牛客的面经里，初次听起来很陌生，但后来慢慢发现，这两个操作还是相当重要的，关键在于要弄懂背后的理念，至于如何实现反而倒是次要的。</p>
@@ -2243,8 +2273,8 @@
         <category>日常来点面试题</category>
       </categories>
       <tags>
-        <tag>CSS</tag>
         <tag>面试题</tag>
+        <tag>CSS</tag>
       </tags>
   </entry>
   <entry>
@@ -2350,8 +2380,8 @@
         <category>日常来点面试题</category>
       </categories>
       <tags>
-        <tag>HTML</tag>
         <tag>面试题</tag>
+        <tag>HTML</tag>
       </tags>
   </entry>
   <entry>
@@ -2412,8 +2442,8 @@
         <category>前端开发那些事</category>
       </categories>
       <tags>
-        <tag>Node.js</tag>
         <tag>JavaScript</tag>
+        <tag>Node.js</tag>
         <tag>HTML</tag>
         <tag>CSS</tag>
         <tag>软件工程</tag>

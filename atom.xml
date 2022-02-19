@@ -6,7 +6,7 @@
   <link href="https://shawnzhou.world/atom.xml" rel="self"/>
   
   <link href="https://shawnzhou.world/"/>
-  <updated>2022-02-18T15:36:25.413Z</updated>
+  <updated>2022-02-19T17:03:24.572Z</updated>
   <id>https://shawnzhou.world/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>测试一下Navigator的手机振动API</title>
+    <link href="https://shawnzhou.world/2022/02/20/test-navigator-vibrate/"/>
+    <id>https://shawnzhou.world/2022/02/20/test-navigator-vibrate/</id>
+    <published>2022-02-19T16:57:53.000Z</published>
+    <updated>2022-02-19T17:03:24.572Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;不保证能行噢，我只是简单做个测试。&lt;/p&gt;
+&lt;html&gt;
+
+&lt;p&gt;&lt;button onclick=&quot;testViberate()&quot;&gt;点我试试手机振动&lt;/button&gt;&lt;/p&gt;
+&lt;script&gt;
+
+function testViberate() {
+    let </summary>
+        
+      
+    
+    
+    
+    <category term="各种瞎搞操作" scheme="https://shawnzhou.world/categories/%E5%90%84%E7%A7%8D%E7%9E%8E%E6%90%9E%E6%93%8D%E4%BD%9C/"/>
+    
+    
+    <category term="JavaScript" scheme="https://shawnzhou.world/tags/JavaScript/"/>
+    
+    <category term="BOM" scheme="https://shawnzhou.world/tags/BOM/"/>
+    
+  </entry>
   
   <entry>
     <title>JavaScript函数防抖、节流操作的原因与实现</title>
@@ -443,29 +477,6 @@
     <category term="面试题" scheme="https://shawnzhou.world/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
     
     <category term="原型链" scheme="https://shawnzhou.world/tags/%E5%8E%9F%E5%9E%8B%E9%93%BE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>探究JavaScript中数组扁平化的方式</title>
-    <link href="https://shawnzhou.world/2021/04/13/Flatten-the-array/"/>
-    <id>https://shawnzhou.world/2021/04/13/Flatten-the-array/</id>
-    <published>2021-04-13T11:14:08.000Z</published>
-    <updated>2022-01-21T06:06:50.405Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;数组扁平化，又称数组拍平，是一种将多维数组降维打击之后变成一维数组的办法。&lt;/p&gt;
-&lt;p&gt;与深浅拷贝一样也是在面试里出现过，而实际开发中见得较少。这里记录一下，学习学习。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/0f07a86830ad6e0172750c8930f2e041.jpg&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="前端开发那些事" scheme="https://shawnzhou.world/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
-    
-    
-    <category term="JavaScript" scheme="https://shawnzhou.world/tags/JavaScript/"/>
-    
-    <category term="面试题" scheme="https://shawnzhou.world/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
     
   </entry>
   
