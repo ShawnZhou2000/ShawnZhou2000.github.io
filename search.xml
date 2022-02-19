@@ -6,9 +6,10 @@
     <content><![CDATA[<p>不保证能行噢，我只是简单做个测试。</p>
 <html>
 
-<input type="text" placeholder="可以设置振动的毫秒数" width="500" id="timer"  />
+<input type="number" placeholder="可以设置振动的毫秒数" width="500" id="timer"  />
 
 <p><button onclick="testViberate()">点我试试手机振动</button></p>
+<p><button onclick="testViberateSOS()">点我试试多次振动发出‘SOS’的摩尔斯代码</button></p>
 <script>
 
 function testViberate() {
@@ -20,6 +21,10 @@ function testViberate() {
     else {
         alert('你的设备不支持此振动API');
     }
+}
+
+function testViberateSOS() {
+    navigator.vibrate([100,30,100,30,100,200,200,30,200,30,200,200,100,30,100,30,100]);
 }
 
 </script>
