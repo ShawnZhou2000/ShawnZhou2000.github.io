@@ -6,7 +6,7 @@
   <link href="https://shawnzhou.world/atom.xml" rel="self"/>
   
   <link href="https://shawnzhou.world/"/>
-  <updated>2022-02-19T17:14:31.111Z</updated>
+  <updated>2022-02-19T17:18:13.723Z</updated>
   <id>https://shawnzhou.world/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://shawnzhou.world/2022/02/20/test-navigator-vibrate/"/>
     <id>https://shawnzhou.world/2022/02/20/test-navigator-vibrate/</id>
     <published>2022-02-19T16:57:53.000Z</published>
-    <updated>2022-02-19T17:14:31.111Z</updated>
+    <updated>2022-02-19T17:18:13.723Z</updated>
     
     
       
@@ -31,7 +31,7 @@
     <summary type="html">&lt;p&gt;不保证能行噢，我只是简单做个测试。&lt;/p&gt;
 &lt;html&gt;
 
-&lt;input type=&quot;number&quot; placeholder=&quot;可以设置振动的毫秒数&quot; width=&quot;500&quot; id=&quot;timer&quot;  /&gt;
+&lt;input type=&quot;text&quot; placeholder=&quot;可以设置振动的毫秒数&quot; width=&quot;500&quot; id=&quot;timer&quot;  /&gt;
 
 &lt;p&gt;&lt;button</summary>
         
