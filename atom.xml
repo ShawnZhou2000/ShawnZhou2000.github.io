@@ -6,7 +6,7 @@
   <link href="https://shawnzhou.world/atom.xml" rel="self"/>
   
   <link href="https://shawnzhou.world/"/>
-  <updated>2022-02-19T17:23:37.526Z</updated>
+  <updated>2022-02-25T15:38:42.809Z</updated>
   <id>https://shawnzhou.world/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaScript异步编程知识点集锦</title>
+    <link href="https://shawnzhou.world/2022/02/22/javascript-asynchronous-code/"/>
+    <id>https://shawnzhou.world/2022/02/22/javascript-asynchronous-code/</id>
+    <published>2022-02-22T07:12:46.000Z</published>
+    <updated>2022-02-25T15:38:42.809Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;计算机科学中的一个基本概念就是同步行为和异步行为的对立与统一。对于JavaScript这种单线程语言来说，异步操作更是它的核心机制之一，由于没有多线程的加持，并行处理就成为了JavaScript要着重讨论的话题。异步操作就可以处理等待时间较长或计算量比较大的操作，同时不会阻塞主线程的执行。&lt;/p&gt;
+&lt;p&gt;在ES6标准之后，JavaScript对异步编程机制的支持大大加强，引入了Promise这种强力的工具，之后又新增了async和await关键字作为更优质的异步函数解决方案。&lt;/p&gt;
+&lt;p&gt;这里将这些内容做个简单的整理，曾经虽然也记录过一部分学习笔记但并不是很系统，本文争取彻底吃透这个知识点。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/8e2d1523b61c8800d0c2f890559320d1.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="前端开发那些事" scheme="https://shawnzhou.world/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    
+    
+    <category term="JavaScript" scheme="https://shawnzhou.world/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>测试一下Navigator的手机振动API</title>
@@ -450,31 +472,6 @@
     <category term="教程" scheme="https://shawnzhou.world/tags/%E6%95%99%E7%A8%8B/"/>
     
     <category term="阿里云OSS" scheme="https://shawnzhou.world/tags/%E9%98%BF%E9%87%8C%E4%BA%91OSS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript中的原型、原型链</title>
-    <link href="https://shawnzhou.world/2021/04/22/javascript-prototype/"/>
-    <id>https://shawnzhou.world/2021/04/22/javascript-prototype/</id>
-    <published>2021-04-22T10:24:47.000Z</published>
-    <updated>2022-01-21T06:06:50.416Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;原型和原型链一直是我以前学习JS的时候的老大难，因为它有点难啃，不是很好理解。&lt;/p&gt;
-&lt;p&gt;今天上午为了准备京东二面，硬是对着资料把它学了下来，趁热打铁，记录一下笔记。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/700fb8492e2b72988c12a43ba74931b5.jpg&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="前端开发那些事" scheme="https://shawnzhou.world/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
-    
-    
-    <category term="JavaScript" scheme="https://shawnzhou.world/tags/JavaScript/"/>
-    
-    <category term="面试题" scheme="https://shawnzhou.world/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
-    
-    <category term="原型链" scheme="https://shawnzhou.world/tags/%E5%8E%9F%E5%9E%8B%E9%93%BE/"/>
     
   </entry>
   
