@@ -6,7 +6,7 @@
   <link href="https://shawnzhou.world/atom.xml" rel="self"/>
   
   <link href="https://shawnzhou.world/"/>
-  <updated>2022-02-25T15:38:42.809Z</updated>
+  <updated>2022-03-29T08:23:45.446Z</updated>
   <id>https://shawnzhou.world/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于Webpack与Vue CLI的知识点整理</title>
+    <link href="https://shawnzhou.world/2022/03/29/webpack-and-vue-cli/"/>
+    <id>https://shawnzhou.world/2022/03/29/webpack-and-vue-cli/</id>
+    <published>2022-03-29T03:22:38.000Z</published>
+    <updated>2022-03-29T08:23:45.446Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;这篇文章来梳理一下工程化的一部分内容。Webpack的内容很杂很碎，且版本更迭较快，理解核心思想才能不至于在版本更新中迷失自我。Vue CLI目前已经稳定在4.x版本，整理Vue CLI也算是对这个老牌的工具做个简单的总结，2021年Vite开始爆火，2022年Vite也将继续稳定发展，Vue CLI胜在一手稳定性，大型企业项目的首选，新的小型项目建议首选Vite，开发体验会更舒适。&lt;/p&gt;
+&lt;p&gt;本文采用的Webpack版本为4.x和5.x，Vue CLI的版本为4.x。行文风格偏理论介绍，实际项目配置其实资料和规范都是很容易查到的，这里就不会举太多例子了。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog/image6f5c8859706e126ab2b87b9b2eac8177.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="前端开发那些事" scheme="https://shawnzhou.world/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    
+    
+    <category term="Vue" scheme="https://shawnzhou.world/tags/Vue/"/>
+    
+    <category term="前端工程化" scheme="https://shawnzhou.world/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/"/>
+    
+    <category term="Webpack" scheme="https://shawnzhou.world/tags/Webpack/"/>
+    
+  </entry>
   
   <entry>
     <title>JavaScript异步编程知识点集锦</title>
@@ -449,29 +474,6 @@
     <category term="JavaScript" scheme="https://shawnzhou.world/tags/JavaScript/"/>
     
     <category term="数据结构" scheme="https://shawnzhou.world/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>基于阿里云OSS+PicGo+Typora的自动博客图床</title>
-    <link href="https://shawnzhou.world/2021/04/25/aliyun-oss/"/>
-    <id>https://shawnzhou.world/2021/04/25/aliyun-oss/</id>
-    <published>2021-04-25T14:06:33.000Z</published>
-    <updated>2022-01-21T06:06:50.407Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt; 事情是这样的，本来前几天还好好的图床，昨天突然把我博客一堆封面图全删了，我感到非常裂开。。&lt;/p&gt;
-&lt;p&gt;然后看到同学有自己的OSS存储，我在想我是不是也可以整一个，然后就整了一个，这里记录了一下整个过程以及相关的注意事项，方便后续查阅。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/d478daf074013cd6833aa45f8b6d6cb6.jpg&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="教程相关" scheme="https://shawnzhou.world/categories/%E6%95%99%E7%A8%8B%E7%9B%B8%E5%85%B3/"/>
-    
-    
-    <category term="教程" scheme="https://shawnzhou.world/tags/%E6%95%99%E7%A8%8B/"/>
-    
-    <category term="阿里云OSS" scheme="https://shawnzhou.world/tags/%E9%98%BF%E9%87%8C%E4%BA%91OSS/"/>
     
   </entry>
   
