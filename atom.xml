@@ -6,7 +6,7 @@
   <link href="https://shawnzhou.world/atom.xml" rel="self"/>
   
   <link href="https://shawnzhou.world/"/>
-  <updated>2022-03-29T08:23:45.446Z</updated>
+  <updated>2022-04-10T06:59:17.970Z</updated>
   <id>https://shawnzhou.world/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2022年第十三届蓝桥杯Web应用开发组省赛题解</title>
+    <link href="https://shawnzhou.world/2022/04/09/lan-qiao-cup-web-contest-2022/"/>
+    <id>https://shawnzhou.world/2022/04/09/lan-qiao-cup-web-contest-2022/</id>
+    <published>2022-04-09T10:23:39.000Z</published>
+    <updated>2022-04-10T06:59:17.970Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;写下这篇博客的标题时，我不由得想到了三年前第一次参加蓝桥杯的我。当时参加的还是C++组，题目是那些烧脑的算法题，谁能想到在三年后的今天，蓝桥杯竟然有了Web前端的赛题。经过几次考纲改动后，实际比赛的题目其实比我想象中要简单，原本还以为能遇到Webpack配置或者npm之类的问题呢（&lt;/p&gt;
+&lt;p&gt;蓝桥也没说Web组用的什么自动化测试框架，如果组委会的判题机不抽风的话，我应该是绝大部分题都有把握拿分的，除了某个还原设计图的题目比较头大，这个可能只拿一部分分吧。&lt;/p&gt;
+&lt;p&gt;一直面试压力还是有的，偶尔做做这种题也挺有乐趣。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog/image1649573874649.jpg&quot; alt=&quot;1649573874649&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="前端开发那些事" scheme="https://shawnzhou.world/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
+    
+    
+    <category term="JavaScript" scheme="https://shawnzhou.world/tags/JavaScript/"/>
+    
+    <category term="HTML" scheme="https://shawnzhou.world/tags/HTML/"/>
+    
+    <category term="CSS" scheme="https://shawnzhou.world/tags/CSS/"/>
+    
+    <category term="蓝桥杯" scheme="https://shawnzhou.world/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/"/>
+    
+    <category term="题解" scheme="https://shawnzhou.world/tags/%E9%A2%98%E8%A7%A3/"/>
+    
+    <category term="Vue" scheme="https://shawnzhou.world/tags/Vue/"/>
+    
+  </entry>
   
   <entry>
     <title>关于Webpack与Vue CLI的知识点整理</title>
@@ -451,29 +483,6 @@
     <category term="操作系统" scheme="https://shawnzhou.world/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
     <category term="windows7" scheme="https://shawnzhou.world/tags/windows7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript中的Set和Map数据结构</title>
-    <link href="https://shawnzhou.world/2021/04/27/javascript-set-map/"/>
-    <id>https://shawnzhou.world/2021/04/27/javascript-set-map/</id>
-    <published>2021-04-27T12:10:46.000Z</published>
-    <updated>2022-01-21T06:06:50.416Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;在ES6中，JavaScript提供了两个新的数据结构Set和Map，使用它们可以在一些场景下方便很多。&lt;/p&gt;
-&lt;p&gt;本笔记摘自《ECMAScript6标准入门》第11章。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/07426ed0bd44c46c39659b6f561f0414.jpg&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="前端开发那些事" scheme="https://shawnzhou.world/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
-    
-    
-    <category term="JavaScript" scheme="https://shawnzhou.world/tags/JavaScript/"/>
-    
-    <category term="数据结构" scheme="https://shawnzhou.world/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
   </entry>
   
