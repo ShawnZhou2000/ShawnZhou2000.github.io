@@ -6,7 +6,7 @@
   <link href="https://shawnzhou.world/atom.xml" rel="self"/>
   
   <link href="https://shawnzhou.world/"/>
-  <updated>2022-04-30T10:23:28.632Z</updated>
+  <updated>2022-10-07T17:44:22.521Z</updated>
   <id>https://shawnzhou.world/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>4k@60Hz显示器折腾小记</title>
+    <link href="https://shawnzhou.world/2022/10/07/4k-60hz-screen/"/>
+    <id>https://shawnzhou.world/2022/10/07/4k-60hz-screen/</id>
+    <published>2022-10-07T15:38:50.000Z</published>
+    <updated>2022-10-07T17:44:22.521Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;工作之后学习的时间越来越少了，字节的工作节奏确实相当紧张，原来给自己定的一月一篇文章的目标也没有完成，希望节后能让自己留出一些时间来多补充补充知识吧。&lt;/p&gt;
+&lt;p&gt;这次博客就简单写写最近这两天发生的一件换屏幕的事情吧。&lt;/p&gt;
+&lt;p&gt;我有一个在北京读研的同学，最近跟我说在实验室干活缺个好使的屏幕用，问我选购推荐。&lt;/p&gt;
+&lt;p&gt;我说好啊，然后发给他几个之前挑屏幕时留意的款式，大多数都是2000块钱以内的入门级显示器。但挑了一番之后，这哥们表示还是有点超出预算，但是现在用的屏幕写代码实在非常辣眼睛，所以又来问我买个二手的可不可以。二手显示器确实可以用，但是我其实也不咋会挑，只能说看看没啥大问题能用就好。&lt;/p&gt;
+&lt;p&gt;后来转念一想，我要不把我用的这个卖给他，然后自己再买个好点的？&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog/image61387DFEA037BFD1357F27B4D0A24B48.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="杂谈与随想" scheme="https://shawnzhou.world/categories/%E6%9D%82%E8%B0%88%E4%B8%8E%E9%9A%8F%E6%83%B3/"/>
+    
+    
+    <category term="硬件外设" scheme="https://shawnzhou.world/tags/%E7%A1%AC%E4%BB%B6%E5%A4%96%E8%AE%BE/"/>
+    
+  </entry>
   
   <entry>
     <title>浅谈前端开发中的产品思维</title>
@@ -456,33 +480,6 @@
     <category term="CSS3" scheme="https://shawnzhou.world/tags/CSS3/"/>
     
     <category term="flex" scheme="https://shawnzhou.world/tags/flex/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>uniCloud中云函数的使用与工具类封装</title>
-    <link href="https://shawnzhou.world/2021/05/05/cloud-function-in-uni-app/"/>
-    <id>https://shawnzhou.world/2021/05/05/cloud-function-in-uni-app/</id>
-    <published>2021-05-05T06:18:53.000Z</published>
-    <updated>2022-01-21T06:06:50.408Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;uni-app是一个方便小程序开发的基于Vue的框架，它为开发者提供了一个非常方便的平台叫做uniCloud，使用它可以代替部分传统的服务端功能，使用云数据库和云函数（可以理解为数据接口）进行方便的CRUD操作。&lt;/p&gt;
-&lt;p&gt;但是uniCloud中原生的&lt;code&gt;uniCloud.callFunction&lt;/code&gt;方法比较底层，在接口数量较多时会造成维护不便，所以需要一个结构对它进行解耦。这里对云函数的基本使用和一种简易的封装方式做个笔记。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/20210505143022.jpg&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="前端开发那些事" scheme="https://shawnzhou.world/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
-    
-    
-    <category term="JavaScript" scheme="https://shawnzhou.world/tags/JavaScript/"/>
-    
-    <category term="uni-app" scheme="https://shawnzhou.world/tags/uni-app/"/>
-    
-    <category term="uniCloud" scheme="https://shawnzhou.world/tags/uniCloud/"/>
-    
-    <category term="小程序开发" scheme="https://shawnzhou.world/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
