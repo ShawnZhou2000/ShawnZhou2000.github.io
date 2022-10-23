@@ -13,7 +13,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    4k@60Hz显示器折腾小记 |  ShawnZhou的小站
+    WebXR 开发入门 学习笔记 |  ShawnZhou的小站
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -52,7 +52,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-4k-60hz-screen"
+  id="post-webxr-tutorial-note"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -63,18 +63,18 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  4k@60Hz显示器折腾小记
+  WebXR 开发入门 学习笔记
 </h1>
  
 
     </header>
      
     <div class="article-meta">
-      <a href="/2022/10/07/4k-60hz-screen/" class="article-date">
-  <time datetime="2022-10-07T15:38:50.000Z" itemprop="datePublished">2022-10-07</time>
+      <a href="/2022/10/23/webxr-tutorial-note/" class="article-date">
+  <time datetime="2022-10-23T08:43:19.000Z" itemprop="datePublished">2022-10-23</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%9D%82%E8%B0%88%E4%B8%8E%E9%9A%8F%E6%83%B3/">杂谈与随想</a>
+    <a class="article-category-link" href="/categories/WebXR/">WebXR</a>
   </div>
   
 <div class="word_count">
@@ -82,7 +82,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">2.8k</span>
+            <span class="post-count">2.6k</span>
         </span>
     </span>
 
@@ -106,65 +106,139 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <p>工作之后学习的时间越来越少了，字节的工作节奏确实相当紧张，原来给自己定的一月一篇文章的目标也没有完成，希望节后能让自己留出一些时间来多补充补充知识吧。</p>
-<p>这次博客就简单写写最近这两天发生的一件换屏幕的事情吧。</p>
-<p>我有一个在北京读研的同学，最近跟我说在实验室干活缺个好使的屏幕用，问我选购推荐。</p>
-<p>我说好啊，然后发给他几个之前挑屏幕时留意的款式，大多数都是2000块钱以内的入门级显示器。但挑了一番之后，这哥们表示还是有点超出预算，但是现在用的屏幕写代码实在非常辣眼睛，所以又来问我买个二手的可不可以。二手显示器确实可以用，但是我其实也不咋会挑，只能说看看没啥大问题能用就好。</p>
-<p>后来转念一想，我要不把我用的这个卖给他，然后自己再买个好点的？</p>
-<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog/image61387DFEA037BFD1357F27B4D0A24B48.jpg"></p>
+  <p>最近对 WebXR 比较感兴趣，正好手里有台 Pico Neo3，可以试试做几个简单的 VR 应用。这里把 WebXR 的开发基础做个笔记，方便日后查阅。</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog/image5DA69703B0410F4CCFFA2B8EB319CE82.jpg"></p>
 <a id="more"></a>
 
-<p>我老早就受够我手里这块2k分辨率的屏幕了。在换屏幕之前，我用的是AOC的Q2790PQ，来上海后在闲鱼二手淘来的。这是一块还不算老的显示器，屏幕的质量其实也还不错，但用了一两个月后在我身上的问题越来越明显：由于公司发的是4k屏幕，在家办公和在公司办公的体验还是有差别的。</p>
-<p>简单来说，适应其中一块屏幕的分辨率后，突然切换到另一个分辨率时，人会有一段时间感觉非常不适应，感觉看什么都毛毛刺刺的。其实也不是什么大问题，只是有些影响写代码的体验，感觉很不爽。</p>
-<p>公司的4k屏是真的香，可惜价格太贵，在家里买同款似乎有点奢侈，我只要能简单写写代码偶尔打打游戏就够了。那我就趁机会挑一个入门级的4k屏自己用吧，爱惜着用以后还有机会卖二手回血。最主要的是，居家办公的体验能和在工区对齐了，不会再出现因为分辨率问题把自己搞花眼的情况。</p>
-<h2 id="显示器选购"><a href="#显示器选购" class="headerlink" title="显示器选购"></a>显示器选购</h2><p>我是AOC老粉了，从大学在社团里第一次搞外接屏开始，就用学校里老师用的办公电脑退换下来的老款AOC，身边同学买显示器的也是AOC居多，所以自己买的时候也就无脑AOC了。</p>
-<p>我在选购显示器的时候更注重的功能是什么呢？下面根据优先级列了几个要素：</p>
+<h2 id="WebXR-基础概念"><a href="#WebXR-基础概念" class="headerlink" title="WebXR 基础概念"></a>WebXR 基础概念</h2><p>提到 VR 大家可能比较熟悉，但 WebXR 似乎是个陌生的名词。用 MDN 上的官方解释来说，WebXR 是一组支持将渲染 3D 场景用来呈现虚拟世界（虚拟现实，也称作 VR）或将图形图像添加到现实世界（增强现实，也称作 AR）的标准。通俗点讲，WebXR 就是一种用 3D 场景展示 VR 或者 AR 应用的标准。Web XR 是 W3C 通过统一 WebVR 和 WebAR 之后形成的标准，更进一步说，“XR” 意味着此标准此后可能将不局限于 VR 和 AR。</p>
+<p>此外，还有基于 WebXR 标准的 WebXR Device API，它实现了 WebXR 功能集的核心，主要功能有：</p>
+<ul>
+<li>能够管理输出设备的选择</li>
+<li>能以适当的帧速率将 3D 场景展示在 XR 设备里</li>
+<li>能将 3D 场景输出到 2D 显示器</li>
+<li>可以创建、管理用输入控制设备生成的运动向量</li>
+</ul>
+<p>目前 Web XR 还没有在大多数浏览器中普及，而且由于 WebXR 标准一直在不断更新，浏览器基本都是以“部分支持”形态实现 WebXR Device API 的。下图是 CanIUse 中对于 WebXR Device API 的兼容性截图（截止到 2022 年 10 月的数据）</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog/imageimage-20221023170926076.png" alt="image-20221023170926076"></p>
+<p>通常对于 XR（这里更多指的是 VR 和 MR）技术来说，要想体验其功能必须要有一个头戴显示器（Head Mounted Display，HMD），同时可以使用一个或多个外部位置传感器（一般情况下会有，但实际上没有也可以），同时也可以根据需求需要添加比如加速度计，气压计或者其他传感器等，可以用于感知移动，旋转头部等动作；一个典型的 XR 设备可以具有 3 自由度或 6 自由度跟踪能力，一般将这两个概念称之为 3DoF 和 6DoF。</p>
+<ul>
+<li>3DoF：三自由度的缩写，适用 3DoF 的设备只能追踪旋转移动，对于一些依赖加速度计和陀螺仪读数来提供平移跟踪的设备，使用 3DoF 能力跟踪旋转比较常见。3DoF 设备不会响应用户的平移运动，这种设备一般会使用一些特定的算法以根据手臂或颈部的建模估计平移变化。</li>
+<li>6DoF：六自由度的缩写，适用 6DoF 的设备可以同时跟踪旋转和平移，可以在空间中实现精确的 1:1 跟踪，这种能力需要设备对用户环境有一定程度的了解，可以通过由内向外的跟踪来实现（即用被跟踪设备上携带的相机或深度传感器来确定位置），也可以通过由外向内的跟踪实现（相机或传感器放置在使用 VR 设备的环境中，为 VR 提供一个稳定的环境参考点）<ul>
+<li>这个理论可以解释为什么 Pico VR 上每次开机都需要手动划定安全区，这是为了以由外向内的跟踪方法建立起设备对用户环境的认知，这样才能满足 6DoF 的要求。</li>
+</ul>
+</li>
+</ul>
+<h2 id="Web-XR-的用武之地：VR-amp-amp-AR-amp-amp-MR"><a href="#Web-XR-的用武之地：VR-amp-amp-AR-amp-amp-MR" class="headerlink" title="Web XR 的用武之地：VR &amp;&amp; AR &amp;&amp; MR"></a>Web XR 的用武之地：VR &amp;&amp; AR &amp;&amp; MR</h2><p>基于 Web XR 技术标准，我们可以实现各种各样的 VR 应用和 AR 应用，二者的应用特点如下：</p>
+<p>VR 应用：</p>
+<ul>
+<li>用户借助专门的输入设备（如手柄等运动传感器）和输出设备（如 VR 头显或 VR 一体机）来和虚拟场景进行交互</li>
+<li>目前市面上常见的设备有 Pico 4，Pico Neo 3，Meta Quest 2 等设备</li>
+<li>底层依赖支持 WebXR 规范的 webview</li>
+<li>目前被广泛应用于各种娱乐应用，打造元宇宙世界，如：<ul>
+<li>VR 游戏，如 Beat Saber，Hyper Dash 等</li>
+<li>VR 观影，如抖音、爱奇艺、Bilibili 等视频应用都有对应的 VR 版本</li>
+<li>VR 社交，如 VR Chat，梦境世界等</li>
+</ul>
+</li>
+<li>同时人们也探索出了许多基于 VR 设备的实用应用，如：<ul>
+<li>VR 会议：在虚拟的会议室中与公司的同事们开展线上会议，拉近团队距离</li>
+<li>VR 教育培训：可让学生以更加直观的方式学习各种实验过程或参考各种模型，同时也可以让工人在完全虚拟的环境下完成危险步骤的模拟操作</li>
+</ul>
+</li>
+<li>优点：交互过程更加沉浸，体验更佳，是未来主流的发展方向</li>
+<li>缺点：必须用户购买 VR 设备才可体验，不适合所有人使用（如有 3D 晕眩，或不同程度的光敏性癫痫等）</li>
+</ul>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog/imageAD687FE19AA427470F54D71C59208059.jpg"></p>
+<p>AR 应用：</p>
+<ul>
+<li><p>用户借助智能手机或智能眼镜等设备，体验在现实画面中叠加的虚拟内容</p>
+</li>
+<li><p>与 VR 的区别是，AR 技术呈现的事物是基于现实世界的，而 VR 呈现的是一个完全虚拟的世界</p>
+</li>
+<li><p>市面上大多数主流智能手机现在都可以使用 AR 应用，而诸如 Nreal Air 等智能眼镜设备也支持 AR 应用</p>
+</li>
+<li><p>底层依赖支持 WebXR 规范的 webview</p>
+</li>
+<li><p>现在被用于各种游戏、生活类 APP，比如：</p>
+<ul>
+<li>AR 导航：智能引路，门店提示，景点智能游览等</li>
+<li>AR 购物：AR 试鞋，AR 试衣，AR 穿戴等</li>
+<li>AR 游戏：Pokemon Go 等</li>
+</ul>
+</li>
+<li><p>优点：跨平台传播方便（本质是 Web 应用，可通过 URL 分发）</p>
+</li>
+<li><p>缺点：浏览器标准不统一、加载复杂 3D 内容性能不佳、无法实现复杂交互\</p>
+</li>
+</ul>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog/image0B902DA2C73D94721A3769B91269F361.jpg"></p>
+<p>MR 应用：</p>
+<ul>
+<li>MR 被称为“混合现实”（Mixed Reality），可以把它看成是 AR 与 VR 结合的技术</li>
+<li>用户可以看到现实环境和额外的虚拟物品，并且支持交互</li>
+<li>比如微软 2021 Ignite 大会中发布的 Microsoft Mesh 平台，搭配微软的 MR HoloLens，即可实现非常逼真的混合现实效果</li>
+</ul>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog/imageDF36936140B88DC38B2B4F1B41C62B87.jpg"></p>
+<h2 id="Web-XR-应用示例"><a href="#Web-XR-应用示例" class="headerlink" title="Web XR 应用示例"></a>Web XR 应用示例</h2><h3 id="1-webxr-samples"><a href="#1-webxr-samples" class="headerlink" title="1. webxr-samples"></a>1. webxr-samples</h3><p>我们可以在 <a target="_blank" rel="noopener" href="https://immersive-web.github.io/webxr-samples/">https://immersive-web.github.io/webxr-samples/</a> 中运行一个简单的 WebXR demo，但是第一次打开后，会发现它提示没有找到 VR 设备，因为直接打开此页面后，我们的电脑还没有和 VR 建立连接。如果你拥有 VR 设备，那么可以在 VR 中的浏览器打开，即可看到效果，但实际上我们也可以通过浏览器进行模拟。</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog/imageimage-20221023180844142.png" alt="image-20221023180844142"></p>
+<p>可以在 Chrome 应用商店中搜索 <code>WebXR API Emulator</code>，安装它后便可以在浏览器里模拟 VR 设备了。</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog/imageimage-20221023181154810.png" alt="image-20221023181154810"></p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog/imageimage-20221023181334691.png" alt="image-20221023181334691"></p>
+<p>这种情况下页面是不能动的，需要借助刚才插件的能力，打开 devtool 后选择 WebXR 选项卡，可以看到一个模拟的头显和手柄，可通过转动模拟头显和手柄以模拟真实情况下的运动：</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog/imageimage-20221023182134334.png" alt="image-20221023182134334"></p>
+<h3 id="2-hello-webxr"><a href="#2-hello-webxr" class="headerlink" title="2. hello webxr"></a>2. hello webxr</h3><p>演示地址：<a target="_blank" rel="noopener" href="https://mixedreality.mozilla.org/hello-webxr/">https://mixedreality.mozilla.org/hello-webxr/</a></p>
+<p>这是一个由 Mozilla 开发的 WebXR 应用，但从电脑打开时并不需要安装上面的插件，只不过交互能力会比较有限。</p>
+<p>如果有 VR 设备，在 VR 设备中打开并点击“ENTER VR”即可正常预览。</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog/imageimage-20221023181616037.png" alt="image-20221023181616037"></p>
+<h2 id="WebXR-应用的生命周期"><a href="#WebXR-应用的生命周期" class="headerlink" title="WebXR 应用的生命周期"></a>WebXR 应用的生命周期</h2><p>如果一个应用程序是基于 WebXR 的，那么它一般会遵循一个总体的执行步骤（或者说设计模式），执行内容如下：</p>
 <ol>
-<li>分辨率&amp;色域</li>
-<li>屏幕尺寸</li>
-<li>价格</li>
-<li>刷新率</li>
-<li>接口丰富度</li>
-<li>其他要素</li>
+<li><p>开发者：检查当前设备的浏览器是否支持所需的 XR 模式</p>
+<ul>
+<li>需要确保 WebXR Device API 可用，可以通过检测 <code>window.navigator.xr</code> 对象是否存在来判断，如果此对象不存在，那么说明用户使用的浏览器不支持 WebXR，或关闭了 WebXR 能力。</li>
+<li>调用 <code>window.navigator.xr.isSessionSupported(mode)</code>，其中 <code>mode</code> 的可选值是 <code>&#39;inline&#39; | &#39;immersive-vr&#39; | &#39;immersive-ar&#39;</code>，其中 inline 模式是指 HTML 文档中的元素的会话内容。 它返回的类型是<code>Promise&lt;boolean&gt;</code>，如果 Promise 返回了 false，那么表示当前的模式在用户的浏览器下无法使用。</li>
+<li>如果经过上述两个步骤确定 WebXR 能力可用，需要在页面上以适当方式提示用户可以激活 XR 模式，并绑定一个激活 XR 的事件。</li>
+</ul>
+</li>
+<li><p>用户：触发激活 XR 的事件，表明希望使用 XR</p>
+</li>
+<li><p>开发者：调用 <code>window.navigator.xr.requestSession(mode, options)</code>，将 <code>XRSession</code> 设定为用户期望的模式</p>
+<ul>
+<li>此方法返回一个 Promise，如果它被 resolve，就可以用获得的 XRSession 运行渲染循环</li>
+</ul>
+</li>
+<li><p>开发者：调用 XRSession 的 requestAnimationFrame，调度 XR 设备的首帧渲染</p>
+<ul>
+<li><p>每一个 requestAnimationFrame 的回调都需要使用 WebGL 渲染 3D 物体</p>
+</li>
+<li><p>持续在回调函数中调用 requestAnimationFrame，保证每一帧都正常渲染</p>
+</li>
+</ul>
+</li>
+<li><p>持续生成帧，直到用户需要结束 XRSession 的时候</p>
+<ul>
+<li>如果用户希望退出 XR 模式，通过调用 <code>XRSession.end()</code> 可以手动结束会话</li>
+<li>无论通过何种方式终止会话，<code>XRSession</code> 的 <code>end</code> 事件都会收到通知</li>
+</ul>
+</li>
 </ol>
-<p>我首先考虑的当然是分辨率和色彩，其次是屏幕尺寸（更大当然更舒服），至于刷新率，对我这种非硬核游戏玩家其实不算刚需，只能说有高刷更好，没有也行，更主要的是预算不够买高分高刷。。</p>
-<p>一番对比下来，最终选定了AOC的U28G2U。</p>
-<p>（图源网络）</p>
-<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog/imageadditional_0.jpg"></p>
-<p>毫不吝啬的讲，这块屏幕在我的预算范围内几乎满足了我全部的欲望。2000价位下的显示器，除了没有高刷，其他参数堪称完美。下图是我从某东的商品介绍中截的参数图：</p>
-<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog/image1280X1280.PNG"></p>
-<p>色彩表现力确实没的说，28寸的屏幕看代码也足够大，并且支架其实并不是很占地方，相比之前那块圆形底座的屏幕能省出不少桌面空间。但一番操作连接好屏幕后，一个非常奇怪的问题突然产生了——</p>
-<p>为啥4k分辨率只能支持30Hz的刷新率？</p>
-<h2 id="刷新率问题"><a href="#刷新率问题" class="headerlink" title="刷新率问题"></a>刷新率问题</h2><p>只支持30Hz的刷新率会导致电脑看起来特别的卡，鼠标来回动动都能感觉到明显的卡顿，只有将分辨率降低到2k后才能把刷新率调整到60Hz。下降到2k之后虽然刷新率没问题，但这样我买这块4k屏幕的意义也就消失掉了。虽然4k@30Hz将就将就也不是不行，但这样就彻底没法玩游戏了，既然最大支持到4k@60Hz，那为什么不思考一下到底是哪里出了问题呢？</p>
-<p>屏幕是确定支持4k@60Hz的，不然也没有买它的必要，那剩下的问题就只能出在电脑或者连接链路上了。那就从观察整条显示链路开始分析吧。</p>
-<p>显示信号是从我的笔记本电脑中传出来的，经过视频线传导到显示器上，显示器接收信号后将画面展示出来。由于我电脑上的HDMI接口坏掉了，所以我使用了支持雷电协议的Type-C接口连接Type-C转HDMI转换器，再从转换器接一根HDMI线插到显示器上。整个链路相当于是：</p>
-<p>电脑 -&gt; Type-C接口 -&gt; 转接头 -&gt; HDMI线 -&gt; 屏幕</p>
-<p>屏幕先暂且认为它没问题，那就从电脑这边开始考虑问题吧，先看下电脑是不是支持4k@60Hz输出，如果不支持，那基本可以考虑把屏幕退货了。</p>
-<p>我的电脑使用的CPU是酷睿i7-8750H，自带的核心显卡是Intel UHD 630，在Intel官网上查到是可以支持4k@60Hz输出的。</p>
-<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog/imageimage-20221008005240255.png" alt="image-20221008005240255"></p>
-<p>别看它写的是4096 x 2304@30Hz，实际上4k屏幕到不了这个分辨率，4k只有3840 x 2160，第一次看的时候差点以为是同样的概念，问了一个懂硬件的同学后才发现有区别。</p>
-<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog/imageimage-20221008005458271.png" alt="image-20221008005458271"></p>
-<p>我的电脑是四年前买的，现在早已经停产了，想在淘宝找到还在卖这款电脑的商家还是有些困难的，还好最后还是找到了这款电脑当时的宣传图，明确表示了支持HDMI2.0输出，这其实就意味着这款机器自带的HDMI接口是可以支持4k@60Hz的输出，只可惜我的HDMI接口因为不明原因损坏了，插上要么没反应，要么就花屏。</p>
-<blockquote>
-<p>只有HDMI 2.0及以上版本才能支持4k@60Hz，1.x版本的就不行。所以支持HDMI 2.0版本的电脑，卖家都会把这个功能当成一个重要的卖点展示出来。</p>
-</blockquote>
-<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog/imageimage-20221008010317377.png" alt="image-20221008010317377"></p>
-<p>我使用的Type-C雷电3接口支持DP协议的视频传输，其传输带宽很高，支撑4k@60Hz或者2k@144Hz都没什么问题，甚至还可以外接显卡，可以想象到这个小小的Type-C接口传输能力其实有多强了。也就是说，理论上讲我的电脑是完全支持4k@60Hz的显示输出的。</p>
-<p>那么问题就只能出在转接头和HDMI线上了。这两样东西都出自哪里呢？我的转接头是公司发的绿联的五合一转换器，是我用在办公的MacBook Pro上用来插外接屏的，它能转换出一个HDMI口，连公司的4k屏没有问题。HDMI线是显示器包装里自带的，不确定有没有什么质量问题。</p>
-<p>当时在怀疑这条链路输出的HDMI版本是不是有问题，如果输出是HDMI1.4，那么肯定就带不起来了，可是要怎么验证呢？我在Aida64上找了半天也没找出来从哪能看HDMI输出的版本，去网上搜给的建议是用鲁大师看。。虽然感觉不怎么靠谱，但还是权且暂时把这个大流氓请回来吧，大不了用完再删就是了。然而鲁大师也查不出来HDMI版本数据，我还在想鲁大师到底是有什么特异功能，可以把Aida64都查不出来的参数能查出来，但这样看来网上的所谓经验贴也是瞎写。</p>
-<p>没办法确定这条线是不是有问题，排查工作就有点困难了。这时候之前联系的那位懂硬件的哥们给了我条建议：</p>
-<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog/imageimage-20221008011918024.png" alt="image-20221008011918024"></p>
-<p>用PS5支持4k@60Hz输出这个方案来验证这条线，果然是个不错的曲线救国的验证方法，相当nice。于是我把这条送的HDMI线插到我的PS5上，开机查看效果，卧槽，这清晰度果然不是一个档次的：</p>
-<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog/imageimage-20221008012111237.png" alt="image-20221008012111237"></p>
-<p>既然线没问题，那疑问点就只剩下这个转接头了。可是这个转接头我在公司用的好好的，为啥它会不支持4k@60Hz输出呢？不得而知，但还是去搜一下转接头的规格吧。这一搜有意思，果然是它出的问题：</p>
-<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog/imageimage-20221008012311115.png" alt="image-20221008012311115"></p>
-<p>这下破案了，转接头自身不支持4k@60Hz输出，导致输出信号卡在这里了。这个结论说明目前情况的Type-C转接HDMI方案是不能显示4k@60Hz的，需要考虑如何解决这个问题。</p>
-<p>为啥在公司我感觉不到问题呢？我用MacBook Pro连接这个屏幕看了一下参数，确实也只能支持到4k@30Hz，但在我屏幕上也没有感觉到很明显的卡顿感，看来这要归功于苹果的优化比较好了，一直在30Hz的条件下办公也没看出来有什么问题。。</p>
-<h2 id="最终方案"><a href="#最终方案" class="headerlink" title="最终方案"></a>最终方案</h2><p>其实解决办法还是很容易想出来的，既然它不支持，那我就换个支持的转接头好了。但是这样还要让电脑一直拖着一根胖乎乎的转接线，那不如直接用显示器上的DP接口好了？</p>
-<p>实际上雷电3是一种mini DP接口，Type-C转DP的转接线也有卖的，只不过比较贵而已。但实际上买个支持4k@60Hz的转接口价格应该也差不多了，都不便宜。那还不如利用好这个DP接口，一步到位。</p>
-<p>下午去电脑城买了根绿联的Type-C转DP线，90大洋，回家插上就搞定，果然还是要花钱解决。。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>4k@60Hz实际上有着挺高的输出要求，选择使用之前得先考虑好自己的设备是不是支持。</p>
-<p>就以以前普通的轻薄本来说，它支持的HDMI 1.4协议最大能支持到10.2Gbps的显示带宽，带个普通的1080P@60Hz差不多需要3Gbps带宽，但4k@60Hz需要约11.9Gbps，2k@144Hz则需要更大的12.7Gbps，显然HDMI 1.4是带不起来一些高分高刷屏幕的，而HDMI 2.0最大支持到18Gbps，雷电3的mini DP更是能达到惊人的40Gbps，上面两种屏幕都能支持。还好这次是转接头的问题，但如果查出来真的是电脑不支持，这可就尴尬了。所以以后在选购这种高级的设备时，还是要提前做好调研，确定没问题再下单，这样才能防止一些奇怪的意外情况发生。</p>
+<h2 id="WebXR-的安全性"><a href="#WebXR-的安全性" class="headerlink" title="WebXR 的安全性"></a>WebXR 的安全性</h2><p>创建虚拟 3D 世界的过程利用了我们对眼睛如何收集光以及大脑如何解释所收集的数据的理解，所以 VR 的开发者需要更加严谨小心以保证结果正确。如果出现 bug，画面可能会畸变导致损伤眼睛或大脑，导致头痛或者眩晕或其他潜在问题。开发者需要对可能引起用户不适的任何情况都要保持警惕，如果因为画面问题导致对用户身体造成影响，用户可能无法第一时间将视线从开发者呈现的图像上移开。</p>
+<p>如果需要开发任何可能对用户身体造成风险的内容，需要提前展示必要的警告信息，有备无患。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><p>2022前端 推荐了解的技术 WebXR：<a target="_blank" rel="noopener" href="https://juejin.cn/post/7055100178277072927">https://juejin.cn/post/7055100178277072927</a></p>
+</li>
+<li><p>元宇宙下的前端现状：<a target="_blank" rel="noopener" href="https://juejin.cn/post/7001419484376350727">https://juejin.cn/post/7001419484376350727</a></p>
+</li>
+<li><p>【惊】手机将走向末路，混合现实（MR）难道就是5G时代的方向：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6955440997991972872">https://juejin.cn/post/6955440997991972872</a></p>
+</li>
+<li><p>AR、VR、MR概念及应用介绍：<a target="_blank" rel="noopener" href="https://juejin.cn/post/7068992317406871588">https://juejin.cn/post/7068992317406871588</a></p>
+</li>
+<li><p>WebXR 应用开发之 aframe 框架入门：<a target="_blank" rel="noopener" href="https://juejin.cn/post/7067806073045909541">https://juejin.cn/post/7067806073045909541</a></p>
+</li>
+<li><p>WebXR 技术调研 - 在浏览器中构建扩展现实应用：<a target="_blank" rel="noopener" href="https://juejin.cn/post/7130883727516778503">https://juejin.cn/post/7130883727516778503</a></p>
+</li>
+<li><p>WebXR 设备 接口参考：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/WebXR_Device_API">https://developer.mozilla.org/zh-CN/docs/Web/API/WebXR_Device_API</a></p>
+</li>
+</ul>
  
       <!-- reward -->
       
@@ -235,12 +309,12 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://shawnzhou.world/2022/10/07/4k-60hz-screen/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://shawnzhou.world/2022/10/23/webxr-tutorial-note/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%A1%AC%E4%BB%B6%E5%A4%96%E8%AE%BE/" rel="tag">硬件外设</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WebXR/" rel="tag">WebXR</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%99%9A%E6%8B%9F%E7%8E%B0%E5%AE%9E%E6%8A%80%E6%9C%AF/" rel="tag">虚拟现实技术</a></li></ul>
 
     </footer>
   </div>
@@ -248,19 +322,10 @@
    
   <nav class="article-nav">
     
-      <a href="/2022/10/23/webxr-tutorial-note/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            WebXR 开发入门 学习笔记
-          
-        </div>
-      </a>
     
-    
-      <a href="/2022/04/30/product-thinking-in-front-end-development/" class="article-nav-link">
+      <a href="/2022/10/07/4k-60hz-screen/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">浅谈前端开发中的产品思维</div>
+        <div class="article-nav-title">4k@60Hz显示器折腾小记</div>
       </a>
     
   </nav>
