@@ -6,7 +6,7 @@
   <link href="https://shawnzhou.world/atom.xml" rel="self"/>
   
   <link href="https://shawnzhou.world/"/>
-  <updated>2022-10-23T14:00:05.323Z</updated>
+  <updated>2023-03-19T08:31:26.543Z</updated>
   <id>https://shawnzhou.world/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>在 Pico Neo3 上使用原生 WebXR 开发 HelloWorld VR 应用</title>
+    <link href="https://shawnzhou.world/2022/10/29/pico-neo3-webxr-helloworld/"/>
+    <id>https://shawnzhou.world/2022/10/29/pico-neo3-webxr-helloworld/</id>
+    <published>2022-10-29T13:43:18.000Z</published>
+    <updated>2023-03-19T08:31:26.543Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;上周了解了 WebXR 相关的基本概念，今天来研究下如何用手上这台 Pico Neo 3 自己开发一个 HelloWorld 级别的 WebXR 应用。包括环境配置、代码编写以及运行。由于还是刚入门开发，所以就先不上 XR 框架了，等到对原生 API 有一定了解后，再学一下如何用 XR 框架结合前端框架开发比较完整的 APP 应该会比较好一些。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="WebXR" scheme="https://shawnzhou.world/categories/WebXR/"/>
+    
+    
+    <category term="虚拟现实技术" scheme="https://shawnzhou.world/tags/%E8%99%9A%E6%8B%9F%E7%8E%B0%E5%AE%9E%E6%8A%80%E6%9C%AF/"/>
+    
+    <category term="WebXR" scheme="https://shawnzhou.world/tags/WebXR/"/>
+    
+  </entry>
   
   <entry>
     <title>WebXR 开发入门 学习笔记</title>
@@ -451,33 +472,6 @@
     
     
     <category term="JavaScript" scheme="https://shawnzhou.world/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>一文搞懂从输入URL到页面展示全过程</title>
-    <link href="https://shawnzhou.world/2021/05/30/the-URL-from-the-input-to-the-page-display-process/"/>
-    <id>https://shawnzhou.world/2021/05/30/the-URL-from-the-input-to-the-page-display-process/</id>
-    <published>2021-05-30T06:19:37.000Z</published>
-    <updated>2022-01-21T06:06:50.419Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;前段时间因为各种事情一直在忙，最近总算是告一段落了，学点东西记录一下。&lt;/p&gt;
-&lt;p&gt;URL从输入到解析再到展示的全过程是一个非常经典的面试题，也是非常考验一个程序员基本能力的问题，以此为轴，可以串出很多深层次的知识点。&lt;/p&gt;
-&lt;p&gt;之前我对这个问题的了解非常浅层次，后来参阅了很多资料之后，感觉是将它整理出来的时候了。它可能不是最细的，但我会尽力完善。&lt;/p&gt;
-&lt;p&gt;“从一个网址从浏览器中输入并跳转起，到页面展示在你的屏幕上，这中间发生了什么？”接下来我们就开始一探究竟。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog-image/20210530145341.jpg&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="前端开发那些事" scheme="https://shawnzhou.world/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E9%82%A3%E4%BA%9B%E4%BA%8B/"/>
-    
-    
-    <category term="HTML" scheme="https://shawnzhou.world/tags/HTML/"/>
-    
-    <category term="CSS" scheme="https://shawnzhou.world/tags/CSS/"/>
-    
-    <category term="计算机网络" scheme="https://shawnzhou.world/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   

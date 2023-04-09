@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="博客,前端博客,JavaScript,html5,css3,html,css,js,acm,noip,橙果工作室,shawnzhou,shawn zhou" />
+   
+  <meta name="description" content="ShawnZhou的小站" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    在 Pico Neo3 上使用原生 WebXR 开发 HelloWorld VR 应用 |  ShawnZhou的小站
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+  
+  
+
+  
+
+<link rel="alternate" href="/atom.xml" title="ShawnZhou的小站" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+      <canvas width="1777" height="841"
+        style="position: fixed; left: 0px; top: 0px; z-index: 99999; pointer-events: none;"></canvas>
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-pico-neo3-webxr-helloworld"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  在 Pico Neo3 上使用原生 WebXR 开发 HelloWorld VR 应用
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/10/29/pico-neo3-webxr-helloworld/" class="article-date">
+  <time datetime="2022-10-29T13:43:18.000Z" itemprop="datePublished">2022-10-29</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/WebXR/">WebXR</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">1.4k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">5 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>上周了解了 WebXR 相关的基本概念，今天来研究下如何用手上这台 Pico Neo 3 自己开发一个 HelloWorld 级别的 WebXR 应用。包括环境配置、代码编写以及运行。由于还是刚入门开发，所以就先不上 XR 框架了，等到对原生 API 有一定了解后，再学一下如何用 XR 框架结合前端框架开发比较完整的 APP 应该会比较好一些。</p>
+<a id="more"></a>
+
+<h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><ul>
+<li>一台 VR 设备，我使用的是 Pico Neo 3</li>
+<li>本地 Web 应用服务器，而且必须能在 Pico 上可以访问</li>
+<li>浏览器端调试插件 webxr-api-emulator</li>
+<li>VS Code</li>
+<li>scrcpy 库</li>
+</ul>
+<p>这次我使用了 pnpm + Vite + Vue 3 + TypeScript 的技术栈，因为更熟悉 Vue 所以写起来会相对快一些。后面使用到 XR 框架时，应该就要换成 React 了。</p>
+<h2 id="启动本地服务器"><a href="#启动本地服务器" class="headerlink" title="启动本地服务器"></a>启动本地服务器</h2><ol>
+<li>首先使用命令初始化一个新项目</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm create vite</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>简单修改一下配置，让服务能使用局域网 IP 访问</li>
+</ol>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// vite.config.ts</span></span><br><span class="line"><span class="keyword">import</span> &#123; defineConfig &#125; <span class="keyword">from</span> <span class="string">&#x27;vite&#x27;</span></span><br><span class="line"><span class="keyword">import</span> vue <span class="keyword">from</span> <span class="string">&#x27;@vitejs/plugin-vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> defineConfig(&#123;</span><br><span class="line">  plugins: [vue()],</span><br><span class="line">  server: &#123;</span><br><span class="line">    host: <span class="string">&#x27;0.0.0.0&#x27;</span>,</span><br><span class="line">    port: <span class="number">5000</span>,</span><br><span class="line">    open: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// package.json</span></span><br><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">  &quot;dev&quot;: &quot;vite&quot;,</span><br><span class="line">  &quot;build&quot;: &quot;vue-tsc &amp;&amp; vite build --host&quot;, // 主要改了这一句，加上 --host</span><br><span class="line">  &quot;preview&quot;: &quot;vite preview&quot;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>运行<code>pnpm run dev</code>，查看效果</li>
+</ol>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog/imageimage-20221029235208143.png" alt="image-20221029235208143"></p>
+<ol start="4">
+<li>使用 Pico 浏览器访问 URL，试试在 Pico 中能否访问</li>
+</ol>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog/imageScreenshot_com.pvr.shortcut_2022.10.29-23.58.17.442_307.jpeg"></p>
+<h2 id="给-Pico-设置投屏到电脑"><a href="#给-Pico-设置投屏到电脑" class="headerlink" title="给 Pico 设置投屏到电脑"></a>给 Pico 设置投屏到电脑</h2><p>现在这样看有个问题是，我每次在 VR 上测试时都需要戴上设备，测试完再把设备摘下来，这样似乎有点麻烦。</p>
+<p>所以我捣鼓了一下，让 Pico 可以往电脑上投屏，具体做法：</p>
+<h3 id="安装-scrcpy"><a href="#安装-scrcpy" class="headerlink" title="安装 scrcpy"></a>安装 scrcpy</h3><p>这里用到了一个可以给 VR 设备投屏到电脑的开源库 <a target="_blank" rel="noopener" href="https://github.com/Genymobile/scrcpy">https://github.com/Genymobile/scrcpy</a> ，去 release 里下载最新的产物</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog/imageimage-20221030000934515.png" alt="image-20221030000934515"></p>
+<p>这里需要用到它提供的 adb 和 scrcpy，为了通过命令行访问比较舒服，将这个路径加入到环境变量里：</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog/imageimage-20221030001102175.png" alt="image-20221030001102175"></p>
+<p>在 Pico 里面打开开发者模式（方法和其他安卓机一样），打开 USB 调试</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog/imageScreenshot_com.picovr.settings_2022.10.30-01.15.04.317_620.jpeg" alt="Screenshot_com.picovr.settings_2022.10.30-01.15.04.317_620"></p>
+<p>配置完后，打开 cmd 窗口，先运行下 <code>adb usb</code> 看看能否连接成功，没问题的话直接执行 <code>scrcpy</code> 就可以了</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog/imageimage-20221030011803314.png" alt="image-20221030011803314"></p>
+<p>执行效果大概是下面这样：</p>
+<p><img src="https://shawnzhou-image.oss-cn-beijing.aliyuncs.com/blog/imageimage-20221030012211077.png" alt="image-20221030012211077"></p>
+<p>但是我发现，只要一脱离头戴，显示器就会熄屏，所以需要想办法把它设置为永不熄屏才可以。</p>
+<p>比较幸运的是，我在 B 站搜到了一个开启隐藏设置的教程：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av851770781/">https://www.bilibili.com/video/av851770781/</a></p>
+<p>大概操作步骤是：</p>
+<ul>
+<li>从下到上挨个按住头显右侧的按键，每个按键按 5 秒钟左右，可以激活隐藏设置</li>
+<li>找到系统设置 -&gt; 高级 -&gt; 用户配置</li>
+<li>在“特殊设置”中把自动休眠模式关闭</li>
+<li>在“电源策略”中先把系统休眠超时设置为永不，再设置屏幕关闭超时为永不</li>
+</ul>
+<p>其他设置不建议瞎改，容易搞坏，除非你比较懂。需要注意，把熄屏时间关掉后，不使用时也不会自动关闭屏幕，会造成耗电更多（这东西本来就没什么续航，长时间开着肯定也雪上加霜了）</p>
+<h2 id="开发-HelloWorld-XR-应用"><a href="#开发-HelloWorld-XR-应用" class="headerlink" title="开发 HelloWorld XR 应用"></a>开发 HelloWorld XR 应用</h2><p>好了，前期准备工作都已就绪，现在可以开始搞代码了。</p>
+<p>要开发一个 WebXR 应用，需要依据 WebXR 应用的生命周期编写各个环节的代码，这里把之前总结过的生命周期列一下：</p>
+<blockquote>
+<ol>
+<li><p>开发者：检查当前设备的浏览器是否支持所需的 XR 模式</p>
+<ul>
+<li>需要确保 WebXR Device API 可用，可以通过检测 <code>window.navigator.xr</code> 对象是否存在来判断，如果此对象不存在，那么说明用户使用的浏览器不支持 WebXR，或关闭了 WebXR 能力。</li>
+<li>调用 <code>window.navigator.xr.isSessionSupported(mode)</code>，其中 <code>mode</code> 的可选值是 <code>&#39;inline&#39; | &#39;immersive-vr&#39; | &#39;immersive-ar&#39;</code>，其中 inline 模式是指 HTML 文档中的元素的会话内容。 它返回的类型是<code>Promise&lt;boolean&gt;</code>，如果 Promise 返回了 false，那么表示当前的模式在用户的浏览器下无法使用。</li>
+<li>如果经过上述两个步骤确定 WebXR 能力可用，需要在页面上以适当方式提示用户可以激活 XR 模式，并绑定一个激活 XR 的事件。</li>
+</ul>
+</li>
+<li><p>用户：触发激活 XR 的事件，表明希望使用 XR</p>
+</li>
+<li><p>开发者：调用 <code>window.navigator.xr.requestSession(mode, options)</code>，将 <code>XRSession</code> 设定为用户期望的模式</p>
+<ul>
+<li>此方法返回一个 Promise，如果它被 resolve，就可以用获得的 XRSession 运行渲染循环</li>
+</ul>
+</li>
+<li><p>开发者：调用 XRSession 的 requestAnimationFrame，调度 XR 设备的首帧渲染</p>
+<ul>
+<li><p>每一个 requestAnimationFrame 的回调都需要使用 WebGL 渲染 3D 物体</p>
+</li>
+<li><p>持续在回调函数中调用 requestAnimationFrame，保证每一帧都正常渲染</p>
+</li>
+</ul>
+</li>
+<li><p>持续生成帧，直到用户需要结束 XRSession 的时候</p>
+<ul>
+<li>如果用户希望退出 XR 模式，通过调用 <code>XRSession.end()</code> 可以手动结束会话</li>
+<li>无论通过何种方式终止会话，<code>XRSession</code> 的 <code>end</code> 事件都会收到通知</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<p>那么只需要对照着 MDN 提供的 WebXR Device API 将这些代码</p>
+<h2 id="Chrome-浏览器电脑调试"><a href="#Chrome-浏览器电脑调试" class="headerlink" title="Chrome 浏览器电脑调试"></a>Chrome 浏览器电脑调试</h2><h2 id="Pico-Neo-3-真机调试"><a href="#Pico-Neo-3-真机调试" class="headerlink" title="Pico Neo 3 真机调试"></a>Pico Neo 3 真机调试</h2><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2> 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          打赏
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://shawnzhou.world/2022/10/29/pico-neo3-webxr-helloworld/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WebXR/" rel="tag">WebXR</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%99%9A%E6%8B%9F%E7%8E%B0%E5%AE%9E%E6%8A%80%E6%9C%AF/" rel="tag">虚拟现实技术</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/2022/10/23/webxr-tutorial-note/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">WebXR 开发入门 学习笔记</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "YolIyMzPHjxT49twQAhzxsQ8-gzGzoHsz",
+    app_key: "Dtrq0zAmtB8CqcKdwVCk7JBn",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2018-2023
+        <i class="ri-heart-fill heart_icon"></i> Shawn Zhou
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        
+        由 <a href="https://hexo.io" target="_blank">Hexo</a> 框架强力驱动
+        <span class="division">|</span>
+        主题 - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></s>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://v1.cnzz.com/z_stat.php?id=1279352967&amp;web_id=1279352967'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/avatar1.png" alt="ShawnZhou的小站"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">图集</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>感谢打赏~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://shawnzhou.world/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://shawnzhou.world/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+
+<script src="/js/clickBoom2.js"></script>
+
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+  </div>
+</body>
+
+</html>
